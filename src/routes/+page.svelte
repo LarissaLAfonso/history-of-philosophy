@@ -1,12 +1,12 @@
 <div class="container">
     <nav>
-        <img src="/src/images/fgv.png" class="logo" alt="Logo FGV">
+        <img src="/images/fgv.png" class="logo" alt="Logo FGV">
         <div class="nav-right">
             <ul>
                 <li><a href="#">Contact Us</a></li>
             </ul>
             <button class="btn">
-                <img src="/src/images/home.png" alt="Home Icon"> Home
+                <img src="/images/home.png" alt="Home Icon"> Home
             </button>
         </div>
     </nav>
@@ -17,7 +17,7 @@
         
         <!--Botão para ir para a timeline-->
         <button class="btn timeline-btn" onclick="location.href='timeline.html'">
-            <img src="/src/images/timeline_icon.png" alt="Timeline Icon">Timeline dos Filósofos
+            <img src="/images/timeline_icon.png" alt="Timeline Icon">Timeline dos Filósofos
         </button>
     </div>
 </div>
