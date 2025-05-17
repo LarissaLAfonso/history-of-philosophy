@@ -16,7 +16,7 @@
         <p>É o estudo de questões gerais e fundamentais sobre a existência, conhecimento, valores, razão, mente, e linguagem; frequentemente colocadas como problemas a se resolver.</p>
         
         <!--Botão para ir para a timeline-->
-        <button class="btn timeline-btn" onclick="location.href='timeline.html'">
+        <button class="btn timeline-btn" onclick="location.href='/timeline'">
             <img src="/images/timeline_icon.png" alt="Timeline Icon">Timeline dos Filósofos
         </button>
     </div>
