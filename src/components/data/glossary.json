@@ -1,0 +1,16 @@
+{
+    "terms" : [
+        {
+            "term": "modal logic",
+            "definition": "Differently from classical logic, modal logic entertains the idea that the truth of a proposition can vary depending on the context or world in which it is evaluated."
+        },
+        {
+            "term": "semantics",
+            "definition": "The study of meaning in language. It examines how words, phrases, and sentences convey meaning."
+        },
+        {
+            "term": "definite description",
+            "definition": "Phrase of the form 'the X', where X is a noun phrase or a singular commun noun. It is <em>proper</em> if it refers to a specific object or individual (like \"the first person in space\"), and <em>improper</em> if it refers to a class of objects or individuals (\"like the French genereal\")."
+        }
+    ]
+}

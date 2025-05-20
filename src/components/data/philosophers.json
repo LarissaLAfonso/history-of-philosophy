@@ -1,0 +1,268 @@
+{
+        "philosophers" : [
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                    "type": "h1",
+                    "value": "Saul Kripke"
+                },
+                {
+                    "type": "lifetime",
+                    "value": "1940 - 2022"
+                },
+                {
+                    "type" : "branch",
+                    "value" : "analytic"
+                },
+                {
+                    "type": "h3",
+                    "value": "Logic and Language"
+                },
+                {
+                    "type": "p",
+                    "value": [
+                        {
+                            "type": "text",
+                            "value": "<b>Saul Aaron Kripke</b> was an American analytic philosopher and logician. He was Distinguished Professor of Philosophy at the Graduate Center of the City University of New York and emeritus professor at Princeton University. His main contribution to philosophy is a semantics for modal logics, now called <b>Kripke semantics</b>."   
+                        },
+                        {
+                            "type": "text",
+                            "value": "Other contributions include his 1970 Princeton lectures <em>Naming and Necessity</em>. It introduces the concept of names as <b>rigid designators</b>, designating (denoting, referring to) the same object in every possible world, as contrasted with descriptions. He argued against the descriptivists' theory that the meaning of sentences involving proper names could be given by substituting a contextually appropriate description for the name, like substituting \"Bismarck\" with \"the first Chancellor of the German Empire\"."
+                        },
+                        {
+                            "type": "text",
+                            "value": "Kripke argued that such descriptions could not possibly <em>mean the same thing</em> as the name \"Bismarck,\" on the grounds that proper names such as \"Bismarck\" always designate rigidly, whereas descriptions such as \"the first Chancellor of the German Empire\" do not. Thus, for example, it <em>might have been the case</em> that Bismarck died in infancy. If so, he would not have ever satisfied the description \"the first Chancellor of the German Empire\". It does not follow that the first Chancellor of the German Empire may not have been the first Chancellor of the German Empire – that would be a contradiction. Kripke argues that the way that proper names work is that when we make statements about what might or might not have been true of Bismarck, we are talking about what might or might not have been true of that particular person in various situations, whereas when we make statements about what might or might not have been true of, say, \"the first Chancellor of the German Empire\" we <em>could</em> be talking about what might or might not have been true of <em>whoever</em> would have happened to fill that office in those situations."
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                    "type": "h1",
+                    "value": "David Lewis"
+                },
+                {
+                    "type": "lifetime",
+                    "value": "1941 - 2001"
+                },
+                {
+                    "type": "branch",
+                    "value": "analytic"
+                },
+                {
+                    "type": "h3",
+                    "value": "Metaphysics and Modal Realism"
+                },
+                {
+                    "type": "p",
+                    "value": [
+                        {
+                            "type": "text",
+                            "value": "<b>David Kellogg Lewis</b> was an American analytic philosopher renowned for his influential work in metaphysics, philosophy of language, and logic. He served as a professor at Princeton University and maintained strong ties with the Australian philosophical community, visiting almost annually for over 30 years."
+                        },
+                        {
+                            "type": "text",
+                            "value": "Lewis is best known for his defense of <b>modal realism</b>, the view that all possible worlds are as real as the actual world. In his seminal book <em>On the Plurality of Worlds</em> (1986), he argued that possible worlds are concrete, spatiotemporally isolated entities. According to this view, statements about what could have been are made true by events in these alternate worlds."
+                        },
+                        {
+                            "type": "text",
+                            "value": "He also developed <b>counterpart theory</b>, which posits that individuals in different possible worlds are related by similarity rather than strict identity. This approach allows for meaningful discussions about possibility and necessity without requiring that individuals exist in multiple worlds."
+                        },
+                        {
+                            "type": "text",
+                            "value": "Beyond modal realism, Lewis made significant contributions to the analysis of counterfactuals, causation, and the philosophy of language. His work on <b>Humean supervenience</b> proposed that all facts about the world, including laws of nature and causation, supervene on the spatiotemporal distribution of local qualities."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "G. E. Moore"
+                },
+                {
+                "type": "lifetime",
+                "value": "1873 - 1958"
+                },
+                {
+                "type": "branch",
+                "value": "analytic"
+                },
+                {
+                "type": "h3",
+                "value": "Ethics and Common Sense Realism"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>George Edward Moore</b> was an English philosopher and a founding figure of analytic philosophy. He is best known for his influential work in ethics, epistemology, and his defense of common sense realism. Moore was a fellow and later professor at Trinity College, Cambridge, and served as editor of the journal <i>Mind</i> from 1921 to 1947."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his seminal book <em>Principia Ethica</em> (1903), Moore introduced the concept of the <b>naturalistic fallacy</b>, arguing that 'good' is a simple, indefinable quality and cannot be equated with any natural property. He supported this with the <b>open-question argument</b>, which posits that for any proposed naturalistic definition of 'good', it remains an open question whether that definition truly captures the essence of 'goodness'."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Moore also emphasized the importance of <b>intrinsic value</b> and introduced the idea of <b>organic wholes</b>, suggesting that the value of a whole is not necessarily the sum of its parts. His ethical non-naturalism and ideal consequentialism had a profound impact on 20th-century moral philosophy."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In epistemology, Moore is renowned for his defense of common sense beliefs. In his essay \"<em>A Defence of Common Sense</em>\" (1925), he argued against skepticism by asserting that certain basic beliefs, such as the existence of the external world, are known with certainty. His famous demonstration in \"<em>Proof of an External World</em>\" (1939) involved holding up his hands and stating, \"Here is one hand, and here is another,\" to assert the existence of external objects."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Moore's clear and rigorous analytical style influenced contemporaries and successors, including Bertrand Russell and Ludwig Wittgenstein. His commitment to clarity and common sense continues to be a hallmark of analytic philosophy."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Karl Popper"
+                },
+                {
+                "type": "lifetime",
+                "value": "1902 - 1994"
+                },
+                {
+                "type": "branch",
+                "value": "analytic"
+                },
+                {
+                "type": "h3",
+                "value": "Falsifiability and the Open Society"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Karl Raimund Popper</b> was an Austrian-British philosopher of science and political thinker. He is best known for proposing <b>falsifiability</b> as the criterion for scientific theories, asserting that a theory is scientific only if it can, in principle, be refuted by evidence. This principle was detailed in his influential work <em>The Logic of Scientific Discovery</em> (1934), where he argued that science progresses through bold conjectures and rigorous attempts at refutation, rather than through accumulation of confirmations."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Popper's philosophy, termed <b>critical rationalism</b>, emphasizes the role of critical scrutiny over justification in the growth of knowledge. He contended that while empirical evidence cannot conclusively verify a theory, it can falsify it, thus demarcating scientific theories from non-scientific ones."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In political philosophy, Popper championed liberal democracy and critiqued totalitarian ideologies. His seminal work <em>The Open Society and Its Enemies</em> (1945) defends democratic governance and open societies against the threats posed by historicism and utopianism. He introduced the concept of the <b>paradox of tolerance</b>, warning that unlimited tolerance could lead to the rise of intolerance, thereby endangering the tolerant society itself."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Popper's ideas have had a profound impact on the philosophy of science, influencing debates on scientific methodology and the demarcation problem. His advocacy for critical thinking and open societies continues to resonate in contemporary discussions on science and politics."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "W. V. O. Quine"
+                },
+                {
+                "type": "lifetime",
+                "value": "1908 - 2000"
+                },
+                {
+                "type": "branch",
+                "value": "analytic"
+                },
+                {
+                "type": "h3",
+                "value": "Naturalized Epistemology and Ontological Commitment"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Willard Van Orman Quine</b> was a prominent American philosopher and logician, recognized for his influential work in logic, epistemology, and the philosophy of language. He served as the Edgar Pierce Chair of Philosophy at Harvard University from 1956 to 1978."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Quine challenged the analytic-synthetic distinction in his seminal paper <em>Two Dogmas of Empiricism</em> (1951), arguing that the division between analytic truths and synthetic truths is unfounded. He proposed that our knowledge forms a 'web of belief,' where statements are interconnected and subject to revision based on empirical evidence."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his book <em>Word and Object</em> (1960), Quine introduced the thesis of the <b>indeterminacy of translation</b>, suggesting that there is no unique correct translation between languages due to the underdetermination of meaning by empirical data. This led to his concept of <b>ontological relativity</b>, emphasizing that our understanding of existence depends on the conceptual scheme we adopt."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Quine advocated for <b>naturalized epistemology</b>, proposing that epistemological questions should be addressed using empirical methods akin to those in the natural sciences. He believed that philosophy should be continuous with science, focusing on how we acquire knowledge through sensory experience and scientific inquiry."
+                    },
+                    {
+                    "type": "text",
+                    "value": "His contributions have had a profound impact on the development of analytic philosophy, influencing discussions on meaning, knowledge, and the philosophy of science."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Bertrand Russell"
+                },
+                {
+                "type": "lifetime",
+                "value": "1872 - 1970"
+                },
+                {
+                "type": "branch",
+                "value": "analytic"
+                },
+                {
+                "type": "h3",
+                "value": "Logic, Language, and Social Critique"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Bertrand Arthur William Russell</b> was a British philosopher, logician, mathematician, and social critic. A central figure in the development of analytic philosophy, he made significant contributions to logic, epistemology, and the philosophy of mathematics. Russell was awarded the Nobel Prize in Literature in 1950 for his varied and significant writings in which he champions humanitarian ideals and freedom of thought."
+                    },
+                    {
+                    "type": "text",
+                    "value": "One of Russell's most notable contributions is the <b>theory of descriptions</b>, introduced in his 1905 essay \"On Denoting.\" This theory addresses the problem of how language relates to the world, particularly how we can meaningfully discuss non-existent or ambiguous entities. By analyzing the logical form of sentences containing definite descriptions, Russell aimed to resolve puzzles about meaning and reference in natural language."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In collaboration with Alfred North Whitehead, Russell co-authored <em>Principia Mathematica</em> (1910–1913), a monumental work attempting to derive all mathematical truths from a set of axioms using symbolic logic. This effort was part of his commitment to <b>logicism</b>, the view that mathematics is, in some significant sense, reducible to formal logic. During this work, Russell discovered <b>Russell's paradox</b>, which revealed inconsistencies in naive set theory and led to the development of the <b>theory of types</b> to resolve these issues."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Russell also developed <b>logical atomism</b>, a metaphysical view proposing that the world consists of a series of discrete, independent facts that can be represented by atomic propositions. This perspective influenced his student Ludwig Wittgenstein and contributed to the foundation of analytic philosophy."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In epistemology, Russell distinguished between \"knowledge by acquaintance\" and \"knowledge by description,\" a distinction that has had a lasting impact on theories of knowledge and perception. He argued that we have direct acquaintance with sense data and introspective knowledge, while our knowledge of physical objects and other minds is indirect, mediated by descriptions."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Beyond his academic work, Russell was an outspoken social critic and advocate for peace, education reform, and civil liberties. He opposed World War I, campaigned against nuclear weapons, and was a prominent figure in various political movements throughout the 20th century. His commitment to rational inquiry and social justice remains influential in both philosophy and public discourse."
+                    }
+                ]
+                }
+            ]
+        }
+    ]
+}
