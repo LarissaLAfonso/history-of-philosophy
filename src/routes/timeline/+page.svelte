@@ -1,37 +1,15 @@
 <script>
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
+    import './timeline.css';
+    import './infos.js';
+    import { categorias, filosofos } from './infos.js';
 
-    // Define as categorias que serão exibidas na linha do tempo,
-    // cada uma com nome e descrição para tooltip
-    const categorias = [
-        { 
-            nome: 'Ética', 
-            descricao: 'Ramo da filosofia que estuda os princípios morais que governam o comportamento humano.' 
-        },
-        { 
-            nome: 'Metafísica', 
-            descricao: 'Investigação sobre a natureza da realidade, existência e o ser.' 
-        },
-        { 
-            nome: 'Lógica', 
-            descricao: 'Estudo das regras do pensamento válido, inferência e argumentação.' 
-        },
-        { 
-            nome: 'Epistemologia', 
-            descricao: 'Ramo que investiga a natureza, origem e limites do conhecimento.' 
-        },
-        { 
-            nome: 'Política', 
-            descricao: 'Reflexão filosófica sobre o poder, governo, justiça e a organização da sociedade.' 
-        },
-        { 
-            nome: 'Estética', 
-            descricao: 'Explora a natureza do belo, da arte e da experiência estética.' 
-        }
-    ];
+    let anoInical = -600;
+    let anoFinal = 2000;
+    let stepAnos = 100; 
 
-    const anos = d3.range(-600, 2001, 100);
+    const anos = d3.range(anoInical, anoFinal + 1, stepAnos);
 
     const colors = {
         background: '#f5efe6',
@@ -41,51 +19,45 @@
         highlight: '#c5a173'
     };
 
-    // Posição das categorias para serem usadas no template  
-    export let categoriaPositions = [];
-
-    let y;
+    // Posição das x categorias para serem usadas no template  
+    let categoriaPositions = [];
 
     onMount(() => {
-        // Cores definidas como variáveis CSS globais para uso no CSS
-        for (const [key, value] of Object.entries(colors)) {
-            document.documentElement.style.setProperty(`--${key}`, value);
-        }
+        let y;
 
         const svgElement = document.getElementById('timeline');
         const width = svgElement.getBoundingClientRect().width;
-        const height = 4000;
+        const height = 6000;
         const margin = { top: 80, right: 80, bottom: 80, left: 80 };
-
+        
         const svg = d3.select('#timeline')
             .attr('width', width)
             .attr('height', height)
-            .style('background', colors.background)
-            .style('border-radius', '8px');
+            .style('background', colors.background);
  
         y = d3.scaleLinear()
-            .domain([-600, 2000])
+            .domain([anoInical, anoFinal])
             .range([margin.top, height - margin.bottom]);
 
         // Largura de cada coluna com base no número de categorias
         const columnWidth = (width - margin.left - margin.right) / categorias.length;
 
-        // Delimitações verticais entre as colunas (para linhas guia)
+        // Delimitações verticais entre as colunas 
         const delimitations = d3.range(0, categorias.length + 1).map(i => margin.left + i * columnWidth);
 
-        svg.selectAll('.category-line')
-            .data(delimitations)
-            .enter()
-            .append('line')
-            .attr('x1', d => d)
-            .attr('x2', d => d)
-            .attr('y1', margin.top)
-            .attr('y2', height - margin.bottom)
-            .attr('stroke', colors.accent)
-            .attr('stroke-width', 1)
-            .attr('stroke-dasharray', '5,3');
+        // svg.selectAll('.category-line')
+        //     .data(delimitations)
+        //     .enter()
+        //     .append('line')
+        //     .attr('x1', d => d)
+        //     .attr('x2', d => d)
+        //     .attr('y1', margin.top)
+        //     .attr('y2', height - margin.bottom)
+        //     .attr('stroke', colors.accent)
+        //     .attr('stroke-width', 1)
+        //     .attr('stroke-dasharray', '5,3');
 
-        // Posição central de cada categoria para exibir os rótulos fixos no topo
+        // Posição central x de cada categoria no topo da timeline
         categoriaPositions = categorias.map((cat, i) => ({
             ...cat,
             pos: (delimitations[i] + delimitations[i + 1]) / 2
@@ -108,6 +80,7 @@
             .style('opacity', 1)
             .text(d => d);
 
+        // Linhas horizontais
         svg.selectAll('.year-line')
             .data(anos)
             .enter()
@@ -124,6 +97,129 @@
             .delay((d, i) => i * 50)
             .duration(100)
             .style('opacity', 0.3);
+
+        // Posições x de cada filósofo
+        const xPosFilos = filosofos.map(() =>
+            margin.left + Math.random() * (width - margin.left - margin.right)
+        );
+
+        // Adição do filósofo na timeline
+        svg.selectAll('.filosofo-line')
+            .data(filosofos)
+            .enter()
+            .append('line')
+            .attr('class', 'filosofo-line')
+            .attr('data-filosofo', d => d.nome)
+            .attr('x1', (_, i) => xPosFilos[i])
+            .attr('x2', (_, i) => xPosFilos[i])
+            .attr('y1', d => y(d.nascimento))
+            .attr('y2', d => y(d.morte))
+            .attr('stroke', colors.timeline)
+            .attr('stroke-width', 2.5)
+            .attr('stroke-linecap', 'round');
+
+        // Conexão categorias aos filósofos
+        filosofos.forEach((filosofo, i) => {
+            const xFilosofo = xPosFilos[i];
+            const yNascimento = y(filosofo.nascimento);
+            
+            filosofo.categorias.forEach(categoriaNome => {
+                const categoria = categoriaPositions.find(c => c.nome === categoriaNome);
+                if (categoria) {
+                    svg.append('line')
+                        .attr('class', 'category-connection')
+                        .attr('x1', categoria.pos)
+                        .attr('y1', margin.top - 20) 
+                        .attr('x2', xFilosofo)
+                        .attr('y2', yNascimento)
+                        .attr('stroke', colors.highlight)
+                        .attr('stroke-width', 1)
+                        .attr('stroke-dasharray', '4 2')
+                        .style('opacity', 1);
+                }
+            });
+        });
+
+        // Label do filósofo
+        filosofos.forEach((filosofo, i) => {
+            const x = xPosFilos[i];
+            const yLabel = y(filosofo.nascimento) - 10;
+            const padding = 3;
+            const fontSize = 14;
+            const nome = filosofo.nome;
+
+            const text = svg.append('text')
+                .attr('x', x)
+                .attr('y', yLabel)
+                .attr('text-anchor', 'middle')
+                .style('font-family', 'Cinzel, serif')
+                .style('font-size', `${fontSize}px`)
+                .style('fill', colors.text)
+                .text(nome);
+
+            const bbox = text.node().getBBox();
+
+            svg.insert('rect', 'text')  
+                .attr('x', bbox.x - padding)
+                .attr('y', bbox.y - padding)
+                .attr('width', bbox.width + padding * 2)
+                .attr('height', bbox.height + padding * 2)
+                .attr('fill', '#fff')
+                .attr('stroke', colors.timeline)
+                .attr('stroke-width', 1.2)
+                .attr('rx', 4)
+                .attr('ry', 4);
+        });
+
+        // Marcador de morte do filósofo
+        let sizeSkull = 20;
+        svg.selectAll('.filosofo-end')
+            .data(filosofos)
+            .enter()
+            .append('image')
+            .attr('class', 'filosofo-end')
+            .attr('x', (_, i) => xPosFilos[i] - sizeSkull / 2) 
+            .attr('y', d => y(d.morte) - sizeSkull / 2)        
+            .attr('width', sizeSkull)                     
+            .attr('height', sizeSkull)
+            .attr('href', d => '/images/skull_icon.png'); 
+        
+        // Atualização da ligação de categoria-filósofo ao scrollar
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const viewportHeight = window.innerHeight;
+
+                d3.selectAll('.category-connection').style('opacity', 0); // reset
+
+                filosofos.forEach((filosofo, i) => {
+                    const yStart = y(filosofo.nascimento);
+                    const yEnd = y(filosofo.morte);
+
+                    const isVisible = (
+                        (yStart >= scrollY && yStart <= scrollY + viewportHeight) ||  // topo visível
+                        (yEnd >= scrollY && yEnd <= scrollY + viewportHeight) ||      // base visível
+                        (yStart < scrollY && yEnd > scrollY + viewportHeight)         // cobre a viewport
+                    );
+
+                    if (isVisible) {
+                        svg.selectAll('.category-connection')
+                            .filter(function () {
+                                const x2 = d3.select(this).attr('x2');
+                                return x2 == xPosFilos[i];  
+                            })
+                            .style('opacity', 0.6)
+                            .attr('y1', scrollY + 60);  
+                    }
+                });
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
     });
 
 </script>
@@ -149,122 +245,3 @@
 <div class="container">
     <svg id="timeline" class="w-full shadow-xl rounded-lg"></svg>
 </div>
-
-<style global>
-    @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=MedievalSharp&family=Cinzel:wght@600&family=Crimson+Text:wght@400;600&display=swap');
-    
-    /* Variáveis CSS para cores usadas */
-    :root {
-        --background: #f5efe6;
-        --timeline: #6b4f3a;
-        --accent: #8c7a6d;
-        --text: #3e2d23;
-        --highlight: #c5a173;
-        --accent-rgb: 140, 122, 109;
-        --text-rgb: 62, 45, 35;
-        --highlight-rgb: 197, 161, 115;
-    }
-    
-    /* Header */
-    .fixed-header {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 60px;
-        background-color: #7b6038;
-        color: #dfdddd;
-        font-family: "Cinzel", serif;
-        font-size: 32px;
-        text-align: center;
-        line-height: 60px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-        z-index: 1000;
-    }
-    
-    .header-content {
-        position: relative;
-        letter-spacing: 2px;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-    }
-    
-    /* Barra das categorias */
-    .fixed-categories {
-        position: fixed;
-        top: 60px; left: 0; right: 0;
-        height: 50px;
-        background: linear-gradient(to bottom, rgba(var(--accent-rgb), 0.9) 60%, rgba(var(--accent-rgb), 0.7));
-        z-index: 999;
-        backdrop-filter: blur(3px);
-    }
-    
-    .category-label {
-        position: absolute;
-        top: 8px;
-        transform: translateX(-50%);
-        font-family: "Cinzel", serif;
-        font-size: 18px;
-        color: #ffffff;
-        text-shadow: 1px 1px 2px rgba(var(--text-rgb), 0.5);
-        cursor: default; 
-        transition: all 0.3s ease;
-        padding: 4px 12px;
-        border-radius: 20px;
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.3);
-    }
-    
-    .category-label:hover {
-        transform: translateY(-2px) scale(1.05) translateX(-50%);
-        background: rgba(255,255,255,0.2);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    
-    .category-label:hover .tooltip {
-        visibility: visible;
-        opacity: 1;
-    }
-    
-    /* tooltip das categorias */ 
-    .tooltip {
-        visibility: hidden;
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px;
-        position: absolute;
-        top: 125%; 
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-        width: max-content;
-        max-width: 200px;
-        opacity: 0;
-        transition: opacity 0.3s;
-        font-size: 0.85em;
-        white-space: normal;
-    }
-
-
-    .tooltip::after {
-        content: "";
-        position: absolute;
-        top: 0; 
-        left: 50%;
-        transform: translate(-50%, -100%); 
-        border-width: 6px;
-        border-style: solid;
-        border-color: transparent transparent #333 transparent; 
-    }
-    
-    .container {
-        margin-top: 50px;
-        padding: 0;
-    }
-    
-    svg#timeline {
-        width: 100%;
-        height: 4000px; /* tamanho da timeline */
-        display: block;
-    }
-
-</style>    
