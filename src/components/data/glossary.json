@@ -11,6 +11,38 @@
         {
             "term": "definite description",
             "definition": "Phrase of the form 'the X', where X is a noun phrase or a singular commun noun. It is <em>proper</em> if it refers to a specific object or individual (like \"the first person in space\"), and <em>improper</em> if it refers to a class of objects or individuals (\"like the French genereal\")."
+        },
+        {
+            "term" : "International Monetary Fund (IMF)",
+            "definition": "An international organization that works to foster global monetary cooperation and financial stability. It provides advice and technical assistance to member countries, and also makes loans to countries facing balance of payments problems"
+        },
+        {
+            "term": "World Bank",
+            "definition": "An international financial institution that provides loans and grants to the governments of low- and middle-income countries for the purposes of economic development."
+        },
+        {
+            "term": "Bolshevik",
+            "definition": "The Bolsheviks, led by Vladimir Lenin, were a radical faction of the Marxist Russian Social Democratic Labour Party (RSDLP). Its ideology, based on Leninist and later Marxist–Leninist principles, became known as Bolshevism."
+        },
+        {
+            "term" : "commodities",
+            "definition": "Basic goods used in commerce that are interchangeable with other goods of the same type. Commodities are often raw materials or primary agricultural products that can be bought and sold, such as gold, oil, or wheat."
+        },
+        {
+            "term" : "surplus value",
+            "definition": "The difference between the value produced by labor and the actual wage paid to labor. It is a key concept in understanding how capitalists profit from the labor of workers."
+        },
+        { 
+            "term" : "commodity fetishism",
+            "definition": "The perception of the economic relationships of production and exchange as relationships among things (money and merchandise) rather than among people."
+        },
+        {
+            "term" : "psychoanalysis",
+            "definition": "A therapeutic approach that aims to explore the unconscious mind and its influence on behavior. It was developed by Sigmund Freud and involves techniques such as free association, dream analysis, and transference."
+        },
+        {
+            "term": "tar-water",
+            "definition": "A medicinal concoction made from pine tar and water formerly regarded as a cure-all."
         }
     ]
 }

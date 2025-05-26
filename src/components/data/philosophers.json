@@ -263,6 +263,561 @@
                 ]
                 }
             ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Aristotle"
+                },
+                {
+                "type": "lifetime",
+                "value": "384 BCE – 322 BCE"
+                },
+                {
+                "type": "branch",
+                "value": "Ancient Greek"
+                },
+                {
+                "type": "h3",
+                "value": "Logic, Metaphysics, Ethics, and Politics"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Aristotle</b> was a towering figure in ancient Greek philosophy, whose works laid the foundation for much of Western thought. A student of Plato and tutor to Alexander the Great, Aristotle's writings encompass a vast array of subjects, including logic, metaphysics, ethics, politics, biology, and more."
+                    },
+                    {
+                    "type": "text",
+                    "value": "His contributions to logic are encapsulated in the Organon, a collection of six works: <em>Categories</em>, <em>On Interpretation</em>, <em>Prior Analytics</em>, <em>Posterior Analytics</em>, <em>Topics</em>, and <em>On Sophistical Refutations/em>. In <em>Prior Analytics</em>, he introduced the <b>syllogism</b>, a form of deductive reasoning consisting of a major premise, a minor premise, and a conclusion. This logical structure became the basis for much of Western logical thought." },
+                    {
+                    "type": "text",
+                    "value": "Aristotle's <em>Metaphysics</em> explores the nature of being and reality. He introduces the concept of substance (<em>ousia</em>) as a combination of matter (<em>hyle</em>) and form (<em>morphe</em>). Aristotle also outlines the Four Causes — material, formal, efficient, and final — as explanations for why things exist or change. This framework was central to his metaphysical inquiries."},
+                    {
+                    "type": "text",
+                    "value": "In <em>ethics</em>, Aristotle's <em>Nicomachean Ethics</em> outlines his virtue ethics framework, emphasizing the development of moral character and the pursuit of eudaimonia, often translated as 'flourishing' or 'happiness'. He argues that virtues are habits cultivated through practice and that the 'Golden Mean' — the desirable middle between two extremes — guides moral behavior."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Aristotle's <em>political philosophy</em>, articulated in his work <em>Politics</em>, examines various forms of government and advocates for a constitutional government that promotes the common good. He views the <em>polis</em>, or city-state, as the highest form of community, enabling citizens to achieve a virtuous and fulfilling life."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Beyond philosophy, Aristotle made significant contributions to <em>biology</em> through systematic observation and classification of living organisms. He distinguished about 500 animal species, arranging them in a hierarchical structure based on characteristics such as blood presence and reproductive methods. His empirical approach laid the groundwork for future scientific inquiry." }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Adam Smith"
+                },
+                {
+                "type": "lifetime",
+                "value": "1723 - 1790"
+                },
+                {
+                "type": "branch",
+                "value": "Capitalism"
+                },
+                {
+                "type": "h3",
+                "value": "Moral Philosophy and Political Economy"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Adam Smith</b> was a Scottish philosopher and economist, widely regarded as the father of modern economics. A central figure of the Scottish Enlightenment, he made foundational contributions to moral philosophy and political economy. Smith studied at the University of Glasgow and Balliol College, Oxford, later becoming a professor at the University of Glasgow, where he taught logic and moral philosophy."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his first major work, <em>The Theory of Moral Sentiments</em> (1759), Smith explored the nature of morality, emphasizing the role of sympathy and the 'impartial spectator' in ethical judgments. He argued that moral sentiments arise from our ability to empathize with others, forming the basis of social cohesion and ethical behavior."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Smith's seminal work, <em>An Inquiry into the Nature and Causes of the Wealth of Nations</em> (1776), laid the groundwork for classical economics. He introduced the concept of the <b>invisible hand</b>, suggesting that individuals pursuing their self-interest inadvertently contribute to the overall good of society. Smith advocated for free markets, competition, and limited government intervention, challenging the prevailing mercantilist doctrines of his time."
+                    },
+                    {
+                    "type": "text",
+                    "value": "A key concept in Smith's economic theory is the <b>division of labor</b>, which he illustrated with the example of a pin factory. He demonstrated how specialization increases productivity and efficiency, leading to greater wealth and economic growth. However, Smith also warned of the potential dehumanizing effects of excessive specialization, advocating for education to mitigate such consequences."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Smith's ideas have had a profound impact on economic thought and policy. His emphasis on free markets, competition, and the role of self-interest in promoting societal welfare continue to influence contemporary economic theories and practices. Beyond economics, his moral philosophy underscores the importance of empathy and ethical considerations in human interactions."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "John Maynard Keynes"
+                },
+                {
+                "type": "lifetime",
+                "value": "1883 - 1946"
+                },
+                {
+                "type": "branch",
+                "value": "Capitalism"
+                },
+                {
+                "type": "h3",
+                "value": "Macroeconomics and Fiscal Policy"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>John Maynard Keynes</b> was a British economist whose ideas fundamentally transformed macroeconomic theory and policy. Educated at King's College, Cambridge, he initially contributed to monetary theory and later became a central figure in economic policy-making during and after the Great Depression."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his seminal work, <em>The General Theory of Employment, Interest and Money</em> (1936), Keynes challenged classical economics by arguing that aggregate demand—not supply—determines overall economic activity. He introduced concepts such as the consumption function, marginal propensity to consume, and the multiplier effect, emphasizing that insufficient demand can lead to prolonged unemployment and economic stagnation."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Keynes advocated for active government intervention through fiscal policy—specifically, increased public spending and tax adjustments—to manage economic cycles. He believed that during downturns, government expenditures could stimulate demand, thereby reducing unemployment and fostering economic recovery."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Beyond his theoretical contributions, Keynes played a significant role in practical economic affairs. He was a delegate at the 1919 Paris Peace Conference and authored <em>The Economic Consequences of the Peace</em>, critiquing the Treaty of Versailles for its harsh reparations on Germany. During World War II, he proposed financing strategies for the war effort, detailed in <em>How to Pay for the War</em> (1940), advocating for deferred consumption and savings to fund military expenditures without causing inflation."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Keynes's influence extended to the establishment of post-war economic institutions. He was instrumental in the creation of the International Monetary Fund (IMF) and the World Bank, aiming to promote global financial stability and economic development."
+                    },
+                    {
+                    "type": "text",
+                    "value": "His legacy, known as Keynesian economics, underscores the importance of government intervention in achieving full employment and economic stability. While his ideas faced criticism and evolved over time, they remain foundational in contemporary macroeconomic thought."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "David Ricardo"
+                },
+                {
+                "type": "lifetime",
+                "value": "1772 - 1823"
+                },
+                {
+                "type": "branch",
+                "value": "Capitalism"
+                },
+                {
+                "type": "h3",
+                "value": "Comparative Advantage and Political Economy"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>David Ricardo</b> was a British political economist and a leading figure in classical economics. Born in London to a Sephardic Jewish family of Portuguese origin, he amassed considerable wealth as a stockbroker before turning to economic theory. His most influential work, <em>On the Principles of Political Economy and Taxation</em> (1817), introduced key concepts that remain central to economic thought."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Ricardo's most renowned contribution is the theory of <b>comparative advantage</b>, which explains how nations benefit from specializing in the production of goods for which they have a lower opportunity cost, even if one country is more efficient in producing all goods. This principle underpins modern arguments for free trade and international specialization."
+                    },
+                    {
+                    "type": "text",
+                    "value": "He also developed the <b>labor theory of value</b>, positing that the value of a good is determined by the labor required for its production. Additionally, Ricardo formulated the <b>law of diminishing returns</b>, highlighting that adding more of one factor of production, while holding others constant, will eventually yield lower per-unit returns."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his analysis of income distribution, Ricardo introduced the concept of <b>economic rent</b>, describing it as the payment to landowners for the use of the inherent productivity of their land. He argued that as population grows and less fertile land is cultivated, rents increase, benefiting landowners at the expense of capitalists and laborers."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Ricardo was a staunch advocate for <b>free trade</b> and opposed the British Corn Laws, which imposed tariffs on imported grain. He believed such protectionist policies distorted market efficiency and harmed consumers by keeping food prices artificially high."
+                    },
+                    {
+                    "type": "text",
+                    "value": "His ideas have profoundly influenced economic theory and policy, laying the groundwork for subsequent developments in both classical and neoclassical economics."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Vladimir Lenin"
+                },
+                {
+                "type": "lifetime",
+                "value": "1870 - 1924"
+                },
+                {
+                "type": "branch",
+                "value": "Communism"
+                },
+                {
+                "type": "h3",
+                "value": "Revolutionary Theory, Party Organization, and the Soviet State"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Vladimir Ilyich Lenin</b> was a Russian revolutionary, political theorist, and the principal architect of the Soviet state. Born in Simbirsk (now Ulyanovsk), Russia, in 1870, Lenin became a leading figure in the Russian Social Democratic Labour Party and later led the Bolshevik faction, which seized power during the October Revolution of 1917."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Lenin's political ideology, known as <b>Leninism</b>, is a development of Marxist theory adapted to the conditions of early 20th-century Russia. A central tenet of Leninism is the concept of the <b>vanguard party</b>: a tightly organized group of professional revolutionaries who would lead the proletariat in overthrowing the bourgeois state. This idea was elaborated in his 1902 pamphlet <em>What Is to Be Done?</em>, where he argued for a disciplined party structure to guide the working class towards revolution."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his 1917 work <em>The State and Revolution</em>, Lenin analyzed the role of the state in class society, asserting that the state is an instrument of class oppression. He advocated for the 'dictatorship of the proletariat' as a transitional phase between capitalism and communism, during which the working class would suppress the bourgeoisie and dismantle the existing state apparatus, eventually leading to a stateless, classless society."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Lenin's 1916 book <em>Imperialism, the Highest Stage of Capitalism</em> argued that imperialism is an inevitable outcome of capitalism's monopolistic tendencies. He contended that the export of capital to less developed countries allowed capitalist economies to sustain profits, leading to global exploitation and conflict. This analysis provided a framework for understanding global inequalities and justified anti-imperialist struggles."
+                    },
+                    {
+                    "type": "text",
+                    "value": "After the Bolsheviks seized power, Lenin implemented <b>War Communism</b> during the Russian Civil War (1918–1921), which involved the nationalization of industry and the requisitioning of agricultural produce. To address the resulting economic crisis, he introduced the <b>New Economic Policy (NEP)</b> in 1921, which reintroduced limited market mechanisms and private enterprise to stimulate recovery."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Lenin also emphasized the right of nations to self-determination, arguing that oppressed nationalities should have the right to secede from imperialist states. This principle was instrumental in the formation of the Soviet Union as a federation of socialist republics."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Lenin's contributions to Marxist theory and revolutionary practice have had a profound impact on global politics. His ideas laid the foundation for the Soviet Union and influenced numerous communist movements worldwide. Despite controversies surrounding his methods and the authoritarian aspects of his regime, Lenin remains a central figure in the study of revolutionary socialism."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Karl Marx"
+                },
+                {
+                "type": "lifetime",
+                "value": "1818 - 1883"
+                },
+                {
+                "type": "branch",
+                "value": "Communism"
+                },
+                {
+                "type": "h3",
+                "value": "Historical Materialism, Capitalist Critique, and Revolutionary Theory"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Karl Marx</b> was a German philosopher, economist, historian, and revolutionary socialist. Born in Trier, Prussia, he studied law and philosophy at the universities of Bonn and Berlin, where he was influenced by the works of Hegel and the Young Hegelians. Marx's intellectual journey led him to develop a critical analysis of capitalism and advocate for a proletarian revolution to establish a classless society."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In collaboration with Friedrich Engels, Marx co-authored <em>The Communist Manifesto</em> (1848), a political pamphlet that presents history as a series of class struggles and predicts the inevitable downfall of capitalist societies. The manifesto calls for the working class to unite and overthrow the bourgeoisie to establish a communist society."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Marx's magnum opus, <em>Das Kapital</em>, is a critical analysis of political economy. In it, he explores the nature of commodities, labor, and capital, introducing concepts such as surplus value and commodity fetishism. Marx argues that capitalism is inherently exploitative, as capitalists extract surplus value from workers, leading to alienation and class conflict."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Central to Marx's theory is <b>historical materialism</b>, the idea that material conditions and economic activities are the primary drivers of societal development. He posits that societal structures evolve through dialectical processes driven by class struggles, leading from feudalism to capitalism and eventually to communism."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his <em>Economic and Philosophic Manuscripts of 1844</em>, Marx delves into the concept of alienation, describing how workers become estranged from the products of their labor, the labor process, their fellow workers, and their own human potential under capitalist systems."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Marx's theories have profoundly influenced various academic disciplines and political movements. His critique of capitalism and vision for a classless society continue to be subjects of study and debate, shaping discussions on economics, sociology, and political science."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Gilles Deleuze"
+                },
+                {
+                "type": "lifetime",
+                "value": "1925 - 1995"
+                },
+                {
+                "type": "branch",
+                "value": "Continental Philosophy"
+                },
+                {
+                "type": "h3",
+                "value": "Metaphysics, Difference, Desire, and Assemblage"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Gilles Deleuze</b> was a French philosopher renowned for his original contributions to metaphysics, epistemology, and aesthetics. Born in Paris in 1925, he studied philosophy at the Sorbonne and later taught at various institutions, including the University of Paris VIII. Deleuze's work is characterized by its emphasis on difference, multiplicity, and becoming, challenging traditional notions of identity and representation."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his seminal work <em>Difference and Repetition</em> (1968), Deleuze critiques the primacy of identity in Western philosophy. He argues that difference is not derivative of identity but is fundamental to the structure of reality. Deleuze introduces the concept of 'difference in itself' and 'repetition for itself,' proposing that repetition is not the recurrence of the same but a process that produces novelty through variation. This work is considered a cornerstone of his metaphysical thought."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Deleuze's collaboration with psychoanalyst Félix Guattari resulted in the two-volume work <em>Capitalism and Schizophrenia</em>: <em>Anti-Oedipus</em> (1972) and <em>A Thousand Plateaus</em> (1980). In these texts, they develop the concepts of 'desiring-production' and 'rhizome' to describe non-hierarchical, network-like structures of knowledge and society. They critique traditional psychoanalysis and capitalist structures, advocating for a more fluid and dynamic understanding of desire and social organization."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In <em>The Logic of Sense</em> (1969), Deleuze explores the relationship between language, meaning, and events. He examines how sense is produced through a series of paradoxes and how language operates on multiple levels of meaning. This work further elaborates his interest in the multiplicity of sense and the processes that generate meaning beyond fixed structures."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Deleuze also made significant contributions to aesthetics and film theory. In <em>Francis Bacon: The Logic of Sensation</em> (1981), he analyzes the paintings of Francis Bacon to explore the relationship between sensation and art. His two-volume work on cinema, <em>Cinema 1: The Movement-Image</em> (1983) and <em>Cinema 2: The Time-Image</em> (1985), offers a philosophical framework for understanding film, distinguishing between movement-images that follow a sensory-motor schema and time-images that disrupt linear narratives."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Deleuze's philosophy emphasizes the creation of concepts as a dynamic process, viewing thought as an active engagement with the world. His ideas have influenced a wide range of disciplines, including philosophy, literature, art, and cultural studies, positioning him as a central figure in contemporary continental philosophy."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Jacques Derrida"
+                },
+                {
+                "type": "lifetime",
+                "value": "1930 - 2004"
+                },
+                {
+                "type": "branch",
+                "value": "Continental Philosophy"
+                },
+                {
+                "type": "h3",
+                "value": "Deconstruction, Language, and Metaphysics"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Jacques Derrida</b> was a French-Algerian philosopher best known for developing <em>deconstruction</em>, a critical approach that challenges traditional assumptions about certainty, identity, and truth. Born in El-Biar, Algeria, in 1930, Derrida studied at the École Normale Supérieure in Paris and later taught at various institutions, including the University of California, Irvine."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his seminal work <em>Of Grammatology</em> (1967), Derrida critiques the Western philosophical tradition's privileging of speech over writing, a concept he terms <b>logocentrism</b>. He argues that writing is not a mere representation of speech but a fundamental aspect of language that reveals the inherent instability of meaning."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Derrida introduces the concept of <b>différance</b>, a neologism combining the ideas of 'difference' and 'deferral.' This term encapsulates his view that meaning is always deferred in language, as words gain significance only through their differences from other words, leading to an endless chain of signification."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In <em>Writing and Difference</em> and <em>Speech and Phenomena</em> (both 1967), Derrida further explores how texts undermine their own claims to coherent meaning. He examines the works of philosophers like Husserl and Heidegger, revealing internal contradictions and the impossibility of fixed interpretations."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Derrida's later works, such as <em>Specters of Marx</em> (1993), extend deconstructive analysis to political and ethical domains. In this text, he critiques the notion of the 'end of history' and argues for the enduring relevance of Marxist thought in addressing contemporary social injustices."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Throughout his career, Derrida emphasized that deconstruction is not a method or a doctrine but an ongoing process of questioning and re-evaluating the assumptions underlying texts and institutions. His work has profoundly influenced various fields, including literature, law, architecture, and cultural studies."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Michel Foucault"
+                },
+                {
+                "type": "lifetime",
+                "value": "1926 - 1984"
+                },
+                {
+                "type": "branch",
+                "value": "Continental Philosophy"
+                },
+                {
+                "type": "h3",
+                "value": "Power, Knowledge, and the Construction of Subjectivity"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>Michel Foucault</b> was a French philosopher, historian, and social theorist whose work profoundly influenced contemporary thought. Born in Poitiers, France, in 1926, he studied at the École Normale Supérieure in Paris, where he developed an interest in philosophy and psychology. Foucault's intellectual journey led him to explore the relationships between power, knowledge, and social institutions."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his early work <em>Madness and Civilization</em> (1961), Foucault examines the historical treatment of the mentally ill, arguing that the concept of 'madness' is socially constructed and has been used to marginalize and control individuals deemed deviant. He continues this exploration in <em>The Birth of the Clinic</em> (1963), analyzing the development of modern medical institutions and how they shape our understanding of health and illness."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Foucault's <em>The Order of Things</em> (1966) delves into the history of the human sciences, challenging the idea of a stable human nature and highlighting the shifting epistemes that define different historical periods. In <em>The Archaeology of Knowledge</em> (1969), he outlines his methodological approach, emphasizing the discontinuities in the history of ideas and the importance of discursive formations."
+                    },
+                    {
+                    "type": "text",
+                    "value": "A central theme in Foucault's work is the relationship between power and knowledge. He introduces the concept of 'power-knowledge' to illustrate how knowledge is both a product of power relations and a means of exercising power. This idea is further developed in <em>Discipline and Punish</em> (1975), where Foucault traces the evolution of punitive practices and the emergence of disciplinary institutions that regulate behavior through surveillance and normalization."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his multi-volume work <em>The History of Sexuality</em> (1976–1984), Foucault challenges the 'repressive hypothesis' by arguing that modern societies have not suppressed sexuality but have instead produced extensive discourses about it. He examines how sexuality is constructed through various forms of knowledge and power, leading to the internalization of norms and the shaping of individual subjectivity."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Foucault's later lectures at the Collège de France introduce the concepts of 'biopower' and 'governmentality.' 'Biopower' refers to the strategies and mechanisms through which human life processes are managed under regimes of authority, while 'governmentality' encompasses the art of governing beyond traditional state politics, including the self-regulation of individuals within society."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Throughout his career, Foucault emphasized the historical contingency of concepts and institutions, advocating for a critical examination of the taken-for-granted structures that shape our lives. His work continues to influence a wide range of disciplines, including philosophy, sociology, political science, and cultural studies."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "George Berkeley"
+                },
+                {
+                "type": "lifetime",
+                "value": "1685 - 1753"
+                },
+                {
+                "type": "branch",
+                "value": "Empiricism"
+                },
+                {
+                "type": "h3",
+                "value": "Immaterialism and Subjective Idealism"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>George Berkeley</b> was an Anglo-Irish philosopher and Anglican bishop, renowned for developing the theory of <em>immaterialism</em>, later termed <em>subjective idealism</em>. He posited that material substances do not exist independently of perception; instead, objects are collections of ideas perceived by minds. This is encapsulated in his famous dictum: <em>esse est percipi</em>—\"to be is to be perceived\"."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his <em>Treatise Concerning the Principles of Human Knowledge</em> (1710) and <em>Three Dialogues between Hylas and Philonous</em> (1713), Berkeley argued against the existence of mind-independent matter, asserting that all that exists are minds and their ideas. He contended that our sensory experiences are not caused by material objects but are instead directly perceived ideas sustained by God, the ultimate perceiver."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Berkeley also challenged the concept of abstraction, claiming that abstract ideas are impossible. He believed that all ideas are particular and that the notion of a general idea, such as 'triangle' without any specific properties, is incoherent."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In <em>An Essay Towards a New Theory of Vision</em> (1709), Berkeley explored visual perception, proposing that distance and depth are not directly perceived but are learned through experience. This work contributed significantly to the study of perception and psychology."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Beyond philosophy, Berkeley engaged with science and mathematics. In <em>The Analyst</em> (1734), he critiqued the foundations of calculus, questioning the logical consistency of infinitesimals and challenging the certainty of mathematical principles."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Berkeley's later work, <em>Siris</em> (1744), began as a treatise on the medicinal uses of tar-water but evolved into a philosophical discourse linking his earlier immaterialist views with Neoplatonic thought, reflecting a shift towards a more spiritual and metaphysical perspective."
+                    },
+                    {
+                    "type": "text",
+                    "value": "His philosophical legacy influenced subsequent thinkers, including David Hume and Immanuel Kant, and remains a central topic in discussions on perception, reality, and the nature of existence."
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "David Hume"
+                },
+                {
+                "type": "lifetime",
+                "value": "1711 - 1776"
+                },
+                {
+                "type": "branch",
+                "value": "Empiricism"
+                },
+                {
+                "type": "h3",
+                "value": "Empiricism, Causation, and Moral Sentiment"
+                },
+                {
+                "type": "p",
+                "value": [
+                    {
+                    "type": "text",
+                    "value": "<b>David Hume</b> was a Scottish Enlightenment philosopher, historian, and essayist, widely regarded as one of the most influential figures in Western philosophy. Born in Edinburgh in 1711, Hume's work spans various fields, including epistemology, ethics, and the philosophy of religion."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In his seminal work, <em>A Treatise of Human Nature</em> (1739–1740), Hume sought to apply the empirical methods of the natural sciences to the study of human psychology. He argued that all human knowledge arises from sensory experiences, distinguishing between 'impressions' (vivid sensory experiences) and 'ideas' (faint copies of impressions)."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Hume is renowned for articulating the <b>problem of induction</b>, questioning the rational basis for assuming that future events will resemble past experiences. He contended that our belief in causality stems from habit or custom, not from logical deduction. This skepticism challenges the justification of scientific laws based solely on empirical observation."
+                    },
+                    {
+                    "type": "text",
+                    "value": "In ethics, Hume proposed that moral judgments are not derived from reason but from <b>moral sentiments</b>. He asserted that emotions, rather than rational deliberation, guide our perceptions of right and wrong. This perspective laid the groundwork for later developments in emotivism and non-cognitivist theories of ethics."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Hume's critique of religion is evident in his posthumously published <em>Dialogues Concerning Natural Religion</em> (1779), where he examines arguments for the existence of God through fictional dialogues. He challenges the design argument and expresses skepticism about the ability to know the divine through reason alone."
+                    },
+                    {
+                    "type": "text",
+                    "value": "Beyond philosophy, Hume authored <em>The History of England</em>, a six-volume work that became a bestseller and influenced historical writing in Britain. His friendship with economist Adam Smith and his influence on thinkers like Immanuel Kant underscore his lasting impact on various intellectual domains."
+                    }
+                ]
+                }
+            ]
         }
     ]
 }
