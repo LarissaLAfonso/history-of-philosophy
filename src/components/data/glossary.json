@@ -43,6 +43,30 @@
         {
             "term": "tar-water",
             "definition": "A medicinal concoction made from pine tar and water formerly regarded as a cure-all."
+        },
+        {
+            "term" : "phenomena and noumena",
+            "definition": "In Kantian philosophy, phenomena are what we experience, while noumena are the underlying reality that is not directly accessible to us."
+        },
+        {
+            "term" : "aesthetics",
+            "definition": "The branch of philosophy concerned with the nature of beauty and taste. It explores how we perceive and appreciate art, nature, and other forms of expression."
+        },
+        {
+            "term" : "metaphysics",
+            "definition": "The branch of philosophy that deals with the first principles of things, including abstract concepts such as being, knowing, substance, cause, identity, time, and space."
+        },
+        {
+            "term" : "epistemology",
+            "definition": "The study of knowledge, its nature, sources, limitations, and validity. It addresses questions about belief, truth, and justification."
+        },
+        {
+            "term" : "ontology",
+            "definition": "A branch of metaphysics that deals with the nature of being and existence. It explores concepts such as objects, properties, space, time, and causality."
+        },
+        {
+            "term" : "ethics",
+            "definition": "The branch of philosophy that deals with moral principles and values. It examines what is right and wrong, good and bad, and how individuals should act in various situations."
         }
     ]
 }
