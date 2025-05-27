@@ -67,6 +67,22 @@
         {
             "term" : "ethics",
             "definition": "The branch of philosophy that deals with moral principles and values. It examines what is right and wrong, good and bad, and how individuals should act in various situations."
+        },
+        {
+            "term" : "hermeneutics",
+            "definition": "The theory and methodology of interpretation, especially the interpretation of biblical texts, wisdom literature, and philosophical texts."  
+        },
+        {
+            "term" : "deconstruction",
+            "definition": "A set of approaches that questions the fundamental conceptual distinctions, or “oppositions,” in Western philosophy through a close examination of the language and logic of philosophical and literary texts."
+        },
+        {
+            "term": "existentialism",
+            "definition": "A family of philosophical movements mainly historically situated against the backdrop of the Second World War, which emphasizes individual existence, freedom, and choice. It explores the meaning of life and the individual's role in a seemingly indifferent or absurd universe."
+        },
+        {
+            "term": "post-structuralism",
+            "definiytion": "A movement in literary criticism and philosophy that held that language is not a transparent medium that connects one directly with a “truth” or “reality” outside it but rather a structure or code, whose parts derive their meaning from their contrast with one another and not from any connection with an outside world."
         }
     ]
 }

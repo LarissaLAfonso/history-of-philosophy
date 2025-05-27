@@ -1014,7 +1014,98 @@
                 ]
                 }
             ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+            {
+            "type": "h1",
+            "value": "Martin Heidegger"
+            },
+            {
+            "type": "lifetime",
+            "value": "1889 - 1976"
+            },
+            {
+            "type": "branch",
+            "value": "Phenomenology"
+            },
+            {
+            "type": "h3",
+            "value": "Ontology, Dasein, and the Question of Being"
+            },
+            {
+            "type": "p",
+            "value": [
+                {
+                "type": "text",
+                "value": "<b>Martin Heidegger</b> was a German philosopher renowned for his profound exploration of ontology and his pivotal role in 20th-century Continental philosophy. Born in Meßkirch, Germany, in 1889, Heidegger initially pursued theology before shifting to philosophy at the University of Freiburg, where he studied under Edmund Husserl, the founder of phenomenology."
+                },
+                {
+                "type": "text",
+                "value": "Heidegger's magnum opus, <em>Being and Time</em> (1927), introduces the concept of <b>Dasein</b> (literally 'being-there') to analyze human existence. He posits that Dasein is characterized by 'being-in-the-world,' emphasizing the inseparability of individuals from their contexts. Central to his analysis are themes such as <em>thrownness</em> (Geworfenheit), <em>authenticity</em> (Eigentlichkeit), and <em>being-toward-death</em> (Sein-zum-Tode), which collectively underscore the temporal and finite nature of human existence."
+                },
+                {
+                "type": "text",
+                "value": "In his later works, Heidegger delves into the 'history of Being,' critiquing the Western philosophical tradition for its forgetfulness of the question of Being. He explores how language, art, and technology reveal different modes of uncovering truth. Notably, in <em>The Origin of the Work of Art</em> (1935–1937), he examines how art discloses truths about existence, and in <em>The Question Concerning Technology</em> (1954), he warns against the enframing nature of modern technology that reduces beings to mere resources."
+                },
+                {
+                "type": "text",
+                "value": "Heidegger's affiliation with the Nazi Party, which he joined in 1933, and his subsequent silence on the Holocaust have sparked extensive controversy. His 'Black Notebooks,' published posthumously, reveal troubling anti-Semitic sentiments, leading to ongoing debates about the intersection of his philosophy and political views."
+                },
+                {
+                "type": "text",
+                "value": "Despite these controversies, Heidegger's influence permeates various disciplines, including existentialism, hermeneutics, deconstruction, and post-structuralism. His profound inquiries into the nature of Being continue to shape contemporary philosophical discourse."
+                }
+            ]
+            }
+            ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                {
+                "type": "h1",
+                "value": "Edmund Husserl"
+                },
+                {
+                "type": "lifetime",
+                "value": "1859 - 1938"
+                },
+                {
+                "type": "branch",
+                "value": "Phenomenology"
+                },
+                {
+                "type": "h3",
+                "value": "Founding Phenomenology and the Study of Consciousness"
+                },
+                {
+                "type": "p",
+                "value": [
+                {
+                "type": "text",
+                "value": "<b>Edmund Husserl</b> was a German philosopher and mathematician, recognized as the founder of <em>phenomenology</em>, a philosophical method aimed at describing the structures of experience and consciousness. Born in Prossnitz, Moravia (now Prostějov, Czech Republic), he initially pursued studies in mathematics and physics before turning to philosophy under the mentorship of Franz Brentano and Carl Stumpf."
+                },
+                {
+                "type": "text",
+                "value": "In his early work, <em>Philosophy of Arithmetic</em> (1891), Husserl attempted to ground mathematical concepts in psychological processes. However, critiques, notably from Gottlob Frege, led him to shift towards a more rigorous analysis of consciousness, culminating in his seminal work, <em>Logical Investigations</em> (1900–1901). Here, he introduced key concepts such as <b>intentionality</b> — the notion that consciousness is always directed toward something — and laid the groundwork for phenomenological analysis."
+                },
+                {
+                "type": "text",
+                "value": "Husserl further developed his ideas in <em>Ideas Pertaining to a Pure Phenomenology and to a Phenomenological Philosophy</em> (1913), where he introduced the method of <b>epoché</b> or 'bracketing.' This technique involves suspending judgments about the external world to focus purely on the contents of consciousness, aiming to reveal the essential structures of experiences."
+                },
+                {
+                "type": "text",
+                "value": "In his later work, <em>The Crisis of European Sciences and Transcendental Phenomenology</em> (1936), Husserl introduced the concept of the <b>lifeworld</b> (<em>Lebenswelt</em>), referring to the pre-theoretical, lived experience that underpins all scientific and philosophical endeavors. He argued that modern science had lost touch with this foundational layer of meaning, leading to a crisis in the understanding of human existence."
+                },
+                {
+                "type": "text",
+                "value": "Husserl's phenomenology has profoundly influenced various fields, including existentialism, hermeneutics, and cognitive science. His emphasis on first-person experience and the structures of consciousness continues to shape contemporary philosophical discourse."
+                }
+                ]
+                }
+            ]
         }
-
     ]
 }
