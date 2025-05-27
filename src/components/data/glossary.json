@@ -83,6 +83,14 @@
         {
             "term": "post-structuralism",
             "definiytion": "A movement in literary criticism and philosophy that held that language is not a transparent medium that connects one directly with a “truth” or “reality” outside it but rather a structure or code, whose parts derive their meaning from their contrast with one another and not from any connection with an outside world."
+        },
+        {
+            "term": "scholasticism",
+            "definition": "A medieval school of philosophy that sought to reconcile faith and reason, often using dialectical reasoning to address theological and philosophical questions. It was characterized by a systematic approach to learning and a focus on the works of Aristotle."
+        },
+        {
+            "term": "archetype",
+            "definition": "The original pattern or model of which all things of the same type are representations or copies. In psychology, it refers to universal symbols or themes that recur across cultures and time periods, often found in myths, dreams, and literature."
         }
     ]
 }
