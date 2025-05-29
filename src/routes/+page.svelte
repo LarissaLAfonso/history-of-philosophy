@@ -1,3 +1,4 @@
+<html lang="en">
 <div class="container">
     <nav>
         <img src="/images/fgv.png" class="logo" alt="Logo FGV">
@@ -12,15 +13,16 @@
     </nav>
 
     <div class="content">
-        <h1>Philosofy<br>History</h1>
-        <p>É o estudo de questões gerais e fundamentais sobre a existência, conhecimento, valores, razão, mente, e linguagem; frequentemente colocadas como problemas a se resolver.</p>
+        <h1>The History of<br>Philosophy</h1>
+        <p><em>Wisdom begins in wonder.</em></p>
         
         <!--Botão para ir para a timeline-->
         <button class="btn timeline-btn" onclick="location.href='/timeline'">
-            <img src="/images/timeline_icon.png" alt="Timeline Icon">Timeline dos Filósofos
+            <img src="/images/timeline_icon.png" alt="Timeline Icon">Philosophers' Timeline
         </button>
     </div>
 </div>
+</html>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:wght@400;600&display=swap');
@@ -30,10 +32,19 @@
         box-sizing: border-box;
     }
 
-    body {
+
+    :global(body) {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background-image:
+            linear-gradient(rgba(45,26,15,0.75), rgba(122,74,40,0.75)),
+            url(../images/background.avif);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
         font-family: 'EB Garamond', serif;
-        overflow-x: hidden;
-    }
+        }
 
     /* Container Principal */
     .container {
@@ -45,6 +56,7 @@
         background-position: center;
         padding: 2rem 5%;
         position: relative;
+        overflow: hidden;
     }
 
     .container::after {
