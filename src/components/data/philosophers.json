@@ -20,6 +20,10 @@
                     "value": "Logic and Language"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/kripke.jpg"
+                },
+                {
                     "type": "p",
                     "value": [
                         {
@@ -56,6 +60,10 @@
                 {
                     "type": "h3",
                     "value": "Metaphysics and Modal Realism"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/lewis.jpg"
                 },
                 {
                     "type": "p",
@@ -98,6 +106,10 @@
                 {
                 "type": "h3",
                 "value": "Ethics and Common Sense Realism"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/moore.jpg"
                 },
                 {
                 "type": "p",
@@ -146,6 +158,10 @@
                 "value": "Falsifiability and the Open Society"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/popper.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -186,6 +202,10 @@
                 {
                 "type": "h3",
                 "value": "Naturalized Epistemology and Ontological Commitment"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/quine.jpg"
                 },
                 {
                 "type": "p",
@@ -232,6 +252,10 @@
                 {
                 "type": "h3",
                 "value": "Logic, Language, and Social Critique"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/russell.jpg"
                 },
                 {
                 "type": "p",
@@ -284,6 +308,10 @@
                 "value": "Logic, Metaphysics, Ethics, and Politics"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/aristotle.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -331,6 +359,10 @@
                 "value": "Moral Philosophy and Political Economy"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/smith.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -375,6 +407,10 @@
                 {
                 "type": "h3",
                 "value": "Macroeconomics and Fiscal Policy"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/keynes.jpg"
                 },
                 {
                 "type": "p",
@@ -427,6 +463,10 @@
                 "value": "Comparative Advantage and Political Economy"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/ricardo.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -475,6 +515,10 @@
                 {
                 "type": "h3",
                 "value": "Revolutionary Theory, Party Organization, and the Soviet State"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/lenin.jpg"
                 },
                 {
                 "type": "p",
@@ -531,6 +575,10 @@
                 "value": "Historical Materialism, Capitalist Critique, and Revolutionary Theory"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/marx.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -579,6 +627,10 @@
                 {
                 "type": "h3",
                 "value": "Metaphysics, Difference, Desire, and Assemblage"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/deleuze.jpg"
                 },
                 {
                 "type": "p",
@@ -631,6 +683,10 @@
                 "value": "Deconstruction, Language, and Metaphysics"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/derrida.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -679,6 +735,10 @@
                 {
                 "type": "h3",
                 "value": "Power, Knowledge, and the Construction of Subjectivity"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/foucault.jpg"
                 },
                 {
                 "type": "p",
@@ -735,6 +795,10 @@
                 "value": "Immaterialism and Subjective Idealism"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/berkeley.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -789,6 +853,10 @@
                 "value": "Empiricism, Causation, and Moral Sentiment"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/hume.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -837,6 +905,10 @@
                 {
                 "type": "h3",
                 "value": "Empiricism, Political Philosophy, and the Social Contract"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/locke.jpg"
                 },
                 {
                 "type": "p",
@@ -893,6 +965,10 @@
                 "value": "The Self, Freedom, and the Foundations of Knowledge"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/fichte.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -939,6 +1015,10 @@
                 "value": "Absolute Idealism, Dialectics, and the Philosophy of Spirit"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/hegel.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -983,6 +1063,10 @@
                 {
                 "type": "h3",
                 "value": "Transcendental Idealism, Moral Philosophy, and the Limits of Reason"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/kant.jpg"
                 },
                 {
                 "type": "p",
@@ -1035,6 +1119,10 @@
             "value": "Ontology, Dasein, and the Question of Being"
             },
             {
+                "type": "figure",
+                "value": "src/static/images/heidegger.jpg"
+            },
+            {
             "type": "p",
             "value": [
                 {
@@ -1079,6 +1167,10 @@
                 {
                 "type": "h3",
                 "value": "Founding Phenomenology and the Study of Consciousness"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/husserl.jpg"
                 },
                 {
                 "type": "p",
@@ -1127,6 +1219,10 @@
                 "value": "Embodiment, Perception, and the Lived World"
                 },
                 {
+                    "type": "figure",
+                    "value": "src/static/images/ponty.jpg"
+                },
+                {
                 "type": "p",
                 "value": [
                     {
@@ -1167,6 +1263,10 @@
             {
             "type": "h3",
             "value": "Theory of Forms, Political Philosophy, and the Academy"
+            },
+            {
+                "type": "figure",
+                "value": "src/static/images/plato.jpg"
             },
             {
             "type": "p",
@@ -1217,6 +1317,10 @@
             {
             "type": "h3",
             "value": "Methodological Skepticism, Cartesian Dualism, and Analytic Geometry"
+            },
+            {
+                "type": "figure",
+                "value": "src/static/images/descartes.jpg"
             },
             {
             "type": "p",
@@ -1273,6 +1377,10 @@
             "value": "Monadology, Calculus, and the Best of All Possible Worlds"
             },
             {
+                "type": "figure",
+                "value": "src/static/images/leibniz.jpg"
+            },
+            {
             "type": "p",
             "value": [
             {
@@ -1313,6 +1421,10 @@
             {
             "type": "h3",
             "value": "Vision in God, Occasionalism, and Divine Causality"
+            },
+            {
+                "type": "figure",
+                "value": "src/static/images/malebranche.jpg"
             },
             {
             "type": "p",
@@ -1363,6 +1475,10 @@
                 {
                 "type": "h3",
                 "value": "Pantheism, Ethics, and the Foundations of Enlightenment Thought"
+                },
+                {
+                    "type": "figure",
+                    "value": "src/static/images/spinoza.jpg"
                 },
                 {
                 "type": "p",

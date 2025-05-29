@@ -227,7 +227,7 @@
 <!-- Header -->
 <header class="fixed-header">
     <div class="header-content">
-        Linha do Tempo Filosófica
+        Philosophers' Timeline
     </div>
 </header>
 

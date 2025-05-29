@@ -1,7 +1,9 @@
 <html lang="en">
 <div class="container">
     <nav>
+        <!--
         <img src="/images/fgv.png" class="logo" alt="Logo FGV">
+        -->
         <div class="nav-right">
             <ul>
                 <li><a href="#">Contact Us</a></li>
