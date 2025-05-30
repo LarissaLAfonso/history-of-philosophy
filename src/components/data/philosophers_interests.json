@@ -1,0 +1,84 @@
+[
+    {
+        "name": "Plato",
+        "interests": [
+            "Epistemology",
+            "Metaphysics"
+        ]
+    },
+    {
+        "name": "Aristotle",
+        "interests": [
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Socrates",
+        "interests": [
+            "Epistemology",
+            "Ethics"
+        ]
+    },
+    {
+        "name": "René_Descartes",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics"
+        ]
+    },
+    {
+        "name": "Immanuel_Kant",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Friedrich_Nietzsche",
+        "interests": [
+            "Metaphysics",
+            "Ethics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "David_Hume",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "John_Locke",
+        "interests": [
+            "Epistemology",
+            "Metaphysics"
+        ]
+    },
+    {
+        "name": "Bertrand_Russell",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Logic"
+        ]
+    },
+    {
+        "name": "Ludwig_Wittgenstein",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Logic",
+            "Aesthetics"
+        ]
+    }
+]
