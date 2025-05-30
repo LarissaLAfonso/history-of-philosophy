@@ -1,13 +1,122 @@
 [
     {
-        "name": "Plato",
+        "name": "Aristotle",
         "interests": [
             "Epistemology",
-            "Metaphysics"
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
         ]
     },
     {
-        "name": "Aristotle",
+        "name": "Deleuze",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Derrida",
+        "interests": null
+    },
+    {
+        "name": "Descartes",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Epictetus",
+        "interests": [
+            "Ethics",
+            "Logic"
+        ]
+    },
+    {
+        "name": "Fichte",
+        "interests": [
+            "Metaphysics",
+            "Ethics",
+            "Politics"
+        ]
+    },
+    {
+        "name": "Foucault",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Hegel",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Heidegger",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Husserl",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic"
+        ]
+    },
+    {
+        "name": "Kant",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "name": "Keynes",
+        "interests": null
+    },
+    {
+        "name": "Leibniz",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics"
+        ]
+    },
+    {
+        "name": "Marx",
         "interests": [
             "Metaphysics",
             "Ethics",
@@ -17,67 +126,51 @@
         ]
     },
     {
-        "name": "Socrates",
+        "name": "Merleau-Ponty",
         "interests": [
-            "Epistemology",
-            "Ethics"
-        ]
-    },
-    {
-        "name": "René_Descartes",
-        "interests": [
-            "Epistemology",
-            "Metaphysics",
-            "Ethics"
-        ]
-    },
-    {
-        "name": "Immanuel_Kant",
-        "interests": [
-            "Epistemology",
             "Metaphysics",
             "Ethics",
+            "Politics",
             "Aesthetics"
         ]
     },
     {
-        "name": "Friedrich_Nietzsche",
-        "interests": [
-            "Metaphysics",
-            "Ethics",
-            "Aesthetics"
-        ]
-    },
-    {
-        "name": "David_Hume",
+        "name": "Nietzsche",
         "interests": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
+            "Politics",
             "Aesthetics"
         ]
     },
     {
-        "name": "John_Locke",
-        "interests": [
-            "Epistemology",
-            "Metaphysics"
-        ]
-    },
-    {
-        "name": "Bertrand_Russell",
+        "name": "Plato",
         "interests": [
             "Epistemology",
             "Metaphysics",
-            "Logic"
+            "Ethics",
+            "Politics"
         ]
     },
     {
-        "name": "Ludwig_Wittgenstein",
+        "name": "Spinoza",
         "interests": [
             "Epistemology",
             "Metaphysics",
+            "Ethics",
             "Logic",
+            "Politics"
+        ]
+    },
+    {
+        "name": "Wittgenstein",
+        "interests": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
             "Aesthetics"
         ]
     }

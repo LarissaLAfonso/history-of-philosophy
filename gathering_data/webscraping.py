@@ -2,13 +2,27 @@ from urllib.request import urlopen
 import urllib.parse
 from urllib.error import HTTPError, URLError
 import json
+import pandas as pd
 from os import path
 
 # Please add more names or find a better alternative for this list.
-Philosophers_names = ["Plato", "Aristotle", "Socrates", "René_Descartes", "Immanuel_Kant", "Friedrich_Nietzsche", "David_Hume", "John_Locke", "Bertrand_Russell", "Ludwig_Wittgenstein"]
+
+def get_philosophers_names():
+    """
+    Returns a list of philosophers' names.
+    
+    :return: List of philosopher names.
+    """
+    
+    philosophers = pd.read_csv(path.join(path.dirname(__file__), "filtered_philosophers.csv"))
+    philosophers_names = philosophers['author'].tolist()
+    philosophers_names = [name.replace(" ", "_") for name in philosophers_names]
+    return philosophers_names
+
+Philosophers_names = get_philosophers_names()
 Possible_interests = ["Epistemology", "Metaphysics", "Ethics", "Logic", "Politics", "Aesthetics"]
 
-def get_infobox(name):
+def get_infobox_start(name):
     """
     Fetches the infobox data for a given philosopher from Wikipedia.
     
@@ -26,9 +40,9 @@ def get_infobox(name):
     
     all_content = response.read().decode('utf-8')
     infobox_start = all_content.find('<table class="infobox biography vcard"')
-    cut_content = all_content[infobox_start:]
-    infobox_end = cut_content.find('</table>')
-    infobox_content = cut_content[:infobox_end+len('</table>')]
+    if infobox_start == -1:
+        raise ValueError(f"Infobox not found for {name}. Please check the name or the URL.")
+    infobox_content = all_content[infobox_start:]
 
     return infobox_content
 
@@ -42,15 +56,16 @@ def get_Interests(infobox):
     for interest in Possible_interests:
         if interest_section.find(interest) != -1:
             interests.append(interest)
-    
+
     return interests
 
 
 def get_wikipedia_data(name):
     try:
-        infobox = get_infobox(name)
+        infobox = get_infobox_start(name)
     except Exception as e:
         raise ValueError(f"Could not retrieve data for {name}: {e}")
+    if name == "Locke": print(infobox)
     philosopher_data = {
         "name": name,
         "interests": get_Interests(infobox)
