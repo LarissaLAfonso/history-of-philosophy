@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "Ethics",
+    "descricao": "Branch of philosophy that studies the moral principles governing human behavior."
+  },
+  {
+    "nome": "Metaphysics",
+    "descricao": "Inquiry into the nature of reality, existence, and being."
+  },
+  {
+    "nome": "Logic",
+    "descricao": "Study of the rules of valid thought, inference, and argumentation."
+  },
+  {
+    "nome": "Epistemology",
+    "descricao": "Branch that investigates the nature, origin, and limits of knowledge."
+  },
+  {
+    "nome": "Politics",
+    "descricao": "Philosophical reflection on power, government, justice, and the organization of society."
+  },
+  {
+    "nome": "Aesthetics",
+    "descricao": "Explores the nature of beauty, art, and aesthetic experience."
+  }
+]
