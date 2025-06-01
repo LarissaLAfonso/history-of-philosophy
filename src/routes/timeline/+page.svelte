@@ -1,9 +1,13 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onMount, afterUpdate } from 'svelte';
     import * as d3 from 'd3';
     import './timeline.css';
     import './infos.js';
     import { categorias, filosofos } from './infos.js';
+
+    let selectedFilosofo = null;
+    let isSplitView = false;
+    let containerWidth = 0;
 
     let anoInical = -600;
     let anoFinal = 2000;
@@ -22,40 +26,62 @@
     // Posição das x categorias para serem usadas no template  
     let categoriaPositions = [];
 
-    onMount(() => {
-        let y;
+    function randUniform(a, b) {
+        return a + Math.random() * (b - a);
+    }
 
-        const svgElement = document.getElementById('timeline');
-        const width = svgElement.getBoundingClientRect().width;
-        const height = 6000;
-        const margin = { top: 80, right: 80, bottom: 80, left: 80 };
+    // Posições dos elementos dos objetos filósofos na timeline
+    const randomValues = Array.from({ length: filosofos.length }, () => randUniform(0.1, 0.9));
+
+    function selectFilosofo(filosofo) {
+        /*Função para selecionar filósofo e ativar split view*/
+
+        // Se o filósofo já está selecionado, fecha a view
+        if (isSplitView && selectedFilosofo === filosofo) {
+            closeDetailView();
+        } 
+        // Se é um filósofo diferente, atualiza
+        else {
+            selectedFilosofo = filosofo;
+            isSplitView = true;
+        }
+    }
+
+    function closeDetailView() {
+        /*Função para fechar a view*/
+        selectedFilosofo = null;
+        isSplitView = false;
+    }
+
+    function handleResize() {
+        drawTimeLine();
+    }
+
+    function drawTimeLine() {
+
+        const svg = d3.select('#timeline');
+        svg.selectAll("*").remove();
+
+        const timelineContainer = document.getElementById('timeline-container');
+        if (!timelineContainer) return;
         
-        const svg = d3.select('#timeline')
-            .attr('width', width)
+        containerWidth = timelineContainer.clientWidth;
+        const height = 6000;
+        const margin = { top: containerWidth / 12, right: containerWidth / 12, bottom: containerWidth / 12, left: containerWidth / 12 };
+        
+        svg.attr('width', containerWidth)
             .attr('height', height)
             .style('background', colors.background);
- 
-        y = d3.scaleLinear()
+
+        const y = d3.scaleLinear()
             .domain([anoInical, anoFinal])
             .range([margin.top, height - margin.bottom]);
 
         // Largura de cada coluna com base no número de categorias
-        const columnWidth = (width - margin.left - margin.right) / categorias.length;
+        const columnWidth = (containerWidth - margin.left - margin.right) / categorias.length;
 
         // Delimitações verticais entre as colunas 
         const delimitations = d3.range(0, categorias.length + 1).map(i => margin.left + i * columnWidth);
-
-        // svg.selectAll('.category-line')
-        //     .data(delimitations)
-        //     .enter()
-        //     .append('line')
-        //     .attr('x1', d => d)
-        //     .attr('x2', d => d)
-        //     .attr('y1', margin.top)
-        //     .attr('y2', height - margin.bottom)
-        //     .attr('stroke', colors.accent)
-        //     .attr('stroke-width', 1)
-        //     .attr('stroke-dasharray', '5,3');
 
         // Posição central x de cada categoria no topo da timeline
         categoriaPositions = categorias.map((cat, i) => ({
@@ -69,14 +95,14 @@
             .enter()
             .append('text')
             .attr('class', 'year-label')
-            .attr('x', margin.left - 25)
+            .attr('x', margin.left - margin.left / 3)
             .attr('y', d => y(d))
             .attr('dy', '0.35em')
             .attr('text-anchor', 'end')
             .style('opacity', 0)
-            .transition()
-            .delay((d, i) => i * 50)
-            .duration(500)
+            // .transition()
+            // .delay((d, i) => i * 50)
+            // .duration(500)
             .style('opacity', 1)
             .text(d => d);
 
@@ -86,21 +112,21 @@
             .enter()
             .append('line')
             .attr('class', 'year-line')
-            .attr('x1', margin.left - 10)
-            .attr('x2', width - margin.right)
+            .attr('x1', margin.left )
+            .attr('x2', containerWidth - margin.right / 3)
             .attr('y1', d => y(d))
             .attr('y2', d => y(d))
             .attr('stroke', colors.accent)
             .attr('stroke-width', 0.5)
-            .style('opacity', 0)
-            .transition()
-            .delay((d, i) => i * 50)
-            .duration(100)
-            .style('opacity', 0.3);
+            // .style('opacity', 0)
+            // .transition()
+            // .delay((d, i) => i * 50)
+            // .duration(100)
+            .style('opacity', 0.4);
 
-        // Posições x de cada filósofo
-        const xPosFilos = filosofos.map(() =>
-            margin.left + Math.random() * (width - margin.left - margin.right)
+        // Posições x de cada filósofo (aleatórias mas consistentes)
+        const xPosFilos = randomValues.map(val =>
+            margin.left + val * (containerWidth - margin.left - margin.right)
         );
 
         // Adição do filósofo na timeline
@@ -116,7 +142,9 @@
             .attr('y2', d => y(d.morte))
             .attr('stroke', colors.timeline)
             .attr('stroke-width', 2.5)
-            .attr('stroke-linecap', 'round');
+            .attr('stroke-linecap', 'round')
+            .style('cursor', 'pointer') 
+            .on('click', (event, d) => selectFilosofo(d));
 
         // Conexão categorias aos filósofos
         filosofos.forEach((filosofo, i) => {
@@ -129,7 +157,7 @@
                     svg.append('line')
                         .attr('class', 'category-connection')
                         .attr('x1', categoria.pos)
-                        .attr('y1', margin.top - 20) 
+                        .attr('y1', margin.top - margin.top / 4) 
                         .attr('x2', xFilosofo)
                         .attr('y2', yNascimento)
                         .attr('stroke', colors.highlight)
@@ -159,9 +187,15 @@
 
             const bbox = text.node().getBBox();
 
-            svg.insert('rect', 'text')  
-                .attr('x', bbox.x - padding)
-                .attr('y', bbox.y - padding)
+            const labelGroup = svg.append('g')
+                .attr('class', 'filosofo-label')
+                .attr('transform', `translate(${x},${yLabel})`)
+                .style('cursor', 'pointer')
+                .on('click', () => selectFilosofo(filosofo));
+
+            labelGroup.append('rect')
+                .attr('x', -bbox.width/2 - padding)
+                .attr('y', -bbox.height/2 - padding)
                 .attr('width', bbox.width + padding * 2)
                 .attr('height', bbox.height + padding * 2)
                 .attr('fill', '#fff')
@@ -169,6 +203,14 @@
                 .attr('stroke-width', 1.2)
                 .attr('rx', 4)
                 .attr('ry', 4);
+
+            labelGroup.append('text')
+                .attr('text-anchor', 'middle')
+                .attr('dominant-baseline', 'middle')
+                .style('font-family', 'Cinzel, serif')
+                .style('font-size', `${fontSize}px`)
+                .style('fill', colors.text)
+                .text(nome);
         });
 
         // Marcador de morte do filósofo
@@ -182,66 +224,88 @@
             .attr('y', d => y(d.morte) - sizeSkull / 2)        
             .attr('width', sizeSkull)                     
             .attr('height', sizeSkull)
-            .attr('href', d => '/images/skull_icon.png'); 
+            .attr('href', d => '/images/skull_icon.png')
+            .style('cursor', 'pointer')
+            .on('click', (event, d) => selectFilosofo(d));
         
         // Atualização da ligação de categoria-filósofo ao scrollar
         let ticking = false;
         window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrollY = window.scrollY;
-                const viewportHeight = window.innerHeight;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    const viewportHeight = window.innerHeight;
 
-                d3.selectAll('.category-connection').style('opacity', 0); // reset
+                    d3.selectAll('.category-connection').style('opacity', 0);
 
-                filosofos.forEach((filosofo, i) => {
-                    const yStart = y(filosofo.nascimento);
-                    const yEnd = y(filosofo.morte);
+                    filosofos.forEach((filosofo, i) => {
+                        const yStart = y(filosofo.nascimento);
+                        const yEnd = y(filosofo.morte);
 
-                    const isVisible = (
-                        (yStart >= scrollY && yStart <= scrollY + viewportHeight) ||  // topo visível
-                        (yEnd >= scrollY && yEnd <= scrollY + viewportHeight) ||      // base visível
-                        (yStart < scrollY && yEnd > scrollY + viewportHeight)         // cobre a viewport
-                    );
+                        const isVisible = (
+                            (yStart >= scrollY && yStart <= scrollY + viewportHeight) || 
+                            (yEnd >= scrollY && yEnd <= scrollY + viewportHeight) || 
+                            (yStart < scrollY && yEnd > scrollY + viewportHeight)         
+                        );
 
-                    if (isVisible) {
-                        svg.selectAll('.category-connection')
-                            .filter(function () {
-                                const x2 = d3.select(this).attr('x2');
-                                return x2 == xPosFilos[i];  
-                            })
-                            .style('opacity', 0.6)
-                            .attr('y1', scrollY + 60);  
-                    }
+                        if (isVisible) {
+                            svg.selectAll('.category-connection')
+                                .filter(function () {
+                                    const x2 = d3.select(this).attr('x2');
+                                    return x2 == xPosFilos[i];  
+                                })
+                                .style('opacity', 0.6)
+                                .attr('y1', scrollY + 60);  
+                        }
+                    });
+                    ticking = false;
                 });
-                ticking = false;
-            });
-            ticking = true;
-        }
+                ticking = true;
+            }
+        });
+    }
+
+    onMount(() => {
+        drawTimeLine();
+        window.addEventListener('resize', handleResize);
     });
 
+    afterUpdate(() => {
+        drawTimeLine();
     });
-
 </script>
 
-<!-- Header -->
-<header class="fixed-header">
-    <div class="header-content">
-        Philosophers' Timeline
-    </div>
-</header>
-
-<!-- Categorias -->
-<div class="fixed-categories">
-    {#each categoriaPositions as cat}
-        <div class="category-label" style="left: {cat.pos}px">
-            {cat.nome}
-            <div class="tooltip">{cat.descricao}</div>
+<div class="full-page">
+    <div class="viz {isSplitView ? 'split-view' : ''}">
+        <!-- Header -->
+        <div class="fixed-header">
+            <div class="header-content">
+                Philosophers' Timeline
+            </div>
         </div>
-    {/each}
-</div>
 
-<!-- Timeline -->
-<div class="container">
-    <svg id="timeline" class="w-full shadow-xl rounded-lg"></svg>
+        <!-- Categorias -->
+        <div class="fixed-categories">
+            {#each categoriaPositions as cat}
+                <div class="category-label" style="left: {cat.pos}px">
+                    {cat.nome}
+                    <div class="tooltip">{cat.descricao}</div>
+                </div>
+            {/each}
+        </div>
+
+        <!-- Timeline Container -->
+        <div class="container" id="timeline-container">
+            <svg id="timeline" class="grafico"></svg>
+        </div>
+    </div>
+
+    {#if isSplitView}
+        <div class="info-filosofos">
+            <button on:click={closeDetailView}>Fechar</button>
+            <h2>{selectedFilosofo.nome}</h2>
+            <p>Nascimento: {selectedFilosofo.nascimento}</p>
+            <p>Morte: {selectedFilosofo.morte}</p>
+        </div>
+    {/if}
 </div>
