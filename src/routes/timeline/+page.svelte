@@ -4,7 +4,7 @@
     import './timeline.css';
     import './infos.js';
     import categorias from './tooltip_categories.json';
-    import { filosofos } from './infos.js';
+    import philosophers from './infos.js';
 
     let selectedFilosofo = null;
     let isSplitView = false;
@@ -32,7 +32,7 @@
     }
 
     // Posições dos elementos dos objetos filósofos na timeline
-    const randomValues = Array.from({ length: filosofos.length }, () => randUniform(0.1, 0.9));
+    const randomValues = Array.from({ length: philosophers.length }, () => randUniform(0.1, 0.9));
 
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
@@ -132,7 +132,7 @@
 
         // Adição do filósofo na timeline
         svg.selectAll('.filosofo-line')
-            .data(filosofos)
+            .data(philosophers)
             .enter()
             .append('line')
             .attr('class', 'filosofo-line')
@@ -148,7 +148,7 @@
             .on('click', (event, d) => selectFilosofo(d));
 
         // Conexão categorias aos filósofos
-        filosofos.forEach((filosofo, i) => {
+        philosophers.forEach((filosofo, i) => {
             const xFilosofo = xPosFilos[i];
             const yNascimento = y(filosofo.nascimento);
             
@@ -170,7 +170,7 @@
         });
 
         // Label do filósofo
-        filosofos.forEach((filosofo, i) => {
+        philosophers.forEach((filosofo, i) => {
             const x = xPosFilos[i];
             const yLabel = y(filosofo.nascimento) - 10;
             const padding = 3;
@@ -217,7 +217,7 @@
         // Marcador de morte do filósofo
         let sizeSkull = 20;
         svg.selectAll('.filosofo-end')
-            .data(filosofos)
+            .data(philosophers)
             .enter()
             .append('image')
             .attr('class', 'filosofo-end')
@@ -239,7 +239,7 @@
 
                     d3.selectAll('.category-connection').style('opacity', 0);
 
-                    filosofos.forEach((filosofo, i) => {
+                    philosophers.forEach((filosofo, i) => {
                         const yStart = y(filosofo.nascimento);
                         const yEnd = y(filosofo.morte);
 
