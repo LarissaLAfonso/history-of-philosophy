@@ -68,7 +68,7 @@
         
         containerWidth = timelineContainer.clientWidth;
         const height = 6000;
-        const margin = { top: containerWidth / 12, right: containerWidth / 12, bottom: containerWidth / 12, left: containerWidth / 12 };
+        const margin = { top: 80, right: containerWidth / 12, bottom: 80, left: containerWidth / 12 };
         
         svg.attr('width', containerWidth)
             .attr('height', height)
@@ -145,7 +145,8 @@
             .attr('stroke-width', 2.5)
             .attr('stroke-linecap', 'round')
             .style('cursor', 'pointer') 
-            .on('click', (event, d) => selectFilosofo(d));
+            .on('click', (event, d) => selectFilosofo(d))
+            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
 
         // Conexão categorias aos filósofos
         filosofos.forEach((filosofo, i) => {
@@ -192,7 +193,8 @@
                 .attr('class', 'filosofo-label')
                 .attr('transform', `translate(${x},${yLabel})`)
                 .style('cursor', 'pointer')
-                .on('click', () => selectFilosofo(filosofo));
+                .on('click', () => selectFilosofo(filosofo))
+                .attr('class', `filosofo-label ${selectedFilosofo?.nome === filosofo.nome ? 'selected' : ''}`);
 
             labelGroup.append('rect')
                 .attr('x', -bbox.width/2 - padding)
@@ -227,7 +229,8 @@
             .attr('height', sizeSkull)
             .attr('href', d => '/images/skull_icon.png')
             .style('cursor', 'pointer')
-            .on('click', (event, d) => selectFilosofo(d));
+            .on('click', (event, d) => selectFilosofo(d))
+            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
         
         // Atualização da ligação de categoria-filósofo ao scrollar
         let ticking = false;
