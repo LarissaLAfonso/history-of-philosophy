@@ -5,6 +5,7 @@
     import './infos.js';
     import categorias from './tooltip_categories.json';
     import { filosofos } from './infos.js';
+    import { philosophers } from '../../components/data/philosophers.json';
 
     let selectedFilosofo = null;
     let isSplitView = false;
@@ -307,10 +308,27 @@
     <!-- Submódulo das Informações fos Filósofos -->
     {#if isSplitView}
         <div class="info-filosofos">
-            <button on:click={closeDetailView}>Fechar</button>
-            <h2>{selectedFilosofo.nome}</h2>
-            <p>Nascimento: {selectedFilosofo.nascimento}</p>
-            <p>Morte: {selectedFilosofo.morte}</p>
+            <button on:click={closeDetailView}>Close</button>
+
+            <h1>{selectedFilosofo.nome}</h1>
+
+            <div class="sub-infos">
+                <img src="/images/philosophers/aristotle.jpg" alt="{selectedFilosofo.nome}">
+
+                <div>
+                    <p><strong>Lifetime: </strong>1930 - 1991</p>
+                    <p><strong>Branch: </strong>Analitics</p>
+                    <p><strong>Fields: </strong>Logic and Language</p>
+                </div>
+            </div>
+
+            <div class="paragraphs">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero facilis veritatis asperiores a quisquam! Voluptatum nihil iusto, accusantium debitis laboriosam quasi ad quidem assumenda atque voluptatem pariatur repudiandae ab sapiente?</p>
+            
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi possimus quidem voluptate fuga cum odit temporibus adipisci quibusdam saepe maxime assumenda ipsum cupiditate similique at earum, amet in excepturi. Sequi.</p>
+            
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente totam eaque consequuntur ullam earum! Aspernatur illo exercitationem explicabo deserunt aperiam odit saepe? Dolorum ullam sed tenetur consectetur quis minus! Distinctio?</p>
+            </div>
         </div>
     {/if}
 </div>
