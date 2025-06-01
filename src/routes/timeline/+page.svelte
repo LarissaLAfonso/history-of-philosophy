@@ -3,17 +3,18 @@
     import * as d3 from 'd3';
     import './timeline.css';
     import './infos.js';
-    import { categorias, filosofos } from './infos.js';
+    import categorias from './tooltip_categories.json';
+    import { filosofos } from './infos.js';
 
     let selectedFilosofo = null;
     let isSplitView = false;
     let containerWidth = 0;
 
-    let anoInical = -600;
-    let anoFinal = 2000;
-    let stepAnos = 100; 
+    let initialYear = -600;
+    let finalYear = 2000;
+    let stepYears = 100; 
 
-    const anos = d3.range(anoInical, anoFinal + 1, stepAnos);
+    const anos = d3.range(initialYear, finalYear + 1, stepYears);
 
     const colors = {
         background: '#f5efe6',
@@ -74,7 +75,7 @@
             .style('background', colors.background);
 
         const y = d3.scaleLinear()
-            .domain([anoInical, anoFinal])
+            .domain([initialYear, finalYear])
             .range([margin.top, height - margin.bottom]);
 
         // Largura de cada coluna com base no número de categorias
@@ -300,6 +301,7 @@
         </div>
     </div>
 
+    <!-- Submódulo das Informações fos Filósofos -->
     {#if isSplitView}
         <div class="info-filosofos">
             <button on:click={closeDetailView}>Fechar</button>
