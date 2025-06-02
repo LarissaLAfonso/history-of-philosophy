@@ -274,6 +274,11 @@
 
     afterUpdate(() => {
         drawTimeLine();
+
+        // Arruma a posição y das conexões ao scrollar
+        const scrollY = window.scrollY;
+        d3.selectAll('.category-connection')
+            .attr('y1', scrollY + 50);
     });
 
 </script>
