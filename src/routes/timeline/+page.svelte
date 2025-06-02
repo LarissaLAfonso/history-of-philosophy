@@ -328,7 +328,7 @@
             <div class="paragraphs">
                 {#if selectedFilosofoInfo.description.length > 0}
                     {#each selectedFilosofoInfo.description as paragraph}
-                        <p>{paragraph.value}</p>
+                        <p>{@html paragraph.value}</p>
                     {/each}
                 {:else}
                     <p>No information available.</p>
