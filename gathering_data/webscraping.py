@@ -5,18 +5,18 @@ import json
 import pandas as pd
 from os import path
 
-# Please add more names or find a better alternative for this list.
 
+
+philosophers_json = json.load(open(path.join(path.dirname(__file__), "..", "src/components/data/philosophers.json"), 'r'))["philosophers"]
 def get_philosophers_names():
     """
     Returns a list of philosophers' names.
     
     :return: List of philosopher names.
     """
-    
-    philosophers = pd.read_csv(path.join(path.dirname(__file__), "filtered_philosophers.csv"))
-    philosophers_names = philosophers['author'].tolist()
-    philosophers_names = [name.replace(" ", "_") for name in philosophers_names]
+    philosophers_names = []
+    for philosopher in philosophers_json:
+        philosophers_names.append(philosopher["value"][0]["value"].replace(" ", "_"))
     return philosophers_names
 
 Philosophers_names = get_philosophers_names()
@@ -39,9 +39,13 @@ def get_infobox_start(name):
         raise Exception(f"Error fetching data for {name}: {e}")
     
     all_content = response.read().decode('utf-8')
-    infobox_start = all_content.find('<table class="infobox biography vcard"')
+    infobox_start = all_content.find('<table class="infobox ')
     if infobox_start == -1:
-        raise ValueError(f"Infobox not found for {name}. Please check the name or the URL.")
+        if(name.find("(philosopher)") == -1):
+            return get_infobox_start(name + "_(philosopher)")
+        else: 
+            raise ValueError(f"Infobox not found for {name}. Please check the name or the URL.")
+    
     infobox_content = all_content[infobox_start:]
 
     return infobox_content
@@ -51,7 +55,7 @@ def get_Interests(infobox):
     interests_index = "Main interests"
     interests_start = infobox.find(interests_index)
     if interests_start == -1:
-        return None
+        return []
     interest_section = infobox[interests_start:]
     for interest in Possible_interests:
         if interest_section.find(interest) != -1:
@@ -59,16 +63,41 @@ def get_Interests(infobox):
 
     return interests
 
+def get_lifetime_years(name):
+    philosopher = philosophers_json[Philosophers_names.index(name)]["value"]
+    try:
+        birth_year, death_year = philosopher[1]["value"].split("-")
+    except Exception as e:
+        raise ValueError(f"Could not find birth and death years for {name}: {e}")
+    side = 1
+    if birth_year.find("BC") != -1:
+        side = -1
+
+    birth_year = int("".join([c for c in birth_year if c.isdigit()])) * side
+
+    side = 1
+    if death_year.find("BC") != -1:
+        side = -1
+    
+    death_year = int("".join([c for c in death_year if c.isdigit()])) * side
+
+    return birth_year, death_year
+
 
 def get_wikipedia_data(name):
+    # print(f"Fetching data for {name}...")
     try:
         infobox = get_infobox_start(name)
     except Exception as e:
         raise ValueError(f"Could not retrieve data for {name}: {e}")
-    if name == "Locke": print(infobox)
+    
+    interests = get_Interests(infobox)
+    birth, death = get_lifetime_years(name)
     philosopher_data = {
-        "name": name,
-        "interests": get_Interests(infobox)
+        "nome": name,
+        "nascimento": birth,
+        "morte": death,
+        "categorias": interests
     }
     return philosopher_data
 
@@ -82,7 +111,7 @@ if __name__ == "__main__":
         except ValueError as e:
             print(e)
     
-    relative_path = path.join(path.dirname(__file__), '..', 'src', 'components', 'data', 'philosophers_interests.json')
+    relative_path = path.join(path.dirname(__file__), '..', 'src', 'components', 'data', 'philosophers2.json')
 
     with open(relative_path, 'w') as f:
         json.dump(philosophers_data, f, indent=4, ensure_ascii=False)

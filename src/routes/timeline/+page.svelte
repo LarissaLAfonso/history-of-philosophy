@@ -4,7 +4,8 @@
     import './timeline.css';
     import './infos.js';
     import categorias from './tooltip_categories.json';
-    import { filosofos } from './infos.js';
+    // import { filosofos } from './infos.js';
+    import filosofos from '../../components/data/philosophers2.json';
     import { philosophers } from '../../components/data/philosophers.json';
 
     let selectedFilosofo = null;
