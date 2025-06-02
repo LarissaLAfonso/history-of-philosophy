@@ -291,3 +291,16 @@ svg#timeline {
     position: relative;
     padding: 20px;
 }
+
+
+/*Conexão do filósofo-interesses*/
+.interaction-area {
+    pointer-events: all;
+    z-index: 20; 
+}
+.category-connection, 
+.filosofo-line, 
+.filosofo-label, 
+.filosofo-end {
+    pointer-events: none; 
+}

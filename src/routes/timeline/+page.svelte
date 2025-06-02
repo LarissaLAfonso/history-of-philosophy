@@ -38,25 +38,31 @@
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
 
-        // Se o filósofo já está selecionado, fecha a view
         if (isSplitView && selectedFilosofo === filosofo) {
             closeDetailView();
-        } 
-        // Se é um filósofo diferente, atualiza
-        else {
+        } else {
             selectedFilosofo = filosofo;
             isSplitView = true;
         }
     }
 
     function closeDetailView() {
-        /*Função para fechar a view*/
         selectedFilosofo = null;
         isSplitView = false;
     }
 
     function handleResize() {
         drawTimeLine();
+    }
+
+    function showCategoryConnections(filosofoNome) {
+    d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+        .style('opacity', 0.6);
+}
+
+    function hideCategoryConnections(filosofoNome) {
+        d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+            .style('opacity', 0);
     }
 
     function drawTimeLine() {
@@ -158,18 +164,18 @@
                 const categoria = categoriaPositions.find(c => c.nome === categoriaNome);
                 if (categoria) {
                     svg.append('line')
-                        .attr('class', 'category-connection')
+                        .attr('class', `category-connection ${filosofo.nome.replace(/\s+/g, '-')}`)
                         .attr('x1', categoria.pos)
-                        .attr('y1', margin.top - margin.top / 4) 
+                        // .attr('y1', window.scrollY + 50)
                         .attr('x2', xFilosofo)
                         .attr('y2', yNascimento)
                         .attr('stroke', colors.highlight)
                         .attr('stroke-width', 1)
                         .attr('stroke-dasharray', '4 2')
-                        .style('opacity', 1);
+                        .style('opacity', 0); 
                 }
             });
-        });
+});
 
         // Label do filósofo
         filosofos.forEach((filosofo, i) => {
@@ -178,6 +184,19 @@
             const padding = 3;
             const fontSize = 14;
             const nome = filosofo.nome;
+            const areaHeight = y(filosofo.morte) - y(filosofo.nascimento) + 40;
+
+            svg.append('rect')
+                .attr('class', `interaction-area ${filosofo.nome.replace(/\s+/g, '-')}`)
+                .attr('x', xPosFilos[i] - 25) 
+                .attr('y', y(filosofo.nascimento) - 20)
+                .attr('width', 50)
+                .attr('height', areaHeight)
+                .attr('fill', 'transparent')
+                .style('cursor', 'pointer')
+                .on('mouseover', () => showCategoryConnections(filosofo.nome))
+                .on('mouseout', () => hideCategoryConnections(filosofo.nome))
+                .on('click', () => selectFilosofo(filosofo));
 
             const text = svg.append('text')
                 .attr('x', x)
@@ -186,7 +205,8 @@
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize}px`)
                 .style('fill', colors.text)
-                .text(nome);
+                .text(nome)
+                .style("user-select", "none");
 
             const bbox = text.node().getBBox();
 
@@ -233,51 +253,24 @@
             .on('click', (event, d) => selectFilosofo(d))
             .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
         
-        // Atualização da ligação de categoria-filósofo ao scrollar
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrollY = window.scrollY;
-                    const viewportHeight = window.innerHeight;
-
-                    d3.selectAll('.category-connection').style('opacity', 0);
-
-                    filosofos.forEach((filosofo, i) => {
-                        const yStart = y(filosofo.nascimento);
-                        const yEnd = y(filosofo.morte);
-
-                        const isVisible = (
-                            (yStart >= scrollY && yStart <= scrollY + viewportHeight) || 
-                            (yEnd >= scrollY && yEnd <= scrollY + viewportHeight) || 
-                            (yStart < scrollY && yEnd > scrollY + viewportHeight)         
-                        );
-
-                        if (isVisible) {
-                            svg.selectAll('.category-connection')
-                                .filter(function () {
-                                    const x2 = d3.select(this).attr('x2');
-                                    return x2 == xPosFilos[i];  
-                                })
-                                .style('opacity', 0.6)
-                                .attr('y1', scrollY + 60);  
-                        }
-                    });
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
     }
 
     onMount(() => {
         drawTimeLine();
         window.addEventListener('resize', handleResize);
+
+        window.addEventListener('scroll', () => {
+            d3.selectAll('.category-connection')
+                .attr('y1', window.scrollY + 50);
+    });
+
     });
 
     afterUpdate(() => {
         drawTimeLine();
     });
+
+    
 </script>
 
 <div class="full-page">
