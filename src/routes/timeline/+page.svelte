@@ -316,7 +316,7 @@
             <h1>{selectedFilosofo.nome}</h1>
 
             <div class="sub-infos">
-                <img src="/images/philosophers/aristotle.jpg" alt="{selectedFilosofo.nome}">
+                <img src={selectedFilosofoInfo.image} alt="{selectedFilosofo.nome}">
 
                 <div>
                     <p><strong>Lifetime: </strong>{selectedFilosofoInfo.lifetime}</p>

@@ -21,7 +21,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/kripke.jpg"
+                    "value": "images/philosophers/kripke.jpg"
                 },
                 {
                     "type": "p",
@@ -63,7 +63,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/lewis.jpg"
+                    "value": "images/philosophers/lewis.jpg"
                 },
                 {
                     "type": "p",
@@ -109,7 +109,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/moore.jpg"
+                    "value": "images/philosophers/moore.jpg"
                 },
                 {
                 "type": "p",
@@ -159,7 +159,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/popper.jpg"
+                    "value": "images/philosophers/popper.jpg"
                 },
                 {
                 "type": "p",
@@ -205,7 +205,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/quine.jpg"
+                    "value": "images/philosophers/quine.jpg"
                 },
                 {
                 "type": "p",
@@ -255,7 +255,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/russell.jpg"
+                    "value": "images/philosophers/russell.jpg"
                 },
                 {
                 "type": "p",
@@ -309,7 +309,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/aristotle.jpg"
+                    "value": "images/philosophers/aristotle.jpg"
                 },
                 {
                 "type": "p",
@@ -360,7 +360,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/smith.jpg"
+                    "value": "images/philosophers/smith.jpg"
                 },
                 {
                 "type": "p",
@@ -410,7 +410,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/keynes.jpg"
+                    "value": "images/philosophers/keynes.jpg"
                 },
                 {
                 "type": "p",
@@ -464,7 +464,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/ricardo.jpg"
+                    "value": "images/philosophers/ricardo.jpg"
                 },
                 {
                 "type": "p",
@@ -518,7 +518,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/lenin.jpg"
+                    "value": "images/philosophers/lenin.jpg"
                 },
                 {
                 "type": "p",
@@ -576,7 +576,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/marx.jpg"
+                    "value": "images/philosophers/marx.jpg"
                 },
                 {
                 "type": "p",
@@ -630,7 +630,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/deleuze.jpg"
+                    "value": "images/philosophers/deleuze.jpg"
                 },
                 {
                 "type": "p",
@@ -684,7 +684,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/derrida.jpg"
+                    "value": "images/philosophers/derrida.jpg"
                 },
                 {
                 "type": "p",
@@ -738,7 +738,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/foucault.jpg"
+                    "value": "images/philosophers/foucault.jpg"
                 },
                 {
                 "type": "p",
@@ -796,7 +796,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/berkeley.jpg"
+                    "value": "images/philosophers/berkeley.jpg"
                 },
                 {
                 "type": "p",
@@ -854,7 +854,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/hume.jpg"
+                    "value": "images/philosophers/hume.jpg"
                 },
                 {
                 "type": "p",
@@ -908,7 +908,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/locke.jpg"
+                    "value": "images/philosophers/locke.jpg"
                 },
                 {
                 "type": "p",
@@ -966,7 +966,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/fichte.jpg"
+                    "value": "images/philosophers/fichte.jpg"
                 },
                 {
                 "type": "p",
@@ -1016,7 +1016,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/hegel.jpg"
+                    "value": "images/philosophers/hegel.jpg"
                 },
                 {
                 "type": "p",
@@ -1066,7 +1066,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/kant.jpg"
+                    "value": "images/philosophers/kant.jpg"
                 },
                 {
                 "type": "p",
@@ -1120,7 +1120,7 @@
             },
             {
                 "type": "figure",
-                "value": "src/static/images/heidegger.jpg"
+                "value": "images/philosophers/heidegger.jpg"
             },
             {
             "type": "p",
@@ -1170,7 +1170,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/husserl.jpg"
+                    "value": "images/philosophers/husserl.jpg"
                 },
                 {
                 "type": "p",
@@ -1220,7 +1220,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/ponty.jpg"
+                    "value": "images/philosophers/ponty.jpg"
                 },
                 {
                 "type": "p",
@@ -1266,7 +1266,7 @@
             },
             {
                 "type": "figure",
-                "value": "src/static/images/plato.jpg"
+                "value": "images/philosophers/plato.jpg"
             },
             {
             "type": "p",
@@ -1320,7 +1320,7 @@
             },
             {
                 "type": "figure",
-                "value": "src/static/images/descartes.jpg"
+                "value": "images/philosophers/descartes.jpg"
             },
             {
             "type": "p",
@@ -1378,7 +1378,7 @@
             },
             {
                 "type": "figure",
-                "value": "src/static/images/leibniz.jpg"
+                "value": "images/philosophers/leibniz.jpg"
             },
             {
             "type": "p",
@@ -1424,7 +1424,7 @@
             },
             {
                 "type": "figure",
-                "value": "src/static/images/malebranche.jpg"
+                "value": "images/philosophers/malebranche.jpg"
             },
             {
             "type": "p",
@@ -1478,7 +1478,7 @@
                 },
                 {
                     "type": "figure",
-                    "value": "src/static/images/spinoza.jpg"
+                    "value": "images/philosophers/spinoza.jpg"
                 },
                 {
                 "type": "p",
