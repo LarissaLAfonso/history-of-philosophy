@@ -7,8 +7,10 @@
     // import { filosofos } from './infos.js';
     import filosofos from '../../components/data/philosophers2.json';
     import { philosophers } from '../../components/data/philosophers.json';
+    import { getPhilosopherDesc } from './philosophers_manipulation';
 
     let selectedFilosofo = null;
+    let selectedFilosofoInfo = null;
     let isSplitView = false;
     let containerWidth = 0;
 
@@ -44,12 +46,15 @@
         } else {
             selectedFilosofo = filosofo;
             isSplitView = true;
+            selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
+            console.log(selectedFilosofoInfo);
         }
     }
 
     function closeDetailView() {
         selectedFilosofo = null;
         isSplitView = false;
+        selectedFilosofoInfo = null;
     }
 
     function handleResize() {
@@ -271,7 +276,6 @@
         drawTimeLine();
     });
 
-    
 </script>
 
 <div class="full-page">
@@ -310,18 +314,20 @@
                 <img src="/images/philosophers/aristotle.jpg" alt="{selectedFilosofo.nome}">
 
                 <div>
-                    <p><strong>Lifetime: </strong>1930 - 1991</p>
-                    <p><strong>Branch: </strong>Analitics</p>
-                    <p><strong>Fields: </strong>Logic and Language</p>
+                    <p><strong>Lifetime: </strong>{selectedFilosofoInfo.lifetime}</p>
+                    <p><strong>Branch: </strong>{selectedFilosofoInfo.branch}</p>
+                    <p><strong>Fields: </strong>{selectedFilosofoInfo.fields}</p>
                 </div>
             </div>
 
             <div class="paragraphs">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero facilis veritatis asperiores a quisquam! Voluptatum nihil iusto, accusantium debitis laboriosam quasi ad quidem assumenda atque voluptatem pariatur repudiandae ab sapiente?</p>
-            
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi possimus quidem voluptate fuga cum odit temporibus adipisci quibusdam saepe maxime assumenda ipsum cupiditate similique at earum, amet in excepturi. Sequi.</p>
-            
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente totam eaque consequuntur ullam earum! Aspernatur illo exercitationem explicabo deserunt aperiam odit saepe? Dolorum ullam sed tenetur consectetur quis minus! Distinctio?</p>
+                {#if selectedFilosofoInfo.description.length > 0}
+                    {#each selectedFilosofoInfo.description as paragraph}
+                        <p>{paragraph.value}</p>
+                    {/each}
+                {:else}
+                    <p>No information available.</p>
+                {/if}
             </div>
         </div>
     {/if}

@@ -16,7 +16,7 @@ def get_philosophers_names():
     """
     philosophers_names = []
     for philosopher in philosophers_json:
-        philosophers_names.append(philosopher["value"][0]["value"].replace(" ", "_"))
+        philosophers_names.append(philosopher["value"][0]["value"])
     return philosophers_names
 
 Philosophers_names = get_philosophers_names()
@@ -29,7 +29,7 @@ def get_infobox_start(name):
     :param name: The name of the philosopher.
     :return: string containing the infobox data or None if not found.
     """
-
+    name = name.replace(" ", "_")
     # René_Descartes was breaking the URL, so we need to encode it properly.
     encoded_name = urllib.parse.quote(name, safe='/:?')
     url = f"https://en.wikipedia.org/wiki/{encoded_name}"

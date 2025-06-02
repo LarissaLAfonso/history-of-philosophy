@@ -1,64 +1,66 @@
 [
     {
-        "nome": "Saul_Kripke",
-        "categorias": [
-            "Epistemology",
-            "Metaphysics",
-            "Ethics",
-            "Logic",
-            "Aesthetics"
-        ],
+        "nome": "Saul Kripke",
         "nascimento": 1940,
-        "morte": 2022
-    },
-    {
-        "nome": "David_Lewis",
+        "morte": 2022,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic",
             "Aesthetics"
-        ],
-        "nascimento": 1941,
-        "morte": 2001
+        ]
     },
     {
-        "nome": "G._E._Moore",
+        "nome": "David Lewis",
+        "nascimento": 1941,
+        "morte": 2001,
+        "categorias": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Aesthetics"
+        ]
+    },
+    {
+        "nome": "G. E. Moore",
+        "nascimento": 1873,
+        "morte": 1958,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic"
-        ],
-        "nascimento": 1873,
-        "morte": 1958
+        ]
     },
     {
-        "nome": "Karl_Popper",
+        "nome": "Karl Popper",
+        "nascimento": 1902,
+        "morte": 1994,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic",
             "Politics"
-        ],
-        "nascimento": 1902,
-        "morte": 1994
+        ]
     },
     {
-        "nome": "W._V._O._Quine",
+        "nome": "W. V. O. Quine",
+        "nascimento": 1908,
+        "morte": 2000,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic"
-        ],
-        "nascimento": 1908,
-        "morte": 2000
+        ]
     },
     {
-        "nome": "Bertrand_Russell",
+        "nome": "Bertrand Russell",
+        "nascimento": 1872,
+        "morte": 1970,
         "categorias": [
             "Epistemology",
             "Metaphysics",
@@ -66,155 +68,142 @@
             "Logic",
             "Politics",
             "Aesthetics"
-        ],
-        "nascimento": 1872,
-        "morte": 1970
+        ]
     },
     {
         "nome": "Aristotle",
-        "categorias": [
-            "Epistemology",
-            "Metaphysics",
-            "Ethics",
-            "Logic",
-            "Politics",
-            "Aesthetics"
-        ],
         "nascimento": -384,
-        "morte": -322
-    },
-    {
-        "nome": "Adam_Smith",
+        "morte": -322,
         "categorias": [
+            "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic",
-            "Politics"
-        ],
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "nome": "Adam Smith",
         "nascimento": 1723,
-        "morte": 1790
+        "morte": 1790,
+        "categorias": [
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics"
+        ]
     },
     {
-        "nome": "John_Maynard_Keynes",
-        "categorias": [],
+        "nome": "John Maynard Keynes",
         "nascimento": 1883,
-        "morte": 1946
+        "morte": 1946,
+        "categorias": []
     },
     {
-        "nome": "David_Ricardo",
-        "categorias": [],
+        "nome": "David Ricardo",
         "nascimento": 1772,
-        "morte": 1823
+        "morte": 1823,
+        "categorias": []
     },
     {
-        "nome": "Vladimir_Lenin",
-        "categorias": [],
+        "nome": "Vladimir Lenin",
         "nascimento": 1870,
-        "morte": 1924
+        "morte": 1924,
+        "categorias": []
     },
     {
-        "nome": "Karl_Marx",
-        "categorias": [
-            "Metaphysics",
-            "Ethics",
-            "Logic",
-            "Politics",
-            "Aesthetics"
-        ],
+        "nome": "Karl Marx",
         "nascimento": 1818,
-        "morte": 1883
-    },
-    {
-        "nome": "Gilles_Deleuze",
+        "morte": 1883,
         "categorias": [
-            "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic",
             "Politics",
             "Aesthetics"
-        ],
+        ]
+    },
+    {
+        "nome": "Gilles Deleuze",
         "nascimento": 1925,
-        "morte": 1995
+        "morte": 1995,
+        "categorias": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
     },
     {
-        "nome": "Jacques_Derrida",
-        "categorias": [],
+        "nome": "Jacques Derrida",
         "nascimento": 1930,
-        "morte": 2004
+        "morte": 2004,
+        "categorias": []
     },
     {
-        "nome": "Michel_Foucault",
-        "categorias": [
-            "Epistemology",
-            "Metaphysics",
-            "Ethics",
-            "Politics",
-            "Aesthetics"
-        ],
+        "nome": "Michel Foucault",
         "nascimento": 1926,
-        "morte": 1984
-    },
-    {
-        "nome": "George_Berkeley",
+        "morte": 1984,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
-            "Politics"
-        ],
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "nome": "George Berkeley",
         "nascimento": 1685,
-        "morte": 1753
-    },
-    {
-        "nome": "David_Hume",
+        "morte": 1753,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
-            "Logic",
-            "Politics",
-            "Aesthetics"
-        ],
+            "Politics"
+        ]
+    },
+    {
+        "nome": "David Hume",
         "nascimento": 1711,
-        "morte": 1776
-    },
-    {
-        "nome": "John_Locke",
+        "morte": 1776,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
-            "Politics"
-        ],
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "nome": "John Locke",
         "nascimento": 1632,
-        "morte": 1704
+        "morte": 1704,
+        "categorias": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Politics"
+        ]
     },
     {
-        "nome": "Johann_Gottlieb_Fichte",
+        "nome": "Johann Gottlieb Fichte",
+        "nascimento": 1762,
+        "morte": 1814,
         "categorias": [
             "Metaphysics",
             "Ethics",
             "Politics"
-        ],
-        "nascimento": 1762,
-        "morte": 1814
+        ]
     },
     {
-        "nome": "Georg_Wilhelm_Friedrich_Hegel",
-        "categorias": [
-            "Epistemology",
-            "Metaphysics",
-            "Ethics",
-            "Logic",
-            "Politics",
-            "Aesthetics"
-        ],
+        "nome": "Georg Wilhelm Friedrich Hegel",
         "nascimento": 1770,
-        "morte": 1831
-    },
-    {
-        "nome": "Immanuel_Kant",
+        "morte": 1831,
         "categorias": [
             "Epistemology",
             "Metaphysics",
@@ -222,12 +211,12 @@
             "Logic",
             "Politics",
             "Aesthetics"
-        ],
+        ]
+    },
+    {
+        "nome": "Immanuel Kant",
         "nascimento": 1724,
-        "morte": 1804
-    },
-    {
-        "nome": "Martin_Heidegger",
+        "morte": 1804,
         "categorias": [
             "Epistemology",
             "Metaphysics",
@@ -235,86 +224,97 @@
             "Logic",
             "Politics",
             "Aesthetics"
-        ],
-        "nascimento": 1889,
-        "morte": 1976
+        ]
     },
     {
-        "nome": "Edmund_Husserl",
+        "nome": "Martin Heidegger",
+        "nascimento": 1889,
+        "morte": 1976,
+        "categorias": [
+            "Epistemology",
+            "Metaphysics",
+            "Ethics",
+            "Logic",
+            "Politics",
+            "Aesthetics"
+        ]
+    },
+    {
+        "nome": "Edmund Husserl",
+        "nascimento": 1859,
+        "morte": 1938,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic"
-        ],
-        "nascimento": 1859,
-        "morte": 1938
+        ]
     },
     {
-        "nome": "Maurice_Merleau-Ponty",
+        "nome": "Maurice Merleau-Ponty",
+        "nascimento": 1908,
+        "morte": 1961,
         "categorias": [
             "Metaphysics",
             "Ethics",
             "Politics",
             "Aesthetics"
-        ],
-        "nascimento": 1908,
-        "morte": 1961
+        ]
     },
     {
         "nome": "Plato",
+        "nascimento": -427,
+        "morte": -347,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Politics"
-        ],
-        "nascimento": -427,
-        "morte": -347
+        ]
     },
     {
-        "nome": "René_Descartes",
+        "nome": "René Descartes",
+        "nascimento": 1596,
+        "morte": 1650,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Aesthetics"
-        ],
-        "nascimento": 1596,
-        "morte": 1650
+        ]
     },
     {
-        "nome": "Gottfried_Wilhelm_Leibniz",
+        "nome": "Gottfried Wilhelm Leibniz",
+        "nascimento": 1646,
+        "morte": 1716,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic",
             "Politics"
-        ],
-        "nascimento": 1646,
-        "morte": 1716
+        ]
     },
     {
-        "nome": "Nicolas_Malebranche",
+        "nome": "Nicolas Malebranche",
+        "nascimento": 1638,
+        "morte": 1715,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics"
-        ],
-        "nascimento": 1638,
-        "morte": 1715
+        ]
     },
     {
-        "nome": "Baruch_Spinoza",
+        "nome": "Baruch Spinoza",
+        "nascimento": 1632,
+        "morte": 1677,
         "categorias": [
             "Epistemology",
             "Metaphysics",
             "Ethics",
             "Logic",
             "Politics"
-        ],
-        "nascimento": 1632,
-        "morte": 1677
+        ]
     }
 ]
