@@ -5,6 +5,7 @@
 
   const dispatch = createEventDispatcher();
 
+
   function handleClose() {
     dispatch('close');
   }
@@ -24,9 +25,18 @@
 
   // Cada nó de tipo "p" contém um array de { type:"text", value:"..." }. Unimos tudo
   const paragraphNodes = philosopher.value.filter((n) => n.type === 'p');
-  const paragraphs = paragraphNodes.map((pNode) =>
-    pNode.value.map((textNode) => textNode.value).join('')
-  );
+
+    function decodeHTML(str) {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = str;
+    return txt.value;
+    }
+
+    const paragraphs = paragraphNodes.map(pNode =>
+    pNode.value
+        .map(textNode => decodeHTML(textNode.value))
+        .join('')
+    );
 </script>
 
 <style>
@@ -61,8 +71,6 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(to bottom, #e74c3c, #c0392b);
-    color: white;
     border: none;
     padding: 12px 24px;
     border-radius: 50px;
@@ -82,6 +90,7 @@
   }
 
   .info-filosofos h1 {
+    text-align: left;
     font-size: 2.5rem;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -146,34 +155,11 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .sub-infos p {
-    color: #e9e7de;
-    margin: 12px 0;
-    font-size: 1.1rem;
-    padding: 10px 15px;
-    background: rgba(52, 152, 219, 0.15);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-  }
-
-  .sub-infos p:hover {
-    background: rgba(52, 152, 219, 0.25);
-    transform: translateX(5px);
-  }
-
-  .sub-infos strong {
-    color: #cba81c;
-    min-width: 100px;
-    display: inline-block;
-    font-weight: 600;
-  }
 
   .paragraphs p {
     color: #e9e7de;
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.1rem;git 
     text-align: justify;
     position: relative;
     padding: 20px;
@@ -190,7 +176,9 @@
 </style>
 
 <div class="info-filosofos">
-  <button class="close-btn" on:click={handleClose}>× Close</button>
+  <button class="close-btn" on:click={handleClose}>
+    x
+  </button>
 
   {#if name}
     <h1>{name}</h1>
@@ -226,4 +214,3 @@
     </div>
   {/if}
 </div>
-git
