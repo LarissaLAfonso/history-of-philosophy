@@ -304,3 +304,31 @@ svg#timeline {
 .filosofo-end {
     pointer-events: none; 
 }
+
+.home-icon {
+    position: fixed;
+    top: 50%;              
+    left: 16px;            
+    transform: translateY(-50%);  
+    z-index: 9999;
+    background: radial-gradient(circle at center, #b19b53, #7b6038);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 
+        0 0 8px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dfdddd;
+}
+
+.home-icon:hover {
+    transform: translateY(-50%) scale(1.1);
+    background: radial-gradient(circle at center, #f1c40f, #a67c00);
+    color: #000;
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+}
