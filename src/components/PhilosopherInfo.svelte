@@ -159,7 +159,7 @@
   .paragraphs p {
     color: #e9e7de;
     line-height: 1.8;
-    font-size: 1.1rem;git 
+    font-size: 1.1rem;
     text-align: justify;
     position: relative;
     padding: 20px;
