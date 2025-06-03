@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>Philosophy Timeline</title>
+</svelte:head>
 <script>
     import { onMount, afterUpdate } from 'svelte';
     import * as d3 from 'd3';
@@ -8,6 +11,8 @@
     import filosofos from '../../components/data/philosophers2.json';
     import { philosophers } from '../../components/data/philosophers.json';
     import { getAlivePhilosophersIdx, getPhilosopherDesc } from './philosophers_manipulation';
+    import {base} from '$app/paths';
+
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
     let selectedFilosofo = null;
     let selectedFilosofoInfo = null;
@@ -303,7 +308,7 @@
             .attr('y', d => y(d.morte) - sizeSkull / 2)        
             .attr('width', sizeSkull)                     
             .attr('height', sizeSkull)
-            .attr('href', d => '/images/skull_icon.png')
+            .attr('href', d => 'images/skull_icon.png')
             .style('cursor', 'pointer')
             .on('click', (event, d) => selectFilosofo(d))
             .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
@@ -341,7 +346,7 @@
         <!-- Header -->
         <div class="fixed-header">
             <div class="header-content">
-                <a href="/" class="home-icon">
+                <a href='{base}/' class="home-icon">
                     <!-- Home -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>

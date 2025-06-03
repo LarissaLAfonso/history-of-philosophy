@@ -1,38 +1,16 @@
-# create-svelte
+# Project Description
+In this project, we targeted an audience interested in philosophy. With this focus, we developed a historical webpage that showcases the most prominent philosophers throughout history.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+The page features a central timeline displaying various philosophers arranged chronologically, with the height of each element representing the philosopher’s lifespan. Additionally, the timeline highlights the main branches of philosophy: Ethics, Metaphysics, Logic, Epistemology, Politics, and Aesthetics.
 
-## Creating a project
+When a user hovers over a philosopher, lines appear connecting them to their respective areas of interest. By clicking on a philosopher, the timeline view splits in half, revealing a section with detailed information about the individual: an image, lifespan, philosophical school, fields of study, and a short descriptive text about their contributions.
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Task Distribution
+- **Larissa:** Wrote philosopher metadata and glossary entries / Home Page
+- **Luciano:** Web scraping for philosopher interest data / Deploy Website / Integration of JSON files into the project
+- **Kaiky:** Development of the timeline base code / Home Page / General styling
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+# Estimated Workload
+It is estimated that each team member dedicated approximately 50 hours to the project on average.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Access the page [here](https://fgv-vis-2025.github.io/final-project-history-of-philosophy/).
