@@ -332,3 +332,21 @@ svg#timeline {
         0 0 30px rgba(255, 215, 0, 0.4);
     border-color: rgba(255, 255, 255, 0.6);
 }
+
+.fixed-year {
+  position: fixed;
+  top: calc(50px + 50% - 25px); 
+  left: 30px;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  color: #333;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.viz.split-view .fixed-year  {
+    font-size: 15px;
+    left: 20px;
+}

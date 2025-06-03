@@ -118,6 +118,8 @@
             pos: (delimitations[i] + delimitations[i + 1]) / 2
         }));
 
+        
+
         // Rótulos dos anos
         svg.selectAll('.year-label')
             .data(anos)
@@ -368,6 +370,7 @@
 
         <!-- Timeline Container -->
         <div class="container" id="timeline-container">
+            <div class="fixed-year">YEAR</div>
             <svg id="timeline" class="grafico"></svg>
         </div>
     </div>
