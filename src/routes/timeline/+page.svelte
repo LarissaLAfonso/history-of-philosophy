@@ -40,14 +40,16 @@
 
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
-
+        d3.selectAll(`.category-connection.${selectedFilosofo?.nome.replace(/\s+/g, '-')}`)
+            .style('opacity', 0);
         if (isSplitView && selectedFilosofo === filosofo) {
             closeDetailView();
         } else {
             selectedFilosofo = filosofo;
             isSplitView = true;
             selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
-            console.log(selectedFilosofoInfo);
+            d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-')}`)
+            .style('opacity', 0.6);
         }
     }
 
@@ -147,10 +149,8 @@
         let xPosFilos = [];
         filosofos.forEach(filosofo => {
             const alive = getAlivePhilosophersIdx(filosofosProcessados, filosofo.nascimento);
-            console.log(alive);
             // const alivePositions = alive.map(index => xPosFilos[index]).sort((a, b) => a - b);
             const alivePositions = xPosFilos.filter((_, index) => alive.includes(index)).sort((a, b) => a - b);
-            console.log(alivePositions);
             let val = alive.length
             for(let i = 0; i < alivePositions.length; i++){
                 const possiblePosition = getXForPosition(i)
@@ -198,18 +198,28 @@
                         .attr('stroke-width', 1)
                         .attr('stroke-dasharray', '4 2')
                         .style('opacity', 0); 
+
+                    svg.append('line')
+                        .attr('class', `selected-connection ${filosofo.nome.replace(/\s+/g, '-')}`)
+                        .attr('x1', categoria.pos)
+                        .attr('x2', xFilosofo)
+                        .attr('y2', yNascimento)
+                        .attr('stroke', colors.highlight)
+                        .attr('stroke-width', 1)
+                        // .attr('stroke-dasharray', '4 2')
+                        .style('opacity', 0); 
                 }
             });
         });
 
         // Label do filósofo
         filosofos.forEach((filosofo, i) => {
-            const x = xPosFilos[i];
-            const yLabel = y(filosofo.nascimento) - 10;
             const padding = 3;
             const fontSize = 14;
             const nome = filosofo.nome;
             const areaHeight = y(filosofo.morte) - y(filosofo.nascimento) + 40;
+            const x = xPosFilos[i];
+            const yLabel = y(filosofo.nascimento) + padding;
 
             // Área de interação
             svg.append('rect')
@@ -299,6 +309,8 @@
         window.addEventListener('scroll', () => {
             d3.selectAll('.category-connection')
                 .attr('y1', window.scrollY + 50);
+            d3.selectAll('.selected-connection')
+                .attr('y1', window.scrollY + 50);
     });
 
     });
@@ -309,6 +321,8 @@
         // Arruma a posição y das conexões ao scrollar
         const scrollY = window.scrollY;
         d3.selectAll('.category-connection')
+            .attr('y1', scrollY + 50);
+        d3.selectAll('.selected-connection')
             .attr('y1', scrollY + 50);
     });
 
