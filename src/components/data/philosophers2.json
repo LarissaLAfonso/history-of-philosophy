@@ -98,30 +98,33 @@
         "nome": "John Maynard Keynes",
         "nascimento": 1883,
         "morte": 1946,
-        "categorias": []
+        "categorias": [
+            "Politics"
+        ]
     },
     {
         "nome": "David Ricardo",
         "nascimento": 1772,
         "morte": 1823,
-        "categorias": []
+        "categorias": [
+            "Politics"
+        ]
     },
     {
         "nome": "Vladimir Lenin",
         "nascimento": 1870,
         "morte": 1924,
-        "categorias": []
+        "categorias": [
+            "Politics"
+        ]
     },
     {
         "nome": "Karl Marx",
         "nascimento": 1818,
         "morte": 1883,
         "categorias": [
-            "Metaphysics",
             "Ethics",
-            "Logic",
-            "Politics",
-            "Aesthetics"
+            "Politics"
         ]
     },
     {
@@ -141,7 +144,12 @@
         "nome": "Jacques Derrida",
         "nascimento": 1930,
         "morte": 2004,
-        "categorias": []
+        "categorias": [
+            "Epistemology",
+            "Aesthetics",
+            "Ethics",
+            "Politics"
+        ]
     },
     {
         "nome": "Michel Foucault",

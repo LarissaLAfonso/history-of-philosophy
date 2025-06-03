@@ -290,6 +290,8 @@ svg#timeline {
     text-align: justify;
     position: relative;
     padding: 5px;
+    padding: 5px 20px; /* Increased side padding from 5px to 20px on left and right */
+    text-indent: 2em; /* Adds paragraph indentation - typically 2em is standard */
 }
 
 
