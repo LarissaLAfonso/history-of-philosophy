@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>Philosophy Timeline</title>
+</svelte:head>
 <script>
     import { onMount, afterUpdate } from 'svelte';
     import * as d3 from 'd3';
