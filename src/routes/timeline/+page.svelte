@@ -7,8 +7,8 @@
     // import { filosofos } from './infos.js';
     import filosofos from '../../components/data/philosophers2.json';
     import { philosophers } from '../../components/data/philosophers.json';
-    import { getPhilosopherDesc } from './philosophers_manipulation';
-    
+    import { getAlivePhilosophersIdx, getPhilosopherDesc } from './philosophers_manipulation';
+    filosofos.sort((a, b) => a.nascimento - b.nascimento);
     let selectedFilosofo = null;
     let selectedFilosofoInfo = null;
     let isSplitView = false;
@@ -138,10 +138,30 @@
             // .duration(100)
             .style('opacity', 0.4);
 
-        // Posições x de cada filósofo (aleatórias mas consistentes)
-        const xPosFilos = randomValues.map(val =>
-            margin.left + val * (containerWidth - margin.left - margin.right)
-        );
+
+            // Posições x de cada filósofo
+        function getXForPosition(position){
+            return margin.left + position/12 * (containerWidth - margin.left - margin.right)
+        }
+        let filosofosProcessados = []
+        let xPosFilos = [];
+        filosofos.forEach(filosofo => {
+            const alive = getAlivePhilosophersIdx(filosofosProcessados, filosofo.nascimento);
+            console.log(alive);
+            // const alivePositions = alive.map(index => xPosFilos[index]).sort((a, b) => a - b);
+            const alivePositions = xPosFilos.filter((_, index) => alive.includes(index)).sort((a, b) => a - b);
+            console.log(alivePositions);
+            let val = alive.length
+            for(let i = 0; i < alivePositions.length; i++){
+                const possiblePosition = getXForPosition(i)
+                if(possiblePosition < alivePositions[i]){
+                    val = i;
+                    break;
+                }
+            }
+            xPosFilos.push(getXForPosition(val));
+            filosofosProcessados.push(filosofo);
+        });
 
         // Adição do filósofo na timeline
         svg.selectAll('.filosofo-line')
@@ -181,17 +201,58 @@
                         .style('opacity', 0); 
                 }
             });
-});
+        });
 
         // Label do filósofo
         filosofos.forEach((filosofo, i) => {
-            const x = xPosFilos[i];
-            const yLabel = y(filosofo.nascimento) - 10;
             const padding = 3;
             const fontSize = 14;
             const nome = filosofo.nome;
             const areaHeight = y(filosofo.morte) - y(filosofo.nascimento) + 40;
+            const x = xPosFilos[i];
+            const yLabel = y(filosofo.nascimento)+fontSize/2 + padding;
 
+            
+            const text = svg.append('text')
+            .attr('x', x)
+            .attr('y', yLabel)
+            .attr('text-anchor', 'middle')
+            .style('font-family', 'Cinzel, serif')
+            .style('font-size', `${fontSize}px`)
+            .style('fill', colors.text)
+            .text(nome)
+            .style("user-select", "none");
+            
+            // Nome do filósofo
+            const bbox = text.node().getBBox();
+            
+            const labelGroup = svg.append('g')
+            .attr('class', 'filosofo-label')
+            .attr('transform', `translate(${x},${yLabel})`)
+            .style('cursor', 'pointer')
+            .on('click', () => selectFilosofo(filosofo))
+            .attr('class', `filosofo-label ${selectedFilosofo?.nome === filosofo.nome ? 'selected' : ''}`);
+            
+            labelGroup.append('rect')
+            .attr('x', -bbox.width/2 - padding)
+            .attr('y', -bbox.height/2 - padding)
+            .attr('width', bbox.width + padding * 2)
+            .attr('height', bbox.height + padding * 2)
+            .attr('fill', '#fff')
+            .attr('stroke', colors.timeline)
+            .attr('stroke-width', 1.2)
+            .attr('rx', 4)
+            .attr('ry', 4);
+            
+            labelGroup.append('text')
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'middle')
+            .style('font-family', 'Cinzel, serif')
+            .style('font-size', `${fontSize}px`)
+            .style('fill', colors.text)
+            .text(nome);
+
+            // Retângulo de interação
             svg.append('rect')
                 .attr('class', `interaction-area ${filosofo.nome.replace(/\s+/g, '-')}`)
                 .attr('x', xPosFilos[i] - 25) 
@@ -203,50 +264,12 @@
                 .on('mouseover', () => showCategoryConnections(filosofo.nome))
                 .on('mouseout', () => hideCategoryConnections(filosofo.nome))
                 .on('click', () => selectFilosofo(filosofo));
-
-            const text = svg.append('text')
-                .attr('x', x)
-                .attr('y', yLabel)
-                .attr('text-anchor', 'middle')
-                .style('font-family', 'Cinzel, serif')
-                .style('font-size', `${fontSize}px`)
-                .style('fill', colors.text)
-                .text(nome)
-                .style("user-select", "none");
-
-            const bbox = text.node().getBBox();
-
-            const labelGroup = svg.append('g')
-                .attr('class', 'filosofo-label')
-                .attr('transform', `translate(${x},${yLabel})`)
-                .style('cursor', 'pointer')
-                .on('click', () => selectFilosofo(filosofo))
-                .attr('class', `filosofo-label ${selectedFilosofo?.nome === filosofo.nome ? 'selected' : ''}`);
-
-            labelGroup.append('rect')
-                .attr('x', -bbox.width/2 - padding)
-                .attr('y', -bbox.height/2 - padding)
-                .attr('width', bbox.width + padding * 2)
-                .attr('height', bbox.height + padding * 2)
-                .attr('fill', '#fff')
-                .attr('stroke', colors.timeline)
-                .attr('stroke-width', 1.2)
-                .attr('rx', 4)
-                .attr('ry', 4);
-
-            labelGroup.append('text')
-                .attr('text-anchor', 'middle')
-                .attr('dominant-baseline', 'middle')
-                .style('font-family', 'Cinzel, serif')
-                .style('font-size', `${fontSize}px`)
-                .style('fill', colors.text)
-                .text(nome);
         });
-
+        
         // Marcador de morte do filósofo
         let sizeSkull = 20;
         svg.selectAll('.filosofo-end')
-            .data(filosofos)
+        .data(filosofos)
             .enter()
             .append('image')
             .attr('class', 'filosofo-end')

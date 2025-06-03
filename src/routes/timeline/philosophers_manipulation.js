@@ -21,3 +21,14 @@ export function getPhilosopherDesc(philosopherName){
 
     return philosopherInfo;
 }
+
+export function getAlivePhilosophersIdx(philosopherList, year){
+    let aliveIdx = [];
+    for(let i = 0; i < philosopherList.length; i++){
+        let philosopher = philosopherList[i];
+        if(philosopher.nascimento <= year && (philosopher.morte == null || philosopher.morte > year)){
+            aliveIdx.push(i);
+        }
+    }
+    return aliveIdx;
+}
