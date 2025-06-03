@@ -159,11 +159,11 @@
             const alive = getAlivePhilosophersIdx(filosofosProcessados, filosofo.nascimento);
             // const alivePositions = alive.map(index => xPosFilos[index]).sort((a, b) => a - b);
             const alivePositions = xPosFilos.filter((_, index) => alive.includes(index)).sort((a, b) => a - b);
-            let val = alive.length
+            let val = alive.length + 1
             for(let i = 0; i < alivePositions.length; i++){
-                const possiblePosition = getXForPosition(i)
+                const possiblePosition = getXForPosition(i + 1);
                 if(possiblePosition < alivePositions[i]){
-                    val = i;
+                    val = i + 1;
                     break;
                 }
             }
