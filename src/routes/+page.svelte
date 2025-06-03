@@ -400,7 +400,7 @@
     
     <div class="fade-line"></div>
 
-    <button class="btn timeline-btn" onclick="location.href='/timeline'">
+    <button class="btn timeline-btn" onclick="location.href='./timeline'">
         <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
       </button>
   </div>
