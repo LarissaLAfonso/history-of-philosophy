@@ -39,13 +39,15 @@
     const randomValues = Array.from({ length: filosofos.length }, () => randUniform(0.1, 0.9));
 
     function selectFilosofo(filosofo) {
+        /*Função para selecionar filósofo e ativar split view*/
+
         if (isSplitView && selectedFilosofo === filosofo) {
             closeDetailView();
         } else {
             selectedFilosofo = filosofo;
             isSplitView = true;
             selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
-            updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
+            console.log(selectedFilosofoInfo);
         }
     }
 
@@ -159,10 +161,8 @@
         let xPosFilos = [];
         filosofos.forEach(filosofo => {
             const alive = getAlivePhilosophersIdx(filosofosProcessados, filosofo.nascimento);
-            console.log(alive);
             // const alivePositions = alive.map(index => xPosFilos[index]).sort((a, b) => a - b);
             const alivePositions = xPosFilos.filter((_, index) => alive.includes(index)).sort((a, b) => a - b);
-            console.log(alivePositions);
             let val = alive.length
             for(let i = 0; i < alivePositions.length; i++){
                 const possiblePosition = getXForPosition(i)
@@ -209,19 +209,19 @@
                         .attr('stroke', colors.highlight)
                         .attr('stroke-width', 1)
                         .attr('stroke-dasharray', '4 2')
-                        .style('opacity', selectedFilosofo?.nome === filosofo.nome ? 0.6 : 0); 
+                        .style('opacity', 0); 
                 }
             });
         });
 
         // Label do filósofo
         filosofos.forEach((filosofo, i) => {
-            const x = xPosFilos[i];
-            const yLabel = y(filosofo.nascimento) - 10;
             const padding = 3;
             const fontSize = 14;
             const nome = filosofo.nome;
             const areaHeight = y(filosofo.morte) - y(filosofo.nascimento) + 40;
+            const x = xPosFilos[i];
+            const yLabel = y(filosofo.nascimento) + padding;
 
             // Área de interação
             svg.append('rect')
@@ -311,6 +311,8 @@
         window.addEventListener('scroll', () => {
             d3.selectAll('.category-connection')
                 .attr('y1', window.scrollY + 50);
+            d3.selectAll('.selected-connection')
+                .attr('y1', window.scrollY + 50);
     });
 
     });
@@ -321,6 +323,8 @@
         // Arruma a posição y das conexões ao scrollar
         const scrollY = window.scrollY;
         d3.selectAll('.category-connection')
+            .attr('y1', scrollY + 50);
+        d3.selectAll('.selected-connection')
             .attr('y1', scrollY + 50);
     });
 
