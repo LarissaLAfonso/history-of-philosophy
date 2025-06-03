@@ -25,7 +25,7 @@
         timeline: '#6b4f3a',
         accent: '#8c7a6d',
         text: '#3e2d23',
-        highlight: '#c5a173'
+        highlight: '#8C7351'
     };
 
     // Posição das x categorias para serem usadas no template  
@@ -43,7 +43,7 @@
             selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
             updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
             d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-')}`)
-            .style('opacity', 0.6);
+                .style('opacity', 0.6);
         }
     }
 
@@ -203,7 +203,7 @@
                         .attr('x2', xFilosofo)
                         .attr('y2', yNascimento)
                         .attr('stroke', colors.highlight)
-                        .attr('stroke-width', 1)
+                        .attr('stroke-width', 1.3)
                         .attr('stroke-dasharray', '4 2')
                         .style('opacity', selectedFilosofo?.nome === filosofo.nome ? 0.6 : 0); 
 
