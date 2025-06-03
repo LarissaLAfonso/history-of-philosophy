@@ -354,7 +354,7 @@
     <nav>
       <div class="nav-right">
         <ul>
-          <li><a href="/">Contact Us</a></li>
+          <li><a href="https://github.com/FGV-VIS-2025/final-project-history-of-philosophy" target="_blank">Contact Us</a></li>
         </ul>
         <button class="btn">
           <img src="images/home.png" alt="Home Icon" /> Home
