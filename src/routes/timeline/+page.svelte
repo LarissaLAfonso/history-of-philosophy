@@ -39,36 +39,48 @@
     const randomValues = Array.from({ length: filosofos.length }, () => randUniform(0.1, 0.9));
 
     function selectFilosofo(filosofo) {
-        /*Função para selecionar filósofo e ativar split view*/
-
         if (isSplitView && selectedFilosofo === filosofo) {
             closeDetailView();
         } else {
             selectedFilosofo = filosofo;
             isSplitView = true;
             selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
-            console.log(selectedFilosofoInfo);
+            updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
         }
     }
 
     function closeDetailView() {
+        if (selectedFilosofo) {
+            updateCategoryConnections(selectedFilosofo.nome); // Esconde conexões
+        }
         selectedFilosofo = null;
         isSplitView = false;
         selectedFilosofoInfo = null;
     }
 
+
     function handleResize() {
         drawTimeLine();
     }
 
+    function updateCategoryConnections(filosofoNome) {
+        const shouldShow = selectedFilosofo?.nome === filosofoNome;
+        d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+            .style('opacity', shouldShow ? 0.6 : 0);
+    }
+
     function showCategoryConnections(filosofoNome) {
-    d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
-        .style('opacity', 0.6);
-}
+        if (selectedFilosofo?.nome !== filosofoNome) {
+            d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+                .style('opacity', 0.6);
+        }
+    }
 
     function hideCategoryConnections(filosofoNome) {
-        d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
-            .style('opacity', 0);
+        if (selectedFilosofo?.nome !== filosofoNome) {
+            d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+                .style('opacity', 0);
+        }
     }
 
     function drawTimeLine() {
@@ -197,7 +209,7 @@
                         .attr('stroke', colors.highlight)
                         .attr('stroke-width', 1)
                         .attr('stroke-dasharray', '4 2')
-                        .style('opacity', 0); 
+                        .style('opacity', selectedFilosofo?.nome === filosofo.nome ? 0.6 : 0); 
                 }
             });
         });
