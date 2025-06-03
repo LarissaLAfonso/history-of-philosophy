@@ -1,6 +1,11 @@
 <svelte:head>
     <title>Philosophy Timeline</title>
 </svelte:head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
 <script>
     import { onMount, afterUpdate } from 'svelte';
     import * as d3 from 'd3';
@@ -12,12 +17,92 @@
     import { philosophers } from '../../components/data/philosophers.json';
     import { getAlivePhilosophersIdx, getPhilosopherDesc } from './philosophers_manipulation';
     import {base} from '$app/paths';
+    import glossary from '../../components/data/glossary.json';
+
+    // glossary processing function
+    // and exclusion of terms already wrapped in <b> or <em> tags
+    function processTextWithGlossary(text, glossaryData) {
+        if (!text || !glossaryData) return text;
+        
+        let processedText = text;
+        
+        // Sort glossary terms by length (longest first) to avoid partial matches
+        // This is crucial for compound terms like "modal logic" vs "logic"
+        const sortedTerms = Object.keys(glossaryData).sort((a, b) => b.length - a.length);
+        
+        sortedTerms.forEach(term => {
+            // Escape special regex characters
+            const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            
+            // For compound words, we want to match the exact phrase
+            // Use word boundaries for both single and multi-word terms
+            const regex = new RegExp(`\\b${escapedTerm}\\b`, 'gi');
+            
+            // Only replace if not already wrapped in a glossary-term span, <b>, or <em> tags
+            processedText = processedText.replace(regex, (match, offset, string) => {
+                // Check if this match is already inside a glossary-term span
+                const beforeMatch = string.substring(0, offset);
+                const afterMatch = string.substring(offset + match.length);
+                
+                // Count opening and closing spans before this match
+                const openSpans = (beforeMatch.match(/<span[^>]*class="[^"]*glossary-term[^"]*"/g) || []).length;
+                const closeSpans = (beforeMatch.match(/<\/span>/g) || []).length;
+                
+                // If we're inside a span, don't replace
+                if (openSpans > closeSpans) {
+                    return match;
+                }
+                
+                // Check if the term is inside <b> or <em> tags
+                // Look for the closest opening tag before our match
+                const tagsBefore = beforeMatch.match(/<\/?(?:b|em|strong|i)\b[^>]*>/gi) || [];
+                const tagsAfter = afterMatch.match(/<\/?(?:b|em|strong|i)\b[^>]*>/gi) || [];
+                
+                // Track which tags are currently open
+                let openTags = [];
+                tagsBefore.forEach(tag => {
+                    const isClosing = tag.startsWith('</');
+                    const tagName = tag.match(/<\/?(\w+)/)[1].toLowerCase();
+                    
+                    if (isClosing) {
+                        // Remove the tag from openTags if it's being closed
+                        openTags = openTags.filter(t => t !== tagName);
+                    } else {
+                        // Add the tag to openTags if it's being opened
+                        openTags.push(tagName);
+                    }
+                });
+                
+                // Check if we're currently inside b, em, strong, or i tags
+                const isInsideFormattingTag = openTags.some(tag => 
+                    ['b', 'em', 'strong', 'i'].includes(tag)
+                );
+                
+                // If we're inside formatting tags, don't create a glossary tooltip
+                if (isInsideFormattingTag) {
+                    return match;
+                }
+                
+                return `<span class="glossary-term" data-definition="${glossaryData[term].replace(/"/g, '&quot;')}">${match}</span>`;
+            });
+        });
+        
+        return processedText;
+    }
+
 
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
     let selectedFilosofo = null;
     let selectedFilosofoInfo = null;
     let isSplitView = false;    
-    let containerWidth = 0;         
+    let containerWidth = 0;  
+    
+    
+    // tooltip state variables
+    let tooltipVisible = false;
+    let tooltipContent = '';
+    let tooltipX = 0;
+    let tooltipY = 0;
                             
     let initialYear = -600; 
     let finalYear = 2000;   
@@ -35,6 +120,31 @@
 
     // Posição das x categorias para serem usadas no template  
     let categoriaPositions = [];
+
+    // tooltip functions
+    function showTooltip(event) {
+        const target = event.target;
+        if (target.classList.contains('glossary-term')) {
+            tooltipContent = target.dataset.definition;
+            tooltipX = event.clientX + 10;
+            tooltipY = event.clientY + 10;
+            tooltipVisible = true;
+        }
+    }
+
+    function hideTooltip(event) {
+        // Only hide if we're not moving to another glossary term
+        if (!event.relatedTarget || !event.relatedTarget.classList.contains('glossary-term')) {
+            tooltipVisible = false;
+        }
+    }
+
+    function moveTooltip(event) {
+        if (tooltipVisible) {
+            tooltipX = event.clientX + 10;
+            tooltipY = event.clientY + 10;
+        }
+    }
 
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
@@ -59,6 +169,7 @@
         selectedFilosofo = null;
         isSplitView = false;
         selectedFilosofoInfo = null;
+        tooltipVisible = false; // Hide tooltip when closing detail view
     }
 
 
@@ -393,15 +504,23 @@
                 </div>
             </div>
 
-            <div class="paragraphs">
+            <div class="paragraphs" on:mouseover={showTooltip} on:mouseout={hideTooltip} on:mousemove={moveTooltip}>
                 {#if selectedFilosofoInfo.description.length > 0}
                     {#each selectedFilosofoInfo.description as paragraph}
-                        <p>{@html paragraph.value}</p>
+                        <p>{@html processTextWithGlossary(paragraph.value, glossary)}</p>
                     {/each}
                 {:else}
                     <p>No information available.</p>
                 {/if}
             </div>
+        </div>
+    {/if}
+
+    <!-- Glossary tooltip -->
+    {#if tooltipVisible}
+        <div class="glossary-tooltip" 
+             style="left: {tooltipX}px; top: {tooltipY}px;">
+            {tooltipContent}
         </div>
     {/if}
 </div>

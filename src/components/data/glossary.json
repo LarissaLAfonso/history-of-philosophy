@@ -1,96 +1,25 @@
 {
-    "terms" : [
-        {
-            "term": "modal logic",
-            "definition": "Differently from classical logic, modal logic entertains the idea that the truth of a proposition can vary depending on the context or world in which it is evaluated."
-        },
-        {
-            "term": "semantics",
-            "definition": "The study of meaning in language. It examines how words, phrases, and sentences convey meaning."
-        },
-        {
-            "term": "definite description",
-            "definition": "Phrase of the form 'the X', where X is a noun phrase or a singular commun noun. It is <em>proper</em> if it refers to a specific object or individual (like \"the first person in space\"), and <em>improper</em> if it refers to a class of objects or individuals (\"like the French genereal\")."
-        },
-        {
-            "term" : "International Monetary Fund (IMF)",
-            "definition": "An international organization that works to foster global monetary cooperation and financial stability. It provides advice and technical assistance to member countries, and also makes loans to countries facing balance of payments problems"
-        },
-        {
-            "term": "World Bank",
-            "definition": "An international financial institution that provides loans and grants to the governments of low- and middle-income countries for the purposes of economic development."
-        },
-        {
-            "term": "Bolshevik",
-            "definition": "The Bolsheviks, led by Vladimir Lenin, were a radical faction of the Marxist Russian Social Democratic Labour Party (RSDLP). Its ideology, based on Leninist and later Marxist–Leninist principles, became known as Bolshevism."
-        },
-        {
-            "term" : "commodities",
-            "definition": "Basic goods used in commerce that are interchangeable with other goods of the same type. Commodities are often raw materials or primary agricultural products that can be bought and sold, such as gold, oil, or wheat."
-        },
-        {
-            "term" : "surplus value",
-            "definition": "The difference between the value produced by labor and the actual wage paid to labor. It is a key concept in understanding how capitalists profit from the labor of workers."
-        },
-        { 
-            "term" : "commodity fetishism",
-            "definition": "The perception of the economic relationships of production and exchange as relationships among things (money and merchandise) rather than among people."
-        },
-        {
-            "term" : "psychoanalysis",
-            "definition": "A therapeutic approach that aims to explore the unconscious mind and its influence on behavior. It was developed by Sigmund Freud and involves techniques such as free association, dream analysis, and transference."
-        },
-        {
-            "term": "tar-water",
-            "definition": "A medicinal concoction made from pine tar and water formerly regarded as a cure-all."
-        },
-        {
-            "term" : "phenomena and noumena",
-            "definition": "In Kantian philosophy, phenomena are what we experience, while noumena are the underlying reality that is not directly accessible to us."
-        },
-        {
-            "term" : "aesthetics",
-            "definition": "The branch of philosophy concerned with the nature of beauty and taste. It explores how we perceive and appreciate art, nature, and other forms of expression."
-        },
-        {
-            "term" : "metaphysics",
-            "definition": "The branch of philosophy that deals with the first principles of things, including abstract concepts such as being, knowing, substance, cause, identity, time, and space."
-        },
-        {
-            "term" : "epistemology",
-            "definition": "The study of knowledge, its nature, sources, limitations, and validity. It addresses questions about belief, truth, and justification."
-        },
-        {
-            "term" : "ontology",
-            "definition": "A branch of metaphysics that deals with the nature of being and existence. It explores concepts such as objects, properties, space, time, and causality."
-        },
-        {
-            "term" : "ethics",
-            "definition": "The branch of philosophy that deals with moral principles and values. It examines what is right and wrong, good and bad, and how individuals should act in various situations."
-        },
-        {
-            "term" : "hermeneutics",
-            "definition": "The theory and methodology of interpretation, especially the interpretation of biblical texts, wisdom literature, and philosophical texts."  
-        },
-        {
-            "term" : "deconstruction",
-            "definition": "A set of approaches that questions the fundamental conceptual distinctions, or “oppositions,” in Western philosophy through a close examination of the language and logic of philosophical and literary texts."
-        },
-        {
-            "term": "existentialism",
-            "definition": "A family of philosophical movements mainly historically situated against the backdrop of the Second World War, which emphasizes individual existence, freedom, and choice. It explores the meaning of life and the individual's role in a seemingly indifferent or absurd universe."
-        },
-        {
-            "term": "post-structuralism",
-            "definiytion": "A movement in literary criticism and philosophy that held that language is not a transparent medium that connects one directly with a “truth” or “reality” outside it but rather a structure or code, whose parts derive their meaning from their contrast with one another and not from any connection with an outside world."
-        },
-        {
-            "term": "scholasticism",
-            "definition": "A medieval school of philosophy that sought to reconcile faith and reason, often using dialectical reasoning to address theological and philosophical questions. It was characterized by a systematic approach to learning and a focus on the works of Aristotle."
-        },
-        {
-            "term": "archetype",
-            "definition": "The original pattern or model of which all things of the same type are representations or copies. In psychology, it refers to universal symbols or themes that recur across cultures and time periods, often found in myths, dreams, and literature."
-        }
-    ]
+    "modal logics": "Differently from classical logic, modal logic entertains the idea that the truth of a proposition can vary depending on the context or world in which it is evaluated.",
+    "semantics": "The study of meaning in language. It examines how words, phrases, and sentences convey meaning.",
+    "definite description": "Phrase of the form 'the X', where X is a noun phrase or a singular commun noun. It is <em>proper</em> if it refers to a specific object or individual (like \"the first person in space\"), and <em>improper</em> if it refers to a class of objects or individuals (\"like the French genereal\").",
+    "International Monetary Fund (IMF)": "An international organization that works to foster global monetary cooperation and financial stability. It provides advice and technical assistance to member countries, and also makes loans to countries facing balance of payments problems",
+    "World Bank": "An international financial institution that provides loans and grants to the governments of low- and middle-income countries for the purposes of economic development.",
+    "Bolshevik": "The Bolsheviks, led by Vladimir Lenin, were a radical faction of the Marxist Russian Social Democratic Labour Party (RSDLP). Its ideology, based on Leninist and later Marxist–Leninist principles, became known as Bolshevism.",
+    "commodities": "Basic goods used in commerce that are interchangeable with other goods of the same type. Commodities are often raw materials or primary agricultural products that can be bought and sold, such as gold, oil, or wheat.",
+    "surplus value": "The difference between the value produced by labor and the actual wage paid to labor. It is a key concept in understanding how capitalists profit from the labor of workers.",
+    "commodity fetishism": "The perception of the economic relationships of production and exchange as relationships among things (money and merchandise) rather than among people.",
+    "psychoanalysis": "A therapeutic approach that aims to explore the unconscious mind and its influence on behavior. It was developed by Sigmund Freud and involves techniques such as free association, dream analysis, and transference.",
+    "tar-water": "A medicinal concoction made from pine tar and water formerly regarded as a cure-all.",
+    "phenomena and noumena": "In Kantian philosophy, phenomena are what we experience, while noumena are the underlying reality that is not directly accessible to us.",
+    "aesthetics": "The branch of philosophy concerned with the nature of beauty and taste. It explores how we perceive and appreciate art, nature, and other forms of expression.",
+    "metaphysics": "The branch of philosophy that deals with the first principles of things, including abstract concepts such as being, knowing, substance, cause, identity, time, and space.",
+    "epistemology": "The study of knowledge, its nature, sources, limitations, and validity. It addresses questions about belief, truth, and justification.",
+    "ontology": "A branch of metaphysics that deals with the nature of being and existence. It explores concepts such as objects, properties, space, time, and causality.",
+    "ethics": "The branch of philosophy that deals with moral principles and values. It examines what is right and wrong, good and bad, and how individuals should act in various situations.",
+    "hermeneutics": "The theory and methodology of interpretation, especially the interpretation of biblical texts, wisdom literature, and philosophical texts.",
+    "deconstruction": "A set of approaches that questions the fundamental conceptual distinctions, or \"oppositions,\" in Western philosophy through a close examination of the language and logic of philosophical and literary texts.",
+    "existentialism": "A family of philosophical movements mainly historically situated against the backdrop of the Second World War, which emphasizes individual existence, freedom, and choice. It explores the meaning of life and the individual's role in a seemingly indifferent or absurd universe.",
+    "post-structuralism": "A movement in literary criticism and philosophy that held that language is not a transparent medium that connects one directly with a \"truth\" or \"reality\" outside it but rather a structure or code, whose parts derive their meaning from their contrast with one another and not from any connection with an outside world.",
+    "scholasticism": "A medieval school of philosophy that sought to reconcile faith and reason, often using dialectical reasoning to address theological and philosophical questions. It was characterized by a systematic approach to learning and a focus on the works of Aristotle.",
+    "archetype": "The original pattern or model of which all things of the same type are representations or copies. In psychology, it refers to universal symbols or themes that recur across cultures and time periods, often found in myths, dreams, and literature."
 }

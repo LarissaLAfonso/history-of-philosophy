@@ -171,7 +171,7 @@ svg#timeline {
     text-align: center;
     padding: 20px; 
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Overlock', cursive;
     position: fixed;
     top: 0;
     right: 0;
@@ -364,4 +364,59 @@ svg#timeline {
 .viz.split-view .interests-label   {
     font-size: 12px;
     left: 40px;
+}
+
+.glossary-term {
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #ffc395;
+    cursor: help;
+    color: #ffc395;
+    transition: color 0.2s ease;
+    position: relative;
+    font-weight: 700;
+}
+
+
+.glossary-term:hover {
+    color: #c5a173;
+    text-decoration-color: #c5a173;
+}
+
+.glossary-tooltip {
+    position: fixed;
+    background: black;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 320px;
+    z-index: 1000;
+    pointer-events: none;
+    line-height: 1.5;
+    backdrop-filter: blur(4px);
+    font-family: "Overlock", cursive;
+}
+
+.glossary-tooltip::before {
+    content: '';
+    top: -6px;
+    left: 10px;
+    position: absolute;
+    top: 0; 
+    left: 50%;
+    transform: translate(-50%, -100%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+
+/* Responsive tooltip positioning */
+@media (max-width: 768px) {
+    .glossary-tooltip {
+        max-width: 280px;
+        font-size: 13px;
+    }
 }
