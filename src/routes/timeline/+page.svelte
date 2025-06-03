@@ -341,7 +341,7 @@
         <!-- Header -->
         <div class="fixed-header">
             <div class="header-content">
-                <a href=".." class="home-icon">
+                <a href="./.." class="home-icon">
                     <!-- Home -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
