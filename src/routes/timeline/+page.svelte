@@ -11,12 +11,12 @@
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
     let selectedFilosofo = null;
     let selectedFilosofoInfo = null;
-    let isSplitView = false;
-    let containerWidth = 0;
-
-    let initialYear = -600;
-    let finalYear = 2000;
-    let stepYears = 100; 
+    let isSplitView = false;    
+    let containerWidth = 0;         
+                            
+    let initialYear = -600; 
+    let finalYear = 2000;   
+    let stepYears = 100;    
 
     const anos = d3.range(initialYear, finalYear + 1, stepYears);
 
@@ -192,7 +192,6 @@
                     svg.append('line')
                         .attr('class', `category-connection ${filosofo.nome.replace(/\s+/g, '-')}`)
                         .attr('x1', categoria.pos)
-                        // .attr('y1', window.scrollY + 50)
                         .attr('x2', xFilosofo)
                         .attr('y2', yNascimento)
                         .attr('stroke', colors.highlight)
@@ -205,57 +204,17 @@
 
         // Label do filósofo
         filosofos.forEach((filosofo, i) => {
+            const x = xPosFilos[i];
+            const yLabel = y(filosofo.nascimento) - 10;
             const padding = 3;
             const fontSize = 14;
             const nome = filosofo.nome;
             const areaHeight = y(filosofo.morte) - y(filosofo.nascimento) + 40;
-            const x = xPosFilos[i];
-            const yLabel = y(filosofo.nascimento)+fontSize/2 + padding;
 
-            
-            const text = svg.append('text')
-            .attr('x', x)
-            .attr('y', yLabel)
-            .attr('text-anchor', 'middle')
-            .style('font-family', 'Cinzel, serif')
-            .style('font-size', `${fontSize}px`)
-            .style('fill', colors.text)
-            .text(nome)
-            .style("user-select", "none");
-            
-            // Nome do filósofo
-            const bbox = text.node().getBBox();
-            
-            const labelGroup = svg.append('g')
-            .attr('class', 'filosofo-label')
-            .attr('transform', `translate(${x},${yLabel})`)
-            .style('cursor', 'pointer')
-            .on('click', () => selectFilosofo(filosofo))
-            .attr('class', `filosofo-label ${selectedFilosofo?.nome === filosofo.nome ? 'selected' : ''}`);
-            
-            labelGroup.append('rect')
-            .attr('x', -bbox.width/2 - padding)
-            .attr('y', -bbox.height/2 - padding)
-            .attr('width', bbox.width + padding * 2)
-            .attr('height', bbox.height + padding * 2)
-            .attr('fill', '#fff')
-            .attr('stroke', colors.timeline)
-            .attr('stroke-width', 1.2)
-            .attr('rx', 4)
-            .attr('ry', 4);
-            
-            labelGroup.append('text')
-            .attr('text-anchor', 'middle')
-            .attr('dominant-baseline', 'middle')
-            .style('font-family', 'Cinzel, serif')
-            .style('font-size', `${fontSize}px`)
-            .style('fill', colors.text)
-            .text(nome);
-
-            // Retângulo de interação
+            // Área de interação
             svg.append('rect')
                 .attr('class', `interaction-area ${filosofo.nome.replace(/\s+/g, '-')}`)
-                .attr('x', xPosFilos[i] - 25) 
+                .attr('x', x - 25)
                 .attr('y', y(filosofo.nascimento) - 20)
                 .attr('width', 50)
                 .attr('height', areaHeight)
@@ -264,6 +223,55 @@
                 .on('mouseover', () => showCategoryConnections(filosofo.nome))
                 .on('mouseout', () => hideCategoryConnections(filosofo.nome))
                 .on('click', () => selectFilosofo(filosofo));
+
+            // Grupo principal do rótulo
+            const labelGroup = svg.append('g')
+                .attr('class', `filosofo-label ${selectedFilosofo?.nome === filosofo.nome ? 'selected' : ''}`)
+                .attr('transform', `translate(${x},${yLabel})`)
+                .style('cursor', 'pointer')
+                .on('click', () => selectFilosofo(filosofo));
+
+            // Texto temporário para cálculo de dimensões
+            const tempText = labelGroup.append('text')
+                .attr('text-anchor', 'middle')
+                .attr('dominant-baseline', 'middle')
+                .style('font-family', 'Cinzel, serif')
+                .style('font-size', `${fontSize}px`)
+                .style('fill', 'transparent') // Invisível
+                .text(nome);
+
+            const bbox = tempText.node().getBBox();
+            tempText.remove();
+
+            const algumSelecionado = !!selectedFilosofo;
+            const isSelected = selectedFilosofo?.nome === filosofo.nome;
+
+            // Fatores de escala
+            const shrinkFactor = 0.6;
+            const widthFactor = !algumSelecionado || isSelected ? 1 : 0.65;
+            const fontScale = !algumSelecionado || isSelected ? 1 : shrinkFactor;
+            const paddingFactor = !algumSelecionado || isSelected ? 1 : shrinkFactor;
+
+            // Retângulo de fundo
+            labelGroup.append('rect')
+                .attr('x', -bbox.width * widthFactor / 2 - padding * paddingFactor)
+                .attr('y', -bbox.height / 2 - padding * paddingFactor)
+                .attr('width', bbox.width * widthFactor + padding * 2 * paddingFactor)
+                .attr('height', bbox.height + padding * 2 * paddingFactor)
+                .attr('fill', '#fff')
+                .attr('stroke', isSelected ? colors.highlight : colors.timeline)
+                .attr('stroke-width', isSelected ? 2.5 : 1.2)
+                .attr('rx', 6)
+                .attr('ry', 6);
+
+            // Texto visível
+            labelGroup.append('text')
+                .attr('text-anchor', 'middle')
+                .attr('dominant-baseline', 'middle')
+                .style('font-family', 'Cinzel, serif')
+                .style('font-size', `${fontSize * fontScale}px`)
+                .style('fill', colors.text)
+                .text(nome);
         });
         
         // Marcador de morte do filósofo
