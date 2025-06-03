@@ -360,6 +360,7 @@
 
         <!-- Categorias -->
         <div class="fixed-categories">
+            <div class="interests-label">Interests:</div>
             {#each categoriaPositions as cat}
                 <div class="category-label" style="left: {cat.pos}px">
                     {cat.nome}

@@ -350,3 +350,18 @@ svg#timeline {
     font-size: 15px;
     left: 20px;
 }
+
+.interests-label {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    transform: translate(-50%, -50%);
+    font-family: "Cinzel", serif;
+    font-size: 18px;
+    color: #e5bd1f;
+}
+
+.viz.split-view .interests-label   {
+    font-size: 13px;
+    left: 60px;
+}
