@@ -33,7 +33,7 @@
     min-height: 100vh;
     background: 
       linear-gradient(rgba(45,26,15,0.75), rgba(122,74,40,0.75)),
-      url(../images/background.avif) center/cover no-repeat fixed;
+      url(images/background.avif) center/cover no-repeat fixed;
     padding: 2rem 5%;
     display: flex;
     flex-direction: column;
@@ -355,7 +355,7 @@
           <li><a href="/">Contact Us</a></li>
         </ul>
         <button class="btn">
-          <img src="/images/home.png" alt="Home Icon" /> Home
+          <img src="images/home.png" alt="Home Icon" /> Home
         </button>
       </div>
     </nav>
@@ -401,7 +401,7 @@
     <div class="fade-line"></div>
 
     <button class="btn timeline-btn" onclick="location.href='/timeline'">
-        <img src="/images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
+        <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
       </button>
   </div>
 
