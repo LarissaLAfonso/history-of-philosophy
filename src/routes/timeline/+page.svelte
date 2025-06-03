@@ -31,13 +31,6 @@
     // Posição das x categorias para serem usadas no template  
     let categoriaPositions = [];
 
-    function randUniform(a, b) {
-        return a + Math.random() * (b - a);
-    }
-
-    // Posições dos elementos dos objetos filósofos na timeline
-    const randomValues = Array.from({ length: filosofos.length }, () => randUniform(0.1, 0.9));
-
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
         d3.selectAll(`.category-connection.${selectedFilosofo?.nome.replace(/\s+/g, '-')}`)
