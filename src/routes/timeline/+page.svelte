@@ -40,14 +40,17 @@
 
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
-
+        d3.selectAll(`.category-connection.${selectedFilosofo?.nome.replace(/\s+/g, '-')}`)
+            .style('opacity', 0);
         if (isSplitView && selectedFilosofo === filosofo) {
             closeDetailView();
         } else {
             selectedFilosofo = filosofo;
             isSplitView = true;
             selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
-            console.log(selectedFilosofoInfo);
+            updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
+            d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-')}`)
+            .style('opacity', 0.6);
         }
     }
 
@@ -209,6 +212,16 @@
                         .attr('stroke', colors.highlight)
                         .attr('stroke-width', 1)
                         .attr('stroke-dasharray', '4 2')
+                        .style('opacity', selectedFilosofo?.nome === filosofo.nome ? 0.6 : 0); 
+
+                    svg.append('line')
+                        .attr('class', `selected-connection ${filosofo.nome.replace(/\s+/g, '-')}`)
+                        .attr('x1', categoria.pos)
+                        .attr('x2', xFilosofo)
+                        .attr('y2', yNascimento)
+                        .attr('stroke', colors.highlight)
+                        .attr('stroke-width', 1)
+                        // .attr('stroke-dasharray', '4 2')
                         .style('opacity', 0); 
                 }
             });
