@@ -1,16 +1,13 @@
-import { assets } from '$app/paths';
 import adapter from '@sveltejs/adapter-static';
-const dev = process.env.NODE_ENV === 'development';
 
-export default {
-  kit: {
-    adapter: adapter({
-      // this tells SvelteKit to emit a single-page "index.html" fallback
-      fallback: 'index.html'
-    }),
-    paths: {
-      base: dev ? '' : '/final-project-history-of-philosophy',
-      assets: dev ? '' : '/final-project-history-of-philosophy'
-    }
-  }
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	kit: {
+		adapter: adapter({ fallback: '404.html' }),
+		paths: {
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH,
+		},
+	},
 };
+
+export default config;
