@@ -1,3 +1,4 @@
+import { assets } from '$app/paths';
 import adapter from '@sveltejs/adapter-static';
 const dev = process.env.NODE_ENV === 'development';
 
@@ -8,7 +9,8 @@ export default {
       fallback: 'index.html'
     }),
     paths: {
-      base: dev ? '' : '/final-project-history-of-philosophy'
+      base: dev ? '' : '/final-project-history-of-philosophy',
+      assets: dev ? '' : '/final-project-history-of-philosophy'
     }
   }
 };
