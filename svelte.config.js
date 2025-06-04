@@ -5,8 +5,8 @@ export default {
   kit: {
     adapter: adapter(),
     paths: {
-      base:  dev ? '' : '/REPO-NAME',
-      assets: dev ? '' : '/REPO-NAME'
+      base:  dev ? '' : '/final-project-history-of-philosophy',
+      assets: dev ? '' : '/final-project-history-of-philosophy'
     }
   }
 };
