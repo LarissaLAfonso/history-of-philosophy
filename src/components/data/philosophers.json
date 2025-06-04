@@ -326,7 +326,7 @@
                     "value": "Aristotle's <em>Metaphysics</em> explores the nature of being and reality. He introduces the concept of substance (<em>ousia</em>) as a combination of matter (<em>hyle</em>) and form (<em>morphe</em>). Aristotle also outlines the Four Causes — material, formal, efficient, and final — as explanations for why things exist or change. This framework was central to his metaphysical inquiries."},
                     {
                     "type": "text",
-                    "value": "In <em>ethics</em>, Aristotle's <em>Nicomachean Ethics</em> outlines his virtue ethics framework, emphasizing the development of moral character and the pursuit of eudaimonia, often translated as 'flourishing' or 'happiness'. He argues that virtues are habits cultivated through practice and that the 'Golden Mean' — the desirable middle between two extremes — guides moral behavior."
+                    "value": "In <b>ethics</b>, Aristotle's <em>Nicomachean Ethics</em> outlines his virtue ethics framework, emphasizing the development of moral character and the pursuit of eudaimonia. He argues that virtues are habits cultivated through practice and that the 'Golden Mean' — the desirable middle between two extremes — guides moral behavior."
                     },
                     {
                     "type": "text",
@@ -334,7 +334,7 @@
                     },
                     {
                     "type": "text",
-                    "value": "Beyond philosophy, Aristotle made significant contributions to <em>biology</em> through systematic observation and classification of living organisms. He distinguished about 500 animal species, arranging them in a hierarchical structure based on characteristics such as blood presence and reproductive methods. His empirical approach laid the groundwork for future scientific inquiry." }
+                    "value": "Beyond philosophy, Aristotle made significant contributions to <b>biology</b> through systematic observation and classification of living organisms. He distinguished about 500 animal species, arranging them in a hierarchical structure based on characteristics such as blood presence and reproductive methods. His empirical approach laid the groundwork for future scientific inquiry." }
                 ]
                 }
             ]
