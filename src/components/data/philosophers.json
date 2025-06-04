@@ -316,11 +316,11 @@
                 "value": [
                     {
                     "type": "text",
-                    "value": "<b>Aristotle</b> was a towering figure in ancient Greek philosophy, whose works laid the foundation for much of Western thought. A student of Plato and tutor to Alexander the Great, Aristotle's writings encompass a vast array of subjects, including logic, metaphysics, ethics, politics, biology, and more."
+                    "value": "<b>Aristotle</b> was a towering figure in ancient Greek philosophy, whose works laid the foundation for much of Western thought. A student of Plato and tutor to Alexander the Great, Aristotle's writings encompass a vast array of subjects, including logic, metaphysics, ethics, politics, biology, and more. As the founder of the Peripatetic school of philosophy in the Lyceum in Athens, he began the wider Aristotelian tradition that followed, which set the groundwork for the development of modern science."
                     },
                     {
                     "type": "text",
-                    "value": "His contributions to logic are encapsulated in the Organon, a collection of six works: <em>Categories</em>, <em>On Interpretation</em>, <em>Prior Analytics</em>, <em>Posterior Analytics</em>, <em>Topics</em>, and <em>On Sophistical Refutations</em>. In <em>Prior Analytics</em>, he introduced the <b>syllogism</b>, a form of deductive reasoning consisting of a major premise, a minor premise, and a conclusion. This logical structure became the basis for much of Western logical thought." },
+                    "value": "His contributions to logic and dialectic are encapsulated in the Organon, a collection of six works: <em>Categories</em>, <em>On Interpretation</em>, <em>Prior Analytics</em>, <em>Posterior Analytics</em>, <em>Topics</em>, and <em>On Sophistical Refutations</em>. In <em>Prior Analytics</em>, he introduced the <b>syllogism</b>, a form of deductive reasoning consisting of a major premise, a minor premise, and a conclusion. A well known example is the following: <em>All men are mortal. Socrates is a man. Therefore, Socrates is mortal.</em>." },
                     {
                     "type": "text",
                     "value": "Aristotle's <em>Metaphysics</em> explores the nature of being and reality. He introduces the concept of substance (<em>ousia</em>) as a combination of matter (<em>hyle</em>) and form (<em>morphe</em>). Aristotle also outlines the Four Causes — material, formal, efficient, and final — as explanations for why things exist or change. This framework was central to his metaphysical inquiries."},
@@ -330,11 +330,16 @@
                     },
                     {
                     "type": "text",
-                    "value": "Aristotle's <em>political philosophy</em>, articulated in his work <em>Politics</em>, examines various forms of government and advocates for a constitutional government that promotes the common good. He views the <em>polis</em>, or city-state, as the highest form of community, enabling citizens to achieve a virtuous and fulfilling life."
+                    "value": "Aristotle's <b>political philosophy</b>, articulated in his work <em>Politics</em>, examines various forms of government and advocates for a constitutional government that promotes the common good. He views the <em>polis</em>, or city-state, as the highest form of community, enabling citizens to achieve a virtuous and fulfilling life."
                     },
                     {
                     "type": "text",
-                    "value": "Beyond philosophy, Aristotle made significant contributions to <b>biology</b> through systematic observation and classification of living organisms. He distinguished about 500 animal species, arranging them in a hierarchical structure based on characteristics such as blood presence and reproductive methods. His empirical approach laid the groundwork for future scientific inquiry." }
+                    "value": "Beyond philosophy, Aristotle made significant contributions to <b>biology</b> through systematic observation and classification of living organisms. He distinguished about 500 animal species, arranging them in a hierarchical structure based on characteristics such as blood presence and reproductive methods. His empirical approach laid the groundwork for future scientific inquiry." 
+                    },
+                    {
+                        "type": "text",
+                        "value": "More than 2300 years after his death, Aristotle remains one of the most influential people who ever lived. After a hiatus of several centuries, in which the predominating philosophical traditions were Platonic and Neoplatonic, Aristotle's works were rediscovered during the Islamic Golden Age, and later translated into Latin in the 12th century. After the scholastic Thomas Aquinas wrote his Summa Theologica, working from Moerbeke's translations and calling Aristotle \"the Philosopher\", the demand for Aristotle's writings grew, and the Greek manuscripts returned to the West, stimulating a revival of Aristotelianism in Europe that continued into the Renaissance. His works were further studied and debated by philosophers such as Descartes, Spinoza, Leibniz, and Kant, and his influence can still be seen in contemporary debates regarding metaphysics, ethics, logic and political theory."
+                    }
                 ]
                 }
             ]
@@ -533,7 +538,7 @@
                     },
                     {
                     "type": "text",
-                    "value": "In his 1917 work <em>The State and Revolution</em>, Lenin analyzed the role of the state in class society, asserting that the state is an instrument of class oppression. He advocated for the 'dictatorship of the proletariat' as a transitional phase between capitalism and communism, during which the working class would suppress the bourgeoisie and dismantle the existing state apparatus, eventually leading to a stateless, classless society."
+                    "value": "In his 1917 work <em>The State and Revolution</em>, Lenin analyzed the role of the state in class society, asserting that the state is an instrument of class oppression. He advocated for the <b>dictatorship of the proletariat</b> as a transitional phase between capitalism and communism, during which the working class would suppress the bourgeoisie and dismantle the existing state apparatus, eventually leading to a stateless, classless society."
                     },
                     {
                     "type": "text",
@@ -765,7 +770,7 @@
                     },
                     {
                     "type": "text",
-                    "value": "Foucault's later lectures at the Collège de France introduce the concepts of 'biopower' and 'governmentality.' 'Biopower' refers to the strategies and mechanisms through which human life processes are managed under regimes of authority, while 'governmentality' encompasses the art of governing beyond traditional state politics, including the self-regulation of individuals within society."
+                    "value": "Foucault's later lectures at the Collège de France introduce the concepts of <b>biopower</b> and <b>governmentality</b>. Biopower refers to the strategies and mechanisms through which human life processes are managed under regimes of authority, while governmentality encompasses the art of governing beyond traditional state politics, including the self-regulation of individuals within society."
                     },
                     {
                     "type": "text",
@@ -1077,7 +1082,7 @@
                     },
                     {
                     "type": "text",
-                    "value": "In his seminal work, <em>Critique of Pure Reason</em> (1781), Kant introduced the concept of <b>transcendental idealism</b>, arguing that our experience of reality is shaped by the mind's innate structures. He posited that while we can know phenomena (things as they appear), the noumena (things-in-themselves) remain inaccessible to human cognition."
+                    "value": "In his seminal work, <em>Critique of Pure Reason</em> (1781), Kant introduced the concept of <b>transcendental idealism</b>, arguing that our experience of reality is shaped by the mind's innate structures. He posited that while we can know <b>phenomena</b> (things as they appear), the <b>noumena</b> (things-in-themselves) remain inaccessible to human cognition."
                     },
                     {
                     "type": "text",
@@ -1273,7 +1278,7 @@
             "value": [
             {
             "type": "text",
-            "value": "<b>Plato</b> was an ancient Greek philosopher who laid the foundational stones of Western philosophy. A student of Socrates and teacher of Aristotle, he founded the Academy in Athens, one of the earliest institutions of higher learning in the Western world."
+            "value": "<b>Plato</b> was an ancient Greek philosopher who laid the foundational stones of Western philosophy. A student of Socrates, he found the Academy in Athens, considered the first institution of higher education in the Western world, where diverse subjects such as biology, astronomy, mathematics and history where taught and investigated. Aristotle studied there for twenty years before founding his own school, the Lyceum."
             },
             {
             "type": "text",
@@ -1289,11 +1294,7 @@
             },
             {
             "type": "text",
-            "value": "The Academy, which Plato established, became a center for philosophical discourse and education. It attracted students from across the Greek world, including Aristotle. The institution emphasized mathematics, dialectics, and the pursuit of philosophical truth."
-            },
-            {
-            "type": "text",
-            "value": "Plato's influence extends beyond philosophy into fields like political theory, education, and literature. His ideas have been interpreted and reinterpreted over the centuries, shaping various intellectual traditions and debates."
+            "value": "Plato's influence extends beyond philosophy into fields like political theory, education, and literature. His ideas were revived during the Islamic Golden Age particularly by figures such as Plotinus, Al-Farabi and Avicenna, in the context of thinking of the tangible reality as an emanation of the same divine source. Many of these commentaries on Plato were translated from Arabic into Latin, in which form they influenced medieval scholastics. Plato's thought is often compared with that of his most famous student, Aristotle, whose reputation during the Western Middle Ages so completely eclipsed that of Plato that the Scholastic philosophers referred to Aristotle as \"the Philosopher\". Later, during the Renaissance, Plato's philosophy was seen by many of the greatest modern scientists as the basis for progress in the arts and sciences."
             }
             ]
             }
@@ -1393,7 +1394,7 @@
             },
             {
             "type": "text",
-            "value": "Leibniz's <em>Theodicy</em> (1710) addresses the problem of evil, arguing that our world is 'the best of all possible worlds' that God could have created. He posits that apparent imperfections serve a greater purpose within the divine plan, a perspective that was later satirized by Voltaire in <em>Candide</em>."
+            "value": "Leibniz's <em>Theodicy</em> (1710) addresses the problem of evil, arguing that our world is 'the best of all possible worlds' that God could have created. He posits that apparent imperfections serve a greater purpose within the divine plan, a perspective that was later satirized by Voltaire in his comic novella <em>Candide</em> by having the character Dr. Pangloss (a parody of Leibniz and Maupertuis) repeat it like a mantra when great catastrophes keep happening to him and the titular protagonist."
             },
             {
             "type": "text",
