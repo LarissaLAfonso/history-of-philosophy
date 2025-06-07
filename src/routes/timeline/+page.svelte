@@ -118,6 +118,16 @@
         highlight: '#8C7351'
     };
 
+    // Background Elements
+    const eras = [
+        { name: 'Antiga', start: -600, end: 500 },
+        { name: 'Medieval', start: 500, end: 1500 },
+        { name: 'Renascentista', start: 1500, end: 1600 },
+        { name: 'Moderna', start: 1600, end: 1800 },
+        { name: 'Contemporânea', start: 1800, end: 2000 }
+    ];
+    const colorsBackground = ['#ffcccc', '#ccffcc', '#ccccff', '#ffffcc', '#ffccff'];
+
     // Posição das x categorias para serem usadas no template  
     let categoriaPositions = [];
 
@@ -268,24 +278,50 @@
     }
 
     function drawTimeLine() {
-
         const svg = d3.select('#timeline');
         svg.selectAll("*").remove();
-
+        
         const timelineContainer = document.getElementById('timeline-container');
         if (!timelineContainer) return;
-        
+
         containerWidth = timelineContainer.clientWidth;
         const height = 6000;
         const margin = { top: 80, right: containerWidth / 12, bottom: 80, left: containerWidth / 12 };
-        
-        svg.attr('width', containerWidth)
-            .attr('height', height)
-            .style('background', colors.background);
 
         const y = d3.scaleLinear()
             .domain([initialYear, finalYear])
             .range([margin.top, height - margin.bottom]);
+
+        const linearGradient = svg.append('linearGradient')
+            .attr('id', 'bg-gradient')
+            .attr('x1', '0%')
+            .attr('y1', '0%')
+            .attr('x2', '0%')  
+            .attr('y2', '100%');
+
+        // For each era, add two stops to the gradient
+        eras.forEach((era, i) => {
+            const startOffset = y(era.start) / height;
+            const endOffset = y(era.end) / height;
+
+            const color = colorsBackground[i % colorsBackground.length];
+
+            linearGradient.append('stop')
+                .attr('offset', startOffset)
+                .attr('stop-color', color);
+
+            linearGradient.append('stop')
+                .attr('offset', endOffset)
+                .attr('stop-color', color);
+        });
+
+        // Background
+        svg.append('rect')
+            .attr('x', 0)
+            .attr('y', 0)
+            .attr('width', containerWidth)
+            .attr('height', height)
+            .attr('fill', 'url(#bg-gradient)');
 
         // Largura de cada coluna com base no número de categorias
         const columnWidth = (containerWidth - margin.left - margin.right) / categorias.length;
@@ -299,8 +335,6 @@
             pos: (delimitations[i] + delimitations[i + 1]) / 2
         }));
 
-        
-
         // Rótulos dos anos
         svg.selectAll('.year-label')
             .data(anos)
@@ -312,9 +346,6 @@
             .attr('dy', '0.35em')
             .attr('text-anchor', 'end')
             .style('opacity', 0)
-            // .transition()
-            // .delay((d, i) => i * 50)
-            // .duration(500)
             .style('opacity', 1)
             .text(d => d);
 
@@ -330,14 +361,9 @@
             .attr('y2', d => y(d))
             .attr('stroke', colors.accent)
             .attr('stroke-width', 0.5)
-            // .style('opacity', 0)
-            // .transition()
-            // .delay((d, i) => i * 50)
-            // .duration(100)
             .style('opacity', 0.4);
 
-
-            // Posições x de cada filósofo
+        // Posições x de cada filósofo
         function getXForPosition(position){
             return margin.left + position/12 * (containerWidth - margin.left - margin.right)
         }
@@ -402,7 +428,6 @@
                         .attr('y2', yNascimento)
                         .attr('stroke', colors.highlight)
                         .attr('stroke-width', 1)
-                        // .attr('stroke-dasharray', '4 2')
                         .style('opacity', 0); 
                 }
             });
@@ -494,8 +519,7 @@
             .attr('href', d => 'images/skull_icon.png')
             .style('cursor', 'pointer')
             .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
-        
+            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`); 
     }
 
     onMount(() => {
@@ -508,7 +532,6 @@
             d3.selectAll('.selected-connection')
                 .attr('y1', window.scrollY + 50);
     });
-
     });
 
     afterUpdate(() => {
