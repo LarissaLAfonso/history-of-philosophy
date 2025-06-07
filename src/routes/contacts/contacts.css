@@ -3,12 +3,13 @@
     font-family: 'Overlock', cursive;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, #5c4c03, #1a1a2e);
+    background: linear-gradient(180deg, #1a1a2e, #bfa74a);
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.1) inset;
     overflow-y: auto;
 }
 
 .fixed-header {
+    background: linear-gradient(180deg, #7b6500, #5c4c03);
     position: relative;
     display: flex;
     justify-content: center; 
@@ -26,7 +27,7 @@
 }
 .home-icon {
     position: absolute;
-    left: 16px;
+    left: 30px;
     background: radial-gradient(circle at center, #b19b53, #7b6038);
     border-radius: 50%;
     padding: 10px;
@@ -42,7 +43,7 @@
 }
 
 .home-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     background: radial-gradient(circle at center, #f1c40f, #a67c00);
     color: #000;
     box-shadow: 
