@@ -410,6 +410,10 @@
     <button class="btn timeline-btn" onclick="location.href='./timeline'">
         <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
       </button>
+
+    <button class="btn timeline-btn" onclick="location.href='./tutorial'">
+      <img src="images/timeline_icon.png" alt="Timeline Icon" /> Tutorial
+    </button>
   </div>
 
 </body>
