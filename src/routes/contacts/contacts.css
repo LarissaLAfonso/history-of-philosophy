@@ -8,16 +8,52 @@
     overflow-y: auto;
 }
 
-.Title h1 {
-    font-size: 3rem;
-    color: #d3ac0f;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+.fixed-header {
+    position: relative;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px 0;
     border-bottom: 3px solid #b2972c;
-    padding-bottom: 10px;
 }
 
+.title h1 {
+    font-size: 3rem;
+    color: #d3ac0f;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    padding-bottom: 10px;
+}
+.home-icon {
+    position: absolute;
+    left: 16px;
+    background: radial-gradient(circle at center, #b19b53, #7b6038);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 
+        0 0 8px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(212, 175, 55, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dfdddd;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.home-icon:hover {
+    transform: scale(1.1);
+    background: radial-gradient(circle at center, #f1c40f, #a67c00);
+    color: #000;
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+
 .paragraph p {
+    padding-top: 20px;
     color: #e9e7de;
     line-height: 1.8;
     font-size: 1.2rem;
