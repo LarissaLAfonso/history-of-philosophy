@@ -1,0 +1,152 @@
+<div class="page">
+    <div class="Title">
+        <h1>Who are we?</h1>
+    </div>
+
+    <div class="paragraph">
+        <p>Hello! It is a pleasure to know you! We are Data Science students, and this is a project based on the Visualization Subject! 
+            Scroll down to learn more about us!
+        </p>
+    </div>
+
+    <div class="people">
+        <div class="person-card">
+            <h2>Larissa Afonso</h2>
+            <div class="sub-infos">
+                <img src="image" alt="Larissa Afonso">
+                <div>
+                    <p><strong>Age:</strong> 19 years</p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/LarissaLAfonso">link</a></p>
+                    <p><strong>Linkedin:</strong> <a href="#">link</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="person-card">
+            <h2>Luciano Sampaio</h2>
+            <div class="sub-infos">
+                <img src="image" alt="Luciano Sampaio">
+                <div>
+                    <p><strong>Age:</strong> 19 years</p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/LuuSamp">link</a></p>
+                    <p><strong>Linkedin:</strong> <a href="#">link</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="person-card">
+            <h2>Kaiky Braga</h2>
+            <div class="sub-infos">
+                <img src="image" alt="Kaiky Braga">
+                <div>
+                    <p><strong>Age:</strong> 19 years</p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/KaikyBraga">link</a></p>
+                    <p><strong>Linkedin:</strong> <a href="https://www.linkedin.com/in/kaiky-braga-8a84962aa/">link</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page {
+        text-align: center;
+        font-family: 'Overlock', cursive;
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #5c4c03, #1a1a2e);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.1) inset;
+        overflow-y: auto;
+    }
+
+    .Title h1 {
+        font-size: 3rem;
+        color: #d3ac0f;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        border-bottom: 3px solid #b2972c;
+        padding-bottom: 10px;
+    }
+
+    .paragraph p {
+        color: #e9e7de;
+        line-height: 1.8;
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0 auto 40px;
+        max-width: 800px;
+    }
+
+    .people {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+        padding: 20px;
+    }
+
+    .person-card h2 {
+        color: #f6d14b;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .sub-infos {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .sub-infos:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-3px);
+    }
+
+    .sub-infos img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #b2972c;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .sub-infos img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .sub-infos p {
+        color: #e9e7de;
+        font-size: 1rem;
+        margin: 8px 0;
+        background: rgba(52, 152, 219, 0.15);
+        padding: 8px 12px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+    }
+
+    .sub-infos p:hover {
+        background: rgba(52, 152, 219, 0.25);
+        transform: translateX(5px);
+    }
+
+    .sub-infos strong {
+        color: #cba81c;
+        margin-right: 8px;
+    }
+
+    .sub-infos a {
+        color: #7ed6df;
+        text-decoration: none;
+    }
+
+    .sub-infos a:hover {
+        text-decoration: underline;
+    }
+</style>
