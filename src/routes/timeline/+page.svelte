@@ -118,15 +118,15 @@
         highlight: '#8C7351'
     };
 
-    // Background Elements
+    // Background Elements of each Philosophical Era
     const eras = [
-        { name: 'Antiga', start: -600, end: 500 },
-        { name: 'Medieval', start: 500, end: 1500 },
-        { name: 'Renascentista', start: 1500, end: 1600 },
-        { name: 'Moderna', start: 1600, end: 1800 },
-        { name: 'Contemporânea', start: 1800, end: 2000 }
+        { name: 'Ancient', start: -600, end: 500, color: '#ffcccc' },
+        { name: 'Medieval', start: 500, end: 1500, color: '#ccffcc' },
+        { name: 'Renaissance', start: 1500, end: 1600, color: '#ccccff' },
+        { name: 'Modern', start: 1600, end: 1800, color: '#ffffcc' },
+        { name: 'Contemporary', start: 1800, end: 2100, color: '#ffccff' }
     ];
-    const colorsBackground = ['#ffcccc', '#ccffcc', '#ccccff', '#ffffcc', '#ffccff'];
+
 
     // Posição das x categorias para serem usadas no template  
     let categoriaPositions = [];
@@ -292,28 +292,53 @@
             .domain([initialYear, finalYear])
             .range([margin.top, height - margin.bottom]);
 
-        const linearGradient = svg.append('linearGradient')
+            const linearGradient = svg.append('linearGradient')
             .attr('id', 'bg-gradient')
             .attr('x1', '0%')
             .attr('y1', '0%')
             .attr('x2', '0%')  
             .attr('y2', '100%');
 
-        // For each era, add two stops to the gradient
+        // Transition width in years
+        const transitionWidth = 70;  
+        
+        // First stop at the top
+        linearGradient.append('stop')
+            .attr('offset', 0)
+            .attr('stop-color', eras[0].color);
+
         eras.forEach((era, i) => {
-            const startOffset = y(era.start) / height;
-            const endOffset = y(era.end) / height;
+            const currentColor = era.color;
+            const nextColor = eras[(i + 1) % eras.length].color;
 
-            const color = colorsBackground[i % colorsBackground.length];
+            const eraStart = y(era.start) / height;
+            const eraEnd = y(era.end) / height;
+            const transitionStart = y(era.end - transitionWidth) / height;
+            const transitionEnd = eraEnd;
+
+            // Stops for the current era
+            linearGradient.append('stop')
+                .attr('offset', eraStart)
+                .attr('stop-color', currentColor);
 
             linearGradient.append('stop')
-                .attr('offset', startOffset)
-                .attr('stop-color', color);
+                .attr('offset', transitionStart)
+                .attr('stop-color', currentColor);
+
+            // Stops for the transition gradient
+            linearGradient.append('stop')
+                .attr('offset', transitionStart)
+                .attr('stop-color', currentColor);
 
             linearGradient.append('stop')
-                .attr('offset', endOffset)
-                .attr('stop-color', color);
+                .attr('offset', transitionEnd)
+                .attr('stop-color', nextColor);
         });
+
+        // Last stop at the end
+        linearGradient.append('stop')
+            .attr('offset', 1)
+            .attr('stop-color', eras[eras.length - 1].color);
 
         // Background
         svg.append('rect')
