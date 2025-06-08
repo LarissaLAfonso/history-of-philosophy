@@ -28,5 +28,73 @@
     {"nome": "René Descartes", "nascimento": 1596, "morte": 1650, "categorias": ["Epistemology", "Metaphysics", "Ethics"]},
     {"nome": "Gottfried Wilhelm Leibniz", "nascimento": 1646, "morte": 1716, "categorias": ["Logic", "Epistemology", "Metaphysics"]},
     {"nome": "Nicolas Malebranche", "nascimento": 1638, "morte": 1715, "categorias": ["Metaphysics"]},
-    {"nome": "Baruch Spinoza", "nascimento": 1632, "morte": 1677, "categorias": ["Metaphysics", "Ethics"]}
+    {"nome": "Baruch Spinoza", "nascimento": 1632, "morte": 1677, "categorias": ["Metaphysics", "Ethics"]},
+    {"nome": "Diogenes", "nascimento": -412, "morte": -323, "categorias": ["Ethics", "Politics"]},
+    {"nome": "Chrysippus", "nascimento": -279, "morte": -206, "categorias": ["Ethics"]},
+    {"nome": "Plotinus", "nascimento": 204, "morte": 270, "categorias": ["Metaphysics", "Ethics"]},
+    {"nome": "Anaxagoras", "nascimento": -500, "morte": -428, "categorias": ["Metaphysics"]},
+    {"nome": "Democritus", "nascimento": -460, "morte": -370, "categorias": ["Metaphysics", "Ethics", "Epistemology"]},
+    {"nome": "Avicenna", "nascimento": 980, "morte": 1037, "categorias": ["Logic"]},
+    {"nome": "Epicurus", "nascimento": -341, "morte": -270, "categorias": ["Ethics", "Metaphysics"]},
+    {"nome": "Zeno", "nascimento": -334, "morte": -262, "categorias": ["Ethics", "Logic", "Physics"]},
+    {"nome": "Cicero", "nascimento": -106, "morte": -43, "categorias": ["Ethics", "Politics", "Rhetoric"]},
+    {"nome": "Marcus Aurelius", "nascimento": 121, "morte": 180, "categorias": ["Ethics"]},
+    {"nome": "Seneca", "nascimento": -4, "morte": 65, "categorias": ["Ethics", "Stoicism"]},
+    {"nome": "Epictetus", "nascimento": 50, "morte": 135, "categorias": ["Ethics", "Stoicism"]},
+    {"nome": "Lucretius", "nascimento": -99, "morte": -55, "categorias": ["Metaphysics", "Ethics", "Poetry"]},
+    {"nome": "Al-Farabi", "nascimento": 872, "morte": 950, "categorias": ["Logic", "Epistemology", "Metaphysics", "Ethics"]},
+    {
+        "nome": "Cicero",
+        "nascimento": -106,
+        "morte": -43,
+        "categorias": ["Politics", "Metaphysics"]
+    },
+    {
+        "nome": "St. Thomas Aquinas",
+        "nascimento": 1225,
+        "morte": 1274,
+        "categorias": ["Metaphysics", "Ethics"]
+    },
+    {
+        "nome": "St. Augustine",
+        "nascimento": 354,
+        "morte": 430,
+        "categorias": ["Epistemology", "Metaphysics"]
+    },  
+    {
+        "nome": "Boethius",
+        "nascimento": 480,
+        "morte": 524,
+        "categorias": ["Logic", "Epistemology", "Metaphysics"]
+    },
+    {
+        "nome": "Anselm of Canterbury",
+        "nascimento": 1033,
+        "morte": 1109,
+        "categorias": ["Metaphysics", "Epistemology"]
+    },
+    {
+        "nome": "Eriugena",
+        "nascimento": 815,
+        "morte": 877,
+        "categorias": ["Metaphysics", "Epistemology"]
+    },
+    {
+        "nome": "Peter Lombard",
+        "nascimento": 1096,
+        "morte": 1164,
+        "categorias": ["Metaphysics", "Epistemology"]
+    },
+    {
+        "nome": "Gregory of Nyssa",
+        "nascimento": 335,
+        "morte": 394,
+        "categorias": ["Metaphysics", "Epistemology", "Ethics" ]
+    },
+    {
+        "nome": "Maximus the Confessor",
+        "nascimento": 580,
+        "morte": 662,
+        "categorias": ["Metaphysics", "Epistemology", "Ethics"]
+    }
 ]
