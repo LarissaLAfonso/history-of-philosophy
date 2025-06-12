@@ -18,6 +18,7 @@
     import { getAlivePhilosophersIdx, getPhilosopherDesc } from './philosophers_manipulation';
     import {base} from '$app/paths';
     import glossary from '../../components/data/glossary.json';
+    import { fly } from 'svelte/transition';
 
     // glossary processing function
     // and exclusion of terms already wrapped in <b> or <em> tags
@@ -607,7 +608,7 @@
 
     <!-- Submódulo das Informações fos Filósofos -->
     {#if isSplitView}
-        <div class="info-filosofos">
+        <div class="info-filosofos" transition:fly="{{ x: 300, duration: 300 }}">
             <button on:click={closeDetailView}>Close</button>
 
             <h1>{selectedFilosofo.nome}</h1>
