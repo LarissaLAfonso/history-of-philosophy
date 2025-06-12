@@ -178,7 +178,7 @@ svg#timeline {
     right: 0;
     width: 50%;
     height: 100vh;
-    background: linear-gradient(135deg, #8C6645, #1a1a2e);
+    background: linear-gradient(0deg, #8C6645, #3e2b23);
     box-shadow: 
                 -5px 0 25px rgba(0, 0, 0, 0.4),
                 0 0 50px rgba(255, 215, 0, 0.1) inset;
