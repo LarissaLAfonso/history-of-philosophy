@@ -308,7 +308,7 @@ svg#timeline {
     left: 16px;            
     transform: translateY(-50%);  
     z-index: 9999;
-    background: radial-gradient(circle at center, #b19b53, #7b6038);
+    background: radial-gradient(circle at center, #9e8b46, #6a532f);
     border-radius: 50%;
     padding: 10px;
     box-shadow: 
@@ -322,7 +322,8 @@ svg#timeline {
 
 .home-icon:hover {
     transform: translateY(-50%) scale(1.1);
-    background: radial-gradient(circle at center, #f1c40f, #a67c00);
+    background: radial-gradient(circle at center, #c9a70b, #7d5c00);
+
     color: #000;
     box-shadow: 
         0 0 10px rgba(0, 0, 0, 0.3),
