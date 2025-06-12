@@ -1895,7 +1895,7 @@
         "value": [
             {
                 "type": "h1",
-                "value": "Zeno of Citium"
+                "value": "Zeno"
             },
             {
                 "type": "lifetime",
@@ -2699,6 +2699,261 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "philosopher",
+            "value": [
+                { "type": "h1", "value": "Pico della Mirandola" },
+                { "type": "lifetime", "value": "1463 – 1494" },
+                { "type": "branch", "value": "Renaissance Humanism" },
+                { "type": "h3", "value": "Oration on the Dignity of Man, Syncretism, and Kabbalistic Studies" },
+                { "type": "figure", "value": "images/philosophers/pico.jpg" },
+                {
+                    "type": "p",
+                    "value": [
+                        {
+                            "type": "text",
+                            "value": "<b>Giovanni Pico della Mirandola</b> conceived a universal reconciliation of all wisdom traditions, announced in his <em>Oration on the Dignity of Man</em> (1486), often hailed as the “Manifesto of the Renaissance.”"
+                        },
+                        {
+                            "type": "text",
+                            "value": "The Oration served as prologue to Pico’s <b>900 Theses</b>, a sweeping set of propositions drawn from Aristotle, Plato, Averroes, scholastics, Islamic philosophy, and Hebrew Kabbalah, for which he offered to pay the expenses of any scholars who came to Rome to debate them publicly."
+                        },
+                        {
+                            "type": "text",
+                            "value": "Pico deepened this comparative vision in the <em>Heptaplus</em> (1489), a seven-layer allegorical exegesis of Genesis that fused Neoplatonic metaphysics with kabbalistic numerology."
+                        },
+                        {
+                            "type": "text",
+                            "value": "Short treatises such as <em>On Being and the One</em> argued that all multiplicity resolves into a single metaphysical principle, anticipating later monistic systems."
+                        },
+                        {
+                            "type": "text",
+                            "value": "By studying Hebrew with Florentine rabbis, Pico launched <b>Christian Kabbalah</b>, an approach that later inspired Johann Reuchlin and other Christian Hebraists."
+                        },
+                        {
+                            "type": "text",
+                            "value": "Although his theses were condemned and he briefly fled arrest, his exaltation of human freedom and intellectual plasticity influenced Erasmus, Reformation thinkers, and Enlightenment conceptions of dignity."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+  "type": "philosopher",
+  "value": [
+    { "type": "h1", "value": "Averroes" },
+    { "type": "lifetime", "value": "1126 – 1198" },
+    { "type": "branch", "value": "Islamic Philosophy, Aristotelianism, Jurisprudence" },
+    { "type": "h3", "value": "Commentary on Aristotle, Harmony of Reason and Faith, Unity of the Intellect" },
+    { "type": "figure", "value": "images/philosophers/averroes.jpg" },
+    {
+      "type": "p",
+      "value": [
+        {
+          "type": "text",
+          "value": "<b>Averroes</b>, born Abū al‑Walīd Muḥammad ibn Aḥmad ibn Rushd in Córdoba, was a towering Andalusian polymath: judge, physician, legal scholar, and philosopher of the Islamic Golden Age. A committed Aristotelian, he composed detailed commentaries on Aristotle's works — some 39 in total — restoring the original philosophical ideas and opposing Neoplatonic interpretations prevalent in the Muslim world."
+        },
+        {
+          "type": "text",
+          "value": "In <em>The Decisive Treatise</em> (Fasl al‑Maqāl), Averroes argued forcefully that philosophy is not only permissible but obligatory for those capable of reason, and that there is no real conflict between Islamic revelation and rational inquiry."
+        },
+        {
+          "type": "text",
+          "value": "His masterpiece, <em>The Incoherence of the Incoherence</em>, is a pointed rebuttal to al‑Ghazālī’s <em>Incoherence of the Philosophers</em>, defending the autonomy of philosophy and advocating that reason and scripture can coexist in harmony."
+        },
+        {
+          "type": "text",
+          "value": "Averroes also developed the doctrine of the <em>unity of the intellect</em>, claiming that a single, shared external intellect accounts for universal thought, a controversial thesis that heavily influenced Latin Averroism and drew sharp criticism from scholastics like Thomas Aquinas."
+        },
+        {
+          "type": "text",
+          "value": "Serving as both qāḍī (judge) and royal physician under the Almohads, he produced influential works in jurisprudence, theology, medicine, and astronomy. His medical encyclopedia, <em>al‑Kulliyāt fi al‑Ṭibb</em>, remained a cornerstone in Europe for centuries."
+        },
+        {
+          "type": "text",
+          "value": "Although later marginalized in the Islamic world, Averroes’s Aristotelianism became a cornerstone of Western scholastic thought — earning him the title 'The Commentator' — and his defense of reason profoundly shaped the European Renaissance and Enlightenment."
         }
+      ]
+    }
+  ]
+},
+{
+  "type": "philosopher",
+  "value": [
+    {
+      "type": "h1",
+      "value": "William of Ockham"
+    },
+    {
+      "type": "lifetime",
+      "value": "c. 1287 – 1347"
+    },
+    {
+      "type": "branch",
+      "value": "Medieval Philosophy, Nominalism, Scholasticism"
+    },
+    {
+      "type": "h3",
+      "value": "Ockham’s Razor, Nominalism, and Political Liberty"
+    },
+    {
+      "type": "figure",
+      "value": "images/philosophers/ockham.png"
+    },
+    {
+      "type": "p",
+      "value": [
+        {
+          "type": "text",
+          "value": "<b>William of Ockham</b> was an English Franciscan friar and logician, best known for formulating the methodological principle now called <em>Ockham’s Razor</em>: ‘Entities should not be multiplied beyond necessity.’ He was a leading figure in the late medieval period and challenged the prevailing synthesis of faith and reason."
+        },
+        {
+          "type": "text",
+          "value": "In metaphysics, Ockham advocated <b>nominalism</b>, contending that universals are mere mental constructs, not real entities. His radical critique restricted reality to individual substances and qualities."
+        },
+        {
+          "type": "text",
+          "value": "Politically, he upheld the separation of church and state, arguing that rulers derive authority from the consent of the governed—not divine appointment—and supported limits on papal power, famously framing the ‘two swords’ doctrine."
+        },
+        {
+          "type": "text",
+          "value": "Although excommunicated and forced to flee Avignon after criticizing Pope John XXII, Ockham continued writing influential works on logic, theology, and governance until his death in 1347 in Munich."
+        }
+      ]
+    }
 ]
+},
+    {
+  "type": "philosopher",
+  "value": [
+    {
+      "type": "h1",
+      "value": "Niccolò Machiavelli"
+    },
+    {
+      "type": "lifetime",
+      "value": "1469 – 1527"
+    },
+    {
+      "type": "branch",
+      "value": "Renaissance Political Philosophy, Realism"
+    },
+    {
+      "type": "h3",
+      "value": "Virtù, Fortuna, and the Autonomy of Politics"
+    },
+    {
+        "type": "figure",
+        "value": "images/philosophers/machiavelli.jpg"
+    },
+    {
+      "type": "p",
+      "value": [
+        {
+          "type": "text",
+          "value": "<b>Niccolò Machiavelli</b> was an Italian diplomat and philosopher who transformed political theory with his realist approach. In <em>The Prince</em>, he advised rulers to use prudence, strength, and occasional deceit—what he called <b>virtù</b>—to master <b>fortuna</b> and secure their domains."
+        },
+        {
+          "type": "text",
+          "value": "Machiavelli is credited as the first to divorce ethics from governance, arguing that politics must be judged on pragmatic effectiveness, not moral ideals."
+        },
+        {
+          "type": "text",
+          "value": "In <em>Discourses on Livy</em>, he revealed a more republican vision, praising civic virtue and institutional checks as foundations for resilient political life."
+        },
+        {
+          "type": "text",
+          "value": "Though branded as amoral, scholars today argue Machiavelli was deeply patriotic, seeking the stability and liberty of his native Florence rather than mere tyranny."
+        }
+      ]
+    }
+  ]
+  },
+  {
+  "type": "philosopher",
+  "value": [
+    { "type": "h1",   "value": "Socrates" },
+    { "type": "lifetime", "value": "c. 470 – 399 BCE" },
+    { "type": "branch", "value": "Ancient Greek Philosophy, Ethics, Epistemology" },
+    { "type": "h3",   "value": "The Socratic Method, Ethical Inquiry, and the Unexamined Life" },
+    { "type": "figure", "value": "images/philosophers/socrates.jpg" },
+    {
+      "type": "p",
+      "value": [
+        {
+          "type": "text",
+          "value": "<b>Socrates</b> was an Athenian philosopher credited as the founder of Western philosophy and the first to rigorously explore ethics through dialogue and reasoning."
+        },
+        {
+          "type": "text",
+          "value": "He developed what's now called the <b>Socratic Method</b> — a form of dialectical questioning aimed at exposing inconsistencies and stimulating critical reflection—often leading interlocutors into a state of <em>aporia</em>, or perplexity."
+        },
+        {
+          "type": "text",
+          "value": "He famously claimed, “I know that I know nothing” and argued at his trial that “the unexamined life is not worth living,” emphasizing humility and the central role of self-inquiry."
+        },
+        {
+          "type": "text",
+          "value": "Although he left no writings, our knowledge of his ideas comes from his students — Plato, Xenophon—and plays by Aristophanes."
+        },
+        {
+          "type": "text",
+          "value": "He faced charges of impiety and corrupting the youth, and in 399 BCE was sentenced to death. He accepted this penalty rather than escape, stating that dying nobly was preferable for a man of conscience."
+        },
+        {
+          "type": "text",
+          "value": "Socrates’ legacy endures in his insistence on rigorous questioning, ethical self-reflection, and intellectual integrity — foundational values for philosophy, pedagogy, and the examined life."
+        }
+      ]
+    }
+    ]
+    },
+  {
+    "type": "philosopher",
+    "value": [
+    {
+      "type": "h1",
+      "value": "Giordano Bruno"
+    },
+    {
+      "type": "lifetime",
+      "value": "1548 – 1600"
+    },
+    {
+      "type": "branch",
+      "value": "Renaissance Cosmology, Hermeticism"
+    },
+    {
+      "type": "h3",
+      "value": "Infinite Universe, Cosmic Pluralism, and Heroic Martyrdom"
+    },
+    {
+      "type": "figure",
+      "value": "images/philosophers/bruno.jpg"
+    },
+    {
+      "type": "p",
+      "value": [
+        {
+          "type": "text",
+          "value": "<b>Giordano Bruno</b> was a Dominican friar turned cosmological visionary, who extended Copernican heliocentrism into a radical doctrine of an infinite universe teeming with worlds, later inhabited."
+        },
+        {
+          "type": "text",
+          "value": "Embracing Hermeticism and Neoplatonism, he blended cosmic pluralism with a pantheistic unity, conceiving the world as alive with a universal divine principle."
+        },
+        {
+          "type": "text",
+          "value": "Refusing to recant, he was executed by the Roman Inquisition in 1600 for challenging entrenched Aristotelian and Church doctrines, and since has become a symbol of intellectual freedom and martyrdom."
+        },
+        {
+          "type": "text",
+          "value": "He also advanced mnemonic techniques and magical thought, influencing figures like Spinoza and foreshadowing Enlightenment rationalism."
+        }
+      ]
+    }
+  ]
+}
+    ]
 }

@@ -36,7 +36,7 @@
     {"nome": "Democritus", "nascimento": -460, "morte": -370, "categorias": ["Metaphysics", "Ethics", "Epistemology"]},
     {"nome": "Avicenna", "nascimento": 980, "morte": 1037, "categorias": ["Logic"]},
     {"nome": "Epicurus", "nascimento": -341, "morte": -270, "categorias": ["Ethics", "Metaphysics"]},
-    {"nome": "Zeno", "nascimento": -334, "morte": -262, "categorias": ["Ethics", "Logic", "Physics"]},
+    {"nome": "Zeno", "nascimento": -334, "morte": -262, "categorias": ["Ethics", "Metaphysics"]},
     {"nome": "Marcus Aurelius", "nascimento": 121, "morte": 180, "categorias": ["Ethics"]},
     {"nome": "Seneca", "nascimento": -4, "morte": 65, "categorias": ["Ethics", "Stoicism"]},
     {"nome": "Epictetus", "nascimento": 50, "morte": 135, "categorias": ["Ethics"]},
@@ -95,5 +95,35 @@
         "nascimento": 580,
         "morte": 662,
         "categorias": ["Metaphysics", "Epistemology", "Ethics"]
+    },
+    {
+        "nome": "Socrates",
+        "nascimento": -470,
+        "morte": -399,
+        "categorias": ["Ethics", "Epistemology", "Politics", "Logic", "Metaphysics"]
+    },
+    {
+        "nome": "Niccolò Machiavelli",
+        "nascimento": 1469,
+        "morte": 1527,
+        "categorias": ["Politics", "Ethics"]
+    },
+    {
+        "nome": "Giordano Bruno",
+        "nascimento": 1548,
+        "morte": 1600,
+        "categorias": ["Metaphysics", "Ethics", "Politics"]
+    },
+    {
+        "nome": "Pico della Mirandola",
+        "nascimento": 1463,
+        "morte": 1494,
+        "categorias": ["Metaphysics", "Ethics", "Politics"]
+    },
+    {
+        "nome": "Averroes",
+        "nascimento": 1126,
+        "morte": 1198,
+        "categorias": ["Logic", "Epistemology", "Metaphysics"]
     }
 ]
