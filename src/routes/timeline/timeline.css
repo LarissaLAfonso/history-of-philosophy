@@ -341,11 +341,13 @@ svg#timeline {
   color: #333;
   z-index: 1000;
   pointer-events: none;
+  transition: font-size 0.3s ease, left 0.3s ease;
 }
 
 .viz.split-view .fixed-year  {
     font-size: 15px;
     left: 20px;
+    
 }
 
 .interests-label { 
@@ -360,6 +362,7 @@ svg#timeline {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
     padding: 4px 12px;
     border-radius: 8px;
+    transition: font-size 0.3s ease, left 0.3s ease;
 }
 
 
