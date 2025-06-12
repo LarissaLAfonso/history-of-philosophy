@@ -1,82 +1,102 @@
 [
     {
         "happening": "First Industrial Revolution",
-        "year": "1760"
+        "year": "1760",
+        "image": "images/history_icons/factory.png"
     },
     {
         "happening": "Second Industrial Revolution",
-        "year": "1870"
+        "year": "1870",
+        "image": "images/history_icons/car.png"
     },
     {
         "happening": "French Revolution",
-        "year": "1789"
+        "year": "1789",
+        "image": "images/history_icons/guillotine.png"
     },
     {
         "happening": "World War I",
-        "year": "1914"
+        "year": "1914",
+        "image": "images/history_icons/ww1.png"
     },
     {
         "happening": "World War II",
-        "year": "1939"
+        "year": "1939",
+        "image": "images/history_icons/ww2.png"
     },
     {
         "happening": "Cold War",
-        "year": "1947"
+        "year": "1947",
+        "image": "images/history_icons/bomb.png"
     },
     {
         "happening": "Fall of the Western Roman Empire",
-        "year": "476"
+        "year": "476",
+        "image": "images/history_icons/rome.png"
     },
     {
         "happening": "Fall of the Byzantine Empire",
-        "year": "1453"
+        "year": "1453",
+        "image": "images/history_icons/arab-warrior.png"
     },
     {
         "happening": "Peloponnesian War",
-        "year": "431 BC"
+        "year": "431 BC",
+        "image": "images/history_icons/crossed-swords.png"
     },
     {
         "happening": "Punic Wars",
-        "year": "264 BC"
+        "year": "264 BC",
+        "image": "images/history_icons/crossed-swords.png"
     },
     {
         "happening": "Macedonian Wars",
-        "year": "214 BC"
+        "year": "214 BC",
+        "image": "images/history_icons/crossed-swords.png"
     },
     {
         "happening": "Battle of Hastings",
-        "year": "1066"
+        "year": "1066",
+        "image": "images/history_icons/hastings.png"
     },
     {
         "happening": "Magna Carta signed",
-        "year": "1215"
+        "year": "1215",
+        "image": "images/history_icons/letter.png"
     },
     {
         "happening": "Black Death",
-        "year": "1346"
+        "year": "1346",
+        "image": "images/history_icons/plague.png"
     },
     {
         "happening": "Charlemagne crowned Holy Roman Emperor",
-        "year": "800"
+        "year": "800",
+        "image": "images/history_icons/crown.png"
     },
     {
         "happening": "Colombus lands in the Bahamas",
-        "year": "1492"
+        "year": "1492",
+        "image": "images/history_icons/ship.png"
     },
     {
         "happening": "Protestant Reformation",
-        "year": "1517"
+        "year": "1517",
+        "image": "images/history_icons/bible.png"
     },
     {
         "happening": "Start of Papal Inquisition",
-        "year": "1230"
+        "year": "1230",
+        "image": "images/history_icons/church.png"
     },
     {
         "happening": "Fall of the Roman Republic and rise of the Roman Empire",
-        "year": "31 BC"
+        "year": "31 BC",
+        "image": "images/history_icons/caesar.png"
     },
     {
         "happening": "Inventing of the Gutenberg press",
-        "year": "1440"
+        "year": "1440",
+        "image": "images/history_icons/gutenberg.png"
     }
 ]
