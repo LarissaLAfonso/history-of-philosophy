@@ -6,7 +6,6 @@
     --text: #3e2d23;
     --highlight: #c5a173;
     --text-rgb: 62, 45, 35;
-    --highlight-rgb: 197, 161, 115;
 }
 
 .full-page {
@@ -188,12 +187,6 @@ svg#timeline {
     border-left: 2px solid #000000;
 }
 
-.info-filosofos:hover {
-    box-shadow: 
-        -5px 0 35px rgba(0, 0, 0, 0.6),
-        0 0 60px rgba(255, 215, 0, 0.15) inset;
-}
-
 .info-filosofos button {
     position: absolute;
     top: 20px;
@@ -241,10 +234,10 @@ svg#timeline {
     transition: all 0.3s ease;
 }
 
-.sub-infos:hover {
+/* .sub-infos:hover {
     background: rgba(255, 255, 255, 0.12);
     transform: translateY(-3px);
-}
+} */
 
 .sub-infos img {
     width: 180px;
@@ -256,10 +249,10 @@ svg#timeline {
     transition: all 0.3s ease;
 }
 
-.sub-infos img:hover {
+/* .sub-infos img:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
+} */
 
 .sub-infos p {
     color: #e9e7de;
@@ -273,10 +266,10 @@ svg#timeline {
     align-items: center;
 }
 
-.sub-infos p:hover {
+/* .sub-infos p:hover {
     background: rgba(52, 152, 219, 0.25);
     transform: translateX(5px);
-}
+} */
 
 .sub-infos strong {
     color: #cba81c;
