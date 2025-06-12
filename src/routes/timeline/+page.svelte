@@ -121,11 +121,11 @@
 
     // Background Elements of each Philosophical Era
     const eras = [
-        { name: 'Ancient', start: -600, end: 500, color: '#ffcccc' },
-        { name: 'Medieval', start: 500, end: 1500, color: '#ccffcc' },
-        { name: 'Renaissance', start: 1500, end: 1600, color: '#ccccff' },
-        { name: 'Modern', start: 1600, end: 1800, color: '#ffffcc' },
-        { name: 'Contemporary', start: 1800, end: 2100, color: '#ffccff' }
+        { name: 'Ancient', start: -600, end: 500, color: '#f0f0f0' },
+        { name: 'Medieval', start: 500, end: 1500, color: '#d4cfc4' },
+        { name: 'Renaissance', start: 1500, end: 1600, color: '#edd4b7 ' },
+        { name: 'Modern', start: 1600, end: 1800, color: '#d5e8c1 ' },
+        { name: 'Contemporary', start: 1800, end: 2100, color: '#e1ceed ' }
     ];
 
 
@@ -371,7 +371,6 @@
             .attr('y', d => y(d))
             .attr('dy', '0.35em')
             .attr('text-anchor', 'end')
-            .style('opacity', 0)
             .style('opacity', 1)
             .text(d => d);
 
@@ -387,7 +386,7 @@
             .attr('y2', d => y(d))
             .attr('stroke', colors.accent)
             .attr('stroke-width', 0.5)
-            .style('opacity', 0.4);
+            .style('opacity', 0.7);
 
         // Posições x de cada filósofo
         function getXForPosition(position){
