@@ -1687,7 +1687,7 @@
             },
             {
                 "type": "branch",
-                "value": "Stoic"
+                "value": "Hellenistic"
             },
             {
                 "type": "h3",
@@ -1741,7 +1741,7 @@
             },
             {
                 "type": "branch",
-                "value": "Neoplatonic"
+                "value": "Roman Neoplatonism"
             },
             {
                 "type": "h3",
@@ -2227,7 +2227,7 @@
                 },
                 {
                     "type": "branch",
-                    "value": "Skeptic"
+                    "value": "Roman Skepticism"
                 },
                 {
                     "type": "h3",
@@ -2389,7 +2389,7 @@
                 },
                 {
                     "type": "branch",
-                    "value": "Late Antique"
+                    "value": "Scholastic"
                 },
                 {
                     "type": "h3",
@@ -2443,7 +2443,7 @@
                 },
                 {
                     "type": "branch",
-                    "value": "Early Scholastic"
+                    "value": "Scholastic"
                 },
                 {
                     "type": "h3",
@@ -2551,7 +2551,7 @@
                 },
                 {
                     "type": "branch",
-                    "value": "Early Scholastic"
+                    "value": "Scholastic"
                 },
                 {
                     "type": "h3",
@@ -2605,7 +2605,7 @@
                 },
                 {
                     "type": "branch",
-                    "value": "Cappadocian Fathers"
+                    "value": "Patristic"
                 },
                 {
                     "type": "h3",
@@ -2705,7 +2705,7 @@
             "value": [
                 { "type": "h1", "value": "Pico della Mirandola" },
                 { "type": "lifetime", "value": "1463 – 1494" },
-                { "type": "branch", "value": "Renaissance Humanism" },
+                { "type": "branch", "value": "Humanism" },
                 { "type": "h3", "value": "Oration on the Dignity of Man, Syncretism, and Kabbalistic Studies" },
                 { "type": "figure", "value": "images/philosophers/pico.jpg" },
                 {
@@ -2744,7 +2744,7 @@
   "value": [
     { "type": "h1", "value": "Averroes" },
     { "type": "lifetime", "value": "1126 – 1198" },
-    { "type": "branch", "value": "Islamic Philosophy, Aristotelianism, Jurisprudence" },
+    { "type": "branch", "value": "Islamic Philosophy" },
     { "type": "h3", "value": "Commentary on Aristotle, Harmony of Reason and Faith, Unity of the Intellect" },
     { "type": "figure", "value": "images/philosophers/averroes.jpg" },
     {
@@ -2837,7 +2837,7 @@
     },
     {
       "type": "branch",
-      "value": "Renaissance Political Philosophy, Realism"
+      "value": "Political Philosophy"
     },
     {
       "type": "h3",
@@ -2922,7 +2922,7 @@
     },
     {
       "type": "branch",
-      "value": "Renaissance Cosmology, Hermeticism"
+      "value": "Cosmology"
     },
     {
       "type": "h3",
