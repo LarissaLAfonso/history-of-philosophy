@@ -2,7 +2,7 @@
 
 /* Variáveis CSS para cores usadas */
 :root {
-    --accent-rgb: 140, 122, 109;
+    --accent-rgb: 150, 135, 124;
     --text: #3e2d23;
     --highlight: #c5a173;
     --text-rgb: 62, 45, 35;
@@ -30,10 +30,10 @@
     font-family: "Cinzel", serif;
     font-size: 32px;
     text-align: center;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
     line-height: 60px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     z-index: 1000;
-    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
 }
 
 .header-content {
@@ -48,7 +48,7 @@
     width: 100%;
     top: 60px; left: 0; right: 0;
     height: 50px;
-    background: linear-gradient(to bottom, rgba(var(--accent-rgb), 0.9) 10%, rgba(var(--accent-rgb), 0.7));   
+    background: linear-gradient(to bottom, rgba(var(--accent-rgb), 0.9) 10%, rgba(var(--accent-rgb), 0.71));   
     backdrop-filter: blur(3px);
 }
 
@@ -60,7 +60,7 @@
     font-family: "Cinzel", serif;
     font-size: 18px;
     color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(var(--text-rgb), 0.5);
+    text-shadow: 1.5px 1.5px 2px rgba(var(--text-rgb), 0.6);
     cursor: default;
     transition: all 0.3s ease;
     padding: 4px 12px;
@@ -129,6 +129,10 @@ svg#timeline {
     font-size: 10px;
 }
 
+.viz.split-view .category-label:hover {
+    transform: translateY(-14px) scale(1.05) translateX(-50%);
+}
+
 .viz.split-view .fixed-categories {
     width: 50%;
 }
@@ -181,7 +185,7 @@ svg#timeline {
                 0 0 50px rgba(255, 215, 0, 0.1) inset;
     overflow-y: auto;
     z-index: 1000;
-    border-left: 3px solid #000000;
+    border-left: 2px solid #000000;
 }
 
 .info-filosofos:hover {
@@ -351,15 +355,20 @@ svg#timeline {
     left: 20px;
 }
 
-.interests-label {
+.interests-label { 
     position: absolute;
     top: 50%;
     left: 80px;
     transform: translate(-50%, -50%);
     font-family: "Cinzel", serif;
-    font-size: 18px;
-    color: #e5bd1f;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ecceb4; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+    padding: 4px 12px;
+    border-radius: 8px;
 }
+
 
 .viz.split-view .interests-label   {
     font-size: 12px;
