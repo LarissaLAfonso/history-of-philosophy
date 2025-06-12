@@ -119,14 +119,45 @@
         highlight: '#8C7351'
     };
 
-    // Background Elements of each Philosophical Era
+    // Elements of each Philosophical Era
     const eras = [
-        { name: 'Ancient', start: -600, end: 500, color: '#f0f0f0' },
-        { name: 'Medieval', start: 500, end: 1500, color: '#d4cfc4' },
-        { name: 'Renaissance', start: 1500, end: 1600, color: '#edd4b7 ' },
-        { name: 'Modern', start: 1600, end: 1800, color: '#d5e8c1 ' },
-        { name: 'Contemporary', start: 1800, end: 2100, color: '#e1ceed ' }
+        {
+            name: 'Ancient',
+            start: -600,
+            end: 500,
+            backgroundColor: '#f0f0f0',       
+            textColor: '#505050'   
+        },
+        {
+            name: 'Medieval',
+            start: 500,
+            end: 1500,
+            backgroundColor: '#d4cfc4',
+            textColor: '#5a4f3b'    
+        },
+        {
+            name: 'Renaissance',
+            start: 1500,
+            end: 1600,
+            backgroundColor: '#edd4b7',
+            textColor: '#a0621b'    
+        },
+        {
+            name: 'Modern',
+            start: 1600,
+            end: 1800,
+            backgroundColor: '#d5e8c1',
+            textColor: '#4d7c1b'    
+        },
+        {
+            name: 'Contemporary',
+            start: 1800,
+            end: 2100,
+            backgroundColor: '#e1ceed',
+            textColor: '#663d8c'    
+        }
     ];
+
 
 
     // Posição das x categorias para serem usadas no template  
@@ -306,11 +337,11 @@
         // First stop at the top
         linearGradient.append('stop')
             .attr('offset', 0)
-            .attr('stop-color', eras[0].color);
+            .attr('stop-color', eras[0].backgroundColor);
 
         eras.forEach((era, i) => {
-            const currentColor = era.color;
-            const nextColor = eras[(i + 1) % eras.length].color;
+            const currentColor = era.backgroundColor;
+            const nextColor = eras[(i + 1) % eras.length].backgroundColor;
 
             const eraStart = y(era.start) / height;
             const eraEnd = y(era.end) / height;
@@ -339,7 +370,7 @@
         // Last stop at the end
         linearGradient.append('stop')
             .attr('offset', 1)
-            .attr('stop-color', eras[eras.length - 1].color);
+            .attr('stop-color', eras[eras.length - 1].backgroundColor);
 
         // Background
         svg.append('rect')
@@ -367,12 +398,36 @@
             .enter()
             .append('text')
             .attr('class', 'year-label')
-            .attr('x', margin.left - margin.left / 3)
+            .attr('x', margin.left - margin.left / 10)
             .attr('y', d => y(d))
             .attr('dy', '0.35em')
             .attr('text-anchor', 'end')
             .style('opacity', 1)
-            .text(d => d);
+            .text(d => {
+                if (d < 0) {
+                    return `${Math.abs(d)} BC`;
+                } else {
+                    return `${d} AD`;
+                }
+            });
+
+        // Rótulos das eras
+        svg.selectAll('.eras-label')
+            .data(eras)
+            .enter()
+            .append('text')
+            .attr('class', 'eras-label')  
+            .attr('x', margin.left - margin.left / 10)
+            .attr('y', d => y(d.start))  
+            .attr('dy', '0.35em')
+            .attr('text-anchor', 'end')
+            .style('opacity', 1)
+            .style('font-family', '"Cinzel", serif') 
+            .style('fill', d => d.textColor) 
+            .attr('transform', d => `rotate(-90, ${margin.left - margin.left / 10}, ${y(d.start) + 15})`)
+            .text(d => d.name); 
+
+        
 
         // Linhas horizontais
         svg.selectAll('.year-line')
