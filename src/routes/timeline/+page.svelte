@@ -32,6 +32,11 @@
         console.log(activeCategories);
     }
 
+    function categoriesAreActive(categoriasFilosofo, activeCategories) {
+        // verifica se todo item do categoriasFilosofo tem activeCategories[item] === true
+        return categoriasFilosofo.every(cat => activeCategories[cat] === true);
+    }
+
     // glossary processing function
     // and exclusion of terms already wrapped in <b> or <em> tags
     function processTextWithGlossary(text, glossaryData) {
@@ -493,7 +498,8 @@
             .attr('stroke-linecap', 'round')
             .style('cursor', 'pointer') 
             .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
+            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
+            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
 
         // Conexão categorias aos filósofos
         filosofos.forEach((filosofo, i) => {
@@ -585,7 +591,8 @@
                 .attr('stroke', isSelected ? colors.highlight : colors.timeline)
                 .attr('stroke-width', isSelected ? 2.5 : 1.2)
                 .attr('rx', 6)
-                .attr('ry', 6);
+                .attr('ry', 6)
+                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
 
             // Texto visível
             labelGroup.append('text')
@@ -594,7 +601,8 @@
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize * fontScale}px`)
                 .style('fill', colors.text)
-                .text(nome);
+                .text(nome)
+                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
         });
         
         // Marcador de morte do filósofo
@@ -611,7 +619,8 @@
             .attr('href', d => 'images/skull_icon.png')
             .style('cursor', 'pointer')
             .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`); 
+            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
+            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
     }
 
     onMount(() => {
