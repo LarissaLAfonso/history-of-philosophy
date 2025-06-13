@@ -140,7 +140,6 @@
         return processedText;
     }
 
-
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
     let selectedFilosofo = null;
     let selectedFilosofoInfo = null;
@@ -155,7 +154,7 @@
     let tooltipY = 0;
                             
     let initialYear = -600; 
-    let finalYear = 2000;   
+    let finalYear = 2020;   
     let stepYears = 100;    
 
     const anos = d3.range(initialYear, finalYear + 1, stepYears);
@@ -319,69 +318,44 @@
     }
 
     function drawTimeLine() {
-        const svg = d3.select('#timeline');
-        svg.selectAll("*").remove();
-        
-        const timelineContainer = document.getElementById('timeline-container');
-        if (!timelineContainer) return;
+    const svg = d3.select('#timeline');
+    svg.selectAll('*').remove();
 
-        containerWidth = timelineContainer.clientWidth;
-        const height = 6000;
-        const margin = { top: 80, right: containerWidth / 12, bottom: 80, left: containerWidth / 12 };
+    /* ---- 1. container sizes ---- */
+    const timelineContainer = document.getElementById('timeline-container');
+    if (!timelineContainer) return;
 
-        const y = d3.scaleLinear()
-            .domain([initialYear, finalYear])
-            .range([margin.top, height - margin.bottom]);
+    containerWidth = timelineContainer.clientWidth;
+    const height   = 6000;
+    const margin   = { top: 80, right: containerWidth / 12, bottom: 80, left: containerWidth / 12 };
 
-            const linearGradient = svg.append('linearGradient')
-            .attr('id', 'bg-gradient')
-            .attr('x1', '0%')
-            .attr('y1', '0%')
-            .attr('x2', '0%')  
-            .attr('y2', '100%');
+    /* ---- 2. scales ---- */
+    const y = d3.scaleLinear()
+        .domain([initialYear, finalYear])
+        .range([margin.top, height - margin.bottom]);
 
-        // Transition width in years
-        const transitionWidth = 70;  
-        
-        // First stop at the top
-        linearGradient.append('stop')
-            .attr('offset', 0)
-            .attr('stop-color', eras[0].backgroundColor);
+    /* ---- 3. background gradient (eras) ---- */
+    const lg = svg.append('linearGradient')
+        .attr('id', 'bg-gradient')
+        .attr('x1', '0%').attr('y1', '0%')
+        .attr('x2', '0%').attr('y2', '100%');
 
-        eras.forEach((era, i) => {
-            const currentColor = era.backgroundColor;
-            const nextColor = eras[(i + 1) % eras.length].backgroundColor;
+    const fade = 0.1;          
 
-            const eraStart = y(era.start) / height;
-            const eraEnd = y(era.end) / height;
-            const transitionStart = y(era.end - transitionWidth) / height;
-            const transitionEnd = eraEnd;
+    eras.forEach((era, i) => {
+        const start = (y(era.start) - margin.top) / (height - margin.top - margin.bottom);
+        const end   = (y(era.end)   - margin.top) / (height - margin.top - margin.bottom);
+        const nextColor = eras[(i + 1) % eras.length].backgroundColor;
 
-            // Stops for the current era
-            linearGradient.append('stop')
-                .attr('offset', eraStart)
-                .attr('stop-color', currentColor);
+        // solid fill for the era
+        lg.append('stop').attr('offset',  start).attr('stop-color', era.backgroundColor);
+        lg.append('stop').attr('offset',  end - fade).attr('stop-color', era.backgroundColor);
 
-            linearGradient.append('stop')
-                .attr('offset', transitionStart)
-                .attr('stop-color', currentColor);
+        // razor-thin blend into the next era
+        lg.append('stop').attr('offset', end).attr('stop-color', nextColor);
+            
 
-            // Stops for the transition gradient
-            linearGradient.append('stop')
-                .attr('offset', transitionStart)
-                .attr('stop-color', currentColor);
-
-            linearGradient.append('stop')
-                .attr('offset', transitionEnd)
-                .attr('stop-color', nextColor);
-        });
-
-        // Last stop at the end
-        linearGradient.append('stop')
-            .attr('offset', 1)
-            .attr('stop-color', eras[eras.length - 1].backgroundColor);
-
-        // Background
+        /* paint full-page background with that gradient */
         svg.append('rect')
             .attr('x', 0)
             .attr('y', 0)
@@ -389,231 +363,214 @@
             .attr('height', height)
             .attr('fill', 'url(#bg-gradient)');
 
-        // Largura de cada coluna com base no número de categorias
-        const columnWidth = (containerWidth - margin.left - margin.right) / categorias.length;
+    });
 
-        // Delimitações verticais entre as colunas 
-        const delimitations = d3.range(0, categorias.length + 1).map(i => margin.left + i * columnWidth);
 
-        // Posição central x de cada categoria no topo da timeline
-        categoriaPositions = categorias.map((cat, i) => ({
-            ...cat,
-            pos: (delimitations[i] + delimitations[i + 1]) / 2
-        }));
+    if (!timelineContainer) return;
 
-        // Rótulos dos anos
-        svg.selectAll('.year-label')
-            .data(anos)
-            .enter()
-            .append('text')
-            .attr('class', 'year-label')
-            .attr('x', margin.left - margin.left / 10)
-            .attr('y', d => y(d))
-            .attr('dy', '0.35em')
-            .attr('text-anchor', 'end')
-            .style('opacity', 1)
-            .text(d => {
-                if (d < 0) {
-                    return `${Math.abs(d)} BC`;
-                } else {
-                    return `${d} AD`;
-                }
-            });
+    containerWidth = timelineContainer.clientWidth;
 
-        // Rótulos das eras
-        svg.selectAll('.eras-label')
-            .data(eras)
-            .enter()
-            .append('text')
-            .attr('class', 'eras-label')  
-            .attr('x', margin.left - margin.left / 10)
-            .attr('y', d => y(d.start))  
-            .attr('dy', '0.35em')
-            .attr('text-anchor', 'end')
-            .style('opacity', 1)
-            .style('font-family', '"Cinzel", serif') 
-            .style('fill', d => d.textColor) 
-            .attr('transform', d => `rotate(-90, ${margin.left - margin.left / 10}, ${y(d.start) + 15})`)
-            .text(d => d.name); 
+    /* ---------- 2. CATEGORY X LOOKUP ---------- */
+    const columnWidth = (containerWidth - margin.left - margin.right) / categorias.length;
+    const delimitations = d3.range(0, categorias.length + 1).map(i => margin.left + i * columnWidth);
+    categoriaPositions = categorias.map((cat, i) => ({
+        ...cat,
+        pos: (delimitations[i] + delimitations[i + 1]) / 2
+    }));
+    const catX = Object.fromEntries(categoriaPositions.map(c => [c.nome, c.pos]));
 
-        
+    /* ---------- 3. PRE-COMPUTE LAYOUT PER PHILOSOPHER ---------- */
+    const filosLayout = filosofos.map(f => {
+        const xs = f.categorias.map(c => catX[c]);
+        const minX = Math.min(...xs) - 10;
+        const maxX = Math.max(...xs) + 10;
+        return { fil: f, minX, maxX, centerX: (minX + maxX) / 2 };
+    });
 
-        // Linhas horizontais
-        svg.selectAll('.year-line')
-            .data(anos)
-            .enter()
-            .append('line')
-            .attr('class', 'year-line')
-            .attr('x1', margin.left )
-            .attr('x2', containerWidth - margin.right / 3)
-            .attr('y1', d => y(d))
-            .attr('y2', d => y(d))
-            .attr('stroke', colors.accent)
-            .attr('stroke-width', 0.5)
-            .style('opacity', 0.7);
+    const groups = d3.group(filosLayout, d => d.centerX);
 
-        // Posições x de cada filósofo
-        function getXForPosition(position){
-            return margin.left + position/12 * (containerWidth - margin.left - margin.right)
+    groups.forEach(group => {
+        if (group.length === 1) return;
+
+        const step = 14;                     // horizontal gap between neighbours
+        const offset0 = -step * (group.length - 4);
+
+        group.forEach((d, i) => {
+            const dx = offset0 + i * step;   // <-- shift value for THIS philosopher
+
+            // apply to the whole span
+            d.minX   += dx;
+            d.maxX   += dx;
+            d.centerX += dx;
+        });
+    });
+
+    /* ---------- 3-ter.  GLOBAL vertical de-overlap ---------- */
+    const lineH = 20;   // box height  (≈ font-size 14 + padding*2)
+    const gapY  = 1;    // extra vertical gap
+
+    // place philosophers chronologically
+    filosLayout.sort((a, b) => a.fil.nascimento - b.fil.nascimento);
+
+    const placed = [];  // boxes already fixed
+
+    filosLayout.forEach(d => {
+        d.dy = 0;                       // start with zero shift
+
+        while (placed.some(p =>
+            // horizontal overlap?
+            !(d.maxX < p.minX || d.minX > p.maxX) &&
+            // vertical overlap?
+            Math.abs((y(d.fil.nascimento)+d.dy) - (y(p.fil.nascimento)+p.dy))
+                < lineH + gapY
+        )) {
+            d.dy += lineH + gapY;       // push one “line” lower
         }
-        let filosofosProcessados = []
-        let xPosFilos = [];
-        filosofos.forEach(filosofo => {
-            const alive = getAlivePhilosophersIdx(filosofosProcessados, filosofo.nascimento);
-            // const alivePositions = alive.map(index => xPosFilos[index]).sort((a, b) => a - b);
-            const alivePositions = xPosFilos.filter((_, index) => alive.includes(index)).sort((a, b) => a - b);
-            let val = alive.length + 1
-            for(let i = 0; i < alivePositions.length; i++){
-                const possiblePosition = getXForPosition(i + 1);
-                if(possiblePosition < alivePositions[i]){
-                    val = i + 1;
-                    break;
-                }
-            }
-            xPosFilos.push(getXForPosition(val));
-            filosofosProcessados.push(filosofo);
-        });
 
-        // Adição do filósofo na timeline
-        svg.selectAll('.filosofo-line')
-            .data(filosofos)
-            .enter()
-            .append('line')
-            .attr('class', 'filosofo-line')
-            .attr('data-filosofo', d => d.nome)
-            .attr('x1', (_, i) => xPosFilos[i])
-            .attr('x2', (_, i) => xPosFilos[i])
-            .attr('y1', d => y(d.nascimento))
-            .attr('y2', d => y(d.morte))
-            .attr('stroke', colors.timeline)
-            .attr('stroke-width', 2.5)
-            .attr('stroke-linecap', 'round')
-            .style('cursor', 'pointer') 
-            .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
-            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
+        placed.push({ minX: d.minX, maxX: d.maxX, fil: d.fil, dy: d.dy });
+    });
 
-        // Conexão categorias aos filósofos
-        filosofos.forEach((filosofo, i) => {
-            const xFilosofo = xPosFilos[i];
-            const yNascimento = y(filosofo.nascimento);
-            
-            filosofo.categorias.forEach(categoriaNome => {
-                const categoria = categoriaPositions.find(c => c.nome === categoriaNome);
-                if (categoria) {
-                    svg.append('line')
-                        .attr('class', `category-connection ${filosofo.nome.replace(/\s+/g, '-')}`)
-                        .attr('x1', categoria.pos)
-                        .attr('x2', xFilosofo)
-                        .attr('y2', yNascimento)
-                        .attr('stroke', colors.highlight)
-                        .attr('stroke-width', 1.3)
-                        .attr('stroke-dasharray', '4 2')
-                        .style('opacity', selectedFilosofo?.nome === filosofo.nome ? 0.6 : 0); 
 
-                    svg.append('line')
-                        .attr('class', `selected-connection ${filosofo.nome.replace(/\s+/g, '-')}`)
-                        .attr('x1', categoria.pos)
-                        .attr('x2', xFilosofo)
-                        .attr('y2', yNascimento)
-                        .attr('stroke', colors.highlight)
-                        .attr('stroke-width', 1)
-                        .style('opacity', 0); 
-                }
-            });
-        });
+    /* ---------- 4. BACKGROUND + GRID ---------- */
 
-        // Label do filósofo
-        filosofos.forEach((filosofo, i) => {
-            const padding = 3;
-            const fontSize = 14;
-            const nome = filosofo.nome;
-            const areaHeight = y(filosofo.morte) - y(filosofo.nascimento) + 40;
-            const x = xPosFilos[i];
-            const yLabel = y(filosofo.nascimento) + padding;
+    svg.selectAll('.year-line')
+        .data(anos)
+        .enter()
+        .append('line')
+        .attr('x1', margin.left)
+        .attr('x2', containerWidth - margin.right / 3)
+        .attr('y1', d => y(d))
+        .attr('y2', d => y(d))
+        .attr('stroke', colors.accent)
+        .attr('stroke-width', 0.5)
+        .style('opacity', 0.7);
 
-            // Área de interação
-            svg.append('rect')
-                .attr('class', `interaction-area ${filosofo.nome.replace(/\s+/g, '-')}`)
-                .attr('x', x - 25)
-                .attr('y', y(filosofo.nascimento) - 20)
-                .attr('width', 50)
-                .attr('height', areaHeight)
-                .attr('fill', 'transparent')
-                .style('cursor', 'pointer')
-                .on('mouseover', () => showCategoryConnections(filosofo.nome))
-                .on('mouseout', () => hideCategoryConnections(filosofo.nome))
-                .on('click', () => selectFilosofo(filosofo));
+    svg.selectAll('.year-label')
+        .data(anos)
+        .enter()
+        .append('text')
+        .attr('x', margin.left - margin.left / 10)
+        .attr('y', d => y(d))
+        .attr('dy', '0.35em')
+        .attr('text-anchor', 'end')
+        .text(d => d < 0 ? `${Math.abs(d)} BC` : `${d} AD`);
 
-            // Grupo principal do rótulo
-            const labelGroup = svg.append('g')
-                .attr('class', `filosofo-label ${selectedFilosofo?.nome === filosofo.nome ? 'selected' : ''}`)
-                .attr('transform', `translate(${x},${yLabel})`)
-                .style('cursor', 'pointer')
-                .on('click', () => selectFilosofo(filosofo));
+    /* ---------- 5. LIFESPAN LINES ---------- */
+    svg.selectAll('.filosofo-line')
+        .data(filosLayout)
+        .enter()
+        .append('line')
+        .attr('class', d => `filosofo-line ${d.fil.nome.replace(/\s+/g, '-')}`)
+        .attr('x1', d => d.centerX)
+        .attr('x2', d => d.centerX)
+        .attr('y1', d => y(d.fil.nascimento) + (d.dy || 0))
+        .attr('y2', d => y(d.fil.morte)       + (d.dy || 0))
+        .attr('stroke', colors.timeline)
+        .attr('stroke-width', 2.5)
+        .attr('stroke-linecap', 'round')
+        .style('cursor', 'pointer')
+        .style('opacity', d =>
+            categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+        )
+        .on('click', (e, d) => selectFilosofo(d.fil));
 
-            // Texto temporário para cálculo de dimensões
-            const tempText = labelGroup.append('text')
-                .attr('text-anchor', 'middle')
-                .attr('dominant-baseline', 'middle')
-                .style('font-family', 'Cinzel, serif')
-                .style('font-size', `${fontSize}px`)
-                .style('fill', 'transparent') // Invisível
-                .text(nome);
+    /* ---------- 6. NAME BOXES ---------- */
+    filosLayout.forEach(d => {
+        const padding  = 3;
+        const fontSize = 14;
+        const yLabel   = y(d.fil.nascimento) + (d.dy || 0);
+        const boxW     = d.maxX - d.minX;
 
-            const bbox = tempText.node().getBBox();
-            tempText.remove();
+        /* measure text once */
+        const tmp   = svg.append('text')
+                        .style('visibility', 'hidden')
+                        .style('font-family', 'Cinzel, serif')
+                        .style('font-size', `${fontSize}px`)
+                        .text(d.fil.nome);
+        const textW = tmp.node().getBBox().width;
+        tmp.remove();
 
-            const algumSelecionado = !!selectedFilosofo;
-            const isSelected = selectedFilosofo?.nome === filosofo.nome;
+        const spanW   = d.maxX - d.minX;                 // interest span
+        const labelW  = Math.max(spanW, textW + 2*padding);
 
-            // Fatores de escala
-            const shrinkFactor = 0.6;
-            const widthFactor = !algumSelecionado || isSelected ? 1 : 0.65;
-            const fontScale = !algumSelecionado || isSelected ? 1 : shrinkFactor;
-            const paddingFactor = !algumSelecionado || isSelected ? 1 : shrinkFactor;
+        /* if the text is wider than the span, centre it on the span */
+        const labelX  = spanW >= labelW
+                        ? d.minX                          // full-span case
+                        : d.centerX - labelW / 2;        // text-wider case
 
-            // Retângulo de fundo
-            labelGroup.append('rect')
-                .attr('x', -bbox.width * widthFactor / 2 - padding * paddingFactor)
-                .attr('y', -bbox.height / 2 - padding * paddingFactor)
-                .attr('width', bbox.width * widthFactor + padding * 2 * paddingFactor)
-                .attr('height', bbox.height + padding * 2 * paddingFactor)
-                .attr('fill', '#fff')
-                .attr('stroke', isSelected ? colors.highlight : colors.timeline)
-                .attr('stroke-width', isSelected ? 2.5 : 1.2)
-                .attr('rx', 6)
-                .attr('ry', 6)
-                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
-
-            // Texto visível
-            labelGroup.append('text')
-                .attr('text-anchor', 'middle')
-                .attr('dominant-baseline', 'middle')
-                .style('font-family', 'Cinzel, serif')
-                .style('font-size', `${fontSize * fontScale}px`)
-                .style('fill', colors.text)
-                .text(nome)
-                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
-        });
-        
-        // Marcador de morte do filósofo
-        let sizeSkull = 20;
-        svg.selectAll('.filosofo-end')
-        .data(filosofos)
-            .enter()
-            .append('image')
-            .attr('class', 'filosofo-end')
-            .attr('x', (_, i) => xPosFilos[i] - sizeSkull / 2) 
-            .attr('y', d => y(d.morte) - sizeSkull / 2)        
-            .attr('width', sizeSkull)                     
-            .attr('height', sizeSkull)
-            .attr('href', d => 'images/skull_icon.png')
+        // label-group anchored at the left edge of the span
+        const g = svg.append('g')
+            .attr('transform', `translate(${labelX},${yLabel})`)
             .style('cursor', 'pointer')
-            .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
-            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
-    }
+            .on('click', () => selectFilosofo(d.fil));
+
+        /* background */
+        g.append('rect')
+        .attr('x', 0)
+        .attr('y', -fontSize/2 - padding)
+        .attr('width', labelW)
+        .attr('height', fontSize + 2*padding)
+        .attr('fill', '#fff')
+        .attr('stroke', colors.timeline)
+        .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2.5 : 1.2)
+        .attr('rx', 6).attr('ry', 6)
+        .style('opacity',
+            categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
+
+        /* centred text */
+        g.append('text')
+        .attr('x', labelW/ 2)
+        .attr('dominant-baseline', 'middle')
+        .attr('text-anchor', 'middle')
+        .style('font-family', 'Cinzel, serif')
+        .style('font-size', `${fontSize}px`)
+        .style('fill', colors.text)
+        .text(d.fil.nome)
+        .style('opacity',
+            categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
+
+        /* hover / click area – same width as the box */
+        svg.append('rect')
+        .attr('class', `interaction-area ${d.fil.nome.replace(/\s+/g, '-')}`)
+        .attr('x', labelX)
+        .attr('y', y(d.fil.nascimento) + (d.dy || 0) - 20)
+        .attr('width', labelW)
+        .attr('height', y(d.fil.morte)  + (d.dy || 0) - y(d.fil.nascimento) + (d.dy || 0) + 40)
+        .attr('fill', 'transparent')
+        .on('mouseover', () => showCategoryConnections(d.fil.nome))
+        .on('mouseout',  () => hideCategoryConnections(d.fil.nome))
+        .on('click',     () => selectFilosofo(d.fil));
+
+        /* --- skull marker --- */
+        svg.append('image')
+            .attr('x', d.centerX - 10)
+            .attr('y', y(d.fil.morte) + (d.dy || 0) - 10)
+            .attr('width', 20).attr('height', 20)
+            .attr('href', 'images/skull_icon.png')
+            .style('cursor', 'pointer')
+            .style('opacity',
+                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+            )
+            .on('click', () => selectFilosofo(d.fil));
+    });
+
+    /* ---------- 7. CATEGORY → PHILOSOPHER LINES ---------- */
+    filosLayout.forEach(d => {
+        d.fil.categorias.forEach(cat => {
+            svg.append('line')
+                .attr('class', `category-connection ${d.fil.nome.replace(/\s+/g, '-')}`)
+                .attr('x1', catX[cat])
+                .attr('y1', y(d.fil.nascimento) + (d.dy || 0))
+                .attr('x2', d.centerX)
+                .attr('y2', y(d.fil.nascimento) + (d.dy || 0))
+                .attr('stroke', colors.highlight)
+                .attr('stroke-width', 1.3)
+                .attr('stroke-dasharray', '4 2')
+                .style('opacity', selectedFilosofo?.nome === d.fil.nome ? 0.6 : 0);
+        });
+    });
+}
+
 
     onMount(() => {
         drawTimeLine();
