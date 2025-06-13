@@ -20,9 +20,7 @@
     import glossary from '../../components/data/glossary.json';
     import { fly } from 'svelte/transition';
     import { processTextWithGlossary } from '../../scripts/textProcessing.js';
-
-    // glossary processing function
-    // and exclusion of terms already wrapped in <b> or <em> tags
+    import eras from '../../components/data/eras.json';
 
 
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
@@ -52,45 +50,7 @@
         highlight: '#8C7351'
     };
 
-    // Elements of each Philosophical Era
-    const eras = [
-        {
-            name: 'Ancient',
-            start: -600,
-            end: 500,
-            backgroundColor: '#f0f0f0',       
-            textColor: '#505050'   
-        },
-        {
-            name: 'Medieval',
-            start: 500,
-            end: 1500,
-            backgroundColor: '#d4cfc4',
-            textColor: '#5a4f3b'    
-        },
-        {
-            name: 'Renaissance',
-            start: 1500,
-            end: 1600,
-            backgroundColor: '#edd4b7',
-            textColor: '#a0621b'    
-        },
-        {
-            name: 'Modern',
-            start: 1600,
-            end: 1800,
-            backgroundColor: '#d5e8c1',
-            textColor: '#4d7c1b'    
-        },
-        {
-            name: 'Contemporary',
-            start: 1800,
-            end: 2100,
-            backgroundColor: '#e1ceed',
-            textColor: '#663d8c'    
-        }
-    ];
-
+    
 
 
     // Posição das x categorias para serem usadas no template  
