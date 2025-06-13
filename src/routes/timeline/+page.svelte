@@ -20,8 +20,24 @@
     import glossary from '../../components/data/glossary.json';
     import { fly } from 'svelte/transition';
 
+    const activeCategories = {};
+
+    categorias.forEach(cat => {
+        activeCategories[cat.nome] = true;
+    });
+
+    function handleCategoryClick(nome) {
+        // Recebe o contrário de atividade
+        activeCategories[nome] = !activeCategories[nome];
+        console.log(activeCategories);
+    }
+
     let searchQuery = '';
     let searchResults = [];
+
+    function categoriesAreActive(philosopherCategories, activeCategories) {
+        return philosopherCategories.every(cat => activeCategories[cat] === true);
+    }
 
     $: searchResults = searchQuery.trim().length > 1
         ? filosofos
