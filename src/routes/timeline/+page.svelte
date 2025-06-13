@@ -223,7 +223,7 @@
     const filosLayout = filosofos.map(f => {
         const xs = f.categorias.map(c => catX[c]);
         const minX = Math.min(...xs) - 10;
-        const maxX = Math.max(...xs) + 10;
+        const maxX = Math.max(...xs) + 35;
         return { fil: f, minX, maxX, centerX: (minX + maxX) / 2 };
     });
 
