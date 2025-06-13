@@ -4,34 +4,39 @@
     "start": -600,
     "end": 500,
     "backgroundColor": "#f0f0f0",
-    "textColor": "#505050"
+    "textColor": "#505050",
+    "description": "Greek and Roman philosophy, focused on ethics, politics, and metaphysics."
   },
   {
     "name": "Medieval",
     "start": 500,
     "end": 1500,
     "backgroundColor": "#d4cfc4",
-    "textColor": "#5a4f3b"
+    "textColor": "#5a4f3b",
+    "description": "Religious philosophy, merging faith and reason in Christian, Islamic, and Jewish thought."
   },
   {
     "name": "Renaissance",
     "start": 1500,
     "end": 1600,
     "backgroundColor": "#edd4b7",
-    "textColor": "#a0621b"
+    "textColor": "#a0621b",
+    "description": "Revival of classical thought, emphasizing humanism and reason."
   },
   {
     "name": "Modern",
     "start": 1600,
     "end": 1800,
     "backgroundColor": "#d5e8c1",
-    "textColor": "#4d7c1b"
+    "textColor": "#4d7c1b",
+    "description": "Rationalism, empiricism, and critiques of knowledge; the rise of Enlightenment ideas."
   },
   {
     "name": "Contemporary",
     "start": 1800,
     "end": 2100,
     "backgroundColor": "#e1ceed",
-    "textColor": "#663d8c"
+    "textColor": "#663d8c",
+    "description": "Diverse critical approaches to modernity, language, identity, and power."
   }
 ]
