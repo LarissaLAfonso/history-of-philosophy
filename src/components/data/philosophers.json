@@ -1633,7 +1633,7 @@
             },
             {
                 "type": "branch",
-                "value": "Cynic"
+                "value": "Ancient Greek"
             },
             {
                 "type": "h3",
@@ -1648,7 +1648,7 @@
                 "value": [
                 {
                     "type": "text",
-                    "value": "<b>Diogenes of Sinope</b> was the most famous of the ancient Cynic philosophers, known for his radical rejection of social conventions and his pursuit of virtue through extreme asceticism. Often called Diogenes the Cynic, he lived in deliberate poverty and challenged the social norms of Athens through his provocative behavior and sharp wit. His philosophy emphasized living according to nature and rejecting artificial desires and social pretensions."
+                    "value": "<b>Diogenes of Sinope</b> was the most famous of the ancient Cynic philosophers, known for his radical rejection of social conventions and his pursuit of virtue through extreme asceticism. Often called <b>Diogenes the Cynic</b>, he lived in deliberate poverty and challenged the social norms of Athens through his provocative behavior and sharp wit. His philosophy emphasized living according to nature and rejecting artificial desires and social pretensions."
                 },
                 {
                     "type": "text",
@@ -2875,7 +2875,7 @@
   "value": [
     { "type": "h1",   "value": "Socrates" },
     { "type": "lifetime", "value": "c. 470 – 399 BCE" },
-    { "type": "branch", "value": "Ancient Greek Philosophy, Ethics, Epistemology" },
+    { "type": "branch", "value": "Ancient Greek" },
     { "type": "h3",   "value": "The Socratic Method, Ethical Inquiry, and the Unexamined Life" },
     { "type": "figure", "value": "images/philosophers/socrates.jpg" },
     {

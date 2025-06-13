@@ -22,6 +22,54 @@
     import { processTextWithGlossary } from '../../scripts/textProcessing.js';
     import eras from '../../components/data/eras.json';
     import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions'
+    
+    const activeCategories = {};
+
+    categorias.forEach(cat => {
+        activeCategories[cat.nome] = true;
+    });
+
+    function handleCategoryClick(nome) {
+        // Recebe o contrário de atividade
+        activeCategories[nome] = !activeCategories[nome];
+        console.log(activeCategories);
+    }
+
+    let searchQuery = '';
+    let searchResults = [];
+
+    function categoriesAreActive(philosopherCategories, activeCategories) {
+        return philosopherCategories.every(cat => activeCategories[cat] === true);
+    }
+
+    $: searchResults = searchQuery.trim().length > 1
+        ? filosofos
+              .map(f => {
+                  const info = getPhilosopherDesc(f.nome);
+                  const text = info.description.map(p => p.value).join(' ').toLowerCase();
+                  const re = new RegExp(searchQuery, 'gi');
+                  const matches = [...text.matchAll(re)];
+                  const count = matches.length;
+                  return count > 0 ? { fil: f, count } : null;
+              })
+              .filter(Boolean)
+              .sort((a, b) => b.count - a.count)
+        : [];
+
+    function performSelect(name) {
+        const fil = filosofos.find(f => f.nome === name);
+        if (fil) selectFilosofo(fil);
+        //searchQuery = '';
+    }
+
+        
+    function highlightSearch(text) {
+        if (!searchQuery.trim()) return text;
+        const escaped = searchQuery.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escaped})`, 'gi');
+        return text.replace(regex, '<span class="search-highlight">$1</span>');
+    }
+
 
 
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
@@ -278,7 +326,8 @@
             .attr('stroke-linecap', 'round')
             .style('cursor', 'pointer') 
             .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
+            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
+            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
 
         // Conexão categorias aos filósofos
         filosofos.forEach((filosofo, i) => {
@@ -370,7 +419,8 @@
                 .attr('stroke', isSelected ? colors.highlight : colors.timeline)
                 .attr('stroke-width', isSelected ? 2.5 : 1.2)
                 .attr('rx', 6)
-                .attr('ry', 6);
+                .attr('ry', 6)
+                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
 
             // Texto visível
             labelGroup.append('text')
@@ -379,7 +429,8 @@
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize * fontScale}px`)
                 .style('fill', colors.text)
-                .text(nome);
+                .text(nome)
+                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
         });
         
         // Marcador de morte do filósofo
@@ -396,7 +447,8 @@
             .attr('href', d => 'images/skull_icon.png')
             .style('cursor', 'pointer')
             .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`); 
+            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
+            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
     }
 
     onMount(() => {
@@ -424,6 +476,7 @@
 
 </script>
 
+
 <div class="full-page">
     <div class="viz {isSplitView ? 'split-view' : ''}">
         <!-- Header -->
@@ -435,18 +488,44 @@
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                 </a>
-                Philosophers' Timeline
+                <span>Philosophers' Timeline</span>
             </div>
         </div>
+
+        <div class="search-wrapper">
+        <div class="search-input-container">
+            <!-- magnifying glass icon on the right -->
+            <svg class="search-icon" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM10 14a4 4 0 110-8 4 4 0 010 8z" />
+            </svg>
+            <input class="search-input" type="text" placeholder="Search a term..." bind:value={searchQuery} />
+        </div>
+        {#if searchResults.length}
+            <div class="search-results">
+                {#each searchResults as item}
+                    <div class="result-item" on:click={() => performSelect(item.fil.nome)}>
+                        <span>{item.fil.nome}</span><span class="result-count">({item.count})</span>
+                    </div>
+                {/each}
+            </div>
+        {/if}
+    </div>
 
         <!-- Categorias -->
         <div class="fixed-categories">
             <div class="interests-label">Interests:</div>
             {#each categoriaPositions as cat}
-                <div class="category-label" style="left: {cat.pos}px">
-                    {cat.nome}
-                    <div class="tooltip">{cat.descricao}</div>
-                </div>
+            <div
+                class="category-label {activeCategories[cat.nome] ? 'active' : ''}"
+                on:click={() => handleCategoryClick(cat.nome)}
+                style="left: {cat.pos}px"
+                role="button"
+                tabindex="0"
+                on:keypress={(e) => e.key === 'Enter' && handleCategoryClick(cat.nome)}
+            >
+                {cat.nome}
+                <div class="tooltip">{cat.descricao}</div>
+            </div>
             {/each}
         </div>
 
@@ -477,7 +556,7 @@
             <div class="paragraphs" on:mouseover={showTooltip} on:mouseout={hideTooltip} on:mousemove={moveTooltip}>
                 {#if selectedFilosofoInfo.description.length > 0}
                     {#each selectedFilosofoInfo.description as paragraph}
-                        <p>{@html processTextWithGlossary(paragraph.value, glossary)}</p>
+                        <p>{@html highlightSearch(processTextWithGlossary(paragraph.value, glossary))}</p>
                     {/each}
                 {:else}
                     <p>No information available.</p>

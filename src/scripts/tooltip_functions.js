@@ -11,7 +11,7 @@ export function showTooltip(event) {
         }
     }
 
-    function hideTooltip(event) {
+export function hideTooltip(event) {
         // Only hide if we're not moving to another glossary term
         if (!event.relatedTarget || !event.relatedTarget.classList.contains('glossary-term')) {
             tooltipVisible = false;
