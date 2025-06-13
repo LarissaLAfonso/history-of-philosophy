@@ -26,7 +26,7 @@
     const activeCategories = {};
 
     categorias.forEach(cat => {
-        activeCategories[cat.nome] = true;
+        activeCategories[cat.nome] = false;
     });
 
     function handleCategoryClick(nome) {
@@ -39,7 +39,11 @@
     let searchResults = [];
 
     function categoriesAreActive(philosopherCategories, activeCategories) {
-        return philosopherCategories.every(cat => activeCategories[cat] === true);
+        let result = philosopherCategories.every(cat => activeCategories[cat] === true);
+        for(const cat of Object.keys(activeCategories)) {
+            if (activeCategories[cat] === true) return result;
+        }
+        return true;
     }
 
     $: searchResults = searchQuery.trim().length > 1
