@@ -1,4 +1,4 @@
-import { philosophers } from '../../components/data/philosophers.json';
+import { philosophers } from '../components/data/philosophers.json';
 
 export function getPhilosopherDesc(philosopherName){
     let selectedPhilosopher = null;

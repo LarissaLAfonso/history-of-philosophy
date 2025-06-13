@@ -498,3 +498,34 @@ svg#timeline {
 
 /* ensure philosopher info panel sits above search */
 .info-filosofos { z-index: 1200; }
+
+#tooltipEras {
+    visibility: hidden;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    z-index: 10;
+    width: max-content;
+    max-width: 200px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85em;
+    white-space: normal;
+    background-color: var(--tooltip-color, #333);
+}
+
+#tooltipEras::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -11px;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent var(--tooltip-color, #333) transparent transparent;
+}
