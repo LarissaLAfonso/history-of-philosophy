@@ -421,6 +421,7 @@
             });
 
         // Rótulos das eras
+        const tooltipEras = d3.select('#tooltipEras');
         svg.selectAll('.eras-label')
             .data(eras)
             .enter()
@@ -434,9 +435,27 @@
             .style('font-family', '"Cinzel", serif') 
             .style('fill', d => d.textColor) 
             .attr('transform', d => `rotate(-90, ${margin.left - margin.left / 10}, ${y(d.start) + 15})`)
-            .text(d => d.name); 
+            .text(d => d.name)
+            .on('mouseover', function (event, d) {
+                const bbox = this.getBoundingClientRect();
+                tooltipEras
+                    .style('visibility', 'visible')
+                    .style('opacity', 1)
+                    .text(d.description)
+                    .style('--tooltip-color', d.textColor);
+                    
+                const tooltipHeight = tooltipEras.node().offsetHeight;
+                const topPos = bbox.top + bbox.height / 2 - tooltipHeight / 2 + window.scrollY;
+                tooltipEras
+                    .style('top', `${topPos}px`)
+                    .style('left', `${bbox.right + 8 + window.scrollX}px`);
+            })
+            .on('mouseout', function () {
+                tooltipEras
+                    .style('visibility', 'hidden')
+                    .style('opacity', 0);
+            });
 
-        
 
         // Linhas horizontais
         svg.selectAll('.year-line')
@@ -695,6 +714,7 @@
 
         <!-- Timeline Container -->
         <div class="container" id="timeline-container">
+            <div id="tooltipEras" class="tooltip"></div>
             <div class="fixed-year">YEAR</div>
             <svg id="timeline" class="grafico"></svg>
         </div>
