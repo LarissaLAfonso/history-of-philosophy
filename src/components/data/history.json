@@ -128,5 +128,41 @@
         "happening": "Bell invents the telephone",
         "year": "1876",
         "image": "images/history_icons/telephone.png"
+    },
+    {
+        "happening": "Wars of The Roses",
+        "year": "1455",
+        "image": "images/history_icons/roses.png"
+    },
+    {
+        "happening": "Draco's code of laws established in Athens",
+        "year": "621 BC",
+        "image": "images/history_icons/justice.png"
+    },
+    {
+        "happening": "Start of the Achaemenid Empire",
+        "year": "550 BC",
+        "image": "images/history_icons/persian.png"
+    },
+    {
+        "happening": "Founding of the Roman Republic",
+        "year": "509 BC",
+        "image": "images/history_icons/roman-republic.png"
+    },
+    {
+        "happening": "Plague of Athens",
+        "year": "430 BC",
+        "image": "images/history_icons/athens-plague.png"
+    },
+    {
+        "happening": "Gracchi brothers' reforms in Rome",
+        "year": "133 BC",
+        "image": "images/history_icons/parthenon.png"
+    },
+    {
+        "happening": "Vesuvius erupts, destroying Pompeii",
+        "year": "79",
+        "image": "images/history_icons/volcano.png"
     }
+
 ]
