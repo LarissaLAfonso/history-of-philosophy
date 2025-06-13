@@ -98,5 +98,35 @@
         "happening": "Inventing of the Gutenberg press",
         "year": "1440",
         "image": "images/history_icons/gutenberg.png"
+    },
+    {
+        "happening": "First university established in Bologna",
+        "year": "1088",
+        "image": "images/history_icons/university.png"
+    },
+    {
+        "happening": "First Crusade",
+        "year": "1096",
+        "image": "images/history_icons/knight.png"
+    },
+    {
+        "happening": "Heliocentric model proposed by Copernicus",
+        "year": "1543",
+        "image": "images/history_icons/solar-system.png"
+    },
+    {
+        "happening": "Newton's laws of motion and universal gravitation",
+        "year": "1687",
+        "image": "images/history_icons/newton.png"
+    },
+    {
+        "happening": "Darwin's theory of evolution published",
+        "year": "1859",
+        "image": "images/history_icons/evolution.png"
+    },
+    {
+        "happening": "Bell invents the telephone",
+        "year": "1876",
+        "image": "images/history_icons/telephone.png"
     }
 ]

@@ -2954,6 +2954,64 @@
       ]
     }
   ]
+},
+{
+  "type": "philosopher",
+  "value": [
+    {
+      "type": "h1",
+      "value": "Hypatia"
+    },
+    {
+      "type": "lifetime",
+      "value": "c. 370 – 415 CE"
+    },
+    {
+      "type": "branch",
+      "value": "Neoplatonism, Mathematics, Astronomy"
+    },
+    {
+      "type": "h3",
+      "value": "Neoplatonic Philosophy, Mathematical Commentary, and Martyrdom"
+    },
+    {
+        "type": "figure",
+        "value": "images/philosophers/hypatia.png"
+    },
+    {
+      "type": "p",
+      "value": [
+        {
+          "type": "text",
+          "value": "<b>Hypatia</b> led Alexandria’s Neoplatonist school at the turn of the 5th century. Daughter of Theon, she surpassed him in mathematical and philosophical insight and drew students from across the Mediterranean, Christian and pagan alike."
+        },
+        {
+          "type": "text",
+          "value": "Although none of her works survive intact, she authored commentaries on Diophantus’s <em>Arithmetica</em> — enhancing its algebraic solutions — and Apollonius’s <em>Conics</em>, translating advanced geometry into accessible prose for learners."
+        },
+        {
+          "type": "text",
+          "value": "She edited and improved Book III of Ptolemy’s <em>Almagest</em>, refining computational methods essential for astronomical tables and calculations."
+        },
+        {
+          "type": "text",
+          "value": "As a hands‑on scholar, she demonstrated instruments like the astrolabe and hydrometer, teaching their construction and use in public sessions."
+        },
+        {
+          "type": "text",
+          "value": "Her lectures, known to be open to all, were held in Alexandria’s agora and Mouseion, shaping the intellectual elite — and even attracting the prefect Orestes, whom she advised during political tensions."
+        },
+        {
+          "type": "text",
+          "value": "In March 415 CE, a Christian mob, stirred by rumors, dragged her from her carriage, brutally killed her as part of a political-religious conflict. Her death marked the end of Alexandria’s classical scholarly tradition."
+        },
+        {
+          "type": "text",
+          "value": "Her enduring legacy — preserved in Neoplatonist writings and later lamplight legends — made her a symbol of reason's demise before medieval obscurantism and later an icon of feminist and scientific resilience."
+        }
+      ]
+    }
+  ]
 }
     ]
 }

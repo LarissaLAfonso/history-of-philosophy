@@ -125,5 +125,11 @@
         "nascimento": 1126,
         "morte": 1198,
         "categorias": ["Logic", "Epistemology", "Metaphysics"]
+    },
+    {
+        "nome": "Hypatia",
+        "nascimento": 360,
+        "morte": 415,
+        "categorias": ["Logic", "Epistemology"]
     }
 ]
