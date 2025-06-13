@@ -15,16 +15,18 @@
     // import { filosofos } from './infos.js';
     import filosofos from '../../components/data/philosophers2.json';
     import { philosophers } from '../../components/data/philosophers.json';
-    import { getAlivePhilosophersIdx, getPhilosopherDesc } from './philosophers_manipulation';
+    import { getAlivePhilosophersIdx, getPhilosopherDesc } from '../../scripts/philosophers_manipulation';
     import {base} from '$app/paths';
     import glossary from '../../components/data/glossary.json';
-    import eras from '../../components/data/eras.json';
     import { fly } from 'svelte/transition';
-
+    import { processTextWithGlossary } from '../../scripts/textProcessing.js';
+    import eras from '../../components/data/eras.json';
+    import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions'
+    
     const activeCategories = {};
 
     categorias.forEach(cat => {
-        activeCategories[cat.nome] = true;
+        activeCategories[cat.nome] = false;
     });
 
     function handleCategoryClick(nome) {
@@ -37,7 +39,11 @@
     let searchResults = [];
 
     function categoriesAreActive(philosopherCategories, activeCategories) {
-        return philosopherCategories.every(cat => activeCategories[cat] === true);
+        let result = philosopherCategories.every(cat => activeCategories[cat] === true);
+        for(const cat of Object.keys(activeCategories)) {
+            if (activeCategories[cat] === true) return result;
+        }
+        return true;
     }
 
     $: searchResults = searchQuery.trim().length > 1
@@ -68,77 +74,6 @@
         return text.replace(regex, '<span class="search-highlight">$1</span>');
     }
 
-
-    // glossary processing function
-    // and exclusion of terms already wrapped in <b> or <em> tags
-    function processTextWithGlossary(text, glossaryData) {
-        if (!text || !glossaryData) return text;
-        
-        let processedText = text;
-        
-        // Sort glossary terms by length (longest first) to avoid partial matches
-        // This is crucial for compound terms like "modal logic" vs "logic"
-        const sortedTerms = Object.keys(glossaryData).sort((a, b) => b.length - a.length);
-        
-        sortedTerms.forEach(term => {
-            // Escape special regex characters
-            const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            
-            // For compound words, we want to match the exact phrase
-            // Use word boundaries for both single and multi-word terms
-            const regex = new RegExp(`\\b${escapedTerm}\\b`, 'gi');
-            
-            // Only replace if not already wrapped in a glossary-term span, <b>, or <em> tags
-            processedText = processedText.replace(regex, (match, offset, string) => {
-                // Check if this match is already inside a glossary-term span
-                const beforeMatch = string.substring(0, offset);
-                const afterMatch = string.substring(offset + match.length);
-                
-                // Count opening and closing spans before this match
-                const openSpans = (beforeMatch.match(/<span[^>]*class="[^"]*glossary-term[^"]*"/g) || []).length;
-                const closeSpans = (beforeMatch.match(/<\/span>/g) || []).length;
-                
-                // If we're inside a span, don't replace
-                if (openSpans > closeSpans) {
-                    return match;
-                }
-                
-                // Check if the term is inside <b> or <em> tags
-                // Look for the closest opening tag before our match
-                const tagsBefore = beforeMatch.match(/<\/?(?:b|em|strong|i)\b[^>]*>/gi) || [];
-                const tagsAfter = afterMatch.match(/<\/?(?:b|em|strong|i)\b[^>]*>/gi) || [];
-                
-                // Track which tags are currently open
-                let openTags = [];
-                tagsBefore.forEach(tag => {
-                    const isClosing = tag.startsWith('</');
-                    const tagName = tag.match(/<\/?(\w+)/)[1].toLowerCase();
-                    
-                    if (isClosing) {
-                        // Remove the tag from openTags if it's being closed
-                        openTags = openTags.filter(t => t !== tagName);
-                    } else {
-                        // Add the tag to openTags if it's being opened
-                        openTags.push(tagName);
-                    }
-                });
-                
-                // Check if we're currently inside b, em, strong, or i tags
-                const isInsideFormattingTag = openTags.some(tag => 
-                    ['b', 'em', 'strong', 'i'].includes(tag)
-                );
-                
-                // If we're inside formatting tags, don't create a glossary tooltip
-                if (isInsideFormattingTag) {
-                    return match;
-                }
-                
-                return `<span class="glossary-term" data-definition="${glossaryData[term].replace(/"/g, '&quot;')}">${match}</span>`;
-            });
-        });
-        
-        return processedText;
-    }
 
 
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
@@ -171,101 +106,6 @@
 
     // Posição das x categorias para serem usadas no template  
     let categoriaPositions = [];
-
-    // tooltip functions
-    function showTooltip(event) {
-            const target = event.target;
-            if (target.classList.contains('glossary-term')) {
-                tooltipContent = target.dataset.definition;
-                tooltipVisible = true;
-                
-                // Use setTimeout to ensure the tooltip is rendered before positioning
-                setTimeout(() => {
-                    positionTooltip(event);
-                }, 0);
-            }
-        }
-
-        function hideTooltip(event) {
-            // Only hide if we're not moving to another glossary term
-            if (!event.relatedTarget || !event.relatedTarget.classList.contains('glossary-term')) {
-                tooltipVisible = false;
-            }
-        }
-
-        function moveTooltip(event) {
-            if (tooltipVisible) {
-                positionTooltip(event);
-            }
-        }
-
-        function positionTooltip(event) {
-        const tooltipElement = document.querySelector('.glossary-tooltip');
-        if (!tooltipElement) return;
-
-        const mouseX = event.clientX;
-        const mouseY = event.clientY;
-        const offset = 10; // Distance from cursor
-        
-        // Get viewport dimensions
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        
-        // Get tooltip dimensions
-        const tooltipRect = tooltipElement.getBoundingClientRect();
-        const tooltipWidth = tooltipRect.width;
-        const tooltipHeight = tooltipRect.height;
-        
-        // Calculate available space in each direction
-        const spaceRight = viewportWidth - mouseX;
-        const spaceLeft = mouseX;
-        const spaceBottom = viewportHeight - mouseY;
-        const spaceTop = mouseY;
-        
-        // Determine horizontal position
-        let x;
-        if (spaceRight >= tooltipWidth + offset) {
-            // Enough space on the right
-            x = mouseX + offset;
-        } else if (spaceLeft >= tooltipWidth + offset) {
-            // Not enough space on right, but enough on left
-            x = mouseX - tooltipWidth - offset;
-        } else {
-            // Not enough space on either side, choose the side with more space
-            if (spaceRight > spaceLeft) {
-                x = mouseX + offset;
-            } else {
-                x = mouseX - tooltipWidth - offset;
-            }
-            
-            // Ensure tooltip doesn't go off-screen
-            x = Math.max(5, Math.min(x, viewportWidth - tooltipWidth - 5));
-        }
-        
-        // Determine vertical position
-        let y;
-        if (spaceBottom >= tooltipHeight + offset) {
-            // Enough space below
-            y = mouseY + offset;
-        } else if (spaceTop >= tooltipHeight + offset) {
-            // Not enough space below, but enough above
-            y = mouseY - tooltipHeight - offset;
-        } else {
-            // Not enough space above or below, choose the side with more space
-            if (spaceBottom > spaceTop) {
-                y = mouseY + offset;
-            } else {
-                y = mouseY - tooltipHeight - offset;
-            }
-            
-            // Ensure tooltip doesn't go off-screen
-            y = Math.max(5, Math.min(y, viewportHeight - tooltipHeight - 5));
-        }
-        
-        // Apply the calculated position
-        tooltipX = x;
-        tooltipY = y;
-    }
 
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/

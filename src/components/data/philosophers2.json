@@ -38,7 +38,7 @@
     {"nome": "Epicurus", "nascimento": -341, "morte": -270, "categorias": ["Ethics", "Metaphysics"]},
     {"nome": "Zeno", "nascimento": -334, "morte": -262, "categorias": ["Ethics", "Metaphysics"]},
     {"nome": "Marcus Aurelius", "nascimento": 121, "morte": 180, "categorias": ["Ethics"]},
-    {"nome": "Seneca", "nascimento": -4, "morte": 65, "categorias": ["Ethics", "Stoicism"]},
+    {"nome": "Seneca", "nascimento": -4, "morte": 65, "categorias": ["Ethics"]},
     {"nome": "Epictetus", "nascimento": 50, "morte": 135, "categorias": ["Ethics"]},
     {"nome": "Lucretius", "nascimento": -99, "morte": -55, "categorias": ["Metaphysics", "Ethics"]},
     {"nome": "Al-Farabi", "nascimento": 872, "morte": 950, "categorias": ["Logic", "Epistemology", "Metaphysics", "Ethics"]},
