@@ -20,6 +20,38 @@
     import glossary from '../../components/data/glossary.json';
     import { fly } from 'svelte/transition';
 
+    let searchQuery = '';
+    let searchResults = [];
+
+    $: searchResults = searchQuery.trim().length > 1
+        ? filosofos
+              .map(f => {
+                  const info = getPhilosopherDesc(f.nome);
+                  const text = info.description.map(p => p.value).join(' ').toLowerCase();
+                  const re = new RegExp(searchQuery, 'gi');
+                  const matches = [...text.matchAll(re)];
+                  const count = matches.length;
+                  return count > 0 ? { fil: f, count } : null;
+              })
+              .filter(Boolean)
+              .sort((a, b) => b.count - a.count)
+        : [];
+
+    function performSelect(name) {
+        const fil = filosofos.find(f => f.nome === name);
+        if (fil) selectFilosofo(fil);
+        //searchQuery = '';
+    }
+
+        
+    function highlightSearch(text) {
+        if (!searchQuery.trim()) return text;
+        const escaped = searchQuery.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escaped})`, 'gi');
+        return text.replace(regex, '<span class="search-highlight">$1</span>');
+    }
+
+
     // glossary processing function
     // and exclusion of terms already wrapped in <b> or <em> tags
     function processTextWithGlossary(text, glossaryData) {
@@ -627,6 +659,7 @@
 
 </script>
 
+
 <div class="full-page">
     <div class="viz {isSplitView ? 'split-view' : ''}">
         <!-- Header -->
@@ -638,9 +671,28 @@
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                 </a>
-                Philosophers' Timeline
+                <span>Philosophers' Timeline</span>
             </div>
         </div>
+
+        <div class="search-wrapper">
+        <div class="search-input-container">
+            <!-- magnifying glass icon on the right -->
+            <svg class="search-icon" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM10 14a4 4 0 110-8 4 4 0 010 8z" />
+            </svg>
+            <input class="search-input" type="text" placeholder="Search descriptions…" bind:value={searchQuery} />
+        </div>
+        {#if searchResults.length}
+            <div class="search-results">
+                {#each searchResults as item}
+                    <div class="result-item" on:click={() => performSelect(item.fil.nome)}>
+                        <span>{item.fil.nome}</span><span class="result-count">({item.count})</span>
+                    </div>
+                {/each}
+            </div>
+        {/if}
+    </div>
 
         <!-- Categorias -->
         <div class="fixed-categories">
@@ -680,7 +732,7 @@
             <div class="paragraphs" on:mouseover={showTooltip} on:mouseout={hideTooltip} on:mousemove={moveTooltip}>
                 {#if selectedFilosofoInfo.description.length > 0}
                     {#each selectedFilosofoInfo.description as paragraph}
-                        <p>{@html processTextWithGlossary(paragraph.value, glossary)}</p>
+                        <p>{@html highlightSearch(processTextWithGlossary(paragraph.value, glossary))}</p>
                     {/each}
                 {:else}
                     <p>No information available.</p>

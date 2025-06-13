@@ -18,7 +18,7 @@
     </div>
 
     <div class="paragraph">
-        <p>Hello! It’s a pleasure to meet you! We are Data Science students, and this project was developed as part of our Visualization course.  
+        <p>Hello! It’s a pleasure to meet you! We are Data Science students, and this project was developed as part of our Data Visualization course, taken in 2025.1.  
         Take a look below to learn more about us!</p>
     </div>
 
@@ -29,7 +29,7 @@
             <div class="sub-infos">
                 <img src={person.img} alt={person.alt}>
                 <div>
-                    <p><strong>Age:</strong> {person.age} years</p>
+                    <p><strong>Age:</strong> {person.age} years old</p>
                     <p><strong>GitHub:</strong> <a href={person.github} target="_blank" rel="noopener noreferrer">link</a></p>
                     <p><strong>Linkedin:</strong> <a href={person.linkedin} target="_blank" rel="noopener noreferrer">link</a></p>
                 </div>
