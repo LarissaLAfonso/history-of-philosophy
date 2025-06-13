@@ -513,7 +513,8 @@
             .attr('stroke-linecap', 'round')
             .style('cursor', 'pointer') 
             .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`);
+            .attr('class', d => `filosofo-line ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
+            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
 
         // Conexão categorias aos filósofos
         filosofos.forEach((filosofo, i) => {
@@ -605,7 +606,8 @@
                 .attr('stroke', isSelected ? colors.highlight : colors.timeline)
                 .attr('stroke-width', isSelected ? 2.5 : 1.2)
                 .attr('rx', 6)
-                .attr('ry', 6);
+                .attr('ry', 6)
+                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
 
             // Texto visível
             labelGroup.append('text')
@@ -614,7 +616,8 @@
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize * fontScale}px`)
                 .style('fill', colors.text)
-                .text(nome);
+                .text(nome)
+                .style('opacity', categoriesAreActive(filosofo.categorias, activeCategories) ? 1 : 0.3);
         });
         
         // Marcador de morte do filósofo
@@ -631,7 +634,8 @@
             .attr('href', d => 'images/skull_icon.png')
             .style('cursor', 'pointer')
             .on('click', (event, d) => selectFilosofo(d))
-            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`); 
+            .attr('class', d => `filosofo-end ${selectedFilosofo?.nome === d.nome ? 'selected' : ''}`)
+            .style('opacity', d => categoriesAreActive(d.categorias, activeCategories) ? 1 : 0.3);
     }
 
     onMount(() => {
@@ -698,10 +702,17 @@
         <div class="fixed-categories">
             <div class="interests-label">Interests:</div>
             {#each categoriaPositions as cat}
-                <div class="category-label" style="left: {cat.pos}px">
-                    {cat.nome}
-                    <div class="tooltip">{cat.descricao}</div>
-                </div>
+            <div
+                class="category-label {activeCategories[cat.nome] ? 'active' : ''}"
+                on:click={() => handleCategoryClick(cat.nome)}
+                style="left: {cat.pos}px"
+                role="button"
+                tabindex="0"
+                on:keypress={(e) => e.key === 'Enter' && handleCategoryClick(cat.nome)}
+            >
+                {cat.nome}
+                <div class="tooltip">{cat.descricao}</div>
+            </div>
             {/each}
         </div>
 
