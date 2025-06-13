@@ -68,6 +68,13 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.category-label.active {
+    background: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+    border: 1px solid #fff;
+}
+
+
 .category-label:hover {
     transform: translateY(-17px) scale(1.05) translateX(-50%);
     background: rgba(255,255,255,0.2);

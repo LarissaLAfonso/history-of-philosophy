@@ -20,6 +20,18 @@
     import glossary from '../../components/data/glossary.json';
     import { fly } from 'svelte/transition';
 
+    const activeCategories = {};
+
+    categorias.forEach(cat => {
+        activeCategories[cat.nome] = true;
+    });
+
+    function handleCategoryClick(nome) {
+        // Recebe o contrário de atividade
+        activeCategories[nome] = !activeCategories[nome];
+        console.log(activeCategories);
+    }
+
     // glossary processing function
     // and exclusion of terms already wrapped in <b> or <em> tags
     function processTextWithGlossary(text, glossaryData) {
@@ -646,10 +658,17 @@
         <div class="fixed-categories">
             <div class="interests-label">Interests:</div>
             {#each categoriaPositions as cat}
-                <div class="category-label" style="left: {cat.pos}px">
-                    {cat.nome}
-                    <div class="tooltip">{cat.descricao}</div>
-                </div>
+            <div
+                class="category-label {activeCategories[cat.nome] ? 'active' : ''}"
+                on:click={() => handleCategoryClick(cat.nome)}
+                style="left: {cat.pos}px"
+                role="button"
+                tabindex="0"
+                on:keypress={(e) => e.key === 'Enter' && handleCategoryClick(cat.nome)}
+            >
+                {cat.nome}
+                <div class="tooltip">{cat.descricao}</div>
+            </div>
             {/each}
         </div>
 
