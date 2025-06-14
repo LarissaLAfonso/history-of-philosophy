@@ -229,7 +229,16 @@
     filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
   }
   .new-text .timeline-btn {
-  margin-top: 2rem;
+    margin-top: 2rem;
+    flex-direction: row; 
+  }
+
+  .new-text {
+    margin-top: 2rem;
+    display: flex; 
+    flex-direction: row; 
+    gap: 2rem; 
+    justify-content: space-between;
   }
 
   .timeline-btn::after {
@@ -296,7 +305,6 @@
     background: #f5f5f5;
     color: #333;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.25rem;
     transition: opacity 0.6s ease-out;
   }
 
@@ -347,6 +355,60 @@
       transition: none !important;
     }
   }
+
+.right {
+  flex: 1; 
+  max-width: 50%;
+}
+.left {
+  padding-top: 30px;
+  flex: 1; 
+  max-width: 50%;
+}
+
+.left p {
+  font-size: 0.9rem;      
+  line-height: 1.6;       
+  margin-bottom: 1rem;    
+}
+
+.record {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.record-box {
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  transition: transform 0.2s ease;
+}
+
+.record-box:hover {
+  transform: scale(1.05); 
+}
+
+.record-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.record-label {
+  display: block;
+  font-size: 1rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
 </style>
 
 <body>
@@ -417,11 +479,21 @@
         </button>
       </div>
 
-      <div class="plots">
-        <!-- <InterestsPlot/> -->
-        <!-- <ErasPlot/> -->
+      <div class="right">
+        <div class="record">
+        <div class="record-box">
+          <span class="record-title">100</span>
+          <span class="record-label">philosophers</span>
+        </div>
+        <div class="record-box">
+          <span class="record-title">100</span>
+          <span class="record-label">historical events</span>
+        </div>
       </div>
-
+      <div class="plots"></div>
+        <InterestsPlot/>
+        <ErasPlot/>
+      </div>
     </div>
 
     

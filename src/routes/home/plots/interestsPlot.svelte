@@ -3,7 +3,6 @@
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
 
-    // Counting each interest
     const count_categories = {
         "Logic": 0,
         "Epistemology": 0,
@@ -11,7 +10,8 @@
         "Ethics": 0,
         "Politics": 0,
         "Aesthetics": 0
-    };  
+    };
+
     philosophers.forEach(fil => {
         fil.categorias.forEach(cat => {
         if (count_categories.hasOwnProperty(cat)) {
@@ -21,25 +21,36 @@
     });
 
     let chartContainer;
+    const plotColor = "#A65526";
 
-    onMount(() => {
-        const plotColor = "#A65526";
+    function drawChart() {
+        d3.select(chartContainer).selectAll("svg").remove();
 
-        // Sort Data
+        const containerWidth = chartContainer.clientWidth * 0.7;
+        const containerHeight = containerWidth / 2.5;
+
+        const margin = {
+            top: containerHeight * 0.08,    
+            right: containerWidth * 0.06,    
+            bottom: containerHeight * 0.08,  
+            left: containerWidth * 0.25     
+        };
+
+        const width = containerWidth - margin.left - margin.right;
+        const height = containerHeight - margin.top - margin.bottom;
+
         const data = Object.entries(count_categories).map(([category, count]) => ({
             category,
             count
         }));
         data.sort((a, b) => b.count - a.count);
 
-        const margin = { top: 20, right: 40, bottom: 20, left: 100 };
-        const width = 600 - margin.left - margin.right;
-        const height = 300 - margin.top - margin.bottom;
-
         const svg = d3.select(chartContainer)
             .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            .attr("width", containerWidth)
+            .attr("height", containerHeight)
+            .attr("viewBox", `0 0 ${containerWidth} ${containerHeight}`)
+            .attr("preserveAspectRatio", "xMidYMid meet")
             .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -52,7 +63,6 @@
             .domain([0, d3.max(data, d => d.count)])
             .range([0, width]);
 
-        // Bars
         const bars = svg.selectAll(".bar-group")
             .data(data)
             .enter()
@@ -65,25 +75,34 @@
             .attr("height", y.bandwidth())
             .attr("x", 0)
             .attr("width", d => x(d.count))
-            .attr("fill", plotColor);  
+            .attr("fill", plotColor);
 
-        // Category 
         bars.append("text")
             .attr("class", "category-label")
-            .attr("x", -15)  
+            .attr("x", -15)
             .attr("y", y.bandwidth() / 2)
-            .attr("dy", "0.35em")
+            .attr("dy", "0.25em")
             .attr("text-anchor", "end")
             .attr("fill", plotColor)
+            .style("font-size", "13px")  
             .text(d => d.category);
 
         bars.append("text")
             .attr("class", "count-label")
-            .attr("x", d => x(d.count) + 8)  
+            .attr("x", d => x(d.count) + 8)
             .attr("y", y.bandwidth() / 2)
-            .attr("dy", "0.35em")
+            .attr("dy", "0.25em")
             .attr("fill", plotColor)
+            .style("font-size", "13px")  
             .text(d => d.count);
+    }
+
+    onMount(() => {
+        drawChart();
+
+        window.addEventListener('resize', () => {
+        drawChart();
+        });
     });
 </script>
 
