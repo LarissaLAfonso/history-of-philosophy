@@ -11,7 +11,7 @@
         "year": "1870",
         "image": "images/history_icons/car.png",
         "importance": 2,
-        "posX": 0.03
+        "posX": 0.02
     },
     {
         "happening": "French Revolution",
@@ -60,7 +60,7 @@
         "year": "-431",
         "image": "images/history_icons/crossed-swords.png",
         "importance": 4,
-        "posX": 0.8195
+        "posX": 0.9195
     },
     {
         "happening": "Punic Wars",
