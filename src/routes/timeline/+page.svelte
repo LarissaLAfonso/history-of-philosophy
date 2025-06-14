@@ -52,9 +52,20 @@
               .sort((a, b) => b.count - a.count)
         : [];
 
+    function snapToPhilosopher(philosopher) {
+
+        const element = document.querySelector(`.interaction-area.${philosopher.nome.replace(/\s+/g, '-')}`);
+        if(!element) return;
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center' // Center the philosopher in the viewport
+        });
+    }
+
     function performSelect(name) {
         const fil = filosofos.find(f => f.nome === name);
         if (fil) selectFilosofo(fil);
+
         //searchQuery = '';
     }
 
@@ -115,6 +126,7 @@
             updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
             d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-')}`)
                 .style('opacity', 0.6);
+            snapToPhilosopher(filosofo);
         }
     }
 
