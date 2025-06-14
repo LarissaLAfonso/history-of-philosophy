@@ -391,10 +391,6 @@
   transition: transform 0.2s ease;
 }
 
-.record-box:hover {
-  transform: scale(1.05); 
-}
-
 .record-title {
   display: block;
   font-size: 1rem;
@@ -407,6 +403,14 @@
   font-size: 1rem;
   color: #777;
   margin-top: 0.5rem;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  gap:1em;
 }
 
 </style>
