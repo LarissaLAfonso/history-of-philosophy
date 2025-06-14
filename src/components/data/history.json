@@ -25,28 +25,28 @@
         "year": "1914",
         "image": "images/history_icons/ww1.png",
         "importance": 1,
-        "posX": 0.9725
+        "posX": 0.995
     },
     {
         "happening": "World War II",
         "year": "1939",
         "image": "images/history_icons/ww2.png",
         "importance": 1,
-        "posX": 0.9979
+        "posX": 0.3379
     },
     {
         "happening": "Cold War",
         "year": "1947",
         "image": "images/history_icons/bomb.png",
         "importance": 1,
-        "posX": 0.3571
+        "posX": 0.01
     },
     {
         "happening": "Fall of the Western Roman Empire",
         "year": "476",
         "image": "images/history_icons/rome.png",
         "importance": 1,
-        "posX": 0.9703
+        "posX": 0.903
     },
     {
         "happening": "Fall of the Byzantine Empire",
@@ -221,7 +221,7 @@
         "year": "-133",
         "image": "images/history_icons/parthenon.png",
         "importance": 5,
-        "posX": 0.1342
+        "posX": 0.9342
     },
     {
         "happening": "Vesuvius erupts, destroying Pompeii",
