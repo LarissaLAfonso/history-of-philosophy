@@ -11,17 +11,18 @@
     import * as d3 from 'd3';
     import './timeline.css';
     import './infos.js';
-    import categorias from './tooltip_categories.json';
+    import categorias from '../../components/data/tooltip_categories.json';
     // import { filosofos } from './infos.js';
     import filosofos from '../../components/data/philosophers2.json';
-    import { philosophers } from '../../components/data/philosophers.json';
+    import philosophers  from '../../components/data/philosophers.json';
+    import histories from '../../components/data/history.json';
     import { getAlivePhilosophersIdx, getPhilosopherDesc } from '../../scripts/philosophers_manipulation';
     import {base} from '$app/paths';
     import glossary from '../../components/data/glossary.json';
     import { fly } from 'svelte/transition';
     import { processTextWithGlossary } from '../../scripts/textProcessing.js';
     import eras from '../../components/data/eras.json';
-    import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions'
+    import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions';
     
     const activeCategories = {};
     categorias.forEach(cat => {activeCategories[cat.nome] = false});
@@ -256,13 +257,12 @@
             // horizontal overlap?
             !(d.maxX < p.minX || d.minX > p.maxX) &&
             // vertical overlap?
-            Math.abs((y(d.fil.nascimento)+d.dy) - (y(p.fil.nascimento)+p.dy))
-                < lineH + gapY
+            Math.abs((y(d.fil.nascimento)+d.dy) - (y(p.fil.nascimento)+p.dy)) < lineH + gapY 
         )) {
             d.dy += lineH + gapY;       // push one “line” lower
         }
-
-        placed.push({ minX: d.minX, maxX: d.maxX, fil: d.fil, dy: d.dy });
+        
+        placed.push({ minX: d.minX, maxX: d.maxX, fil: d.fil, dy: d.dy }); 
     });
 
     // Rótulos das eras
@@ -440,8 +440,57 @@
             .on('click', () => selectFilosofo(d.fil));
         });
 
-}
+    const historyGroup = svg.selectAll('.history-group')
+        .data(histories)
+        .enter()
+        .append('g')
+        .attr('class', 'history-group')
+        .attr('transform', d => {
+            const x = margin.left + d.posX * (containerWidth - margin.left - margin.right);
+            const yPos = y(+d.year) + (d.dy || 0) - 10;
+            return `translate(${x}, ${yPos})`;
+        });
 
+    const sizeImgHistory = 60;
+    
+    historyGroup.append('image')
+        .attr('class', d => `history ${d.happening.replace(/\s+/g, '-')}`)
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', sizeImgHistory)
+        .attr('height', sizeImgHistory)
+        .attr('href', d => d.image)
+        .on('mouseover', function (event, d) {
+            d3.select(this.parentNode).select('.year-label')
+                .style('visibility', 'visible');
+        })
+        .on('mouseout', function (event, d) {
+            d3.select(this.parentNode).select('.year-label')
+                .style('visibility', 'hidden');
+        });
+
+    historyGroup.append('text')
+        .attr('class', 'history-label')
+        .text(d => d.happening)
+        .attr('x', 30)  
+        .attr('y', -5)
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '12px')
+        .attr('fill', '#333');
+
+    historyGroup.append('text')
+        .attr('class', 'year-label')
+        .text(d => {
+            const year = +d.year;
+            return year < 0 ? `${Math.abs(year)} BC` : `${year} AD`;
+        })
+        .attr('x', 30)  
+        .attr('y', sizeImgHistory + sizeImgHistory / 5)  
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '11px')
+        .attr('fill', '#666')
+        .style('visibility', 'hidden');
+    }
 
     onMount(() => {
         drawTimeLine();
