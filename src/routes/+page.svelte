@@ -385,41 +385,54 @@
     </div>
   </div>
 
-  <div class="new-text">
-    <p>
-      <b>Philosophy</b> is humanity's longest conversation. It's the discipline that dares to ask the questions that have no easy answers:
-        What does it mean to live a <b>good life</b>? How do we <b>know</b> what we know? What is <b>justice</b>? What is <b>reality</b> itself? For over two
-         and a half millennia, brilliant minds have grappled with these eternal questions, each building upon, challenging, or
-          revolutionizing the thoughts of those who came before.
-    </p>
-    <p>
-      This timeline traces that remarkable intellectual journey. Philosophy isn't just ancient
-         history — it's a <b>living tradition</b> that speaks directly to our modern challenges, offering wisdom for resilience, meaning-making,
-          and navigating complex ethical questions.
-    </p>
+    <div class="new-text">
+      <div class="left">
+        <p>
+          <b>Philosophy</b> is humanity's longest conversation. It's the discipline that dares to ask the questions that have no easy answers:
+            What does it mean to live a <b>good life</b>? How do we <b>know</b> what we know? What is <b>justice</b>? What is <b>reality</b> itself? For over two
+            and a half millennia, brilliant minds have grappled with these eternal questions, each building upon, challenging, or
+              revolutionizing the thoughts of those who came before.
+        </p>
+        <p>
+          This timeline traces that remarkable intellectual journey. Philosophy isn't just ancient
+            history — it's a <b>living tradition</b> that speaks directly to our modern challenges, offering wisdom for resilience, meaning-making,
+              and navigating complex ethical questions.
+        </p>
 
-    <p>
-        As you explore this timeline, you're not just learning about ideas from the past.
-         You're encountering a vibrant community of thinkers separated by centuries but united by their
-          commitment to understanding the deepest questions of human existence. Welcome to philosophy's grand
-           conversation — <b>your</b> voice belongs here too.
-    </p>
+        <p>
+            As you explore this timeline, you're not just learning about ideas from the past.
+            You're encountering a vibrant community of thinkers separated by centuries but united by their
+              commitment to understanding the deepest questions of human existence. Welcome to philosophy's grand
+              conversation — <b>your</b> voice belongs here too.
+        </p>
+        
+        <div class="fade-line"></div>
+
+        <button class="btn timeline-btn" onclick="location.href='./timeline'">
+            <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
+          </button>
+
+        <button class="btn timeline-btn" onclick="location.href='./tutorial'">
+          <img src="images/timeline_icon.png" alt="Timeline Icon" /> Tutorial
+        </button>
+      </div>
+
+      <div class="plots">
+        <!-- <InterestsPlot/> -->
+        <!-- <ErasPlot/> -->
+      </div>
+
+    </div>
+
     
-    <div class="fade-line"></div>
-
-    <button class="btn timeline-btn" onclick="location.href='./timeline'">
-        <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
-      </button>
-
-    <button class="btn timeline-btn" onclick="location.href='./tutorial'">
-      <img src="images/timeline_icon.png" alt="Timeline Icon" /> Tutorial
-    </button>
-  </div>
 
 </body>
 
   <script>
     import { afterUpdate, onMount } from 'svelte';
+    import InterestsPlot from './home/plots/interestsPlot.svelte';
+    import ErasPlot from './home/plots/erasPlot.svelte';
+
     function makepage(){
       (function () {
         const container = document.querySelector('.container');
