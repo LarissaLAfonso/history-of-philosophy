@@ -3012,6 +3012,356 @@
       ]
     }
   ]
+},
+{
+    "type": "philosopher",
+    "value": [
+        {
+            "type": "h1",
+            "value": "Pythagoras"
+        },
+        {
+            "type": "lifetime",
+            "value": "c. 570 - c. 495 BC"
+        },
+        {
+            "type": "branch",
+            "value": "Pre-Socratic"
+        },
+        {
+            "type": "h3",
+            "value": "Numerical Cosmology, Metempsychosis, and Mathematical Mysticism"
+        },
+        {
+            "type": "figure",
+            "value": "images/philosophers/pythagoras.jpg"
+        },
+        {
+            "type": "p",
+            "value": [
+                {
+                    "type": "text",
+                    "value": "<b>Pythagoras</b> founded the first mathematically-based philosophical school in ancient Greece, blending mathematics with mystical religious doctrines. His secretive community in Croton practiced asceticism and pursued knowledge through numerical relationships, establishing mathematics as fundamental to understanding cosmic order and human existence."
+                },
+                {
+                    "type": "text",
+                    "value": "The <b>Pythagorean Theorem</b> revolutionized geometry by demonstrating the fundamental relationship between the sides of right triangles. Beyond its geometric significance, Pythagoras interpreted this discovery as proof that numbers constitute the ultimate reality, asserting that all things exist through numerical imitation and harmonic proportions."
+                },
+                {
+                    "type": "text",
+                    "value": "His doctrine of metempsychosis introduced the concept of eternal soul cycles between human, animal, and plant forms. This spiritual framework demanded ethical vegetarianism and established purification rituals aimed at liberating the soul from cyclical rebirth through intellectual and moral perfection."
+                },
+                {
+                    "type": "text",
+                    "value": "Pythagoras' <b>music of the spheres</b> theory proposed that celestial bodies produce harmonic vibrations through their orbital motions. He mathematically correlated musical intervals with planetary distances, creating a cosmic model where arithmetic governed astronomy and aesthetics, profoundly influencing Plato's cosmology."
+                },
+                {
+                    "type": "text",
+                    "value": "The tetractys embodied Pythagorean numerology as a symbol of cosmic completeness. Representing the mathematical foundation of reality (1 = point, 2 = line, 3 = plane, 4 = solid), it demonstrated how number generates physical dimensions and metaphysical perfection."
+                }
+            ]
+        }
+    ]
+},
+{
+    "type": "philosopher",
+    "value": [
+        {
+            "type": "h1",
+            "value": "Thales"
+        },
+        {
+            "type": "lifetime",
+            "value": "c. 624 - c. 546 BC"
+        },
+        {
+            "type": "branch",
+            "value": "Milesian"
+        },
+        {
+            "type": "h3",
+            "value": "Water as Arche, Natural Causality, and Geometric Proofs"
+        },
+        {
+            "type": "figure",
+            "value": "images/philosophers/thales.jpg"
+        },
+        {
+            "type": "p",
+            "value": [
+                {
+                    "type": "text",
+                    "value": "<b>Thales of Miletus</b> pioneered natural philosophy by rejecting mythological explanations in favor of material principles. As the first recorded Western philosopher, he transformed cosmology by seeking physical causes for phenomena, establishing the foundational methodology for scientific inquiry."
+                },
+                {
+                    "type": "text",
+                    "value": "His proposition that <b>water is the fundamental substance</b> (arche) constituted the first monistic theory of material origin. Observing water's phase changes and life-sustaining properties, Thales theorized that all matter derives from this primal element through condensation and rarefaction."
+                },
+                {
+                    "type": "text",
+                    "value": "Thales introduced <b>geometric deduction</b> to Greek mathematics, proving theorems about circle diameters and isosceles triangles. His practical applications included calculating pyramid heights through shadow measurement and predicting solar eclipses using Babylonian astronomical records."
+                },
+                {
+                    "type": "text",
+                    "value": "The concept of <b>natural causality</b> emerged through his investigations of magnetism and amber (electron), which he attributed to inherent properties rather than divine intervention. This materialist approach established nature (physis) as an autonomous domain governed by discoverable laws."
+                },
+                {
+                    "type": "text",
+                    "value": "Thales' <b>political engineering</b> demonstrated philosophy's practical utility when he diverted the Halys River for military strategy. His fusion of theoretical insight with technical skill established the philosopher as both thinker and problem-solver."
+                }
+            ]
+        }
+    ]
+},
+{
+    "type": "philosopher",
+    "value": [
+        {
+            "type": "h1",
+            "value": "William of Ockham"
+        },
+        {
+            "type": "lifetime",
+            "value": "c. 1287 - 1347"
+        },
+        {
+            "type": "branch",
+            "value": "Nominalist"
+        },
+        {
+            "type": "h3",
+            "value": "Ockham's Razor, Voluntarism, and Political Theory"
+        },
+        {
+            "type": "figure",
+            "value": "images/philosophers/ockham.png"
+        },
+        {
+            "type": "p",
+            "value": [
+                {
+                    "type": "text",
+                    "value": "<b>William of Ockham</b> revolutionized late scholasticism through radical nominalism and epistemological critique. His Franciscan commitment to divine omnipotence led to foundational challenges against Thomistic realism and papal authority, establishing conceptual foundations for modern empiricism."
+                },
+                {
+                    "type": "text",
+                    "value": "<b>Ockham's Razor</b> (principle of parsimony) mandated that \"entities must not be multiplied beyond necessity.\" This methodological maxim rejected unnecessary abstractions, denying the real existence of universals and reducing metaphysics to singular entities known through intuitive cognition."
+                },
+                {
+                    "type": "text",
+                    "value": "His <b>voluntarist theology</b> prioritized divine will over divine intellect, asserting that morality derives from God's arbitrary commands rather than eternal essences. This separation of ethics from ontology made divine freedom absolute while rendering creation contingent."
+                },
+                {
+                    "type": "text",
+                    "value": "Ockham's <b>political writings</b> defended imperial authority against papal claims during the Avignon controversy. His distinction between spiritual and temporal power anticipated constitutional theory by limiting ecclesiastical jurisdiction to spiritual matters."
+                },
+                {
+                    "type": "text",
+                    "value": "The <b>conceptualist epistemology</b> reduced universals to mental signs (signa) with no extra-mental reality. This nominalist approach made sensory experience the basis of knowledge while restricting theology to faith-based propositions beyond rational demonstration."
+                }
+            ]
+        }
+    ]
+},
+{
+    "type": "philosopher",
+    "value": [
+        {
+            "type": "h1",
+            "value": "Siger of Brabant"
+        },
+        {
+            "type": "lifetime",
+            "value": "c. 1240 - c. 1284"
+        },
+        {
+            "type": "branch",
+            "value": "Averroist"
+        },
+        {
+            "type": "h3",
+            "value": "Double Truth, Radical Aristotelianism, and Monopsychism"
+        },
+        {
+            "type": "figure",
+            "value": "images/philosophers/siger.jpg"
+        },
+        {
+            "type": "p",
+            "value": [
+                {
+                    "type": "text",
+                    "value": "<b>Siger of Brabant</b> led the Latin Averroist movement at the University of Paris, advocating philosophy's autonomy from theology. His uncompromising interpretation of Aristotle directly challenged Thomistic synthesis and provoked ecclesiastical condemnations for heterodoxy."
+                },
+                {
+                    "type": "text",
+                    "value": "The controversial <b>double truth doctrine</b> maintained that philosophical conclusions (based on Aristotle) could contradict theological truths while remaining valid within their respective domains. This epistemological separation allowed reason to pursue natural truths independently of revelation."
+                },
+                {
+                    "type": "text",
+                    "value": "Siger's <b>monopsychism</b> asserted the unity of the intellect across humanity, following Averroes' interpretation of Aristotle's <em>De Anima</em>. This denial of individual immortal souls provoked fierce opposition from Aquinas and ecclesiastical authorities."
+                },
+                {
+                    "type": "text",
+                    "value": "His <b>eternalist cosmology</b> rejected creation <em>ex nihilo</em>, maintaining the world's co-eternity with God. This Aristotelian position conflicted with Christian doctrine while demonstrating philosophy's capacity to generate conclusions independent of faith."
+                },
+                {
+                    "type": "text",
+                    "value": "Siger's <b>methodological radicalism</b> insisted that philosophy must follow logical argumentation to its conclusions regardless of theological implications. This stance established philosophy as an autonomous discipline, paving the way for later secular thought."
+                }
+            ]
+        }
+    ]
+},
+{
+    "type": "philosopher",
+    "value": [
+        {
+            "type": "h1",
+            "value": "Pseudo-Dionysius"
+        },
+        {
+            "type": "lifetime",
+            "value": "Late 5th century"
+        },
+        {
+            "type": "branch",
+            "value": "Christian Neoplatonist"
+        },
+        {
+            "type": "h3",
+            "value": "Negative Theology, Celestial Hierarchy, and Divine Darkness"
+        },
+        {
+            "type": "figure",
+            "value": "images/philosophers/dionysus.jpg"
+        },
+        {
+            "type": "p",
+            "value": [
+                {
+                    "type": "text",
+                    "value": "<b>Pseudo-Dionysius the Areopagite</b> synthesized Christian theology with Proclean Neoplatonism under the pseudonym of Paul's convert. His writings profoundly influenced medieval mysticism through hierarchical cosmology and apophatic theology, gaining authority from their apparent apostolic origins."
+                },
+                {
+                    "type": "text",
+                    "value": "<b>Negative theology</b> (via negativa) approached God through negation of attributes rather than affirmation. Dionysius argued that divine transcendence requires abandoning all concepts since God exists beyond being, knowledge, and language."
+                },
+                {
+                    "type": "text",
+                    "value": "The <b>celestial hierarchy</b> organized angels into three triads (Seraphim to Angels) mediating divine illumination downward. Corresponding <b>ecclesiastical hierarchy</b> structured church sacraments to elevate humans upward, establishing a participatory cosmology of symbolic ascent."
+                },
+                {
+                    "type": "text",
+                    "value": "Dionysius' concept of <b>divine darkness</b> represented the soul's ultimate encounter with God beyond intellectual light. This mystical union in \"luminous darkness\" required abandonment of senses and intellect for ecstatic unknowing."
+                },
+                {
+                    "type": "text",
+                    "value": "His <b>theurgical symbolism</b> interpreted sacraments and scripture as veils concealing divine mysteries. Material signs became participatory channels for divine energies, influencing medieval sacramental theology and Gothic art's symbolic program."
+                }
+            ]
+        }
+    ]
+},
+{
+    "type": "philosopher",
+    "value": [
+        {
+            "type": "h1",
+            "value": "Henry of Ghent"
+        },
+        {
+            "type": "lifetime",
+            "value": "c. 1217 - 1293"
+        },
+        {
+            "type": "branch",
+            "value": "Scholastic"
+        },
+        {
+            "type": "h3",
+            "value": "Illumination Theory, Intentional Distinction, and Metaphysical Plurality"
+        },
+        {
+            "type": "figure",
+            "value": "images/philosophers/henry.jpg"
+        },
+        {
+            "type": "p",
+            "value": [
+                {
+                    "type": "text",
+                    "value": "<b>Henry of Ghent</b> developed an Augustinian alternative to Thomism during the Parisian condemnations of 1277, when the Bishop of Paris, Stephen Tempier, prohibited the teaching of 219 philosophical and theological theses that were being discussed and disputed in the faculty of arts under his jurisdiction. His \"voluntarist essentialism\" balanced divine freedom with essentialist metaphysics while criticizing Aristotelian necessitarianism."
+                },
+                {
+                    "type": "text",
+                    "value": "The <b>divine illumination theory</b> modified Augustinianism by distinguishing God's special illumination from natural reason. Henry maintained that certain truths require divine \"superior light\" for certainty, positioning theology as the ultimate guarantor of truth."
+                },
+                {
+                    "type": "text",
+                    "value": "Henry's <b>intentional distinction</b> (<em>distinctio intentionalis</em>) mediated between real and conceptual distinctions in universals. This epistemological framework allowed essences to exist with less-than-real distinction from particulars while preserving metaphysical unity."
+                },
+                {
+                    "type": "text",
+                    "value": "His <b>analogical concept of being</b> rejected both univocal and equivocal predication regarding God. Henry developed a threefold analogy (attribution, proportionality, imitation) that influenced Eriugena's univocity debates."
+                },
+                {
+                    "type": "text",
+                    "value": "The <b>individuation theory</b> identified the \"mode of being\" (<em>modus essendi</em>) as the principle differentiating individuals within species. This solution to the problem of particularity avoided both Thomistic matter and Scotist haecceity."
+                }
+            ]
+        }
+    ]
+},
+{
+    "type": "philosopher",
+    "value": [
+        {
+            "type": "h1",
+            "value": "Albertus Magnus"
+        },
+        {
+            "type": "lifetime",
+            "value": "c. 1200 - 1280"
+        },
+        {
+            "type": "branch",
+            "value": "Scholastic"
+        },
+        {
+            "type": "h3",
+            "value": "Aristotelian Synthesis, Natural Science, and Universal Hylomorphism"
+        },
+        {
+            "type": "figure",
+            "value": "images/philosophers/albertus.jpg"
+        },
+        {
+            "type": "p",
+            "value": [
+                {
+                    "type": "text",
+                    "value": "<b>Albertus Magnus</b> pioneered the integration of Aristotelian science into Christian thought, mentoring Thomas Aquinas. His encyclopedic works encompassed biology, astronomy, alchemy, and logic, earning the title <em>Doctor Universalis</em> for his universal learning."
+                },
+                {
+                    "type": "text",
+                    "value": "Albertus' <b>scientific methodology</b> combined empirical observation with Aristotelian principles, conducting botanical field studies and mineralogical investigations. He insisted that natural philosophy must study creatures directly rather than through textual authorities alone."
+                },
+                {
+                    "type": "text",
+                    "value": "The doctrine of <b>universal hylomorphism</b> applied matter-form composition to spiritual substances including angels and souls. This controversial extension of Aristotelian metaphysics influenced Franciscan thought while distinguishing Albertine from Thomistic ontology."
+                },
+                {
+                    "type": "text",
+                    "value": "His <b>psychological theory</b> integrated Avicennian epistemology with Aristotelian faculty psychology. Albertus mapped cognitive processes from sensory reception through abstraction while maintaining the soul's substantial unity."
+                },
+                {
+                    "type": "text",
+                    "value": "Albertus' <b>metaphysical hierarchy</b> organized reality into ascending orders of intelligence from minerals through humans to angels. This Neoplatonic structure reconciled Dionysian cosmology with Aristotelian categories while preserving creation's sacramental character."
+                }
+            ]
+        }
+    ]
 }
     ]
 }

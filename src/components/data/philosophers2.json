@@ -55,5 +55,12 @@
   { "nome": "Giordano Bruno",                      "nascimento": 1548,  "morte": 1600, "categorias": ["Metaphysics","Ethics","Politics"],   "importance": 5 },
   { "nome": "Pico della Mirandola",                "nascimento": 1463,  "morte": 1494, "categorias": ["Metaphysics","Ethics","Politics"],   "importance": 5 },
   { "nome": "Averroes",                            "nascimento": 1126,  "morte": 1198, "categorias": ["Logic","Epistemology","Metaphysics"], "importance": 4 },
-  { "nome": "Hypatia",                             "nascimento": 360,   "morte": 415,  "categorias": ["Logic","Epistemology"],             "importance": 4 }
+  { "nome": "Hypatia",                             "nascimento": 360,   "morte": 415,  "categorias": ["Logic","Epistemology"],             "importance": 4 },
+  { "nome": "Albertus Magnus",                      "nascimento": 1200,  "morte": 1280, "categorias": ["Logic","Epistemology","Metaphysics"], "importance": 3 },
+  { "nome": "Siger of Brabant",                     "nascimento": 1240,  "morte": 1284, "categorias": ["Logic","Epistemology","Metaphysics"], "importance": 5 },
+  { "nome": "William of Ockham",                   "nascimento": 1287,  "morte": 1347, "categorias": ["Logic","Epistemology","Metaphysics"], "importance": 3 },
+  { "nome": "Thales",                               "nascimento": -624,  "morte": -546, "categorias": ["Metaphysics"], "importance": 5 },
+  { "nome": "Henry of Ghent",                      "nascimento": 1217,  "morte": 1293, "categorias": ["Metaphysics","Epistemology"],         "importance": 5 },
+  { "nome": "Pythagoras",                           "nascimento": -570,  "morte": -495, "categorias": ["Metaphysics"], "importance": 5 },
+  { "nome": "Pseudo-Dionysius",                     "nascimento": 5,     "morte": 100,  "categorias": ["Metaphysics","Epistemology"],         "importance": 5 }
 ]
