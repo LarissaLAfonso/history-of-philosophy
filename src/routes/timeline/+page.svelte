@@ -21,7 +21,7 @@
     import { fly } from 'svelte/transition';
     import { processTextWithGlossary } from '../../scripts/textProcessing.js';
     import eras from '../../components/data/eras.json';
-    //import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions'
+    import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions'
     
     const activeCategories = {};
     categorias.forEach(cat => {activeCategories[cat.nome] = false});
@@ -83,25 +83,6 @@
     let tooltipX = 0;
     let tooltipY = 0;
 
-    function showTooltip(event) {
-        const el = event.target.closest('[data-tooltip]');
-        if (!el) return;
-        tooltipContent = el.dataset.tooltip || '';
-        tooltipX = event.pageX + 8;
-        tooltipY = event.pageY + 8;
-        tooltipVisible = true;
-    }
-
-    function hideTooltip() {
-        tooltipVisible = false;
-    }
-
-    function moveTooltip(event) {
-        if (!tooltipVisible) return;
-        tooltipX = event.pageX + 8;
-        tooltipY = event.pageY + 8;
-    }
-                            
     let initialYear = -600; 
     let finalYear = 2020;   
     let stepYears = 100;    
@@ -363,6 +344,22 @@
         )
         .on('click', (e, d) => selectFilosofo(d.fil));
 
+    /* ---------- 7. CATEGORY → PHILOSOPHER LINES ---------- */
+    filosLayout.forEach(d => {
+        d.fil.categorias.forEach(cat => {
+            svg.append('line')
+                .attr('class', `category-connection ${d.fil.nome.replace(/\s+/g, '-')}`)
+                .attr('x1', catX[cat])
+                .attr('y1', y(d.fil.nascimento) + (d.dy || 0))
+                .attr('x2', d.centerX)
+                .attr('y2', y(d.fil.nascimento) + (d.dy || 0))
+                .attr('stroke', colors.highlight)
+                .attr('stroke-width', 1.3)
+                .attr('stroke-dasharray', '4 2')
+                .style('opacity', selectedFilosofo?.nome === d.fil.nome ? 0.6 : 0);
+        });
+    });
+
     /* ---------- 6. NAME BOXES ---------- */
     filosLayout.forEach(d => {
         const padding  = 3;
@@ -441,23 +438,8 @@
                 categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
             )
             .on('click', () => selectFilosofo(d.fil));
-    });
-
-    /* ---------- 7. CATEGORY → PHILOSOPHER LINES ---------- */
-    filosLayout.forEach(d => {
-        d.fil.categorias.forEach(cat => {
-            svg.append('line')
-                .attr('class', `category-connection ${d.fil.nome.replace(/\s+/g, '-')}`)
-                .attr('x1', catX[cat])
-                .attr('y1', y(d.fil.nascimento) + (d.dy || 0))
-                .attr('x2', d.centerX)
-                .attr('y2', y(d.fil.nascimento) + (d.dy || 0))
-                .attr('stroke', colors.highlight)
-                .attr('stroke-width', 1.3)
-                .attr('stroke-dasharray', '4 2')
-                .style('opacity', selectedFilosofo?.nome === d.fil.nome ? 0.6 : 0);
         });
-    });
+
 }
 
 
