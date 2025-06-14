@@ -2,167 +2,199 @@
     {
         "happening": "First Industrial Revolution",
         "year": "1760",
-        "image": "images/history_icons/factory.png"
+        "image": "images/history_icons/factory.png",
+        "importance": 2
     },
     {
         "happening": "Second Industrial Revolution",
         "year": "1870",
-        "image": "images/history_icons/car.png"
+        "image": "images/history_icons/car.png",
+        "importance": 2
     },
     {
         "happening": "French Revolution",
         "year": "1789",
-        "image": "images/history_icons/guillotine.png"
+        "image": "images/history_icons/guillotine.png",
+        "importance": 1
     },
     {
         "happening": "World War I",
         "year": "1914",
-        "image": "images/history_icons/ww1.png"
+        "image": "images/history_icons/ww1.png",
+        "importance": 1
     },
     {
         "happening": "World War II",
         "year": "1939",
-        "image": "images/history_icons/ww2.png"
+        "image": "images/history_icons/ww2.png",
+        "importance": 1
     },
     {
         "happening": "Cold War",
         "year": "1947",
-        "image": "images/history_icons/bomb.png"
+        "image": "images/history_icons/bomb.png",
+        "importance": 1
     },
     {
         "happening": "Fall of the Western Roman Empire",
         "year": "476",
-        "image": "images/history_icons/rome.png"
+        "image": "images/history_icons/rome.png",
+        "importance": 1
     },
     {
         "happening": "Fall of the Byzantine Empire",
         "year": "1453",
-        "image": "images/history_icons/arab-warrior.png"
+        "image": "images/history_icons/arab-warrior.png",
+        "importance": 3
     },
     {
         "happening": "Peloponnesian War",
         "year": "431 BC",
-        "image": "images/history_icons/crossed-swords.png"
+        "image": "images/history_icons/crossed-swords.png",
+        "importance": 4
     },
     {
         "happening": "Punic Wars",
         "year": "264 BC",
-        "image": "images/history_icons/crossed-swords.png"
+        "image": "images/history_icons/crossed-swords.png",
+        "importance": 4
     },
     {
         "happening": "Macedonian Wars",
         "year": "214 BC",
-        "image": "images/history_icons/crossed-swords.png"
+        "image": "images/history_icons/crossed-swords.png",
+        "importance": 5
     },
     {
         "happening": "Battle of Hastings",
         "year": "1066",
-        "image": "images/history_icons/hastings.png"
+        "image": "images/history_icons/hastings.png",
+        "importance": 4
     },
     {
         "happening": "Magna Carta signed",
         "year": "1215",
-        "image": "images/history_icons/letter.png"
+        "image": "images/history_icons/letter.png",
+        "importance": 3
     },
     {
         "happening": "Black Death",
         "year": "1346",
-        "image": "images/history_icons/plague.png"
+        "image": "images/history_icons/plague.png",
+        "importance": 3
     },
     {
         "happening": "Charlemagne crowned Holy Roman Emperor",
         "year": "800",
-        "image": "images/history_icons/crown.png"
+        "image": "images/history_icons/crown.png",
+        "importance": 4
     },
     {
         "happening": "Colombus lands in the Bahamas",
         "year": "1492",
-        "image": "images/history_icons/ship.png"
+        "image": "images/history_icons/ship.png",
+        "importance": 2
     },
     {
         "happening": "Protestant Reformation",
         "year": "1517",
-        "image": "images/history_icons/bible.png"
+        "image": "images/history_icons/bible.png",
+        "importance": 2
     },
     {
         "happening": "Start of Papal Inquisition",
         "year": "1230",
-        "image": "images/history_icons/church.png"
+        "image": "images/history_icons/church.png",
+        "importance": 4
     },
     {
         "happening": "Fall of the Roman Republic and rise of the Roman Empire",
         "year": "31 BC",
-        "image": "images/history_icons/caesar.png"
+        "image": "images/history_icons/caesar.png",
+        "importance": 2
     },
     {
         "happening": "Inventing of the Gutenberg press",
         "year": "1440",
-        "image": "images/history_icons/gutenberg.png"
+        "image": "images/history_icons/gutenberg.png",
+        "importance": 2
     },
     {
         "happening": "First university established in Bologna",
         "year": "1088",
-        "image": "images/history_icons/university.png"
+        "image": "images/history_icons/university.png",
+        "importance": 4
     },
     {
         "happening": "First Crusade",
         "year": "1096",
-        "image": "images/history_icons/knight.png"
+        "image": "images/history_icons/knight.png",
+        "importance": 3
     },
     {
         "happening": "Heliocentric model proposed by Copernicus",
         "year": "1543",
-        "image": "images/history_icons/solar-system.png"
+        "image": "images/history_icons/solar-system.png",
+        "importance": 3
     },
     {
         "happening": "Newton's laws of motion and universal gravitation",
         "year": "1687",
-        "image": "images/history_icons/newton.png"
+        "image": "images/history_icons/newton.png",
+        "importance": 2
     },
     {
         "happening": "Darwin's theory of evolution published",
         "year": "1859",
-        "image": "images/history_icons/evolution.png"
+        "image": "images/history_icons/evolution.png",
+        "importance": 2
     },
     {
         "happening": "Bell invents the telephone",
         "year": "1876",
-        "image": "images/history_icons/telephone.png"
+        "image": "images/history_icons/telephone.png",
+        "importance": 4
     },
     {
         "happening": "Wars of The Roses",
         "year": "1455",
-        "image": "images/history_icons/roses.png"
+        "image": "images/history_icons/roses.png",
+        "importance": 5
     },
     {
         "happening": "Draco's code of laws established in Athens",
         "year": "621 BC",
-        "image": "images/history_icons/justice.png"
+        "image": "images/history_icons/justice.png",
+        "importance": 5
     },
     {
         "happening": "Start of the Achaemenid Empire",
         "year": "550 BC",
-        "image": "images/history_icons/persian.png"
+        "image": "images/history_icons/persian.png",
+        "importance": 3
     },
     {
         "happening": "Founding of the Roman Republic",
         "year": "509 BC",
-        "image": "images/history_icons/roman-republic.png"
+        "image": "images/history_icons/roman-republic.png",
+        "importance": 2
     },
     {
         "happening": "Plague of Athens",
         "year": "430 BC",
-        "image": "images/history_icons/athens-plague.png"
+        "image": "images/history_icons/athens-plague.png",
+        "importance": 5
     },
     {
         "happening": "Gracchi brothers' reforms in Rome",
         "year": "133 BC",
-        "image": "images/history_icons/parthenon.png"
+        "image": "images/history_icons/parthenon.png",
+        "importance": 5
     },
     {
         "happening": "Vesuvius erupts, destroying Pompeii",
         "year": "79",
-        "image": "images/history_icons/volcano.png"
+        "image": "images/history_icons/volcano.png",
+        "importance": 5
     }
-
 ]

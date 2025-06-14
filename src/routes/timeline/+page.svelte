@@ -21,19 +21,10 @@
     import { fly } from 'svelte/transition';
     import { processTextWithGlossary } from '../../scripts/textProcessing.js';
     import eras from '../../components/data/eras.json';
-    import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions'
+    //import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions'
     
     const activeCategories = {};
-
-    categorias.forEach(cat => {
-        activeCategories[cat.nome] = false;
-    });
-
-    function handleCategoryClick(nome) {
-        // Recebe o contrário de atividade
-        activeCategories[nome] = !activeCategories[nome];
-        console.log(activeCategories);
-    }
+    categorias.forEach(cat => {activeCategories[cat.nome] = false});
 
     let searchQuery = '';
     let searchResults = [];
@@ -66,7 +57,12 @@
         //searchQuery = '';
     }
 
-        
+    function handleCategoryClick(nome) {
+        // Recebe o contrário de atividade
+        activeCategories[nome] = !activeCategories[nome];
+        console.log(activeCategories);
+    }
+
     function highlightSearch(text) {
         if (!searchQuery.trim()) return text;
         const escaped = searchQuery.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -81,12 +77,30 @@
     let isSplitView = false;    
     let containerWidth = 0;  
     
-    
     // tooltip state variables
     let tooltipVisible = false;
     let tooltipContent = '';
     let tooltipX = 0;
     let tooltipY = 0;
+
+    function showTooltip(event) {
+        const el = event.target.closest('[data-tooltip]');
+        if (!el) return;
+        tooltipContent = el.dataset.tooltip || '';
+        tooltipX = event.pageX + 8;
+        tooltipY = event.pageY + 8;
+        tooltipVisible = true;
+    }
+
+    function hideTooltip() {
+        tooltipVisible = false;
+    }
+
+    function moveTooltip(event) {
+        if (!tooltipVisible) return;
+        tooltipX = event.pageX + 8;
+        tooltipY = event.pageY + 8;
+    }
                             
     let initialYear = -600; 
     let finalYear = 2020;   

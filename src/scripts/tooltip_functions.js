@@ -1,21 +1,21 @@
 export function showTooltip(event) {
-        const target = event.target;
-        if (target.classList.contains('glossary-term')) {
-            tooltipContent = target.dataset.definition;
-            tooltipVisible = true;
-            
-            // Use setTimeout to ensure the tooltip is rendered before positioning
-            setTimeout(() => {
-                positionTooltip(event);
-            }, 0);
-        }
-    }
+		const el = (event.target).closest<HTMLElement>('[data-tooltip]');
+		if (!el) return;
+
+		tooltipContent = el.dataset.tooltip ?? '';
+		const r = el.getBoundingClientRect();
+		tooltipX = r.left + window.scrollX;
+		tooltipY = r.bottom + 8 + window.scrollY;
+		tooltipVisible = true;
+	}
 
 export function hideTooltip(event) {
         // Only hide if we're not moving to another glossary term
+        /*
         if (!event.relatedTarget || !event.relatedTarget.classList.contains('glossary-term')) {
             tooltipVisible = false;
-        }
+        }*/
+        tooltipVisible = false;
     }
 
 export function moveTooltip(event) {
