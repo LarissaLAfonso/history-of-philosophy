@@ -83,7 +83,7 @@
     let tooltipX = 0;
     let tooltipY = 0;
 
-    let initialYear = -650; 
+    let initialYear = -700; 
     let finalYear = 2020;   
     let stepYears = 100;    
 
