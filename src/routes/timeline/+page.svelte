@@ -586,13 +586,24 @@
         });
 
     historyGroup.append('text')
-        .attr('class', 'history-label')
-        .text(d => d.happening)
-        .attr('x', sizeImgHistory / 2)  
-        .attr('y', -sizeImgHistory / 14)
-        .attr('text-anchor', 'middle')
-        .attr('font-size', '12px')
-        .attr('fill', '#333');
+    .attr('class', 'history-label')
+    .attr('x', sizeImgHistory / 2)
+    .attr('y', -sizeImgHistory / 3)
+    .attr('text-anchor', 'middle')
+    .style('font-family', '"Cinzel", serif')   // <- desired font
+    .style('font-size', '12px')
+    .style('fill', '#333')
+    .each(function (d) {
+        /* render <br> as real line breaks */
+        const lines = d.happening.split(/<br\s*\/?>/i);   // allow <br> or <br/>
+        lines.forEach((line, i) => {
+            d3.select(this)
+                .append('tspan')
+                .attr('x', sizeImgHistory / 2)
+                .attr('dy', i === 0 ? 0 : '1.1em')       // shift each new line
+                .text(line.trim());
+        });
+    });
 
     historyGroup.append('text')
         .attr('class', 'year-label')
