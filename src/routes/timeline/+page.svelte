@@ -574,7 +574,7 @@
         .attr('class', 'history-label')
         .text(d => d.happening)
         .attr('x', sizeImgHistory / 2)  
-        .attr('y', -5)
+        .attr('y', -sizeImgHistory / 14)
         .attr('text-anchor', 'middle')
         .attr('font-size', '12px')
         .attr('fill', '#333');
