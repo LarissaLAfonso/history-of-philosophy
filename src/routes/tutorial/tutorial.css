@@ -194,11 +194,16 @@ body {
   display: flex;
 }
 
-.slide-image img {
-  width: 300px;
-  height: auto;
-  border-radius: 8px;
+.slide-image {
+  flex: 0 0 50%; 
 }
+
+.slide-image img {
+  width: 100%; 
+  height: auto;
+  display: block;
+}
+
 
 .slide-text {
   display: flex;
