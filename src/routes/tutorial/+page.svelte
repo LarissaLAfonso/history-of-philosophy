@@ -68,6 +68,5 @@
         <button on:click={nextSlide}>&gt;</button>
       </div>
     </div>
-
   </div>
 </div>
