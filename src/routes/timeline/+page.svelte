@@ -31,7 +31,7 @@
     let searchResults = [];
 
     function categoriesAreActive(philosopherCategories, activeCategories) {
-        let result = philosopherCategories.every(cat => activeCategories[cat] === true);
+        let result = philosopherCategories.some(cat => activeCategories[cat] === true);
         for(const cat of Object.keys(activeCategories)) {
             if (activeCategories[cat] === true) return result;
         }
