@@ -475,11 +475,11 @@
         
         <div class="fade-line"></div>
 
-        <button class="btn timeline-btn" onclick="location.href='./timeline'">
+        <button class="btn timeline-btn" onclick="location.href='./timeline'" data-sveltekit-reload>
             <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
           </button>
 
-        <button class="btn timeline-btn" onclick="location.href='./tutorial'">
+        <button class="btn timeline-btn" onclick="location.href='./tutorial'" data-sveltekit-reload>
           <img src="images/timeline_icon.png" alt="Timeline Icon" /> Tutorial
         </button>
       </div>
