@@ -564,7 +564,10 @@
             return `translate(${x}, ${yPos})`;
         });
 
-    const sizeImgHistory = 70;
+    let sizeImgHistory = 70;
+    if (selectedFilosofo != null){
+        sizeImgHistory = 50;
+    }
     
     historyGroup.append('image')
         .attr('class', d => `history ${d.happening.replace(/\s+/g, '-').replaceAll('.','')}`)
