@@ -421,7 +421,7 @@
     <nav>
       <div class="nav-right">
           <ul>
-            <li><a href="../contacts">Contact Us</a></li>
+            <li><a href="./contacts">Contact Us</a></li>
           </ul>
 
         <button class="btn" onclick="javascript:window.open('https://github.com/FGV-VIS-2025/final-project-history-of-philosophy', '_blank');">
