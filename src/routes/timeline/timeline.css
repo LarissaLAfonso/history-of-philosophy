@@ -514,9 +514,10 @@ svg#timeline {
     max-width: 200px;
     opacity: 0;
     transition: opacity 0.3s;
-    font-size: 0.85em;
+    font-size: 0.8em;
     white-space: normal;
     background-color: var(--tooltip-color, #333);
+    font-family: "Cinzel", serif;
 }
 
 #tooltipEras::after {
