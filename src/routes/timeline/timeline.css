@@ -151,7 +151,7 @@ svg#timeline {
     width: 50%;
 }
 
-.filosofo-label.selected rect {
+/* .filosofo-label.selected rect {
     stroke: #d4af37;
     stroke-width: 2px;
     fill: #fcf6e9;
@@ -162,9 +162,9 @@ svg#timeline {
     rx: 6px;
     ry: 6px;
     transition: all 0.4s ease;
-}
+} */
 
-.filosofo-line.selected {
+/* .filosofo-line.selected {
     stroke: #d4af37;
     stroke-width: 4px;
     filter: 
@@ -173,7 +173,7 @@ svg#timeline {
     rx: 6px;
     ry: 6px;
     transition: all 0.4s ease;
-}
+} */
 
 .info-filosofos {
     text-align: center;

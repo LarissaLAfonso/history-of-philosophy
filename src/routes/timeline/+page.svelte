@@ -52,20 +52,9 @@
               .sort((a, b) => b.count - a.count)
         : [];
 
-    function snapToPhilosopher(philosopher) {
-
-        const element = document.querySelector(`.interaction-area.${philosopher.nome.replace(/\s+/g, '-')}`);
-        if(!element) return;
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center' // Center the philosopher in the viewport
-        });
-    }
-
     function performSelect(name) {
         const fil = filosofos.find(f => f.nome === name);
         if (fil) selectFilosofo(fil);
-
         //searchQuery = '';
     }
 
@@ -126,7 +115,6 @@
             updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
             d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-')}`)
                 .style('opacity', 0.6);
-            snapToPhilosopher(filosofo);
         }
     }
 
@@ -346,10 +334,11 @@
         .attr('x1', d => d.centerX)
         .attr('x2', d => d.centerX)
         .attr('y1', d => y(d.fil.nascimento) + (d.dy || 0))
-        .attr('y2', d => y(d.fil.morte)       + (d.dy || 0))
+        .attr('y2', d => y(d.fil.morte) + (d.dy || 0))
         .attr('stroke', colors.timeline)
         .attr('stroke-width', 2.5)
         .attr('stroke-linecap', 'round')
+        
         .style('cursor', 'pointer')
         .style('opacity', d =>
             categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
@@ -365,8 +354,8 @@
                 .attr('y1', y(d.fil.nascimento) + (d.dy || 0))
                 .attr('x2', d.centerX)
                 .attr('y2', y(d.fil.nascimento) + (d.dy || 0))
-                .attr('stroke', colors.highlight)
-                .attr('stroke-width', 1.3)
+                .style('stroke', selectedFilosofo?.nome === d.fil.nome ? colors.text : colors.highlight)
+                .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2 : 1.3)
                 .attr('stroke-dasharray', '4 2')
                 .style('opacity', selectedFilosofo?.nome === d.fil.nome ? 0.6 : 0);
         });
@@ -404,28 +393,28 @@
 
         /* background */
         g.append('rect')
-        .attr('x', 0)
-        .attr('y', -fontSize/2 - padding)
-        .attr('width', labelW)
-        .attr('height', fontSize + 2*padding)
-        .attr('fill', '#fff')
-        .attr('stroke', colors.timeline)
-        .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2.5 : 1.2)
-        .attr('rx', 6).attr('ry', 6)
-        .style('opacity',
-            categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
+            .attr('x', 0)
+            .attr('y', -fontSize/2 - padding)
+            .attr('width', labelW)
+            .attr('height', fontSize + 2*padding)
+            .attr('fill', selectedFilosofo?.nome === d.fil.nome ? '#dBC826' : '#fff')
+            .attr('stroke', colors.timeline)
+            .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2.5 : 1.2)
+            .attr('rx', 6).attr('ry', 6)
+            .style('opacity',
+                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
 
         /* centred text */
         g.append('text')
-        .attr('x', labelW/ 2)
-        .attr('dominant-baseline', 'middle')
-        .attr('text-anchor', 'middle')
-        .style('font-family', 'Cinzel, serif')
-        .style('font-size', `${fontSize}px`)
-        .style('fill', colors.text)
-        .text(d.fil.nome)
-        .style('opacity',
-            categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
+            .attr('x', labelW/ 2)
+            .attr('dominant-baseline', 'middle')
+            .attr('text-anchor', 'middle')
+            .style('font-family', 'Cinzel, serif')
+            .style('font-size', `${fontSize}px`)
+            .style('fill', colors.text)
+            .text(d.fil.nome)
+            .style('opacity',
+                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
 
         /* hover / click area – same width as the box */
         svg.append('rect')
