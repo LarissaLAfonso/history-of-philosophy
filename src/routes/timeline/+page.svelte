@@ -25,7 +25,7 @@
     import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions';
     
     const activeCategories = {};
-    categorias.forEach(cat => {activeCategories[cat.nome] = false});
+    categorias.forEach(cat => {activeCategories[cat.nome] = true});
 
     let searchQuery = '';
     let searchResults = [];
