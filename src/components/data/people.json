@@ -4,7 +4,7 @@
     "age": 20,
     "github": "https://github.com/LarissaLAfonso",
     "linkedin": "https://www.linkedin.com/in/larissa-lemos-afonso-087b78196/",
-    "img": "/images/participants/larissa.jpg",
+    "img": "../images/participants/larissa.jpg",
     "alt": "Larissa Afonso"
   },
   {
@@ -12,7 +12,7 @@
     "age": 20,
     "github": "https://github.com/LuuSamp",
     "linkedin": "https://www.linkedin.com/in/luciano-pereira-sampaio-689200242/",
-    "img": "/images/participants/luciano.jpg",
+    "img": "../images/participants/luciano.jpg",
     "alt": "Luciano Sampaio"
   },
   {
@@ -20,7 +20,7 @@
     "age": 20,
     "github": "https://github.com/KaikyBraga",
     "linkedin": "https://www.linkedin.com/in/kaiky-braga-8a84962aa/",
-    "img": "/images/participants/kaiky.jpg",
+    "img": "../images/participants/kaiky.jpg",
     "alt": "Kaiky Braga"
   }
 ]
