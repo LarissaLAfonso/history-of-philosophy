@@ -552,7 +552,7 @@
             return `translate(${x}, ${yPos})`;
         });
 
-    const sizeImgHistory = 60;
+    const sizeImgHistory = 70;
     
     historyGroup.append('image')
         .attr('class', d => `history ${d.happening.replace(/\s+/g, '-')}`)
