@@ -406,7 +406,7 @@ svg#timeline {
     font-size: 14px;
     font-weight: 400;
     max-width: 320px;
-    z-index: 1000;
+    z-index: 20000;
     pointer-events: none;
     line-height: 1.5;
     backdrop-filter: blur(4px);

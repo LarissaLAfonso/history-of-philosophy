@@ -1,3 +1,9 @@
+// tooltip state variables
+export let tooltipVisible = false;
+export let tooltipContent = '';
+export let tooltipX = 0;
+export let tooltipY = 0;
+
 export function showTooltip(event) {
 		const el = (event.target).closest<HTMLElement>('[data-tooltip]');
 		if (!el) return;
