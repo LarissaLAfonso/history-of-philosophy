@@ -67,7 +67,7 @@
     function highlightSearch(text) {
         if (!searchQuery.trim()) return text;
         const escaped = searchQuery.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp(`(${escaped})`, 'gi');
+        const regex = new RegExp(`(?<!<[^>]*)(${escaped})`, 'gi'); // expressão regular para encontrar o termo da pesquisa sem afetar as tags HTML
         return text.replace(regex, '<span class="search-highlight">$1</span>');
     }
 
