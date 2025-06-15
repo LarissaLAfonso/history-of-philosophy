@@ -269,6 +269,7 @@
     flex-direction: column;
     align-items: center;
     z-index: 2;
+    cursor: pointer;
   }
   .arrows {
     display: flex;
@@ -441,7 +442,7 @@
         </div>
     </div>
 
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" on:click ={scrollClick}>
       <div class="arrows">
         <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -510,6 +511,7 @@
     import ErasPlot from './home/plots/erasPlot.svelte';
 
     function makepage(){
+      window.scrollTo({ top: 0, behavior: 'instant' });
       (function () {
         const container = document.querySelector('.container');
         const newText = document.querySelector('.new-text');
@@ -529,6 +531,15 @@
         });
       })();
     }
+
+    function scrollClick(){
+      // alert("Scroll down to see the timeline of philosophers and their contributions to the history of philosophy.");
+      window.scrollTo({
+        top: document.querySelector('.new-text').offsetTop,
+        behavior: 'smooth'
+      });
+    }
+
     onMount(() => {
       makepage();
     });
