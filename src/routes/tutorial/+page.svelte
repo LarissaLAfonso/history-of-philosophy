@@ -33,32 +33,40 @@
     <div class="slider-window">
       {#each explanations as exp, i}
         <div class="content-slide {i === currentSlide ? 'active' : ''}">
-          <div class="gif">
+          <!-- Coluna da Imagem -->
+          <div class="slide-image">
             <img src={exp.gif} alt="explicação visual" />
           </div>
-          <div class="text-explanation">
-            {exp.text}
+
+          <!-- Coluna do Título + Texto -->
+          <div class="slide-text">
+            <h2 class="slide-title">{exp.title}</h2>
+            <div class="text-explanation">
+              {exp.text}
+            </div>
           </div>
         </div>
       {/each}
     </div>
 
-    <!-- DOTS -->
-    <div class="slider-dots">
-      {#each explanations as exp, i}
-        <div
-          class="dot {i === currentSlide ? 'active' : ''}"
-          title={exp.title}
-          on:click={() => currentSlide = i}>
-        </div>
-      {/each}
-    </div>
+    <div class="slider-footer">
+      <!-- DOTS -->
+      <div class="slider-dots">
+        {#each explanations as exp, i}
+          <div
+            class="dot {i === currentSlide ? 'active' : ''}"
+            title={exp.title}
+            on:click={() => currentSlide = i}>
+          </div>
+        {/each}
+      </div>
 
-    <!-- CONTROLS -->
-    <div class="slider-controls">
-      <button on:click={prevSlide}>&lt;</button>
-      <span>{currentSlide + 1} / {explanations.length}</span>
-      <button on:click={nextSlide}>&gt;</button>
+      <!-- CONTROLS -->
+      <div class="slider-controls">
+        <button on:click={prevSlide}>&lt;</button>
+        <span>{currentSlide + 1} / {explanations.length}</span>
+        <button on:click={nextSlide}>&gt;</button>
+      </div>
     </div>
 
   </div>
