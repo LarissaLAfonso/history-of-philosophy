@@ -198,9 +198,20 @@
             tooltipY = y;
         }
 
+
+    function snapToPhilosopher(philosopher) {
+        const element = document.querySelector(`.interaction-area.${philosopher.nome.replace(/\s+/g, '-').replaceAll('.','')}`);
+        if(!element) return;
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center' // Center the philosopher in the viewport
+        });
+    }
+
+
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
-        d3.selectAll(`.category-connection.${selectedFilosofo?.nome.replace(/\s+/g, '-')}`)
+        d3.selectAll(`.category-connection.${selectedFilosofo?.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
             .style('opacity', 0);
         if (isSplitView && selectedFilosofo === filosofo) {
             closeDetailView();
@@ -209,8 +220,9 @@
             isSplitView = true;
             selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
             updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
-            d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-')}`)
+            d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
                 .style('opacity', 0.6);
+            snapToPhilosopher(selectedFilosofo); // Snap to philosopher
         }
     }
 
@@ -231,20 +243,20 @@
 
     function updateCategoryConnections(filosofoNome) {
         const shouldShow = selectedFilosofo?.nome === filosofoNome;
-        d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+        d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-').replaceAll('.','')}`)
             .style('opacity', shouldShow ? 0.6 : 0);
     }
 
     function showCategoryConnections(filosofoNome) {
         if (selectedFilosofo?.nome !== filosofoNome) {
-            d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+            d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-').replaceAll('.','')}`)
                 .style('opacity', 0.6);
         }
     }
 
     function hideCategoryConnections(filosofoNome) {
         if (selectedFilosofo?.nome !== filosofoNome) {
-            d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-')}`)
+            d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-').replaceAll('.','')}`)
                 .style('opacity', 0);
         }
     }
@@ -426,7 +438,7 @@
         .data(filosLayout)
         .enter()
         .append('line')
-        .attr('class', d => `filosofo-line ${d.fil.nome.replace(/\s+/g, '-')}`)
+        .attr('class', d => `filosofo-line ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
         .attr('x1', d => d.centerX)
         .attr('x2', d => d.centerX)
         .attr('y1', d => y(d.fil.nascimento) + (d.dy || 0))
@@ -445,7 +457,7 @@
     filosLayout.forEach(d => {
         d.fil.categorias.forEach(cat => {
             svg.append('line')
-                .attr('class', `category-connection ${d.fil.nome.replace(/\s+/g, '-')}`)
+                .attr('class', `category-connection ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
                 .attr('x1', catX[cat])
                 .attr('y1', y(d.fil.nascimento) + (d.dy || 0))
                 .attr('x2', d.centerX)
@@ -517,7 +529,7 @@
 
         /* line hover / click area – same width as the box */
         svg.append('rect')
-        .attr('class', `interaction-area ${d.fil.nome.replace(/\s+/g, '-')}`)
+        .attr('class', `interaction-area ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
         .attr('x', labelX+labelW/2-10)
         .attr('y', y(d.fil.nascimento) + (d.dy || 0) - 20)
         .attr('width', 20)
@@ -555,7 +567,7 @@
     const sizeImgHistory = 70;
     
     historyGroup.append('image')
-        .attr('class', d => `history ${d.happening.replace(/\s+/g, '-')}`)
+        .attr('class', d => `history ${d.happening.replace(/\s+/g, '-').replaceAll('.','')}`)
         .attr('x', 0)
         .attr('y', 0)
         .attr('width', sizeImgHistory)
