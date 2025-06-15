@@ -751,14 +751,14 @@
                 </a>
 
                 <!-- Granularity Controls - Horizontal buttons next to home icon -->
-                <div class="granularity-controls">
+                <div class="granularity-controls {isSplitView ? 'fade-out' : ''}">
                     {#each [1,2,3,4,5] as level}
                         <button 
-                            class:active={granularityLevel === level}
-                            on:click={() => setGranularity(level)}
-                            aria-label={`Detail level ${level}`}
+                        class:active={granularityLevel === level}
+                        on:click={() => setGranularity(level)}
+                        aria-label={`Detail level ${level}`}
                         >
-                            {level}
+                        {level}
                         </button>
                     {/each}
                 </div>
