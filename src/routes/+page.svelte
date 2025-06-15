@@ -24,9 +24,9 @@
   font-style: italic;        /* italic text */
   text-align: center;        /* center text inside */
   }
-  :global(body){
+  /* :global(body){
     background:#2d1a0f; 
-  }
+  } */
 
   /* Full‐viewport container with background image */
   .container {
