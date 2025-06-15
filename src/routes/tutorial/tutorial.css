@@ -10,7 +10,7 @@ body {
     font-family: 'Cinzel', serif;
     overflow-x: hidden;
 }
-
+    
 .page {
     text-align: center;
     width: 100%;
@@ -34,7 +34,7 @@ body {
 .title {
     color: #fff;
     font-family: "Cinzel", serif;
-    font-size: 2rem;
+    font-size: 3.5rem;
     text-align: center;
     text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.6);
     line-height: 60px;
@@ -79,11 +79,24 @@ body {
     padding: 20px 0; 
 }
 
+.slider-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;   
+  align-items: center;     
+  gap: 10px;              
+  z-index: 999;
+}
+
+
 .slider-dots {
   display: flex;
-  justify-content: center;
-  margin-top: 16px;
+  justify-content: center;  
   gap: 12px;
+  margin: 0;                
 }
 
 .dot {
@@ -102,22 +115,20 @@ body {
 .content-slide {
   display: none;
   flex-direction: row;
+  flex-wrap: wrap; 
   gap: 24px;
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
+  margin-left: 12%;
+  margin-right: 12%;
   border-radius: 12px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .content-slide.active {
   display: flex;
-}
-
-.gif img {
-  width: 150px;
-  height: auto;
-  border-radius: 8px;
 }
 
 .text-explanation {
@@ -129,15 +140,15 @@ body {
 }
 
 .slider-controls {
-  margin-top: 20px;
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 10px;
 }
 
 .slider-controls button {
-  padding: 8px 16px;
-  background-color: #e4c45b;
+  padding: 10px 10px;
+  background-color: #947612;
   color: #1a1a2e;
   border: none;
   border-radius: 6px;
@@ -146,5 +157,54 @@ body {
 }
 
 .slider-controls button:hover {
-  background-color: #bfa74a;
+  background-color: #947612;
 }
+
+.slide-title {
+  width: 100%;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  color: #3e2b23;
+  border: 2px solid #3e2b23;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  background-color: #f9f5f0;
+  box-shadow: 0 4px 8px rgba(62, 43, 35, 0.2);
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.content-slide {
+  display: none;
+  flex-direction: row; 
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 24px;
+  margin-left: 12%;
+  margin-right: 12%;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.content-slide.active {
+  display: flex;
+}
+
+.slide-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.slide-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  text-align: left;
+}
+

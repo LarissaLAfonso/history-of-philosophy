@@ -1,13 +1,13 @@
 [
     {
-        "happening": "First Industrial Revolution",
+        "happening": "First Industrial<br>Revolution",
         "year": "1760",
         "image": "images/history_icons/factory.png",
         "importance": 2,
         "posX": 0.3421
     },
     {
-        "happening": "Second Industrial Revolution",
+        "happening": "Second Industrial<br>Revolution",
         "year": "1870",
         "image": "images/history_icons/car.png",
         "importance": 2,
@@ -42,14 +42,14 @@
         "posX": 0.01
     },
     {
-        "happening": "Fall of the Western Roman Empire",
+        "happening": "Fall of the Western <br> Roman Empire",
         "year": "476",
         "image": "images/history_icons/rome.png",
         "importance": 1,
         "posX": 0.903
     },
     {
-        "happening": "Fall of the Byzantine Empire",
+        "happening": "Fall of the<br>Byzantine Empire",
         "year": "1453",
         "image": "images/history_icons/arab-warrior.png",
         "importance": 3,
@@ -84,7 +84,7 @@
         "posX": 0.4981
     },
     {
-        "happening": "Magna Carta signed",
+        "happening": "Magna Carta<br> signed",
         "year": "1215",
         "image": "images/history_icons/letter.png",
         "importance": 3,
@@ -98,14 +98,14 @@
         "posX": 0.1359
     },
     {
-        "happening": "Charlemagne crowned Holy Roman Emperor",
+        "happening": "Charlemagne crowned<br> Holy Roman Emperor",
         "year": "800",
         "image": "images/history_icons/crown.png",
         "importance": 4,
         "posX": 0.6874
     },
     {
-        "happening": "Colombus lands in the Bahamas",
+        "happening": "Colombus lands<br>in the Bahamas",
         "year": "1492",
         "image": "images/history_icons/ship.png",
         "importance": 2,
@@ -119,28 +119,28 @@
         "posX": 0.8709
     },
     {
-        "happening": "Start of Papal Inquisition",
+        "happening": "Start of Papal<br> Inquisition",
         "year": "1230",
         "image": "images/history_icons/church.png",
         "importance": 4,
         "posX": 0.6527
     },
     {
-        "happening": "Fall of the Roman Republic and rise of the Roman Empire",
+        "happening": "Fall of the Roman Republic <br> and rise of the Roman Empire",
         "year": "-31",
         "image": "images/history_icons/caesar.png",
         "importance": 2,
         "posX": 0.3106
     },
     {
-        "happening": "Inventing of the Gutenberg press",
+        "happening": "Inventing of<br> the Gutenberg press",
         "year": "1440",
         "image": "images/history_icons/gutenberg.png",
         "importance": 2,
         "posX": 0.9832
     },
     {
-        "happening": "First university established in Bologna",
+        "happening": "First university<br>established in Bologna",
         "year": "1088",
         "image": "images/history_icons/university.png",
         "importance": 4,
@@ -154,28 +154,28 @@
         "posX": 0.7023
     },
     {
-        "happening": "Heliocentric model proposed by Copernicus",
+        "happening": "Heliocentric model<br>proposed by Copernicus",
         "year": "1543",
         "image": "images/history_icons/solar-system.png",
         "importance": 3,
         "posX": 0.2897
     },
     {
-        "happening": "Newton's laws of motion and universal gravitation",
+        "happening": "Newton's laws of motion<br>and universal gravitation",
         "year": "1687",
         "image": "images/history_icons/newton.png",
         "importance": 2,
         "posX": 0.9331
     },
     {
-        "happening": "Darwin's theory of evolution published",
+        "happening": "Darwin's theory<br>of evolution published",
         "year": "1859",
         "image": "images/history_icons/evolution.png",
         "importance": 2,
         "posX": 0.5684
     },
     {
-        "happening": "Bell invents the telephone",
+        "happening": "Bell patents<br>the telephone",
         "year": "1876",
         "image": "images/history_icons/telephone.png",
         "importance": 4,
@@ -189,21 +189,21 @@
         "posX": 0.8219
     },
     {
-        "happening": "Draco's code of laws established in Athens",
+        "happening": "Draco's code of laws <br> established in Athens",
         "year": "-621",
         "image": "images/history_icons/justice.png",
         "importance": 5,
         "posX": 0.0944
     },
     {
-        "happening": "Start of the Achaemenid Empire",
+        "happening": "Start of the <br> Achaemenid Empire",
         "year": "-550",
         "image": "images/history_icons/persian.png",
         "importance": 3,
         "posX": 0.6228
     },
     {
-        "happening": "Founding of the Roman Republic",
+        "happening": "Founding of the <br> Roman Republic",
         "year": "-509",
         "image": "images/history_icons/roman-republic.png",
         "importance": 2,
@@ -217,14 +217,14 @@
         "posX": 0.2048
     },
     {
-        "happening": "Gracchi brothers' reforms in Rome",
+        "happening": "Gracchi brothers' <br> reforms in Rome",
         "year": "-133",
         "image": "images/history_icons/parthenon.png",
         "importance": 5,
         "posX": 0.9342
     },
     {
-        "happening": "Vesuvius erupts, destroying Pompeii",
+        "happening": "Vesuvius erupts,<br> destroying Pompeii",
         "year": "79",
         "image": "images/history_icons/volcano.png",
         "importance": 5,

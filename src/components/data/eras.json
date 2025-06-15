@@ -5,7 +5,7 @@
     "end": 500,
     "backgroundColor": "#f0f0f0",
     "textColor": "#505050",
-    "description": "Greek and Roman philosophy, focused on ethics, politics, and metaphysics."
+    "description": "Greek and Roman philosophy, focused mainly on ethics, politics, and metaphysics."
   },
   {
     "name": "Medieval",
@@ -29,7 +29,7 @@
     "end": 1800,
     "backgroundColor": "#d5e8c1",
     "textColor": "#4d7c1b",
-    "description": "Rationalism, empiricism, and critiques of knowledge; the rise of Enlightenment ideas."
+    "description": "The rise of Enlightenment ideas. Rationalism, empiricism, and critiques of knowledge."
   },
   {
     "name": "Contemporary",
