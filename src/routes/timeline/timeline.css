@@ -35,10 +35,17 @@
     z-index: 1000;
 }
 
+.fixed-header .header-content {
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+}
+    
 .header-content {
     position: relative;
     letter-spacing: 2px;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    text-align: center;
 }
 
 /* Barra das categorias */
@@ -530,3 +537,86 @@ svg#timeline {
     border-style: solid;
     border-color: transparent var(--tooltip-color, #333) transparent transparent;
 }
+
+
+.granularity-controls-container {
+    position: fixed;
+    top: 60px; /* Below the header */
+    left: 20px;
+    z-index: 100;
+    background: rgba(245, 239, 230, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid #8c7a6d;
+}
+
+/* Granularity Controls - Horizontal Style */
+.granularity-controls {
+    display: flex;
+    gap: 8px;
+    margin-left: 6rem; /* Space after home icon */
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.granularity-controls button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245, 239, 230, 0.7);
+    border: 1px solid #8c7a6d;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: #3e2d23;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.granularity-controls button.active {
+    background: #8c7a6d;
+    color: white;
+    font-weight: bold;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.granularity-controls button:hover {
+    background: #e0d7cc;
+    transform: translateY(-2px);
+}
+
+.granularity-controls button:active {
+    transform: scale(0.95);
+}
+
+/* Add smooth scrolling to timeline */
+html {
+    scroll-behavior: smooth;
+}
+
+.detail-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: #5a4a42;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+.filosofo-line, .name-box, .history, .year-line, .category-connection {
+        transition: 
+            opacity 800ms ease,
+            stroke 800ms ease,
+            fill 800ms ease,
+            transform 800ms ease;
+    }
+

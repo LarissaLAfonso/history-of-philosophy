@@ -71,6 +71,20 @@
         return text.replace(regex, '<span class="search-highlight">$1</span>');
     }
 
+    let filteredFilosofos = filosofos;
+    let filteredHistories = histories;
+
+    function setGranularity(level) {
+        if (transitionInProgress || granularityLevel === level) return;
+        
+        transitionInProgress = true;
+        granularityLevel = level;
+        
+        setTimeout(() => {
+            drawTimeLine(true);
+            transitionInProgress = false;
+        }, 50);
+    }
 
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
     let selectedFilosofo = null;
@@ -88,7 +102,7 @@
     let finalYear = 2020;   
     let stepYears = 100;    
 
-    const anos = d3.range(initialYear, finalYear + 1, stepYears);
+    let anos = d3.range(initialYear, finalYear + 1, stepYears);
 
     const colors = {
         background: '#f5efe6',
@@ -261,45 +275,62 @@
         }
     }
 
-    function drawTimeLine() {
-    const svg = d3.select('#timeline');
-    svg.selectAll('*').remove();
 
-    /* ---- 1. container sizes ---- */
-    const timelineContainer = document.getElementById('timeline-container');
-    if (!timelineContainer) return;
+    // Add granularity level state
+    let granularityLevel = 5; // Default to highest detail (1-5 scale)
+    let timelineHeight = 6000; // Initial height
+    let transitionInProgress = false;
+    
+    // Update stepYears based on granularity
+    $: if (granularityLevel) {
+        stepYears = [500, 400, 300, 100, 50][granularityLevel - 1];
+        timelineHeight = 4000 + (granularityLevel - 1) * 500;
+        anos = d3.range(initialYear, finalYear + 1, stepYears);
+        
+        filteredFilosofos = filosofos.filter(f => 
+            f.importance <= granularityLevel || 
+            (selectedFilosofo && selectedFilosofo.nome === f.nome)
+        );
+        
+        filteredHistories = histories.filter(h => 
+            h.importance <= granularityLevel
+        );
+    }
 
-    containerWidth = timelineContainer.clientWidth;
-    const height   = 6000;
-    const margin   = { top: 80, right: containerWidth / 12, bottom: 80, left: containerWidth / 12 };
+    function drawTimeLine(withTransition = false) {
+        const svg = d3.select('#timeline');
+        svg.selectAll('*').remove();
+        
+        const duration = withTransition ? 800 : 0;
+        const timelineContainer = document.getElementById('timeline-container');
+        if (!timelineContainer) return;
 
-    /* ---- 2. scales ---- */
-    const y = d3.scaleLinear()
-        .domain([initialYear, finalYear])
-        .range([margin.top, height - margin.bottom]);
+        containerWidth = timelineContainer.clientWidth;
+        const height = timelineHeight;
+        const margin = { top: 80, right: containerWidth / 12, bottom: 80, left: containerWidth / 12 };
 
-    /* ---- 3. background gradient (eras) ---- */
-    const lg = svg.append('linearGradient')
-        .attr('id', 'bg-gradient')
-        .attr('x1', '0%').attr('y1', '0%')
-        .attr('x2', '0%').attr('y2', '100%');
+        /* === SCALES === */
+        const y = d3.scaleLinear()
+            .domain([initialYear, finalYear])
+            .range([margin.top, height - margin.bottom]);
 
-    const fade = 0.1;          
+        /* === BACKGROUND GRADIENT (ERAS) === */
+        const lg = svg.append('linearGradient')
+            .attr('id', 'bg-gradient')
+            .attr('x1', '0%').attr('y1', '0%')
+            .attr('x2', '0%').attr('y2', '100%');
 
-    eras.forEach((era, i) => {
-        const start = (y(era.start) - margin.top) / (height - margin.top - margin.bottom);
-        const end   = (y(era.end)   - margin.top) / (height - margin.top - margin.bottom);
-        const nextColor = eras[(i + 1) % eras.length].backgroundColor;
+        const fade = 0.1;
+        eras.forEach((era, i) => {
+            const start = (y(era.start) - margin.top) / (height - margin.top - margin.bottom);
+            const end = (y(era.end) - margin.top) / (height - margin.top - margin.bottom);
+            const nextColor = eras[(i + 1) % eras.length].backgroundColor;
 
-        // solid fill for the era
-        lg.append('stop').attr('offset',  start).attr('stop-color', era.backgroundColor);
-        lg.append('stop').attr('offset',  end - fade).attr('stop-color', era.backgroundColor);
+            lg.append('stop').attr('offset', start).attr('stop-color', era.backgroundColor);
+            lg.append('stop').attr('offset', end - fade).attr('stop-color', era.backgroundColor);
+            lg.append('stop').attr('offset', end).attr('stop-color', nextColor);
+        });
 
-        // razor-thin blend into the next era
-        lg.append('stop').attr('offset', end).attr('stop-color', nextColor);
-            
-
-        /* paint full-page background with that gradient */
         svg.append('rect')
             .attr('x', 0)
             .attr('y', 0)
@@ -307,86 +338,356 @@
             .attr('height', height)
             .attr('fill', 'url(#bg-gradient)');
 
-    });
+        /* === CATEGORY POSITIONS === */
+        const columnWidth = (containerWidth - margin.left - margin.right) / categorias.length;
+        const delimitations = d3.range(0, categorias.length + 1).map(i => margin.left + i * columnWidth);
+        categoriaPositions = categorias.map((cat, i) => ({
+            ...cat,
+            pos: (delimitations[i] + delimitations[i + 1]) / 2
+        }));
+        const catX = Object.fromEntries(categoriaPositions.map(c => [c.nome, c.pos]));
 
-
-    if (!timelineContainer) return;
-
-    containerWidth = timelineContainer.clientWidth;
-
-    /* ---------- 2. CATEGORY X LOOKUP ---------- */
-    const columnWidth = (containerWidth - margin.left - margin.right) / categorias.length;
-    const delimitations = d3.range(0, categorias.length + 1).map(i => margin.left + i * columnWidth);
-    categoriaPositions = categorias.map((cat, i) => ({
-        ...cat,
-        pos: (delimitations[i] + delimitations[i + 1]) / 2
-    }));
-    const catX = Object.fromEntries(categoriaPositions.map(c => [c.nome, c.pos]));
-
-    /* ---------- 3. PRE-COMPUTE LAYOUT PER PHILOSOPHER ---------- */
-    const filosLayout = filosofos.map(f => {
-        const xs = f.categorias.map(c => catX[c]);
-        const minX = Math.min(...xs) - 10;
-        const maxX = Math.max(...xs) + 35;
-        return { fil: f, minX, maxX, centerX: (minX + maxX) / 2 };
-    });
-
-    const groups = d3.group(filosLayout, d => d.centerX);
-
-    groups.forEach(group => {
-        if (group.length === 1) return;
-
-        const step = 14;                     // horizontal gap between neighbours
-        const offset0 = -step * (group.length - 4);
-
-        group.forEach((d, i) => {
-            const dx = offset0 + i * step;   // <-- shift value for THIS philosopher
-
-            // apply to the whole span
-            d.minX   += dx;
-            d.maxX   += dx;
-            d.centerX += dx;
+        /* === PHILOSOPHER LAYOUT === */
+        const filosLayout = filteredFilosofos.map(f => {
+            const xs = f.categorias.map(c => catX[c]);
+            const minX = Math.min(...xs) - 10;
+            const maxX = Math.max(...xs) + 35;
+            return { fil: f, minX, maxX, centerX: (minX + maxX) / 2 };
         });
-    });
 
-    /* ---------- 3-ter.  GLOBAL vertical de-overlap ---------- */
-    const lineH = 20;   // box height  (≈ font-size 14 + padding*2)
-    const gapY  = 1;    // extra vertical gap
+        const groups = d3.group(filosLayout, d => d.centerX);
+        groups.forEach(group => {
+            if (group.length === 1) return;
+            const step = 14;
+            const offset0 = -step * (group.length - 4);
+            group.forEach((d, i) => {
+                const dx = offset0 + i * step;
+                d.minX += dx;
+                d.maxX += dx;
+                d.centerX += dx;
+            });
+        });
 
-    // place philosophers chronologically
-    filosLayout.sort((a, b) => a.fil.nascimento - b.fil.nascimento);
+        /* === VERTICAL DE-OVERLAP === */
+        const lineH = 20;
+        const gapY = 1;
+        const placed = [];
+        filosLayout.sort((a, b) => a.fil.nascimento - b.fil.nascimento);
+        filosLayout.forEach(d => {
+            d.dy = 0;
+            while (placed.some(p =>
+                !(d.maxX < p.minX || d.minX > p.maxX) &&
+                Math.abs((y(d.fil.nascimento) + d.dy) - (y(p.fil.nascimento) + p.dy)) < lineH + gapY
+            )) {
+                d.dy += lineH + gapY;
+            }
+            placed.push({ minX: d.minX, maxX: d.maxX, fil: d.fil, dy: d.dy });
+        });
 
-    const placed = [];  // boxes already fixed
+        /* === YEAR GRID LINES === */
+        const yearLines = svg.selectAll('.year-line')
+            .data(anos, d => d);
+            
+        yearLines.exit()
+            .transition().duration(duration)
+            .style('opacity', 0)
+            .remove();
+            
+        yearLines.enter()
+            .append('line')
+            .attr('class', 'year-line')
+            .attr('x1', margin.left)
+            .attr('x2', containerWidth - margin.right / 3)
+            .attr('y1', d => y(d))
+            .attr('y2', d => y(d))
+            .attr('stroke', colors.accent)
+            .attr('stroke-width', 0.5)
+            .style('opacity', 0)
+            .transition().duration(duration)
+            .style('opacity', 0.7);
+            
+        yearLines.merge(yearLines)
+            .transition().duration(duration)
+            .attr('y1', d => y(d))
+            .attr('y2', d => y(d))
+            .style('opacity', 0.7);
 
-    filosLayout.forEach(d => {
-        d.dy = 0;                       // start with zero shift
-
-        while (placed.some(p =>
-            // horizontal overlap?
-            !(d.maxX < p.minX || d.minX > p.maxX) &&
-            // vertical overlap?
-            Math.abs((y(d.fil.nascimento)+d.dy) - (y(p.fil.nascimento)+p.dy)) < lineH + gapY 
-        )) {
-            d.dy += lineH + gapY;       // push one “line” lower
-        }
-        
-        placed.push({ minX: d.minX, maxX: d.maxX, fil: d.fil, dy: d.dy }); 
-    });
-
-    // Rótulos das eras
-        const tooltipEras = d3.select('#tooltipEras');
-        svg.selectAll('.eras-label')
-            .data(eras)
-            .enter()
+        const yearLabels = svg.selectAll('.year-label')
+            .data(anos, d => d);
+            
+        yearLabels.exit()
+            .transition().duration(duration)
+            .style('opacity', 0)
+            .remove();
+            
+        yearLabels.enter()
             .append('text')
-            .attr('class', 'eras-label')  
+            .attr('class', 'year-label')
             .attr('x', margin.left - margin.left / 10)
-            .attr('y', d => y(d.start))  
+            .attr('y', d => y(d))
             .attr('dy', '0.35em')
             .attr('text-anchor', 'end')
-            .style('opacity', 1)
-            .style('font-family', '"Cinzel", serif') 
-            .style('fill', d => d.textColor) 
+            .text(d => d < 0 ? `${Math.abs(d)} BC` : `${d} AD`)
+            .style('opacity', 0)
+            .transition().duration(duration)
+            .style('opacity', 1);
+            
+        yearLabels.merge(yearLabels)
+            .transition().duration(duration)
+            .attr('y', d => y(d))
+            .style('opacity', 1);
+
+        /* === PHILOSOPHER LIFESPAN LINES === */
+        const philosopherLines = svg.selectAll('.filosofo-line')
+            .data(filosLayout, d => d.fil.nome);
+            
+        philosopherLines.exit()
+            .transition().duration(duration)
+            .style('opacity', 0)
+            .remove();
+            
+        philosopherLines.enter()
+            .append('line')
+            .attr('class', d => `filosofo-line ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
+            .attr('x1', d => d.centerX)
+            .attr('x2', d => d.centerX)
+            .attr('y1', d => y(d.fil.nascimento) + (d.dy || 0))
+            .attr('y2', d => y(d.fil.morte) + (d.dy || 0))
+            .attr('stroke', colors.timeline)
+            .attr('stroke-width', 2.5)
+            .attr('stroke-linecap', 'round')
+            .style('cursor', 'pointer')
+            .style('opacity', 0)
+            .on('click', (e, d) => selectFilosofo(d.fil))
+            .transition().duration(duration)
+            .style('opacity', d => 
+                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+            );
+            
+        philosopherLines.merge(philosopherLines)
+            .transition().duration(duration)
+            .attr('y1', d => y(d.fil.nascimento) + (d.dy || 0))
+            .attr('y2', d => y(d.fil.morte) + (d.dy || 0))
+            .style('opacity', d => 
+                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+            );
+
+        /* === CATEGORY CONNECTIONS === */
+        // Clear existing connections
+        svg.selectAll('.category-connection').remove();
+        
+        filosLayout.forEach(d => {
+            d.fil.categorias.forEach(cat => {
+                const conn = svg.append('line')
+                    .attr('class', `category-connection ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
+                    .attr('x1', catX[cat])
+                    .attr('y1', y(d.fil.nascimento) + (d.dy || 0))
+                    .attr('x2', d.centerX)
+                    .attr('y2', y(d.fil.nascimento) + (d.dy || 0))
+                    .style('stroke', selectedFilosofo?.nome === d.fil.nome ? colors.text : colors.highlight)
+                    .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2 : 1.3)
+                    .attr('stroke-dasharray', '4 2')
+                    .style('opacity', 0);
+                
+                if (withTransition) {
+                    conn.transition().duration(duration)
+                        .style('opacity', selectedFilosofo?.nome === d.fil.nome ? 0.6 : 0);
+                } else {
+                    conn.style('opacity', selectedFilosofo?.nome === d.fil.nome ? 0.6 : 0);
+                }
+            });
+        });
+
+        /* === NAME BOXES === */
+        const nameBoxes = [];
+        filosLayout.forEach(d => {
+            const padding = 3;
+            const fontSize = 14;
+            const yLabel = y(d.fil.nascimento) + (d.dy || 0);
+            const boxW = d.maxX - d.minX;
+
+            const tmp = svg.append('text')
+                .style('visibility', 'hidden')
+                .style('font-family', 'Cinzel, serif')
+                .style('font-size', `${fontSize}px`)
+                .text(d.fil.nome);
+            const textW = tmp.node().getBBox().width;
+            tmp.remove();
+
+            const spanW = d.maxX - d.minX;
+            const labelW = Math.max(spanW, textW + 2 * padding);
+            const labelX = spanW >= labelW ? d.minX : d.centerX - labelW / 2;
+
+            const g = svg.append('g')
+                .attr('transform', `translate(${labelX},${yLabel})`)
+                .style('cursor', 'pointer')
+                .on('mouseover', () => showCategoryConnections(d.fil.nome))
+                .on('mouseout', () => hideCategoryConnections(d.fil.nome))
+                .on('click', () => selectFilosofo(d.fil))
+                .style('opacity', 0);
+
+            g.append('rect')
+                .attr('x', 0)
+                .attr('y', -fontSize / 2 - padding)
+                .attr('width', labelW)
+                .attr('height', fontSize + 2 * padding)
+                .attr('fill', selectedFilosofo?.nome === d.fil.nome ? '#dBC826' : '#fff')
+                .attr('stroke', colors.timeline)
+                .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2.5 : 1.2)
+                .attr('rx', 6).attr('ry', 6);
+
+            g.append('text')
+                .attr('x', labelW / 2)
+                .attr('dominant-baseline', 'middle')
+                .attr('text-anchor', 'middle')
+                .style('font-family', 'Cinzel, serif')
+                .style('font-size', `${fontSize}px`)
+                .style('fill', colors.text)
+                .text(d.fil.nome);
+
+            nameBoxes.push(g);
+
+            /* === INTERACTION AREA === */
+            const area = svg.append('rect')
+                .attr('class', `interaction-area ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
+                .attr('x', labelX + labelW / 2 - 10)
+                .attr('y', y(d.fil.nascimento) + (d.dy || 0) - 20)
+                .attr('width', 20)
+                .attr('height', y(d.fil.morte) + (d.dy || 0) - y(d.fil.nascimento) + (d.dy || 0) + 40)
+                .attr('fill', 'transparent')
+                .style('cursor', 'pointer')
+                .style('opacity', 0)
+                .on('mouseover', () => showCategoryConnections(d.fil.nome))
+                .on('mouseout', () => hideCategoryConnections(d.fil.nome))
+                .on('click', () => selectFilosofo(d.fil));
+
+            if (withTransition) {
+                area.transition().duration(duration)
+                    .style('opacity', 1);
+            } else {
+                area.style('opacity', 1);
+            }
+
+            /* === SKULL MARKER === */
+            const skull = svg.append('image')
+                .attr('x', d.centerX - 10)
+                .attr('y', y(d.fil.morte) + (d.dy || 0) - 10)
+                .attr('width', 20).attr('height', 20)
+                .attr('href', 'images/skull_icon.png')
+                .style('cursor', 'pointer')
+                .style('opacity', 0);
+
+            if (withTransition) {
+                skull.transition().duration(duration)
+                    .style('opacity', 
+                        categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+                    );
+            } else {
+                skull.style('opacity', 
+                    categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+                );
+            }
+        });
+
+        if (withTransition) {
+            nameBoxes.forEach(g => {
+                g.transition().duration(duration)
+                    .style('opacity', 1);
+            });
+        } else {
+            nameBoxes.forEach(g => {
+                g.style('opacity', 1);
+            });
+        }
+
+        /* === HISTORY EVENTS === */
+        const sizeImgHistory = selectedFilosofo ? 50 : 70;
+        const historyGroups = svg.selectAll('.history-group')
+            .data(filteredHistories, d => d.happening);
+            
+        historyGroups.exit()
+            .transition().duration(duration)
+            .style('opacity', 0)
+            .remove();
+            
+        const historyEnter = historyGroups.enter()
+            .append('g')
+            .attr('class', 'history-group')
+            .style('opacity', 0);
+            
+        historyEnter.append('image')
+            .attr('class', d => `history ${d.happening.replace(/\s+/g, '-').replaceAll('.','')}`)
+            .attr('x', 0)
+            .attr('y', 0)
+            .attr('width', sizeImgHistory)
+            .attr('height', sizeImgHistory)
+            .attr('href', d => d.image)
+            .on('mouseover', function (event, d) {
+                d3.select(this.parentNode).select('.year-label')
+                    .style('visibility', 'visible');
+            })
+            .on('mouseout', function (event, d) {
+                d3.select(this.parentNode).select('.year-label')
+                    .style('visibility', 'hidden');
+            });
+            
+        historyEnter.append('text')
+            .attr('class', 'history-label')
+            .attr('x', sizeImgHistory / 2)
+            .attr('y', -sizeImgHistory / 3)
+            .attr('text-anchor', 'middle')
+            .style('font-family', '"Cinzel", serif')
+            .style('font-size', '12px')
+            .style('fill', '#333')
+            .each(function (d) {
+                const lines = d.happening.split(/<br\s*\/?>/i);
+                lines.forEach((line, i) => {
+                    d3.select(this)
+                        .append('tspan')
+                        .attr('x', sizeImgHistory / 2)
+                        .attr('dy', i === 0 ? 0 : '1.1em')
+                        .text(line.trim());
+                });
+            });
+            
+        historyEnter.append('text')
+            .attr('class', 'year-label')
+            .text(d => {
+                const year = +d.year;
+                return year < 0 ? `${Math.abs(year)} BC` : `${year} AD`;
+            })
+            .attr('x', sizeImgHistory / 2)
+            .attr('y', sizeImgHistory + sizeImgHistory / 5)
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '11px')
+            .attr('fill', '#666')
+            .style('visibility', 'hidden');
+            
+        historyEnter.merge(historyGroups)
+            .attr('transform', d => {
+                const x = margin.left + d.posX * (containerWidth - margin.left - margin.right);
+                const yPos = y(+d.year) + (d.dy || 0) - 10;
+                return `translate(${x}, ${yPos})`;
+            })
+            .transition().duration(duration)
+            .style('opacity', 1);
+
+        /* === ERA LABELS === */
+        const tooltipEras = d3.select('#tooltipEras');
+        const eraLabels = svg.selectAll('.eras-label')
+            .data(eras);
+            
+        eraLabels.exit().remove();
+            
+        eraLabels.enter()
+            .append('text')
+            .attr('class', 'eras-label')
+            .attr('x', margin.left - margin.left / 10)
+            .attr('y', d => y(d.start))
+            .attr('dy', '0.35em')
+            .attr('text-anchor', 'end')
+            .style('font-family', '"Cinzel", serif')
+            .style('fill', d => d.textColor)
             .attr('transform', d => `rotate(-90, ${margin.left - margin.left / 10}, ${y(d.start) + 15})`)
             .text(d => d.name)
             .on('mouseover', function (event, d) {
@@ -396,7 +697,6 @@
                     .style('opacity', 1)
                     .text(d.description)
                     .style('--tooltip-color', d.textColor);
-                    
                 const tooltipHeight = tooltipEras.node().offsetHeight;
                 const topPos = bbox.top + bbox.height / 2 - tooltipHeight / 2 + window.scrollY;
                 tooltipEras
@@ -408,220 +708,13 @@
                     .style('visibility', 'hidden')
                     .style('opacity', 0);
             });
-
-    /* ---------- 4. BACKGROUND + GRID ---------- */
-
-    svg.selectAll('.year-line')
-        .data(anos)
-        .enter()
-        .append('line')
-        .attr('x1', margin.left)
-        .attr('x2', containerWidth - margin.right / 3)
-        .attr('y1', d => y(d))
-        .attr('y2', d => y(d))
-        .attr('stroke', colors.accent)
-        .attr('stroke-width', 0.5)
-        .style('opacity', 0.7);
-
-    svg.selectAll('.year-label')
-        .data(anos)
-        .enter()
-        .append('text')
-        .attr('x', margin.left - margin.left / 10)
-        .attr('y', d => y(d))
-        .attr('dy', '0.35em')
-        .attr('text-anchor', 'end')
-        .text(d => d < 0 ? `${Math.abs(d)} BC` : `${d} AD`);
-
-    /* ---------- 5. LIFESPAN LINES ---------- */
-    svg.selectAll('.filosofo-line')
-        .data(filosLayout)
-        .enter()
-        .append('line')
-        .attr('class', d => `filosofo-line ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
-        .attr('x1', d => d.centerX)
-        .attr('x2', d => d.centerX)
-        .attr('y1', d => y(d.fil.nascimento) + (d.dy || 0))
-        .attr('y2', d => y(d.fil.morte) + (d.dy || 0))
-        .attr('stroke', colors.timeline)
-        .attr('stroke-width', 2.5)
-        .attr('stroke-linecap', 'round')
-        
-        .style('cursor', 'pointer')
-        .style('opacity', d =>
-            categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-        )
-        .on('click', (e, d) => selectFilosofo(d.fil));
-
-    /* ---------- 7. CATEGORY → PHILOSOPHER LINES ---------- */
-    filosLayout.forEach(d => {
-        d.fil.categorias.forEach(cat => {
-            svg.append('line')
-                .attr('class', `category-connection ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
-                .attr('x1', catX[cat])
-                .attr('y1', y(d.fil.nascimento) + (d.dy || 0))
-                .attr('x2', d.centerX)
-                .attr('y2', y(d.fil.nascimento) + (d.dy || 0))
-                .style('stroke', selectedFilosofo?.nome === d.fil.nome ? colors.text : colors.highlight)
-                .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2 : 1.3)
-                .attr('stroke-dasharray', '4 2')
-                .style('opacity', selectedFilosofo?.nome === d.fil.nome ? 0.6 : 0);
-        });
-    });
-
-    /* ---------- 6. NAME BOXES ---------- */
-    filosLayout.forEach(d => {
-        const padding  = 3;
-        const fontSize = 14;
-        const yLabel   = y(d.fil.nascimento) + (d.dy || 0);
-        const boxW     = d.maxX - d.minX;
-
-        /* measure text once */
-        const tmp   = svg.append('text')
-                        .style('visibility', 'hidden')
-                        .style('font-family', 'Cinzel, serif')
-                        .style('font-size', `${fontSize}px`)
-                        .text(d.fil.nome);
-        const textW = tmp.node().getBBox().width;
-        tmp.remove();
-
-        const spanW   = d.maxX - d.minX;                 // interest span
-        const labelW  = Math.max(spanW, textW + 2*padding);
-
-        /* if the text is wider than the span, centre it on the span */
-        const labelX  = spanW >= labelW
-                        ? d.minX                          // full-span case
-                        : d.centerX - labelW / 2;        // text-wider case
-
-        // label-group anchored at the left edge of the span
-        const g = svg.append('g')
-            .attr('transform', `translate(${labelX},${yLabel})`)
-            .style('cursor', 'pointer')
-            .on('mouseover', () => showCategoryConnections(d.fil.nome))
-            .on('mouseout',  () => hideCategoryConnections(d.fil.nome))
-            .on('click', () => selectFilosofo(d.fil));
-
-        /* background */
-        g.append('rect')
-            .attr('x', 0)
-            .attr('y', -fontSize/2 - padding)
-            .attr('width', labelW)
-            .attr('height', fontSize + 2*padding)
-            .attr('fill', selectedFilosofo?.nome === d.fil.nome ? '#dBC826' : '#fff')
-            .attr('stroke', colors.timeline)
-            .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2.5 : 1.2)
-            .attr('rx', 6).attr('ry', 6)
-            .style('opacity',
-                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
-
-        /* centred text */
-        g.append('text')
-            .attr('x', labelW/ 2)
-            .attr('dominant-baseline', 'middle')
-            .attr('text-anchor', 'middle')
-            .style('font-family', 'Cinzel, serif')
-            .style('font-size', `${fontSize}px`)
-            .style('fill', colors.text)
-            .text(d.fil.nome)
-            .style('opacity',
-                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
-
-
-        /* line hover / click area – same width as the box */
-        svg.append('rect')
-        .attr('class', `interaction-area ${d.fil.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
-        .attr('x', labelX+labelW/2-10)
-        .attr('y', y(d.fil.nascimento) + (d.dy || 0) - 20)
-        .attr('width', 20)
-        .attr('height', y(d.fil.morte)  + (d.dy || 0) - y(d.fil.nascimento) + (d.dy || 0) + 40)
-        .attr('fill', 'transparent')
-        .style('cursor', 'pointer')
-        .on('mouseover', () => showCategoryConnections(d.fil.nome))
-        .on('mouseout',  () => hideCategoryConnections(d.fil.nome))
-        .on('click',     () => selectFilosofo(d.fil));
-
-        /* --- skull marker --- */
-        svg.append('image')
-            .attr('x', d.centerX - 10)
-            .attr('y', y(d.fil.morte) + (d.dy || 0) - 10)
-            .attr('width', 20).attr('height', 20)
-            .attr('href', 'images/skull_icon.png')
-            .style('cursor', 'pointer')
-            .style('opacity',
-                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-            )
-            .on('click', () => selectFilosofo(d.fil));
-        });
-
-    const historyGroup = svg.selectAll('.history-group')
-        .data(histories)
-        .enter()
-        .append('g')
-        .attr('class', 'history-group')
-        .attr('transform', d => {
-            const x = margin.left + d.posX * (containerWidth - margin.left - margin.right);
-            const yPos = y(+d.year) + (d.dy || 0) -10;
-            return `translate(${x}, ${yPos})`;
-        });
-
-    let sizeImgHistory = 70;
-    if (selectedFilosofo != null){
-        sizeImgHistory = 50;
-    }
-    
-    historyGroup.append('image')
-        .attr('class', d => `history ${d.happening.replace(/\s+/g, '-').replaceAll('.','')}`)
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('width', sizeImgHistory)
-        .attr('height', sizeImgHistory)
-        .attr('href', d => d.image)
-        .on('mouseover', function (event, d) {
-            d3.select(this.parentNode).select('.year-label')
-                .style('visibility', 'visible');
-        })
-        .on('mouseout', function (event, d) {
-            d3.select(this.parentNode).select('.year-label')
-                .style('visibility', 'hidden');
-        });
-
-    historyGroup.append('text')
-    .attr('class', 'history-label')
-    .attr('x', sizeImgHistory / 2)
-    .attr('y', -sizeImgHistory / 3)
-    .attr('text-anchor', 'middle')
-    .style('font-family', '"Cinzel", serif')   
-    .style('font-size', '12px')
-    .style('fill', '#333')
-    .each(function (d) {
-        const lines = d.happening.split(/<br\s*\/?>/i);   // allow <br> or <br/>
-        lines.forEach((line, i) => {
-            d3.select(this)
-                .append('tspan')
-                .attr('x', sizeImgHistory / 2)
-                .attr('dy', i === 0 ? 0 : '1.1em')       // shift each new line
-                .text(line.trim());
-        });
-    });
-
-    historyGroup.append('text')
-        .attr('class', 'year-label')
-        .text(d => {
-            const year = +d.year;
-            return year < 0 ? `${Math.abs(year)} BC` : `${year} AD`;
-        })
-        .attr('x', sizeImgHistory / 2)  
-        .attr('y', sizeImgHistory + sizeImgHistory / 5)  
-        .attr('text-anchor', 'middle')
-        .attr('font-size', '11px')
-        .attr('fill', '#666')
-        .style('visibility', 'hidden');
     }
 
     onMount(() => {
         drawTimeLine();
         window.addEventListener('resize', handleResize);
 
+        
         window.addEventListener('scroll', () => {
             d3.selectAll('.category-connection')
                 .attr('y1', window.scrollY + 50);
@@ -630,6 +723,7 @@
     });
     });
 
+    
     afterUpdate(() => {
         drawTimeLine();
 
@@ -655,6 +749,20 @@
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                 </a>
+
+                <!-- Granularity Controls - Horizontal buttons next to home icon -->
+                <div class="granularity-controls">
+                    {#each [1,2,3,4,5] as level}
+                        <button 
+                            class:active={granularityLevel === level}
+                            on:click={() => setGranularity(level)}
+                            aria-label={`Detail level ${level}`}
+                        >
+                            {level}
+                        </button>
+                    {/each}
+                </div>
+
                 <span>Philosophers' Timeline</span>
             </div>
         </div>
@@ -697,7 +805,9 @@
         </div>
 
         <!-- Timeline Container -->
-        <div class="container" id="timeline-container">
+        <div class="container" 
+            id="timeline-container" 
+            style="height: {timelineHeight}px; transition: height 800ms ease;">
             <div id="tooltipEras" class="tooltip"></div>
             <div class="fixed-year">YEAR</div>
             <svg id="timeline" class="grafico"></svg>
