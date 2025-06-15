@@ -4,18 +4,9 @@
     box-sizing: border-box;
 }
 
-:root {
-    --primary-dark: #1a1a2e;
-    --primary-gold: #bfa74a;
-    --header-gold: #7b6500;
-    --highlight-gold: #f6d14b;
-    --text-light: #e9e7de;
-    --transition-base: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
 body {
     /* background: linear-gradient(0deg, #8C6645, #3e2b23); */
-    min-height: 100vh;
+    height: 100vh;
     font-family: 'Cinzel', serif;
     overflow-x: hidden;
 }
@@ -23,10 +14,11 @@ body {
 .page {
     text-align: center;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
+    
 }
 
 .fixed-header {
@@ -77,3 +69,82 @@ body {
         0 0 30px rgba(255, 215, 0, 0.4);
     border-color: rgba(255, 255, 255, 0.6);
 } 
+
+.full-explanation-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center; 
+    padding: 20px 0; 
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 12px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #a4a4a4;
+  cursor: pointer;
+  position: relative;
+}
+
+.dot.active {
+  background-color: #4b4b4b;
+}
+
+.content-slide {
+  display: none;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.content-slide.active {
+  display: flex;
+}
+
+.gif img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.text-explanation {
+  flex: 1;
+  font-size: 1.1rem;
+  font-family: 'Crimson Text', serif;
+  color: #1a1a2e;
+  text-align: justify;
+}
+
+.slider-controls {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider-controls button {
+  padding: 8px 16px;
+  background-color: #e4c45b;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.slider-controls button:hover {
+  background-color: #bfa74a;
+}
