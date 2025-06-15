@@ -25,7 +25,7 @@
     // import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions';
     
     const activeCategories = {};
-    categorias.forEach(cat => {activeCategories[cat.nome] = true});
+    categorias.forEach(cat => {activeCategories[cat.nome] = false});
 
     let searchQuery = '';
     let searchResults = [];
@@ -485,6 +485,8 @@
         const g = svg.append('g')
             .attr('transform', `translate(${labelX},${yLabel})`)
             .style('cursor', 'pointer')
+            .on('mouseover', () => showCategoryConnections(d.fil.nome))
+            .on('mouseout',  () => hideCategoryConnections(d.fil.nome))
             .on('click', () => selectFilosofo(d.fil));
 
         /* background */
@@ -512,14 +514,16 @@
             .style('opacity',
                 categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
 
-        /* hover / click area – same width as the box */
+
+        /* line hover / click area – same width as the box */
         svg.append('rect')
         .attr('class', `interaction-area ${d.fil.nome.replace(/\s+/g, '-')}`)
-        .attr('x', labelX)
+        .attr('x', labelX+labelW/2-10)
         .attr('y', y(d.fil.nascimento) + (d.dy || 0) - 20)
-        .attr('width', labelW)
+        .attr('width', 20)
         .attr('height', y(d.fil.morte)  + (d.dy || 0) - y(d.fil.nascimento) + (d.dy || 0) + 40)
         .attr('fill', 'transparent')
+        .style('cursor', 'pointer')
         .on('mouseover', () => showCategoryConnections(d.fil.nome))
         .on('mouseout',  () => hideCategoryConnections(d.fil.nome))
         .on('click',     () => selectFilosofo(d.fil));
