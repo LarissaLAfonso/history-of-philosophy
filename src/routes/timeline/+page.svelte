@@ -573,7 +573,7 @@
     historyGroup.append('text')
         .attr('class', 'history-label')
         .text(d => d.happening)
-        .attr('x', 30)  
+        .attr('x', sizeImgHistory / 2)  
         .attr('y', -5)
         .attr('text-anchor', 'middle')
         .attr('font-size', '12px')
@@ -585,7 +585,7 @@
             const year = +d.year;
             return year < 0 ? `${Math.abs(year)} BC` : `${year} AD`;
         })
-        .attr('x', 30)  
+        .attr('x', sizeImgHistory / 2)  
         .attr('y', sizeImgHistory + sizeImgHistory / 5)  
         .attr('text-anchor', 'middle')
         .attr('font-size', '11px')
