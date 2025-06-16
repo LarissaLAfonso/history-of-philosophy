@@ -10,7 +10,7 @@
     --header-gold: #7b6500;
     --highlight-gold: #f6d14b;
     --text-light: #e9e7de;
-    --transition-base: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition-base: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 body {
@@ -37,7 +37,7 @@ body {
     height: 100%;
     background: linear-gradient(135deg, #1a1a2e, #0d0d1a, #2a2a4e, #1a1a2e);
     background-size: 400% 400%;
-    animation: gradientAnimation 20s ease infinite;
+    animation: gradientAnimation 10s ease infinite;
     z-index: -1;
 }
 
@@ -57,7 +57,7 @@ body {
     padding: 20px 0;
     border-bottom: 3px solid #b2972c;
     transform: translateY(-100%);
-    animation: slideDown 0.8s 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation: slideDown 0.5s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 @keyframes slideDown {
@@ -66,7 +66,7 @@ body {
 
 .title {
     opacity: 0;
-    animation: fadeIn 0.8s 1s ease forwards;
+    animation: fadeIn 0.5s 0.6s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -86,8 +86,8 @@ body {
     overflow: hidden;
     white-space: nowrap;
     width: 0;
-    animation: typing 1.5s 1.2s steps(12, end) forwards, 
-                blink 0.75s 2.7s step-end infinite;
+    animation: typing 0.75s 0.6s steps(12, end) forwards, 
+                blink 0.32s 1.4s step-end infinite;
 }
 
 @keyframes typing {
@@ -157,7 +157,7 @@ body {
     text-align: center;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeUp 0.8s 1.8s ease forwards;
+    animation: fadeUp 0.4s 0.9s ease forwards;
 }
 
 @keyframes fadeUp {
@@ -178,7 +178,7 @@ body {
 .person-card {
     opacity: 0;
     transform: translateY(30px);
-    animation: cardAppear 0.6s ease forwards;
+    animation: cardAppear 0.3s ease forwards;
 }
 
 @keyframes cardAppear {
@@ -188,9 +188,9 @@ body {
     }
 }
 
-.person-card:nth-child(1) { animation-delay: 2.2s; }
-.person-card:nth-child(2) { animation-delay: 2.5s; }
-.person-card:nth-child(3) { animation-delay: 2.8s; }
+.person-card:nth-child(1) { animation-delay: 1.5s; }
+.person-card:nth-child(2) { animation-delay: 1.7s; }
+.person-card:nth-child(3) { animation-delay: 1.9s; }
 
 .person-card h2 {
     color: #f8cd21;
@@ -227,12 +227,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* .sub-infos:hover {
-    background: rgba(255, 255, 255, 0.16);
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-} */
-
 .sub-infos img {
     width: 140px;
     height: 140px;
@@ -242,12 +236,6 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: var(--transition-base);
 }
-
-/* .sub-infos img:hover {
-    transform: scale(1.05) rotate(5deg);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    border-color: #f6d14b;
-} */
 
 .sub-infos > div {
     flex: 1;
@@ -279,11 +267,6 @@ body {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     transition: var(--transition-base);
 }
-
-/* .sub-infos p:hover {
-    background: rgba(52, 152, 219, 0.25);
-    transform: translateX(5px);
-} */
 
 .sub-infos p:hover::before {
     left: 100%;
@@ -322,7 +305,6 @@ body {
     width: 100%;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .fixed-header {
         flex-direction: column;

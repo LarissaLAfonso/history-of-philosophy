@@ -59,7 +59,7 @@ body {
 }
 
 .home-icon:hover {
-  transform: translateY(-50%) scale(1.1);
+  transform: scale(1.1);
   background: radial-gradient(circle at center, #c9a70b, #7d5c00);
 
   color: #000;
@@ -154,7 +154,7 @@ body {
 }
 
 .text-explanation {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-family: 'Crimson Text', serif;
   color: #1a1a2e;
   line-height: 1.6;
@@ -189,7 +189,7 @@ body {
   width: 100%;
   text-align: center;
   font-family: 'Cinzel', serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #ffffff;
   border: 2px solid #3e2b23;
   border-radius: 12px;
@@ -206,7 +206,7 @@ body {
 }
 
 .slide-image {
-  flex: 0 0 40%; 
+  flex: 0 0 25%; 
 }
 
 .slide-image img {
