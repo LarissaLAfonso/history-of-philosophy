@@ -324,9 +324,9 @@ function setGranularity(level) {
     // heightToBe = pace * howManyTicks;
 
     heightToBe = 4000 + (granularityLevel - 1) * 500;
-    
+    let pixel_per_iter = Math.abs(heightToBe - timelineHeight)/20;
     transition = setInterval(() => {
-        transitionHeight(heightToBe, 20);
+        transitionHeight(heightToBe, pixel_per_iter);
     }, 0);
     
     // setTimeout(() => {
