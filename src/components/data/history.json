@@ -10,7 +10,7 @@
         "happening": "Second Industrial<br>Revolution",
         "year": "1870",
         "image": "images/history_icons/car.png",
-        "importance": 2,
+        "importance": 5,
         "posX": 0.02
     },
     {
@@ -24,7 +24,7 @@
         "happening": "World War I",
         "year": "1914",
         "image": "images/history_icons/ww1.png",
-        "importance": 1,
+        "importance": 3,
         "posX": 0.995
     },
     {
@@ -38,7 +38,7 @@
         "happening": "Cold War",
         "year": "1947",
         "image": "images/history_icons/bomb.png",
-        "importance": 1,
+        "importance": 4,
         "posX": 0.01
     },
     {
@@ -52,7 +52,7 @@
         "happening": "Fall of the<br>Byzantine Empire",
         "year": "1453",
         "image": "images/history_icons/arab-warrior.png",
-        "importance": 3,
+        "importance": 1,
         "posX": 0.2638
     },
     {
@@ -73,7 +73,7 @@
         "happening": "Macedonian Wars",
         "year": "-214",
         "image": "images/history_icons/crossed-swords.png",
-        "importance": 5,
+        "importance": 2,
         "posX": 0.0917
     },
     {
@@ -108,7 +108,7 @@
         "happening": "Colombus lands<br>in the Bahamas",
         "year": "1492",
         "image": "images/history_icons/ship.png",
-        "importance": 2,
+        "importance": 5,
         "posX": 0.0462
     },
     {
@@ -129,14 +129,14 @@
         "happening": "Fall of the Roman Republic <br> and rise of the Roman Empire",
         "year": "-31",
         "image": "images/history_icons/caesar.png",
-        "importance": 2,
+        "importance": 1,
         "posX": 0.3106
     },
     {
         "happening": "Inventing of<br> the Gutenberg press",
         "year": "1440",
         "image": "images/history_icons/gutenberg.png",
-        "importance": 2,
+        "importance": 3,
         "posX": 0.9832
     },
     {
@@ -150,7 +150,7 @@
         "happening": "First Crusade",
         "year": "1096",
         "image": "images/history_icons/knight.png",
-        "importance": 3,
+        "importance": 1,
         "posX": 0.7023
     },
     {
@@ -164,7 +164,7 @@
         "happening": "Newton's laws of motion<br>and universal gravitation",
         "year": "1687",
         "image": "images/history_icons/newton.png",
-        "importance": 2,
+        "importance": 4,
         "posX": 0.9331
     },
     {
