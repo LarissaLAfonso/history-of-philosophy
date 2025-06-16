@@ -511,7 +511,7 @@
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize}px`)
                 .text(d.fil.nome);
-            const textW = tmp.node().getBBox().width;
+            const textW = tmp.node().getBoundingClientRect().width;
             tmp.remove();
 
             const spanW = d.maxX - d.minX;
