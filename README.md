@@ -5,10 +5,23 @@ The page features a central timeline displaying various philosophers arranged ch
 
 When a user hovers over a philosopher, lines appear connecting them to their respective areas of interest. By clicking on a philosopher, the timeline view splits in half, revealing a section with detailed information about the individual: an image, lifespan, philosophical school, fields of study, and a short descriptive text about their contributions.
 
+# Page functionalities 
+
+On this page, you will find the following features (all of which are explained in the tutorial page):
+
+- Navigation through philosophical eras;
+- Categories of interest assigned to each philosopher;
+- Glossary of terms with quick explanations;
+- Marking of historical events along the timeline;
+- Granularity level;
+- Search bar for terms.
+
 # Task Distribution
-- **Larissa:** Wrote philosopher metadata and glossary entries / Home Page
-- **Luciano:** Web scraping for philosopher interest data / Deploy Website / Integration of JSON files into the project
-- **Kaiky:** Development of the timeline base code / Home Page / General styling
+- **Larissa:** Authored philosopher data, created glossary entries, and selected content for the Philosophy.
+- **Luciano:** Performed web scraping for philosopher interest data and implemented backend functionalities.
+- **Kaiky:** Contributed to the Home and Tutorial pages, and handled overall styling.
+
+Overall, all members collaborated on the development of the timeline, with each feature involving contributions from all three participants.
 
 # Estimated Workload
 It is estimated that each team member dedicated approximately 100 hours to the project on average.
