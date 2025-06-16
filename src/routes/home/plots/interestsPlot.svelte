@@ -86,6 +86,7 @@
             .attr("text-anchor", "end")
             .attr("fill", plotColor)
             .style("font-size", "13px")  
+            .style("font-family", "Segoe UI, Tahoma, Geneva, Verdana, sans-serif")
             .text(d => d.category);
 
         bars.append("text")
@@ -95,6 +96,7 @@
             .attr("dy", "0.25em")
             .attr("fill", plotColor)
             .style("font-size", "13px")  
+            .style("font-family", "Segoe UI, Tahoma, Geneva, Verdana, sans-serif")
             .text(d => d.count);
     }
 
