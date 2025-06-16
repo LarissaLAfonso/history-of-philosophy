@@ -526,7 +526,7 @@
     </div>
 
     <div class="below">
-        <p><strong>You can view some statistics on our timeline:</strong></p>
+        <p><strong>You can view some statistics in our timeline:</strong></p>
         <div class="plots">
           <div class="plot">
               <h1>Occurrence of philosophical interests</h1>
@@ -545,7 +545,7 @@
           </div> 
 
           <div class="plot">
-            <h1>Number of Philosophers per Era</h1>
+            <h1>Number of Philosophers per Historical Period</h1>
             <ErasPlot/>
           </div>
         </div>
