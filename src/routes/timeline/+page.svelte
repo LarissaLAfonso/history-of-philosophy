@@ -543,7 +543,7 @@
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize}px`)
                 .style('fill', colors.text)
-                .text(d.fil.nome);
+                .text(textW);
 
             nameBoxes.push(g);
 
