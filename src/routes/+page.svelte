@@ -189,10 +189,10 @@
   text-align: center;
   }
 
-  .fade-line {
-  margin: 2rem auto;                        /* space above/below, centered */
-  width: 40%;                                /* adjust length as needed */
-  height: 3px;                               /* thickness of the line */
+/* .fade-line {
+  margin: 2rem auto;                        
+  width: 40%;                              
+  height: 3px;                             
   background: 
       linear-gradient(
       to right,
@@ -200,7 +200,7 @@
       #D4AF37 50%,
       transparent 100%
       );
-  }
+  } */
 
 
 
@@ -222,24 +222,19 @@
   color: white;
   font-style: italic;
   }
-
-
   .timeline-btn img {
     width: 28px;
     filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
   }
-  .new-text .timeline-btn {
-    margin-top: 2rem;
-    flex-direction: row; 
+
+  .second-page {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    height: 100vh; 
+    overflow: hidden;
   }
 
-  .new-text {
-    margin-top: 2rem;
-    display: flex; 
-    flex-direction: row; 
-    gap: 2rem; 
-    justify-content: space-between;
-  }
 
   .timeline-btn::after {
     content: '';
@@ -293,13 +288,13 @@
   }
   .text {
     margin-top: 8px;
-      font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     color: white;
   }
 
-  .new-text {
+  .second-page {
     opacity: 0;
     padding: 4rem 5%;
     min-height: 100vh;
@@ -357,20 +352,33 @@
     }
   }
 
-.right {
-  flex: 1; 
-  max-width: 50%;
-}
-.left {
-  padding-top: 30px;
-  flex: 1; 
-  max-width: 50%;
+.below {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  background-color: #f3f3f3; 
 }
 
-.left p {
-  font-size: 0.9rem;      
-  line-height: 1.6;       
-  margin-bottom: 1rem;    
+.above {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.above p {
+  font-size: 0.8rem;          
+}
+
+.buttons-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  gap: 1rem;
 }
 
 .record {
@@ -406,14 +414,21 @@
   margin-top: 0.5rem;
 }
 
-.right {
+.plots {
   display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: flex-start;
-  gap:1em;
+  justify-content: space-between; 
+  align-items: stretch; 
+  gap: 2rem; 
+  padding: 2rem;
 }
 
+.plots {
+  display: flex; 
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center; 
+  align-items: center;     
+}
 </style>
 
 <body>
@@ -452,8 +467,11 @@
     </div>
   </div>
 
-    <div class="new-text">
-      <div class="left">
+
+
+  <div class="second-page">
+    <div class="above">
+      <div class="text-column">
         <p>
           <b>Philosophy</b> is humanity's longest conversation. It's the discipline that dares to ask the questions that have no easy answers:
             What does it mean to live a <b>good life</b>? How do we <b>know</b> what we know? What is <b>justice</b>? What is <b>reality</b> itself? For over two
@@ -472,9 +490,10 @@
               commitment to understanding the deepest questions of human existence. Welcome to philosophy's grand
               conversation — <b>your</b> voice belongs here too.
         </p>
-        
-        <div class="fade-line"></div>
+      </div>
 
+      <!-- <div class="fade-line"></div> -->
+      <div class="buttons-column">
         <button class="btn timeline-btn" onclick="location.href='./timeline'">
             <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
           </button>
@@ -483,9 +502,10 @@
           <img src="images/timeline_icon.png" alt="Timeline Icon" /> Tutorial
         </button>
       </div>
+    </div>
 
-      <div class="right">
-        <div class="record">
+    <div class="below">
+      <!-- <div class="record">
         <div class="record-box">
           <span class="record-title">100</span>
           <span class="record-label">philosophers</span>
@@ -494,15 +514,14 @@
           <span class="record-title">100</span>
           <span class="record-label">historical events</span>
         </div>
-      </div>
-      <div class="plots"></div>
-        <InterestsPlot/>
-        <ErasPlot/>
-      </div>
+      </div> -->
+
+        <div class="plots">
+          <InterestsPlot/>
+          <ErasPlot/>
+        </div>
     </div>
-
-    
-
+  </div>
 </body>
 
   <script>
@@ -514,7 +533,7 @@
       window.scrollTo({ top: 0, behavior: 'instant' });
       (function () {
         const container = document.querySelector('.container');
-        const newText = document.querySelector('.new-text');
+        const newText = document.querySelector('.second-page');
         const viewportHeight = window.innerHeight;
   
         window.addEventListener('scroll', () => {
@@ -535,7 +554,7 @@
     function scrollClick(){
       // alert("Scroll down to see the timeline of philosophers and their contributions to the history of philosophy.");
       window.scrollTo({
-        top: document.querySelector('.new-text').offsetTop,
+        top: document.querySelector('.second-page').offsetTop,
         behavior: 'smooth'
       });
     }
