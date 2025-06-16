@@ -516,7 +516,9 @@
 
             const spanW = d.maxX - d.minX;
             const labelW = Math.max(spanW, textW + 2 * padding);
-            const labelX = spanW >= labelW ? d.minX : d.centerX - labelW / 2;
+            // const labelX = spanW >= labelW ? d.minX : d.centerX - labelW / 2;
+            const labelX = d.centerX - labelW / 2;
+            console.log("teste");
 
             const g = svg.append('g')
                 .attr('transform', `translate(${labelX},${yLabel})`)
