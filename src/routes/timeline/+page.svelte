@@ -283,7 +283,7 @@
     
     // Update stepYears based on granularity
     $: if (granularityLevel) {
-        stepYears = [500, 400, 300, 100, 50][granularityLevel - 1];
+        stepYears = [500, 400, 300, 200, 100][granularityLevel - 1];
         timelineHeight = 4000 + (granularityLevel - 1) * 500;
         anos = d3.range(initialYear, finalYear + 1, stepYears);
         
