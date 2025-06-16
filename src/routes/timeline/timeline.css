@@ -297,6 +297,13 @@ svg#timeline {
     text-indent: 2em; /* Adds paragraph indentation - typically 2em is standard */
 }
 
+p b, p strong {
+  font-weight: bold;
+}
+
+p i, p em {
+  font-style: italic;
+}
 
 /*Conexão do filósofo-interesses*/
 .interaction-area {

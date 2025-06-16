@@ -1795,7 +1795,7 @@
             },
             {
                 "type": "branch",
-                "value": "Ancient Greek"
+                "value": "Pre-Socratic"
             },
             {
                 "type": "h3",
@@ -2814,7 +2814,7 @@
         },
         {
           "type": "text",
-          "value": "Politically, he upheld the separation of church and state, arguing that rulers derive authority from the consent of the governed—not divine appointment—and supported limits on papal power, famously framing the ‘two swords’ doctrine."
+          "value": "Politically, he upheld the separation of church and state, arguing that rulers derive authority from the consent of the governed — not divine appointment — and supported limits on papal power, famously framing the ‘two swords’ doctrine."
         },
         {
           "type": "text",
@@ -2852,19 +2852,19 @@
       "value": [
         {
           "type": "text",
-          "value": "<b>Niccolò Machiavelli</b> was an Italian diplomat and philosopher who transformed political theory with his realist approach. In <em>The Prince</em>, he advised rulers to use prudence, strength, and occasional deceit—what he called <b>virtù</b>—to master <b>fortuna</b> and secure their domains."
+          "value": "<b>Niccolò Machiavelli</b> was an Italian diplomat, historian, and political philosopher whose writings revolutionized the study of power and statecraft. Born in Florence during a time of intense political turmoil marked by foreign invasions and internal factional struggles, Machiavelli served as a senior official in the Florentine Republic, gaining firsthand experience in diplomacy, military organization, and governance."
         },
         {
           "type": "text",
-          "value": "Machiavelli is credited as the first to divorce ethics from governance, arguing that politics must be judged on pragmatic effectiveness, not moral ideals."
+          "value": "His most famous work, <em>The Prince</em>, written in 1513, offers a candid and unsentimental guide for rulers navigating the treacherous realities of power. In it, Machiavelli introduces the concept of <em>virtù</em>, a ruler’s capacity for decisiveness, adaptability, and ruthless pragmatism in achieving political goals. He contrasts this with <em>fortuna</em>, the unpredictable force of chance and circumstance, suggesting that successful rulers must shape fortune to their advantage through bold action and strategic cunning. Machiavelli controversially argued that it is often necessary for rulers to engage in deception, cruelty, and manipulation if the survival and stability of the state are at stake, famously advising that it is better for a prince to be feared than loved if he cannot be both."
         },
         {
           "type": "text",
-          "value": "In <em>Discourses on Livy</em>, he revealed a more republican vision, praising civic virtue and institutional checks as foundations for resilient political life."
+          "value": "Yet Machiavelli’s political vision was not confined to princely rule. In his later work, <em>Discourses on Livy</em>, he expressed a strong preference for republican government. Drawing on the history of ancient Rome, Machiavelli praised systems that fostered civic virtue, popular participation, and institutional checks on power. He believed that republics, by allowing for citizen engagement and balancing competing interests, were better suited to achieve long-term stability and freedom."
         },
         {
           "type": "text",
-          "value": "Though branded as amoral, scholars today argue Machiavelli was deeply patriotic, seeking the stability and liberty of his native Florence rather than mere tyranny."
+          "value": "Despite centuries of being labeled cynical and amoral, modern scholars increasingly recognize Machiavelli as a complex thinker driven by a passionate concern for the political independence and well-being of Florence. His works reveal a deep commitment to realism in politics, not out of moral indifference, but from the belief that understanding power as it truly operates is essential to preserving order, security, and civic freedom in a dangerous and unpredictable world."
         }
       ]
     }
@@ -2883,11 +2883,11 @@
       "value": [
         {
           "type": "text",
-          "value": "<b>Socrates</b> was an Athenian philosopher credited as the founder of Western philosophy and the first to rigorously explore ethics through dialogue and reasoning."
+          "value": "<b>Socrates</b> was an Athenian philosopher credited as the founder of Western philosophy and the first known to rigorously explore ethics through dialogue and reasoning in the Western tradition."
         },
         {
           "type": "text",
-          "value": "He developed what's now called the <b>Socratic Method</b> — a form of dialectical questioning aimed at exposing inconsistencies and stimulating critical reflection—often leading interlocutors into a state of <em>aporia</em>, or perplexity."
+          "value": "He developed what's now called the <b>Socratic Method</b> — a form of dialectical questioning aimed at exposing inconsistencies and stimulating critical reflection — often leading interlocutors into a state of <em>aporia</em>, or perplexity."
         },
         {
           "type": "text",
@@ -2895,11 +2895,11 @@
         },
         {
           "type": "text",
-          "value": "Although he left no writings, our knowledge of his ideas comes from his students — Plato, Xenophon—and plays by Aristophanes."
+          "value": "Although he left no writings, we know some of his ideas through his students — Plato, Xenophon — and plays by Aristophanes."
         },
         {
           "type": "text",
-          "value": "He faced charges of impiety and corrupting the youth, and in 399 BCE was sentenced to death. He accepted this penalty rather than escape, stating that dying nobly was preferable for a man of conscience."
+          "value": "He faced charges of impiety and corrupting the youth, and in 399 BCE was sentenced to death by drinking hemlock. He accepted this penalty rather than escape, stating that dying nobly was preferable for a man of conscience."
         },
         {
           "type": "text",
@@ -2983,7 +2983,7 @@
       "value": [
         {
           "type": "text",
-          "value": "<b>Hypatia</b> led Alexandria’s Neoplatonist school at the turn of the 5th century. Daughter of Theon, she surpassed him in mathematical and philosophical insight and drew students from across the Mediterranean, Christian and pagan alike."
+          "value": "<b>Hypatia</b> was a Neoplatonist philosopher, astronomer, and mathematician who lived in Alexandria, Egypt, at that time a major city of the Eastern Roman Empire, and who led Alexandria’s Neoplatonist school at the turn of the 5th century. Daughter of Theon, she surpassed him in mathematical and philosophical insight and drew students from across the Mediterranean, Christian and pagan alike."
         },
         {
           "type": "text",
@@ -3003,7 +3003,7 @@
         },
         {
           "type": "text",
-          "value": "In March 415 CE, a Christian mob, stirred by rumors, dragged her from her carriage, brutally killed her as part of a political-religious conflict. Her death marked the end of Alexandria’s classical scholarly tradition."
+          "value": "In March 415 CE, as tensions flared between the city's Christian and pagan communities, Hypatia became a scapegoat in the political struggle between Cyril, the powerful Bishop of Alexandria, and Orestes, the Roman governor who had shown her favor. A Christian mob, incited by rumors portraying her as a sorceress and an obstacle to Christian authority, intercepted her carriage on the streets of Alexandria. Dragging her to a church called Caesareum, they brutally murdered her with pottery shards. Her death marked the end of Alexandria’s classical scholarly tradition."
         },
         {
           "type": "text",
@@ -3041,7 +3041,7 @@
             "value": [
                 {
                     "type": "text",
-                    "value": "<b>Pythagoras</b> founded the first mathematically-based philosophical school in ancient Greece, blending mathematics with mystical religious doctrines. His secretive community in Croton practiced asceticism and pursued knowledge through numerical relationships, establishing mathematics as fundamental to understanding cosmic order and human existence."
+                    "value": "<b>Pythagoras of Samos</b> was an ancient Ionian Greek philosopher and polymath. He founded the first mathematically-based philosophical school in ancient Greece, blending mathematics with mystical religious doctrines. His secretive community in Croton practiced asceticism and pursued knowledge through numerical relationships, establishing mathematics as fundamental to understanding cosmic order and human existence."
                 },
                 {
                     "type": "text",
@@ -3072,11 +3072,11 @@
         },
         {
             "type": "lifetime",
-            "value": "c. 624 - c. 546 BC"
+            "value": "624 - 546 BC"
         },
         {
             "type": "branch",
-            "value": "Milesian"
+            "value": "Pre-Socratic"
         },
         {
             "type": "h3",
@@ -3091,11 +3091,11 @@
             "value": [
                 {
                     "type": "text",
-                    "value": "<b>Thales of Miletus</b> pioneered natural philosophy by rejecting mythological explanations in favor of material principles. As the first recorded Western philosopher, he transformed cosmology by seeking physical causes for phenomena, establishing the foundational methodology for scientific inquiry."
+                    "value": "<b>Thales of Miletus</b> was an Ancient Greek pre-Socratic philosopher from Miletus in Ionia, Asia Minor. Thales was one of the Seven Sages, founding figures of Ancient Greece. He pioneered natural philosophy by rejecting mythological explanations in favor of material principles. Regarded as the first philosopher in the Greek tradition, he transformed cosmology by seeking physical causes for phenomena, establishing the foundational methodology for scientific inquiry."
                 },
                 {
                     "type": "text",
-                    "value": "His proposition that <b>water is the fundamental substance</b> (arche) constituted the first monistic theory of material origin. Observing water's phase changes and life-sustaining properties, Thales theorized that all matter derives from this primal element through condensation and rarefaction."
+                    "value": "His proposition that <b>water is the fundamental substance</b> (<em>arché</em>) constituted the first monistic theory of material origin. Observing water's phase changes and life-sustaining properties, Thales theorized that all matter derives from this primal element through condensation and rarefaction."
                 },
                 {
                     "type": "text",
@@ -3103,7 +3103,7 @@
                 },
                 {
                     "type": "text",
-                    "value": "The concept of <b>natural causality</b> emerged through his investigations of magnetism and amber (electron), which he attributed to inherent properties rather than divine intervention. This materialist approach established nature (physis) as an autonomous domain governed by discoverable laws."
+                    "value": "The concept of <b>natural causality</b> emerged through his investigations of magnetism and amber (in Greek, <em>ēlektron</em>), which he attributed to inherent properties rather than divine intervention. This materialist approach established nature (<em>physis</em>) as an autonomous domain governed by discoverable laws."
                 },
                 {
                     "type": "text",
@@ -3241,11 +3241,11 @@
             "value": [
                 {
                     "type": "text",
-                    "value": "<b>Pseudo-Dionysius the Areopagite</b> synthesized Christian theology with Proclean Neoplatonism under the pseudonym of Paul's convert. His writings profoundly influenced medieval mysticism through hierarchical cosmology and apophatic theology, gaining authority from their apparent apostolic origins."
+                    "value": "<b>Pseudo-Dionysius the Areopagite</b> was a Greek author who synthesized Christian theology with Proclean Neoplatonism under the pseudonym of Paul's convert. His writings profoundly influenced medieval mysticism through hierarchical cosmology and apophatic theology, gaining authority from their apparent apostolic origins."
                 },
                 {
                     "type": "text",
-                    "value": "<b>Negative theology</b> (via negativa) approached God through negation of attributes rather than affirmation. Dionysius argued that divine transcendence requires abandoning all concepts since God exists beyond being, knowledge, and language."
+                    "value": "<b>Negative theology</b> (<em>via negativa</em>) approached God through negation of attributes rather than affirmation. Dionysius argued that divine transcendence requires abandoning all concepts since God exists beyond being, knowledge, and language."
                 },
                 {
                     "type": "text",
@@ -3341,7 +3341,7 @@
             "value": [
                 {
                     "type": "text",
-                    "value": "<b>Albertus Magnus</b> pioneered the integration of Aristotelian science into Christian thought, mentoring Thomas Aquinas. His encyclopedic works encompassed biology, astronomy, alchemy, and logic, earning the title <em>Doctor Universalis</em> for his universal learning."
+                    "value": "<b>Albertus Magnus</b> was a German Dominican friar, philosopher, scientist, and bishop who pioneered the integration of Aristotelian science into Christian thought, mentoring Thomas Aquinas. His encyclopedic works encompassed biology, astronomy, alchemy, and logic, earning the title <em>Doctor Universalis</em> for his universal learning."
                 },
                 {
                     "type": "text",
