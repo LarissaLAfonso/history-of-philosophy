@@ -11,6 +11,6 @@ When a user hovers over a philosopher, lines appear connecting them to their res
 - **Kaiky:** Development of the timeline base code / Home Page / General styling
 
 # Estimated Workload
-It is estimated that each team member dedicated approximately 50 hours to the project on average.
+It is estimated that each team member dedicated approximately 100 hours to the project on average.
 
 Access the page [here](https://fgv-vis-2025.github.io/final-project-history-of-philosophy/).
