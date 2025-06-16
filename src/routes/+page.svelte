@@ -417,17 +417,9 @@
 .plots {
   display: flex;
   justify-content: space-between; 
-  align-items: stretch; 
+  align-items: center;  
   gap: 2rem; 
   padding: 2rem;
-}
-
-.plots {
-  display: flex; 
-  gap: 2rem;
-  padding: 2rem;
-  justify-content: center; 
-  align-items: center;     
 }
 </style>
 
