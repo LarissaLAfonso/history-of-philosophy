@@ -26,7 +26,8 @@
     function drawChart() {
         d3.select(chartContainer).selectAll("svg").remove();
 
-        const containerWidth = chartContainer.clientWidth * 0.7;
+        // const containerWidth = chartContainer.clientWidth * 0.7;
+        const containerWidth = 500;
         const containerHeight = containerWidth / 2.5;
 
         const margin = {
