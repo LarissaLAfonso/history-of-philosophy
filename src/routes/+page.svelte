@@ -354,11 +354,18 @@
 
 .below {
   flex: 1;
-  padding: 2rem;
+  padding: 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center; 
   background-color: #f3f3f3; 
+}
+
+.below p {
+  font-size: 1.2em;
+  font-style: normal;
+  color: black;
+  font-weight: 700;
 }
 
 .above {
@@ -419,7 +426,7 @@
   justify-content: space-between; 
   align-items: center;  
   gap: 2rem; 
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .plot {
@@ -519,6 +526,7 @@
     </div>
 
     <div class="below">
+        <p><strong>You can view some statistics on our timeline:</strong></p>
         <div class="plots">
           <div class="plot">
               <h1>Occurrence of philosophical interests</h1>
