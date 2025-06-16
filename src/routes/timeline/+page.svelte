@@ -534,7 +534,8 @@
                 .attr('fill', selectedFilosofo?.nome === d.fil.nome ? '#dBC826' : '#fff')
                 .attr('stroke', colors.timeline)
                 .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2.5 : 1.2)
-                .attr('rx', 6).attr('ry', 6);
+                .attr('rx', 6).attr('ry', 6)
+                .style('opacity', categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
 
             g.append('text')
                 .attr('x', labelW / 2)
@@ -543,7 +544,8 @@
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize}px`)
                 .style('fill', colors.text)
-                .text(d.fil.nome);
+                .text(d.fil.nome)
+                .style('opacity', categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
 
             nameBoxes.push(g);
 
