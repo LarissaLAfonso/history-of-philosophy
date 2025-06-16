@@ -384,9 +384,9 @@
 .record {
   display: flex;
   gap: 2rem;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
 }
 
 .record-box {
@@ -396,7 +396,7 @@
   padding: 1rem 1rem;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-width: 160px;
+  width: 160px;
   transition: transform 0.2s ease;
 }
 
@@ -518,22 +518,23 @@
     </div>
 
     <div class="below">
-      <!-- <div class="record">
-        <div class="record-box">
-          <span class="record-title">100</span>
-          <span class="record-label">philosophers</span>
-        </div>
-        <div class="record-box">
-          <span class="record-title">100</span>
-          <span class="record-label">historical events</span>
-        </div>
-      </div> -->
-
         <div class="plots">
           <div class="plot">
               <h1>Occurrence of philosophical interests</h1>
               <InterestsPlot/>
           </div>
+
+          <div class="record">
+            <div class="record-box">
+              <span class="record-title">100</span>
+              <span class="record-label">philosophers</span>
+            </div>
+            <div class="record-box">
+              <span class="record-title">100</span>
+              <span class="record-label">historical events</span>
+            </div>
+          </div> 
+
           <div class="plot">
             <h1>Number of Philosophers per Era</h1>
             <ErasPlot/>
