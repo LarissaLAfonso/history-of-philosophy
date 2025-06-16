@@ -173,7 +173,7 @@
     max-width: 580px;
     font-style: italic;
   }
-  .timeline-btn {
+  .second-page-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,7 +222,7 @@
   color: white;
   font-style: italic;
   }
-  .timeline-btn img {
+  .second-page-btn img {
     width: 28px;
     filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
   }
@@ -236,7 +236,7 @@
   }
 
 
-  .timeline-btn::after {
+  .second-page-btn::after {
     content: '';
     position: absolute;
     top: -30%;
@@ -329,7 +329,7 @@
     .content p {
       font-size: 1rem;
     }
-    .timeline-btn {
+    .second-page-btn {
       padding: 0.8rem 1.5rem;
       font-size: 1rem;
     }
@@ -515,12 +515,12 @@
 
       <!-- <div class="fade-line"></div> -->
       <div class="buttons-column">
-        <button class="btn timeline-btn" onclick="location.href='./timeline'">
+        <button class="btn second-page-btn" onclick="location.href='./timeline'">
             <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
           </button>
 
-        <button class="btn timeline-btn" onclick="location.href='./tutorial'">
-          <img src="images/timeline_icon.png" alt="Timeline Icon" /> Tutorial
+        <button class="btn second-page-btn" onclick="location.href='./tutorial'">
+          <img src="images/tutorial_icon.png" alt="Tutorial Icon" /> Tutorial
         </button>
       </div>
     </div>
