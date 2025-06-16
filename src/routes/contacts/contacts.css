@@ -5,11 +5,6 @@
 }
 
 :root {
-    --primary-dark: #1a1a2e;
-    --primary-gold: #bfa74a;
-    --header-gold: #7b6500;
-    --highlight-gold: #f6d14b;
-    --text-light: #e9e7de;
     --transition-base: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 

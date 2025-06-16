@@ -10,9 +10,7 @@
     import { onMount, afterUpdate } from 'svelte';
     import * as d3 from 'd3';
     import './timeline.css';
-    import './infos.js';
     import categorias from '../../components/data/tooltip_categories.json';
-    // import { filosofos } from './infos.js';
     import filosofos from '../../components/data/philosophers2.json';
     import philosophers  from '../../components/data/philosophers.json';
     import histories from '../../components/data/history.json';
@@ -22,7 +20,6 @@
     import { fly } from 'svelte/transition';
     import { processTextWithGlossary } from '../../scripts/textProcessing.js';
     import eras from '../../components/data/eras.json';
-    // import { showTooltip, hideTooltip, moveTooltip } from '../../scripts/tooltip_functions';
     
     const activeCategories = {};
     categorias.forEach(cat => {activeCategories[cat.nome] = false});

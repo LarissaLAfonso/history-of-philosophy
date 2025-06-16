@@ -3,7 +3,6 @@ import { philosophers } from '../components/data/philosophers.json';
 export function getPhilosopherDesc(philosopherName){
     let selectedPhilosopher = null;
     for(let philosopher of philosophers){
-        console.log(philosopher);
         if(philosopher.value[0].value == philosopherName){
             selectedPhilosopher = philosopher.value;
             break;

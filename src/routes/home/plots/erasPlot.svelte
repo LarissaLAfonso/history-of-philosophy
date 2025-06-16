@@ -12,6 +12,7 @@
         "Contemporary": 0
     };
 
+    // Counting of the data
     philosophers.forEach(philosopher => {
         const birthYear = philosopher.nascimento;
         const era = eras.find(e => birthYear >= e.start && birthYear < e.end);
@@ -30,7 +31,6 @@
     function drawChart() {
         d3.select(chartContainer).selectAll("svg").remove();
 
-        // const containerWidth = chartContainer.clientWidth * 0.7;
         const containerWidth = 500;
         const containerHeight = containerWidth / 2.5; 
 
@@ -75,6 +75,7 @@
             .attr("class", "bar-group")
             .attr("transform", d => `translate(0, ${y(d.category)})`);
 
+        // Bar Plot
         bars.append("rect")
             .attr("class", "bar")
             .attr("height", y.bandwidth())
@@ -82,6 +83,7 @@
             .attr("width", d => width - x(d.count))
             .attr("fill", d => d.color);
 
+        // Category Label
         bars.append("text")
             .attr("class", "category-label")
             .attr("x", width + 10)
@@ -93,6 +95,7 @@
             .style("font-family", "Segoe UI, Tahoma, Geneva, Verdana, sans-serif")  
             .text(d => d.category);
 
+        // Number od occurrences
         bars.append("text")
             .attr("class", "count-label")
             .attr("x", d => x(d.count) - 8)
@@ -113,7 +116,5 @@
         });
     });
 </script>
-
-
 
 <div bind:this={chartContainer}></div>

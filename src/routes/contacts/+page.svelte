@@ -5,6 +5,7 @@
 </script>
 
 <div class="page">
+    <!-- HEADER -->
     <div class="fixed-header"> 
         <a href="{base}/" class="home-icon" aria-label="Back to Home" data-sveltekit-reload>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
@@ -19,6 +20,7 @@
 
     <div class="content">
         <div class="people">
+            <!-- ADDING A PERSON CARD -->
             {#each people as person}
             <div class="person-card">
                 <h2>{person.name}</h2>
