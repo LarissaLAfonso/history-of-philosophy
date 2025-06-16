@@ -515,7 +515,7 @@
             tmp.remove();
 
             const spanW = d.maxX - d.minX;
-            const labelW = Math.max(spanW, textW + 2 * padding);
+            const labelW = Math.max(spanW, textW + 10 * padding);
             const labelX = spanW >= labelW ? d.minX : d.centerX - labelW / 2;
 
             const g = svg.append('g')
