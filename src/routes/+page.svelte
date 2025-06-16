@@ -535,11 +535,11 @@
 
           <div class="record">
             <div class="record-box">
-              <span class="record-title">100</span>
+              <span class="record-title">64</span>
               <span class="record-label">philosophers</span>
             </div>
             <div class="record-box">
-              <span class="record-title">100</span>
+              <span class="record-title">33</span>
               <span class="record-label">historical events</span>
             </div>
           </div> 
