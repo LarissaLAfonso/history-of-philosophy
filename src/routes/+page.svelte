@@ -421,6 +421,27 @@
   gap: 2rem; 
   padding: 2rem;
 }
+
+.plot {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 0.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.plot h1 {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #3e2b23;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
 </style>
 
 <body>
@@ -509,8 +530,14 @@
       </div> -->
 
         <div class="plots">
-          <InterestsPlot/>
-          <ErasPlot/>
+          <div class="plot">
+              <h1>Occurrence of philosophical interests</h1>
+              <InterestsPlot/>
+          </div>
+          <div class="plot">
+            <h1>Number of Philosophers per Era</h1>
+            <ErasPlot/>
+          </div>
         </div>
     </div>
   </div>
