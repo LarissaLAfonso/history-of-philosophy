@@ -25,7 +25,7 @@
         "year": "1914",
         "image": "images/history_icons/ww1.png",
         "importance": 3,
-        "posX": 0.995
+        "posX": 0.02
     },
     {
         "happening": "World War II",
@@ -39,7 +39,7 @@
         "year": "1947",
         "image": "images/history_icons/bomb.png",
         "importance": 4,
-        "posX": 0.01
+        "posX": 0.995
     },
     {
         "happening": "Fall of the Western <br> Roman Empire",
