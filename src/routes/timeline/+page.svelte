@@ -71,18 +71,7 @@
     let filteredFilosofos = filosofos;
     let filteredHistories = histories;
 
-    function setGranularity(level) {
-        if (transitionInProgress || granularityLevel === level) return;
-        
-        transitionInProgress = true;
-        granularityLevel = level;
-        
-        setTimeout(() => {
-            drawTimeLine(true);
-            transitionInProgress = false;
-        }, 50);
-    }
-
+    
     filosofos.sort((a, b) => a.nascimento - b.nascimento);
     let selectedFilosofo = null;
     let selectedFilosofoInfo = null;
@@ -94,13 +83,13 @@
     let tooltipContent = '';
     let tooltipX = 0;
     let tooltipY = 0;
-
+    
     let initialYear = -700; 
     let finalYear = 2020;   
     let stepYears = 100;    
-
+    
     let anos = d3.range(initialYear, finalYear + 1, stepYears);
-
+    
     const colors = {
         background: '#f5efe6',
         timeline: '#6b4f3a',
@@ -108,108 +97,108 @@
         text: '#3e2d23',
         highlight: '#8C7351'
     };
-
-
+    
+    
     // Posição das x categorias para serem usadas no template  
     let categoriaPositions = [];
-
+    
     // tooltip functions
     function showTooltip(event) {
-            const target = event.target;
-            console.log('showTooltip', target.dataset.definition);
-            if (target.classList.contains('glossary-term')) {
-                tooltipContent = target.dataset.definition;
-                tooltipVisible = true;
-                
-                // Use setTimeout to ensure the tooltip is rendered before positioning
-                setTimeout(() => {
-                    positionTooltip(event);
-                }, 0);
-            }
-        }
-
-        function hideTooltip(event) {
-            // Only hide if we're not moving to another glossary term
-            if (!event.relatedTarget || !event.relatedTarget.classList.contains('glossary-term')) {
-                tooltipVisible = false;
-            }
-        }
-
-        function moveTooltip(event) {
-            if (tooltipVisible) {
+        const target = event.target;
+        console.log('showTooltip', target.dataset.definition);
+        if (target.classList.contains('glossary-term')) {
+            tooltipContent = target.dataset.definition;
+            tooltipVisible = true;
+            
+            // Use setTimeout to ensure the tooltip is rendered before positioning
+            setTimeout(() => {
                 positionTooltip(event);
-            }
+            }, 0);
         }
-
-        function positionTooltip(event) {
-            const tooltipElement = document.querySelector('.glossary-tooltip');
-            if (!tooltipElement) return;
-
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
-            const offset = 10; // Distance from cursor
-            
-            // Get viewport dimensions
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-            
-            // Get tooltip dimensions
-            const tooltipRect = tooltipElement.getBoundingClientRect();
-            const tooltipWidth = tooltipRect.width;
-            const tooltipHeight = tooltipRect.height;
-            
-            // Calculate available space in each direction
-            const spaceRight = viewportWidth - mouseX;
-            const spaceLeft = mouseX;
-            const spaceBottom = viewportHeight - mouseY;
-            const spaceTop = mouseY;
-            
-            // Determine horizontal position
-            let x;
-            if (spaceRight >= tooltipWidth + offset) {
-                // Enough space on the right
+    }
+    
+    function hideTooltip(event) {
+        // Only hide if we're not moving to another glossary term
+        if (!event.relatedTarget || !event.relatedTarget.classList.contains('glossary-term')) {
+            tooltipVisible = false;
+        }
+    }
+    
+    function moveTooltip(event) {
+        if (tooltipVisible) {
+            positionTooltip(event);
+        }
+    }
+    
+    function positionTooltip(event) {
+        const tooltipElement = document.querySelector('.glossary-tooltip');
+        if (!tooltipElement) return;
+        
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        const offset = 10; // Distance from cursor
+        
+        // Get viewport dimensions
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        // Get tooltip dimensions
+        const tooltipRect = tooltipElement.getBoundingClientRect();
+        const tooltipWidth = tooltipRect.width;
+        const tooltipHeight = tooltipRect.height;
+        
+        // Calculate available space in each direction
+        const spaceRight = viewportWidth - mouseX;
+        const spaceLeft = mouseX;
+        const spaceBottom = viewportHeight - mouseY;
+        const spaceTop = mouseY;
+        
+        // Determine horizontal position
+        let x;
+        if (spaceRight >= tooltipWidth + offset) {
+            // Enough space on the right
+            x = mouseX + offset;
+        } else if (spaceLeft >= tooltipWidth + offset) {
+            // Not enough space on right, but enough on left
+            x = mouseX - tooltipWidth - offset;
+        } else {
+            // Not enough space on either side, choose the side with more space
+            if (spaceRight > spaceLeft) {
                 x = mouseX + offset;
-            } else if (spaceLeft >= tooltipWidth + offset) {
-                // Not enough space on right, but enough on left
+            } else {
                 x = mouseX - tooltipWidth - offset;
-            } else {
-                // Not enough space on either side, choose the side with more space
-                if (spaceRight > spaceLeft) {
-                    x = mouseX + offset;
-                } else {
-                    x = mouseX - tooltipWidth - offset;
-                }
-                
-                // Ensure tooltip doesn't go off-screen
-                x = Math.max(5, Math.min(x, viewportWidth - tooltipWidth - 5));
             }
             
-            // Determine vertical position
-            let y;
-            if (spaceBottom >= tooltipHeight + offset) {
-                // Enough space below
-                y = mouseY + offset;
-            } else if (spaceTop >= tooltipHeight + offset) {
-                // Not enough space below, but enough above
-                y = mouseY - tooltipHeight - offset;
-            } else {
-                // Not enough space above or below, choose the side with more space
-                if (spaceBottom > spaceTop) {
-                    y = mouseY + offset;
-                } else {
-                    y = mouseY - tooltipHeight - offset;
-                }
-                
-                // Ensure tooltip doesn't go off-screen
-                y = Math.max(5, Math.min(y, viewportHeight - tooltipHeight - 5));
-            }
-            
-            // Apply the calculated position
-            tooltipX = x;
-            tooltipY = y;
+            // Ensure tooltip doesn't go off-screen
+            x = Math.max(5, Math.min(x, viewportWidth - tooltipWidth - 5));
         }
-
-
+        
+        // Determine vertical position
+        let y;
+        if (spaceBottom >= tooltipHeight + offset) {
+            // Enough space below
+            y = mouseY + offset;
+        } else if (spaceTop >= tooltipHeight + offset) {
+            // Not enough space below, but enough above
+            y = mouseY - tooltipHeight - offset;
+        } else {
+            // Not enough space above or below, choose the side with more space
+            if (spaceBottom > spaceTop) {
+                y = mouseY + offset;
+            } else {
+                y = mouseY - tooltipHeight - offset;
+            }
+            
+            // Ensure tooltip doesn't go off-screen
+            y = Math.max(5, Math.min(y, viewportHeight - tooltipHeight - 5));
+        }
+        
+        // Apply the calculated position
+        tooltipX = x;
+        tooltipY = y;
+    }
+    
+    
     function snapToPhilosopher(philosopher) {
         const element = document.querySelector(`.interaction-area.${philosopher.nome.replace(/\s+/g, '-').replaceAll('.','')}`);
         if(!element) return;
@@ -218,12 +207,12 @@
             block: 'center' // Center the philosopher in the viewport
         });
     }
-
-
+    
+    
     function selectFilosofo(filosofo) {
         /*Função para selecionar filósofo e ativar split view*/
         d3.selectAll(`.category-connection.${selectedFilosofo?.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
-            .style('opacity', 0);
+        .style('opacity', 0);
         if (isSplitView && selectedFilosofo === filosofo) {
             closeDetailView();
         } else {
@@ -232,11 +221,11 @@
             selectedFilosofoInfo = getPhilosopherDesc(selectedFilosofo.nome);
             updateCategoryConnections(selectedFilosofo.nome); // Atualiza conexões
             d3.selectAll(`.category-connection.${selectedFilosofo.nome.replace(/\s+/g, '-').replaceAll('.','')}`)
-                .style('opacity', 0.6);
+            .style('opacity', 0.6);
             snapToPhilosopher(selectedFilosofo); // Snap to philosopher
         }
     }
-
+    
     function closeDetailView() {
         if (selectedFilosofo) {
             updateCategoryConnections(selectedFilosofo.nome); // Esconde conexões
@@ -246,55 +235,107 @@
         selectedFilosofoInfo = null;
         tooltipVisible = false; // Hide tooltip when closing detail view
     }
-
-
+    
+    
     function handleResize() {
         drawTimeLine();
     }
-
+    
     function updateCategoryConnections(filosofoNome) {
         const shouldShow = selectedFilosofo?.nome === filosofoNome;
         d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-').replaceAll('.','')}`)
-            .style('opacity', shouldShow ? 0.6 : 0);
+        .style('opacity', shouldShow ? 0.6 : 0);
     }
-
+    
     function showCategoryConnections(filosofoNome) {
         if (selectedFilosofo?.nome !== filosofoNome) {
             d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-').replaceAll('.','')}`)
-                .style('opacity', 0.6);
+            .style('opacity', 0.6);
         }
     }
-
+    
     function hideCategoryConnections(filosofoNome) {
         if (selectedFilosofo?.nome !== filosofoNome) {
             d3.selectAll(`.category-connection.${filosofoNome.replace(/\s+/g, '-').replaceAll('.','')}`)
-                .style('opacity', 0);
+            .style('opacity', 0);
         }
     }
-
-
+    
+    
     // Add granularity level state
     let granularityLevel = 5; // Default to highest detail (1-5 scale)
     let timelineHeight = 6000; // Initial height
     let transitionInProgress = false;
     
+    let stepYearsToBe = 100;
+    let heightToBe = 6000;
+    
     // Update stepYears based on granularity
     $: if (granularityLevel) {
+        let pace = (finalYear-initialYear)/6000;
         stepYears = [500, 400, 300, 200, 100][granularityLevel - 1];
-        timelineHeight = 4000 + (granularityLevel - 1) * 500;
+        let howManyTicks = Math.ceil((finalYear - initialYear) / stepYears);
+        // timelineHeight = 4000 + (granularityLevel - 1) * 500;
+        // timelineHeight = pace * howManyTicks;
+
+        // heightToBe = 4000 + (granularityLevel - 1) * 500;
+        
         anos = d3.range(initialYear, finalYear + 1, stepYears);
         
         filteredFilosofos = filosofos.filter(f => 
-            f.importance <= granularityLevel || 
-            (selectedFilosofo && selectedFilosofo.nome === f.nome)
-        );
-        
-        filteredHistories = histories.filter(h => 
-            h.importance <= granularityLevel
-        );
-    }
+        f.importance <= granularityLevel || 
+        (selectedFilosofo && selectedFilosofo.nome === f.nome)
+    );
+    
+    filteredHistories = histories.filter(h => 
+        h.importance <= granularityLevel
+    );
+}
 
-    function drawTimeLine(withTransition = false) {
+let transition;
+
+function transitionHeight(newHeight, pixel_per_iter = 10)
+{
+
+    let sign = Math.sign(newHeight - timelineHeight);
+    timelineHeight = timelineHeight + pixel_per_iter*sign;
+
+    if(sign*timelineHeight >= sign*newHeight) {
+        // Clear transition
+        timelineHeight = newHeight;
+        clearInterval(transition);
+        transitionInProgress = false;
+        drawTimeLine(true);
+        transitionInProgress = false;
+        return;
+    }
+}
+
+function setGranularity(level) {
+    if (transitionInProgress || granularityLevel === level) return;
+    
+    transitionInProgress = true;
+
+    let pace = 6000/100;
+    granularityLevel = level;
+    stepYears = [500, 400, 300, 200, 100][granularityLevel - 1];
+    let howManyTicks = Math.ceil((finalYear - initialYear) / stepYears);
+    // timelineHeight = 4000 + (granularityLevel - 1) * 500;
+    // heightToBe = pace * howManyTicks;
+
+    heightToBe = 4000 + (granularityLevel - 1) * 500;
+    let pixel_per_iter = Math.abs(heightToBe - timelineHeight)/20;
+    transition = setInterval(() => {
+        transitionHeight(heightToBe, pixel_per_iter);
+    }, 0);
+    
+    // setTimeout(() => {
+    //     drawTimeLine(true);
+    //     transitionInProgress = false;
+    // }, 50);
+}
+
+function drawTimeLine(withTransition = false) {
         const svg = d3.select('#timeline');
         svg.selectAll('*').remove();
         
