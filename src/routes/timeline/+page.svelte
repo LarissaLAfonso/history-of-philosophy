@@ -269,6 +269,12 @@
     
     let stepYearsToBe = 100;
     let heightToBe = 6000;
+    let newPhilosophers = [];
+    let newPhilosophersOpacity = 0;
+    let oldPhilosophers = [];
+    let oldPhilosophersOpacity = 1;
+    let maxSteps;
+    let stepsTaken;
     
     // Update stepYears based on granularity
     $: if (granularityLevel) {
@@ -281,11 +287,20 @@
         // heightToBe = 4000 + (granularityLevel - 1) * 500;
         
         anos = d3.range(initialYear, finalYear + 1, stepYears);
+
+        newPhilosophers = filosofos.filter(f => 
+        f.importance <= granularityLevel && !filteredFilosofos.includes(f))
+        oldPhilosophers = filteredFilosofos.filter(f =>
+        f.importance > granularityLevel && !newPhilosophers.includes(f));
+        filteredFilosofos = filteredFilosofos.filter(f =>
+            !oldPhilosophers.includes(f)
+        );
+
         
-        filteredFilosofos = filosofos.filter(f => 
-        f.importance <= granularityLevel || 
-        (selectedFilosofo && selectedFilosofo.nome === f.nome)
-    );
+        // filteredFilosofos = filosofos.filter(f => 
+        // f.importance <= granularityLevel || 
+        // (selectedFilosofo && selectedFilosofo.nome === f.nome)
+    // );
     
     filteredHistories = histories.filter(h => 
         h.importance <= granularityLevel
@@ -299,14 +314,21 @@ function transitionHeight(newHeight, pixel_per_iter = 10)
 
     let sign = Math.sign(newHeight - timelineHeight);
     timelineHeight = timelineHeight + pixel_per_iter*sign;
+    stepsTaken += 1;
+    newPhilosophersOpacity = stepsTaken / maxSteps;
+    oldPhilosophersOpacity = 1 - newPhilosophersOpacity;
 
     if(sign*timelineHeight >= sign*newHeight) {
         // Clear transition
         timelineHeight = newHeight;
         clearInterval(transition);
-        transitionInProgress = false;
         drawTimeLine(true);
         transitionInProgress = false;
+        filteredFilosofos = filosofos.filter(f => 
+        f.importance <= granularityLevel || 
+        (selectedFilosofo && selectedFilosofo.nome === f.nome));
+        newPhilosophers = [];
+        newPhilosophersOpacity = 0;
         return;
     }
 }
@@ -325,6 +347,8 @@ function setGranularity(level) {
 
     heightToBe = 4000 + (granularityLevel - 1) * 500;
     let pixel_per_iter = Math.abs(heightToBe - timelineHeight)/20;
+    maxSteps = Math.abs(heightToBe - timelineHeight)/pixel_per_iter;
+    stepsTaken = 0;
     transition = setInterval(() => {
         transitionHeight(heightToBe, pixel_per_iter);
     }, 0);
@@ -386,12 +410,25 @@ function drawTimeLine(withTransition = false) {
         const catX = Object.fromEntries(categoriaPositions.map(c => [c.nome, c.pos]));
 
         /* === PHILOSOPHER LAYOUT === */
-        const filosLayout = filteredFilosofos.map(f => {
+        let filosLayout = filteredFilosofos.map(f => {
             const xs = f.categorias.map(c => catX[c]);
             const minX = Math.min(...xs) - 10;
             const maxX = Math.max(...xs) + 35;
-            return { fil: f, minX, maxX, centerX: (minX + maxX) / 2 };
-        });
+            return { fil: f, minX, maxX, centerX: (minX + maxX) / 2, opacity: 1 };
+        }).concat(newPhilosophers.map(f => {
+            const xs = f.categorias.map(c => catX[c]);
+            const minX = Math.min(...xs) - 10;
+            const maxX = Math.max(...xs) + 35;
+            return { fil: f, minX, maxX, centerX: (minX + maxX) / 2, opacity: newPhilosophersOpacity };
+        })).concat(oldPhilosophers.map(f => {
+            const xs = f.categorias.map(c => catX[c]);
+            const minX = Math.min(...xs) - 10;
+            const maxX = Math.max(...xs) + 35;
+            return { fil: f, minX, maxX, centerX: (minX + maxX) / 2, opacity: oldPhilosophersOpacity };
+        }));
+
+        // order filosLayout by f.nascimento
+        filosLayout.sort((a, b) => a.fil.nascimento - b.fil.nascimento);
 
         const groups = d3.group(filosLayout, d => d.centerX);
         groups.forEach(group => {
@@ -480,7 +517,7 @@ function drawTimeLine(withTransition = false) {
             .data(filosLayout, d => d.fil.nome);
             
         philosopherLines.exit()
-            .transition().duration(duration)
+            // .transition().duration(duration)
             .style('opacity', 0)
             .remove();
             
@@ -497,9 +534,9 @@ function drawTimeLine(withTransition = false) {
             .style('cursor', 'pointer')
             .style('opacity', 0)
             .on('click', (e, d) => selectFilosofo(d.fil))
-            .transition().duration(duration)
+            // .transition().duration(duration)
             .style('opacity', d => 
-                categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+                (categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3)*d.opacity
             );
             
         philosopherLines.merge(philosopherLines)
@@ -573,7 +610,7 @@ function drawTimeLine(withTransition = false) {
                 .attr('stroke', colors.timeline)
                 .attr('stroke-width', selectedFilosofo?.nome === d.fil.nome ? 2.5 : 1.2)
                 .attr('rx', 6).attr('ry', 6)
-                .style('opacity', categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
+                .style('opacity', (categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3)*d.opacity);
 
             g.append('text')
                 .attr('x', labelW / 2)
@@ -583,7 +620,7 @@ function drawTimeLine(withTransition = false) {
                 .style('font-size', `${fontSize}px`)
                 .style('fill', colors.text)
                 .text(d.fil.nome)
-                .style('opacity', categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3);
+                .style('opacity', (categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3)*d.opacity);
 
             nameBoxes.push(g);
 
@@ -615,18 +652,18 @@ function drawTimeLine(withTransition = false) {
                 .attr('width', 20).attr('height', 20)
                 .attr('href', 'images/skull_icon.png')
                 .style('cursor', 'pointer')
-                .style('opacity', 0);
+                .style('opacity', (categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3)*d.opacity);
 
-            if (withTransition) {
-                skull.transition().duration(duration)
-                    .style('opacity', 
-                        categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-                    );
-            } else {
-                skull.style('opacity', 
-                    categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-                );
-            }
+            // if (withTransition) {
+            //     skull.transition().duration(duration)
+            //         .style('opacity', 
+            //             categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+            //         );
+            // } else {
+            //     skull.style('opacity', 
+            //         categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
+            //     );
+            // }
         });
 
         if (withTransition) {
@@ -891,3 +928,9 @@ function drawTimeLine(withTransition = false) {
         </div>
     {/if}
 </div>
+
+<style>
+    :global(html, body){
+        background-color: "#e1ceed";
+    }
+</style>
