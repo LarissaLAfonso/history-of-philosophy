@@ -407,6 +407,7 @@
       rgba(255,255,255,0.1) 50%,
       transparent 80%);
     animation: shine 5s infinite;
+    pointer-events: none;
   }
   @keyframes shine {
     0% { transform: translateX(-100%) rotate(45deg); }
