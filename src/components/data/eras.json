@@ -5,7 +5,7 @@
     "end": 500,
     "backgroundColor": "#f0f0f0",
     "textColor": "#505050",
-    "description": "Greek and Roman philosophy, focused mainly on ethics, politics, and metaphysics."
+    "description": "600 BC - 500 AD <br><br> Greek and Roman philosophy, focused mainly on ethics, politics, and metaphysics."
   },
   {
     "name": "Medieval",
@@ -13,7 +13,7 @@
     "end": 1500,
     "backgroundColor": "#d4cfc4",
     "textColor": "#5a4f3b",
-    "description": "Religious philosophy, merging faith and reason in Christian, Islamic, and Jewish thought."
+    "description": "500 AD - 1500 AD <br><br> Religious philosophy, merging faith and reason in Christian, Islamic, and Jewish thought."
   },
   {
     "name": "Renaissance",
@@ -21,7 +21,7 @@
     "end": 1600,
     "backgroundColor": "#edd4b7",
     "textColor": "#a0621b",
-    "description": "Revival of classical thought, emphasizing humanism and reason."
+    "description": "1500 AD - 1600 AD <br><br> Revival of classical thought, emphasizing humanism and reason."
   },
   {
     "name": "Modern",
@@ -29,7 +29,7 @@
     "end": 1800,
     "backgroundColor": "#d5e8c1",
     "textColor": "#4d7c1b",
-    "description": "The rise of Enlightenment ideas. Rationalism, empiricism, and critiques of knowledge."
+    "description": "1600 AD - 1800 AD <br><br> The rise of Enlightenment ideas. Rationalism, empiricism, and critiques of knowledge."
   },
   {
     "name": "Contemporary",
@@ -37,6 +37,6 @@
     "end": 2100,
     "backgroundColor": "#e1ceed",
     "textColor": "#663d8c",
-    "description": "Diverse critical approaches to modernity, language, identity, and power."
+    "description": "1800 AD - present <br><br> Diverse critical approaches to modernity, language, identity, and power."
   }
 ]
