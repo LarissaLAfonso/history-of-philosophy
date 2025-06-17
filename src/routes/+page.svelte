@@ -178,7 +178,7 @@
     min-height: 100vh;
     background: 
       linear-gradient(rgba(45,26,15,0.75), rgba(122,74,40,0.75)),
-      url(background.png) center/cover no-repeat fixed;
+      url(/images/background.png) center/cover no-repeat fixed;
     padding: 2rem 5%;
     display: flex;
     flex-direction: column;
