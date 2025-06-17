@@ -352,11 +352,6 @@ function setGranularity(level) {
     transition = setInterval(() => {
         transitionHeight(heightToBe, pixel_per_iter);
     }, 0);
-    
-    // setTimeout(() => {
-    //     drawTimeLine(true);
-    //     transitionInProgress = false;
-    // }, 50);
 }
 
 function drawTimeLine(withTransition = false) {
@@ -653,17 +648,6 @@ function drawTimeLine(withTransition = false) {
                 .attr('href', 'images/skull_icon.png')
                 .style('cursor', 'pointer')
                 .style('opacity', (categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3)*d.opacity);
-
-            // if (withTransition) {
-            //     skull.transition().duration(duration)
-            //         .style('opacity', 
-            //             categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-            //         );
-            // } else {
-            //     skull.style('opacity', 
-            //         categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-            //     );
-            // }
         });
 
         if (withTransition) {
