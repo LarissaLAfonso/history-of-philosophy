@@ -205,10 +205,6 @@ body {
   animation: fadeInScale 0.5s ease-out;
 }
 
-.slide-image {
-  flex: 0 0 25%; 
-}
-
 .slide-image img {
   width: 100%; 
   height: auto;

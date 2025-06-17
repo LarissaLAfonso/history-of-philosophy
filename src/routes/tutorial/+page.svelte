@@ -34,7 +34,10 @@
         {#each explanations as exp, i}
           <div class="content-slide {i === currentSlide ? 'active' : ''}">
             <!-- IMAGE COLUMN -->
-            <div class="slide-image">
+            <div
+              class="slide-image"
+              style="flex: 0 0 {exp.size}%"
+            >
               <img src={exp.gif} alt="explicação visual" />
             </div>
 
