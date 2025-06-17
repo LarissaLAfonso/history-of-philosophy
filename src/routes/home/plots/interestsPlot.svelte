@@ -12,6 +12,7 @@
         "Aesthetics": 0
     };
 
+    // Counting of the data
     philosophers.forEach(fil => {
         fil.categorias.forEach(cat => {
         if (count_categories.hasOwnProperty(cat)) {
@@ -26,7 +27,6 @@
     function drawChart() {
         d3.select(chartContainer).selectAll("svg").remove();
 
-        // const containerWidth = chartContainer.clientWidth * 0.7;
         const containerWidth = 500;
         const containerHeight = containerWidth / 2.5;
 
@@ -71,6 +71,7 @@
             .attr("class", "bar-group")
             .attr("transform", d => `translate(0, ${y(d.category)})`);
 
+        // Bar Plot
         bars.append("rect")
             .attr("class", "bar")
             .attr("height", y.bandwidth())
@@ -78,6 +79,7 @@
             .attr("width", d => x(d.count))
             .attr("fill", plotColor);
 
+        // Category Label
         bars.append("text")
             .attr("class", "category-label")
             .attr("x", -15)
@@ -89,6 +91,7 @@
             .style("font-family", "Segoe UI, Tahoma, Geneva, Verdana, sans-serif")
             .text(d => d.category);
 
+        // Number od occurrences
         bars.append("text")
             .attr("class", "count-label")
             .attr("x", d => x(d.count) + 8)
