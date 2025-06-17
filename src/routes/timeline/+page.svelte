@@ -477,7 +477,7 @@
             .attr('y', d => y(d))
             .attr('dy', '0.35em')
             .attr('text-anchor', 'end')
-            .text(d => d < 0 ? `${Math.abs(d)} BC` : `${d} AD`)
+            .text(d => d === 0 ? "0" : d < 0 ? `${Math.abs(d)} BC` : `${d} AD`)
             .style('opacity', 0)
             .transition().duration(duration)
             .style('opacity', 1);
