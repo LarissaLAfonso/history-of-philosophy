@@ -108,7 +108,7 @@
 
       <!-- BUTTONS TIMELINE/TUTORIAL -->
       <div class="buttons-column">
-        <button class="btn second-page-btn" onclick="location.href='./timeline'">
+        <button id="timeline-btn" class="btn second-page-btn" onclick="location.href='./timeline'">
             <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
           </button>
 
@@ -160,6 +160,10 @@
   body {
     font-family: 'EB Garamond', serif;
     overflow-x: hidden;
+  }
+
+  #timeline-btn{
+    z-index: 100;
   }
 
   #tutorial-btn{                     
