@@ -115,8 +115,6 @@ body {
   justify-content: center;
   background: #8c66453f;
   padding: 24px;
-  margin-left: 5%;
-  margin-right: 5%;
   border-radius: 12px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   position: relative;
@@ -225,7 +223,6 @@ p{
   border-radius: 16px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
-
 
 .slide-text {
   display: flex;
