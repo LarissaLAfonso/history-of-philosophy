@@ -32,7 +32,9 @@
       <!-- SLIDES -->
       <div class="slider-window">
         {#each explanations as exp, i}
-          <div class="content-slide {i === currentSlide ? 'active' : ''}">
+          <div class="content-slide {i === currentSlide ? 'active' : ''}"
+              style="margin-left: {exp.margin}%; margin-right: {exp.margin}%"
+          >
             <!-- IMAGE COLUMN -->
             <div
               class="slide-image"
@@ -45,7 +47,7 @@
             <div class="slide-text">
               <h2 class="slide-title">{exp.title}</h2>
               <div class="text-explanation">
-                {@html exp.text}
+                {exp.text}
               </div>
             </div>
           </div>
