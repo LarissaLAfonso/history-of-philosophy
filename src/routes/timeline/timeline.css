@@ -526,6 +526,23 @@ p i, p em {
     border-color: transparent var(--tooltip-color, #333) transparent transparent;
 }
 
+.granularity-label { 
+    /* position: fixed; */
+    top: 50%;
+    left: 80px;
+    transform: translate(0, -30%);
+    
+    font-family: "Cinzel", serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ecceb4; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+    padding: 10px;
+    border-radius: 8px;
+    transition: font-size 0.3s ease, left 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
 
 .granularity-controls-container {
     position: fixed;

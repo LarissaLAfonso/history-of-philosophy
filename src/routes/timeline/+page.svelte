@@ -826,17 +826,19 @@ function drawTimeLine(withTransition = false) {
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                 </a>
-
+                
                 <!-- Granularity Controls - Horizontal buttons next to home icon -->
                 <div class="granularity-controls {isSplitView ? 'fade-out' : ''}">
-                    {#each [1,2,3,4,5] as level}
+                    <div class="granularity-label">Granularity:</div>
+
+                        {#each [1,2,3,4,5] as level}
                         <button 
                         class:active={granularityLevel === level}
                         on:click={() => setGranularity(level)}
                         aria-label={`Detail level ${level}`}
                         >
                         {level}
-                        </button>
+                    </button>
                     {/each}
                 </div>
 
