@@ -760,7 +760,7 @@ function drawTimeLine(withTransition = false) {
                 tooltipEras
                     .style('visibility', 'visible')
                     .style('opacity', 1)
-                    .text(d.description)
+                    .html(d.description)
                     .style('--tooltip-color', d.textColor);
                 const tooltipHeight = tooltipEras.node().offsetHeight;
                 const topPos = bbox.top + bbox.height / 2 - tooltipHeight / 2 + window.scrollY;

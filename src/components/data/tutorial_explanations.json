@@ -1,47 +1,56 @@
 [
   {
-    "gif": "/gifs/glossary.gif",
+    "gif": "/gifs/introduction.gif",
     "title": "Introduction",
-    "text": "This project aims to explore the history of philosophy through an interactive timeline. In it, philosophers are positioned according to their birth dates, alongside relevant historical events, allowing for a richer contextualization of the evolution of philosophical thought. The experience is enhanced by various interactive features, including:\n- Navigation through philosophical eras\n- Categories of interest assigned to each philosopher\n- Glossary of terms with quick explanations\n- Marking of historical events along the timeline\n- Search bar for terms"
+    "size": 45,
+    "text": "This project aims to explore the history of philosophy through an <strong>interactive timeline</strong>. In it, philosophers are positioned according to their birth dates, alongside relevant historical events, allowing for a richer contextualization of the evolution of philosophical thought. The experience is enhanced by various interactive features, such as hover effects, search functionality, and filtering options, all designed to facilitate a deeper understanding of the connections between philosophers and their ideas."
   },
   {
-    "gif": "/gifs/glossary.gif",
+    "gif": "/gifs/philo_selection.gif",
     "title": "Philosopher Selection",
+    "size": 45,
     "text": "Clicking on a philosopher in the timeline opens a dedicated subpage that provides detailed information about their life, historical context, and relevant metadata. The selected philosopher remains highlighted in the timeline, making it easier to locate visually."
   },
   {
     "gif": "/gifs/glossary.gif",
     "title": "Glossary",
+    "size": 25,
     "text": "Within each philosopher’s subpage, certain terms appear with a distinctive color. When hovering over these terms, an interactive tooltip appears with their definitions, allowing for quick understanding without leaving the page."
   },
     {
-    "gif": "/gifs/glossary.gif",
+    "gif": "/gifs/categories_of_interest.gif",
     "title": "Categories of Interest",
+    "size": 45,
     "text": "Just below the page header, you’ll find the categories of interest, representing the fields of knowledge each philosopher engaged with. When hovering over a philosopher, visual connections are displayed between them and the categories they studied. When a philosopher is selected, these connections remain active and highlighted, reinforcing thematic links."
   },
   {
-    "gif": "/gifs/glossary.gif",
+    "gif": "/gifs/filtering_by_interests.gif",
     "title": "Filtering by Interests",
+    "size": 45,
     "text": "In the interest section, it is possible to filter philosophers based on their categories of interest. By default, all categories are active (no filters applied). By clicking one or more categories, the timeline displays only philosophers who worked in at least one of the selected areas."
   },
   {
-    "gif": "/gifs/glossary.gif",
+    "gif": "/gifs/search_bar.gif",
     "title": "Search Bar",
+    "size": 25,
     "text": "The search bar allows you to look for specific terms found in the subpages of the philosophers. When typing a term, a list of philosophers where it appears is shown, along with the number of occurrences. Clicking on a result underlines the term in the relevant text and automatically centers the philosopher in the timeline."
   },
   {
-    "gif": "/gifs/glossary.gif",
-    "title": "Eras of Philosophy",
-    "text": "To facilitate chronological navigation, the timeline is segmented into philosophical eras, each with a distinct color and a label indicating its beginning. When hovering over the label (on the left side), a tooltip displays a brief description of the corresponding era."
+    "gif": "/gifs/eras.gif",
+    "title": "Philosophy Periods",
+    "size": 25,
+    "text": "To facilitate chronological navigation, the timeline is segmented into philosophical periods, each with a distinct color and a label indicating its beginning. When hovering over the label (on the left side), a tooltip displays a brief description of the corresponding period."
   },
   {
-    "gif": "/gifs/glossary.gif",
+    "gif": "/gifs/historical_events.gif",
     "title": "Historical Events",
+    "size": 25,
     "text": "The timeline also features significant historical events, marked with unique icons and titles. Hovering over each event reveals the year it occurred, providing broader context to the surrounding philosophical period."
   },
   {
-    "gif": "/gifs/glossary.gif",
+    "gif": "/gifs/granularity.gif",
     "title": "Granularity Level",
+    "size": 45,
     "text": "You can filter the page based on its level of granularity — a scale from 1 to 5 in terms of importance. By doing this, you filter both the philosophers and historical events displayed on the page."
   }
 ]
