@@ -47,7 +47,7 @@
             <div class="slide-text">
               <h2 class="slide-title">{exp.title}</h2>
               <div class="text-explanation">
-                {exp.text}
+                {@html exp.text}
               </div>
             </div>
           </div>
