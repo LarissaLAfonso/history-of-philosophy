@@ -2,7 +2,7 @@
   {
     "gif": "/gifs/introduction.gif",
     "title": "Introduction",
-    "text": "This project aims to explore the history of philosophy through an interactive timeline. In it, philosophers are positioned according to their birth dates, alongside relevant historical events, allowing for a richer contextualization of the evolution of philosophical thought. The experience is enhanced by various interactive features, including:\n- Navigation through philosophical eras\n- Categories of interest assigned to each philosopher\n- Glossary of terms with quick explanations\n- Marking of historical events along the timeline\n- Search bar for terms"
+    "text": "This project aims to explore the history of philosophy through an <strong>interactive timeline</strong>. In it, philosophers are positioned according to their birth dates, alongside relevant historical events, allowing for a richer contextualization of the evolution of philosophical thought. The experience is enhanced by various interactive features, including:<br>- Categories of interest assigned to each philosopher;<br>- Interactive glossary of terms with quick explanations;<br>- Marking of historical events along the timeline;<br>- Search bar for terms."
   },
   {
     "gif": "/gifs/philo_selection.gif",
@@ -31,8 +31,8 @@
   },
   {
     "gif": "/gifs/eras.gif",
-    "title": "Eras of Philosophy",
-    "text": "To facilitate chronological navigation, the timeline is segmented into philosophical eras, each with a distinct color and a label indicating its beginning. When hovering over the label (on the left side), a tooltip displays a brief description of the corresponding era."
+    "title": "Philosophy Periods",
+    "text": "To facilitate chronological navigation, the timeline is segmented into philosophical periods, each with a distinct color and a label indicating its beginning. When hovering over the label (on the left side), a tooltip displays a brief description of the corresponding period."
   },
   {
     "gif": "/gifs/historical_events.gif",

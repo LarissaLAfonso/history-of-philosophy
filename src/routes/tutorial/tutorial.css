@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400..900&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -151,6 +154,16 @@ body {
 .nav-button svg {
   width: 24px;
   height: 24px;
+}
+
+.text-explanation,
+p{
+  font-family:'Overlock',cursive;
+}
+
+.slide-title,
+.title{
+  font-family:'Cinzel',serif;
 }
 
 .text-explanation {
