@@ -202,10 +202,13 @@
     function snapToPhilosopher(philosopher) {
         const element = document.querySelector(`.interaction-area.${philosopher.nome.replace(/\s+/g, '-').replaceAll('.','')}`);
         if(!element) return;
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center' // Center the philosopher in the viewport
-        });
+        // element.scrollIntoView({
+        //     behavior: 'smooth',
+        //     block: 'center' // Center the philosopher in the viewport
+        // });
+        const offsetY = window.innerHeight / 2;
+        const y = element.getBoundingClientRect().top + window.scrollY - offsetY;
+        window.scrollTo({top: y, behavior: 'smooth'});
     }
     
     
@@ -581,6 +584,7 @@ function drawTimeLine(withTransition = false) {
                 .style('font-family', 'Cinzel, serif')
                 .style('font-size', `${fontSize}px`)
                 .text(d.fil.nome);
+            
             const textW = tmp.node().getBoundingClientRect().width;
             tmp.remove();
 
@@ -774,13 +778,12 @@ function drawTimeLine(withTransition = false) {
     onMount(() => {
         drawTimeLine();
         window.addEventListener('resize', handleResize);
-
         
         window.addEventListener('scroll', () => {
             d3.selectAll('.category-connection')
                 .attr('y1', window.scrollY + 50);
             d3.selectAll('.selected-connection')
-                .attr('y1', window.scrollY + 50);
+                .attr('y1', window.scrollY + 50);         
     });
     });
 

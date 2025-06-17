@@ -119,7 +119,7 @@
     </div>
 
     <div class="below">
-        <p><strong>You can view some statistics in our timeline:</strong></p>
+        <p><strong>Some statistics of our timeline:</strong></p>
         <div class="plots">
           <!-- BARPLOT -->
           <div class="plot">
