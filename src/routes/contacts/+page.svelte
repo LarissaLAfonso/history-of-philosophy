@@ -25,7 +25,7 @@
             <div class="person-card">
                 <h2>{person.name}</h2>
                 <div class="sub-infos">
-                    <img src={person.img} alt={person.alt}>
+                    <img src={base}/{person.img} alt={person.alt}>
                     <div>
                         <p><strong>Age:</strong> {person.age} years old</p>
                         <p><strong>GitHub:</strong> <a href={person.github} target="_blank" rel="noopener noreferrer">link</a></p>

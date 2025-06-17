@@ -40,7 +40,7 @@
               class="slide-image"
               style="flex: 0 0 {exp.size}%"
             >
-              <img src={exp.gif} alt="explicação visual" />
+              <img src={base}/{exp.gif} alt="explicação visual" />
             </div>
 
             <!-- TITLE COLUMN + TEXT -->
