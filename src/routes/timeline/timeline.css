@@ -576,9 +576,9 @@ html {
 }
 
 .filosofo-line, .name-box, .history, .year-line, .category-connection {
-        transition: 
-            opacity 800ms ease,
-            stroke 800ms ease,
-            fill 800ms ease,
-            transform 800ms ease;
-    }
+    transition: 
+        opacity 800ms ease,
+        stroke 800ms ease,
+        fill 800ms ease,
+        transform 800ms ease;
+}
