@@ -3,6 +3,49 @@
   <title>History of Philosophy</title>
 </svelte:head>
 
+<script>
+  import { afterUpdate, onMount } from 'svelte';
+  import InterestsPlot from './home/plots/interestsPlot.svelte';
+  import ErasPlot from './home/plots/erasPlot.svelte';
+
+  function makepage(){
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    (function () {
+      const container = document.querySelector('.container');
+      const newText = document.querySelector('.second-page');
+      const viewportHeight = window.innerHeight;
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        // Fade‐out container over first viewport
+        const fadeOutRatio = Math.min(scrollY / viewportHeight, 1);
+        container.style.opacity = String(1 - fadeOutRatio);
+
+        // Fade‐in newText starting halfway down
+        const fadeInStart = viewportHeight * 0.5;
+        const fadeInRange = viewportHeight * 0.5;
+        const fadeInRatio = Math.max(0, Math.min((scrollY - fadeInStart) / fadeInRange, 1));
+        newText.style.opacity = String(fadeInRatio);
+      });
+    })();
+  }
+
+  function scrollClick(){
+    window.scrollTo({
+      top: document.querySelector('.second-page').offsetTop,
+      behavior: 'smooth'
+    });
+  }
+
+  onMount(() => {
+    makepage();
+  });
+  
+  afterUpdate(() => {
+    makepage();
+  }); 
+</script>
+
 <body>
   <div class="container">
     <nav>
@@ -105,49 +148,6 @@
     </div>
   </div>
 </body>
-
-<script>
-  import { afterUpdate, onMount } from 'svelte';
-  import InterestsPlot from './home/plots/interestsPlot.svelte';
-  import ErasPlot from './home/plots/erasPlot.svelte';
-
-  function makepage(){
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    (function () {
-      const container = document.querySelector('.container');
-      const newText = document.querySelector('.second-page');
-      const viewportHeight = window.innerHeight;
-
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        // Fade‐out container over first viewport
-        const fadeOutRatio = Math.min(scrollY / viewportHeight, 1);
-        container.style.opacity = String(1 - fadeOutRatio);
-
-        // Fade‐in newText starting halfway down
-        const fadeInStart = viewportHeight * 0.5;
-        const fadeInRange = viewportHeight * 0.5;
-        const fadeInRatio = Math.max(0, Math.min((scrollY - fadeInStart) / fadeInRange, 1));
-        newText.style.opacity = String(fadeInRatio);
-      });
-    })();
-  }
-
-  function scrollClick(){
-    window.scrollTo({
-      top: document.querySelector('.second-page').offsetTop,
-      behavior: 'smooth'
-    });
-  }
-
-  onMount(() => {
-    makepage();
-  });
-  
-  afterUpdate(() => {
-    makepage();
-  }); 
-</script>
 
 <!-- CSS -->
 <style>
