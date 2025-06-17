@@ -352,11 +352,6 @@ function setGranularity(level) {
     transition = setInterval(() => {
         transitionHeight(heightToBe, pixel_per_iter);
     }, 0);
-    
-    // setTimeout(() => {
-    //     drawTimeLine(true);
-    //     transitionInProgress = false;
-    // }, 50);
 }
 
 function drawTimeLine(withTransition = false) {
@@ -653,17 +648,6 @@ function drawTimeLine(withTransition = false) {
                 .attr('href', 'images/skull_icon.png')
                 .style('cursor', 'pointer')
                 .style('opacity', (categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3)*d.opacity);
-
-            // if (withTransition) {
-            //     skull.transition().duration(duration)
-            //         .style('opacity', 
-            //             categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-            //         );
-            // } else {
-            //     skull.style('opacity', 
-            //         categoriesAreActive(d.fil.categorias, activeCategories) ? 1 : 0.3
-            //     );
-            // }
         });
 
         if (withTransition) {
@@ -826,17 +810,19 @@ function drawTimeLine(withTransition = false) {
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
                 </a>
-
+                
                 <!-- Granularity Controls - Horizontal buttons next to home icon -->
                 <div class="granularity-controls {isSplitView ? 'fade-out' : ''}">
-                    {#each [1,2,3,4,5] as level}
+                    <div class="granularity-label">Granularity:</div>
+
+                        {#each [1,2,3,4,5] as level}
                         <button 
                         class:active={granularityLevel === level}
                         on:click={() => setGranularity(level)}
                         aria-label={`Detail level ${level}`}
                         >
                         {level}
-                        </button>
+                    </button>
                     {/each}
                 </div>
 
