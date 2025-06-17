@@ -3,6 +3,152 @@
   <title>History of Philosophy</title>
 </svelte:head>
 
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav-right">
+          <!-- BUTTONS -->
+          <ul>
+            <li><a href="./contacts">Contact Us</a></li>
+          </ul>
+
+          <button class="btn" onclick="javascript:window.open('https://github.com/FGV-VIS-2025/final-project-history-of-philosophy', '_blank');">
+            <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
+            <path fill="white" d="M12 1C5.9225 1 1 5.9225 1 12C1 16.8675 4.14875 20.9787 8.52125 22.4362C9.07125 22.5325 9.2775 22.2025 9.2775 21.9137C9.2775 21.6525 9.26375 20.7862 9.26375 19.865C6.5 20.3737 5.785 19.1912 5.565 18.5725C5.44125 18.2562 4.905 17.28 4.4375 17.0187C4.0525 16.8125 3.5025 16.3037 4.42375 16.29C5.29 16.2762 5.90875 17.0875 6.115 17.4175C7.105 19.0812 8.68625 18.6137 9.31875 18.325C9.415 17.61 9.70375 17.1287 10.02 16.8537C7.5725 16.5787 5.015 15.63 5.015 11.4225C5.015 10.2262 5.44125 9.23625 6.1425 8.46625C6.0325 8.19125 5.6475 7.06375 6.2525 5.55125C6.2525 5.55125 7.17375 5.2625 9.2775 6.67875C10.1575 6.43125 11.0925 6.3075 12.0275 6.3075C12.9625 6.3075 13.8975 6.43125 14.7775 6.67875C16.8813 5.24875 17.8025 5.55125 17.8025 5.55125C18.4075 7.06375 18.0225 8.19125 17.9125 8.46625C18.6138 9.23625 19.04 10.2125 19.04 11.4225C19.04 15.6437 16.4688 16.5787 14.0213 16.8537C14.42 17.1975 14.7638 17.8575 14.7638 18.8887C14.7638 20.36 14.75 21.5425 14.75 21.9137C14.75 22.2025 14.9563 22.5462 15.5063 22.4362C19.8513 20.9787 23 16.8537 23 12C23 5.9225 18.0775 1 12 1Z"></path>
+            </svg>
+            GitHub
+          </button>
+      </div>
+    </nav>
+
+    <div class="content">
+      <h1>The History of<br />Philosophy</h1>
+
+      <div class="subtitle">
+        <p>Wisdom begins in wonder.</p>
+        </div>
+    </div>
+
+    <div class="scroll-indicator" on:click ={scrollClick}>
+      <div class="arrows">
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="text">Scroll Down</div>
+    </div>
+  </div>
+
+  <!-- SECOND PAGE -->
+  <div class="second-page">
+    <div class="above">
+      <div class="text-column">
+        <p>
+          <b>Philosophy</b> is humanity's longest conversation. It's the discipline that dares to ask the questions that have no easy answers:
+            What does it mean to live a <b>good life</b>? How do we <b>know</b> what we know? What is <b>justice</b>? What is <b>reality</b> itself? For over two
+            and a half millennia, brilliant minds have grappled with these eternal questions, each building upon, challenging, or
+              revolutionizing the thoughts of those who came before.
+        </p>
+        <p>
+          This timeline traces that remarkable intellectual journey. Philosophy isn't just ancient
+            history — it's a <b>living tradition</b> that speaks directly to our modern challenges, offering wisdom for resilience, meaning-making,
+              and navigating complex ethical questions.
+        </p>
+
+        <p>
+            As you explore this timeline, you're not just learning about ideas from the past.
+            You're encountering a vibrant community of thinkers separated by centuries but united by their
+              commitment to understanding the deepest questions of human existence. Welcome to philosophy's grand
+              conversation — <b>your</b> voice belongs here too.
+        </p>
+      </div>
+
+      <!-- BUTTONS TIMELINE/TUTORIAL -->
+      <div class="buttons-column">
+        <button class="btn second-page-btn" onclick="location.href='./timeline'">
+            <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
+          </button>
+
+        <button class="btn second-page-btn" onclick="location.href='./tutorial'">
+          <img src="images/tutorial_icon.png" alt="Tutorial Icon" /> Tutorial
+        </button>
+      </div>
+    </div>
+
+    <div class="below">
+        <p><strong>You can view some statistics in our timeline:</strong></p>
+        <div class="plots">
+          <!-- BARPLOT -->
+          <div class="plot">
+              <h1>Occurrence of philosophical interests</h1>
+              <InterestsPlot/>
+          </div>
+
+          <!-- METADATA -->
+          <div class="record">
+            <div class="record-box">
+              <span class="record-title">64</span>
+              <span class="record-label">philosophers</span>
+            </div>
+            <div class="record-box">
+              <span class="record-title">33</span>
+              <span class="record-label">historical events</span>
+            </div>
+          </div> 
+
+          <!-- BARPLOT -->
+          <div class="plot">
+            <h1>Number of Philosophers per Historical Period</h1>
+            <ErasPlot/>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  import { afterUpdate, onMount } from 'svelte';
+  import InterestsPlot from './home/plots/interestsPlot.svelte';
+  import ErasPlot from './home/plots/erasPlot.svelte';
+
+  function makepage(){
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    (function () {
+      const container = document.querySelector('.container');
+      const newText = document.querySelector('.second-page');
+      const viewportHeight = window.innerHeight;
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        // Fade‐out container over first viewport
+        const fadeOutRatio = Math.min(scrollY / viewportHeight, 1);
+        container.style.opacity = String(1 - fadeOutRatio);
+
+        // Fade‐in newText starting halfway down
+        const fadeInStart = viewportHeight * 0.5;
+        const fadeInRange = viewportHeight * 0.5;
+        const fadeInRatio = Math.max(0, Math.min((scrollY - fadeInStart) / fadeInRange, 1));
+        newText.style.opacity = String(fadeInRatio);
+      });
+    })();
+  }
+
+  function scrollClick(){
+    window.scrollTo({
+      top: document.querySelector('.second-page').offsetTop,
+      behavior: 'smooth'
+    });
+  }
+
+  onMount(() => {
+    makepage();
+  });
+  
+  afterUpdate(() => {
+    makepage();
+  }); 
+</script>
+
 <!-- CSS -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:wght@400;600&display=swap');
@@ -435,149 +581,3 @@
     width: 100%;
   }
 </style>
-
-<body>
-  <div class="container">
-    <nav>
-      <div class="nav-right">
-          <!-- BUTTONS -->
-          <ul>
-            <li><a href="./contacts">Contact Us</a></li>
-          </ul>
-
-          <button class="btn" onclick="javascript:window.open('https://github.com/FGV-VIS-2025/final-project-history-of-philosophy', '_blank');">
-            <svg height="32" aria-hidden="true" viewBox="0 0 24 24" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github v-align-middle">
-            <path fill="white" d="M12 1C5.9225 1 1 5.9225 1 12C1 16.8675 4.14875 20.9787 8.52125 22.4362C9.07125 22.5325 9.2775 22.2025 9.2775 21.9137C9.2775 21.6525 9.26375 20.7862 9.26375 19.865C6.5 20.3737 5.785 19.1912 5.565 18.5725C5.44125 18.2562 4.905 17.28 4.4375 17.0187C4.0525 16.8125 3.5025 16.3037 4.42375 16.29C5.29 16.2762 5.90875 17.0875 6.115 17.4175C7.105 19.0812 8.68625 18.6137 9.31875 18.325C9.415 17.61 9.70375 17.1287 10.02 16.8537C7.5725 16.5787 5.015 15.63 5.015 11.4225C5.015 10.2262 5.44125 9.23625 6.1425 8.46625C6.0325 8.19125 5.6475 7.06375 6.2525 5.55125C6.2525 5.55125 7.17375 5.2625 9.2775 6.67875C10.1575 6.43125 11.0925 6.3075 12.0275 6.3075C12.9625 6.3075 13.8975 6.43125 14.7775 6.67875C16.8813 5.24875 17.8025 5.55125 17.8025 5.55125C18.4075 7.06375 18.0225 8.19125 17.9125 8.46625C18.6138 9.23625 19.04 10.2125 19.04 11.4225C19.04 15.6437 16.4688 16.5787 14.0213 16.8537C14.42 17.1975 14.7638 17.8575 14.7638 18.8887C14.7638 20.36 14.75 21.5425 14.75 21.9137C14.75 22.2025 14.9563 22.5462 15.5063 22.4362C19.8513 20.9787 23 16.8537 23 12C23 5.9225 18.0775 1 12 1Z"></path>
-            </svg>
-            GitHub
-          </button>
-      </div>
-    </nav>
-
-    <div class="content">
-      <h1>The History of<br />Philosophy</h1>
-
-      <div class="subtitle">
-        <p>Wisdom begins in wonder.</p>
-        </div>
-    </div>
-
-    <div class="scroll-indicator" on:click ={scrollClick}>
-      <div class="arrows">
-        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
-          <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="text">Scroll Down</div>
-    </div>
-  </div>
-
-  <!-- SECOND PAGE -->
-  <div class="second-page">
-    <div class="above">
-      <div class="text-column">
-        <p>
-          <b>Philosophy</b> is humanity's longest conversation. It's the discipline that dares to ask the questions that have no easy answers:
-            What does it mean to live a <b>good life</b>? How do we <b>know</b> what we know? What is <b>justice</b>? What is <b>reality</b> itself? For over two
-            and a half millennia, brilliant minds have grappled with these eternal questions, each building upon, challenging, or
-              revolutionizing the thoughts of those who came before.
-        </p>
-        <p>
-          This timeline traces that remarkable intellectual journey. Philosophy isn't just ancient
-            history — it's a <b>living tradition</b> that speaks directly to our modern challenges, offering wisdom for resilience, meaning-making,
-              and navigating complex ethical questions.
-        </p>
-
-        <p>
-            As you explore this timeline, you're not just learning about ideas from the past.
-            You're encountering a vibrant community of thinkers separated by centuries but united by their
-              commitment to understanding the deepest questions of human existence. Welcome to philosophy's grand
-              conversation — <b>your</b> voice belongs here too.
-        </p>
-      </div>
-
-      <!-- BUTTONS TIMELINE/TUTORIAL -->
-      <div class="buttons-column">
-        <button class="btn second-page-btn" onclick="location.href='./timeline'">
-            <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
-          </button>
-
-        <button class="btn second-page-btn" onclick="location.href='./tutorial'">
-          <img src="images/tutorial_icon.png" alt="Tutorial Icon" /> Tutorial
-        </button>
-      </div>
-    </div>
-
-    <div class="below">
-        <p><strong>You can view some statistics in our timeline:</strong></p>
-        <div class="plots">
-          <!-- BARPLOT -->
-          <div class="plot">
-              <h1>Occurrence of philosophical interests</h1>
-              <InterestsPlot/>
-          </div>
-
-          <!-- METADATA -->
-          <div class="record">
-            <div class="record-box">
-              <span class="record-title">64</span>
-              <span class="record-label">philosophers</span>
-            </div>
-            <div class="record-box">
-              <span class="record-title">33</span>
-              <span class="record-label">historical events</span>
-            </div>
-          </div> 
-
-          <!-- BARPLOT -->
-          <div class="plot">
-            <h1>Number of Philosophers per Historical Period</h1>
-            <ErasPlot/>
-          </div>
-        </div>
-    </div>
-  </div>
-</body>
-
-<script>
-  import { afterUpdate, onMount } from 'svelte';
-  import InterestsPlot from './home/plots/interestsPlot.svelte';
-  import ErasPlot from './home/plots/erasPlot.svelte';
-
-  function makepage(){
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    (function () {
-      const container = document.querySelector('.container');
-      const newText = document.querySelector('.second-page');
-      const viewportHeight = window.innerHeight;
-
-      window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        // Fade‐out container over first viewport
-        const fadeOutRatio = Math.min(scrollY / viewportHeight, 1);
-        container.style.opacity = String(1 - fadeOutRatio);
-
-        // Fade‐in newText starting halfway down
-        const fadeInStart = viewportHeight * 0.5;
-        const fadeInRange = viewportHeight * 0.5;
-        const fadeInRatio = Math.max(0, Math.min((scrollY - fadeInStart) / fadeInRange, 1));
-        newText.style.opacity = String(fadeInRatio);
-      });
-    })();
-  }
-
-  function scrollClick(){
-    window.scrollTo({
-      top: document.querySelector('.second-page').offsetTop,
-      behavior: 'smooth'
-    });
-  }
-
-  onMount(() => {
-    makepage();
-  });
-  
-  afterUpdate(() => {
-    makepage();
-  }); 
-</script>
