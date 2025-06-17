@@ -101,7 +101,6 @@
     // tooltip functions
     function showTooltip(event) {
         const target = event.target;
-        console.log('showTooltip', target.dataset.definition);
         if (target.classList.contains('glossary-term')) {
             tooltipContent = target.dataset.definition;
             tooltipVisible = true;
