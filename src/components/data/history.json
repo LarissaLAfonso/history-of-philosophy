@@ -130,7 +130,7 @@
         "year": "-31",
         "image": "images/history_icons/caesar.png",
         "importance": 1,
-        "posX": 0.3106
+        "posX": 0.1106
     },
     {
         "happening": "Inventing of<br> the Gutenberg press",
@@ -207,7 +207,7 @@
         "year": "-509",
         "image": "images/history_icons/roman-republic.png",
         "importance": 2,
-        "posX": 0.2663
+        "posX": 0.7963
     },
     {
         "happening": "Plague of Athens",
