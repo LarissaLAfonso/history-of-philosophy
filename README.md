@@ -27,5 +27,7 @@ Overall, all members collaborated on the development of the timeline, with each 
 It is estimated that each team member dedicated approximately 100 hours to the project on average.
 
 Access the page [here](https://fgv-vis-2025.github.io/final-project-history-of-philosophy/).
+
 Video Teaser [here](https://www.youtube.com/watch?v=AtXYRYR3SDg).
+
 Final Project Video [here](https://www.youtube.com/watch?v=IMl_sxO3SjY).
