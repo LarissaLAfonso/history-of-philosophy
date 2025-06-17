@@ -112,7 +112,7 @@
             <img src="images/timeline_icon.png" alt="Timeline Icon" /> Philosophers' Timeline
           </button>
 
-        <button class="btn second-page-btn" onclick="location.href='./tutorial'">
+        <button id="tutorial-btn" class="btn second-page-btn" onclick="location.href='./tutorial'">
           <img src="images/tutorial_icon.png" alt="Tutorial Icon" /> Tutorial
         </button>
       </div>
@@ -160,6 +160,29 @@
   body {
     font-family: 'EB Garamond', serif;
     overflow-x: hidden;
+  }
+
+  #tutorial-btn{                     
+    position:relative;
+    overflow: visible;
+  }
+
+  #tutorial-btn::before{          /* use ::before, not ::after   */
+    content:'';
+    position:absolute;
+    width:40px;                   /* tweak size if you like      */
+    height:40px;
+    bottom:-0.6rem;                   /* lower-right corner           */
+    right:-0.8rem;
+    background:url('/images/click_icon.png') no-repeat center/contain;
+    pointer-events:none;          /* clicks go through to button */
+    z-index:3;                    /* above button surface        */
+    animation:pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{ transform:translate(50%,50%) scale(1); }
+    50%   { transform:translate(50%,50%) scale(1.25); }
   }
 
   p {
