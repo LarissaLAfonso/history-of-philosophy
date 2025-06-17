@@ -3,7 +3,7 @@
     "gif": "/gifs/introduction.gif",
     "title": "Introduction",
     "size": 45,
-    "text": "This project aims to explore the history of philosophy through an <strong>interactive timeline</strong>. In it, philosophers are positioned according to their birth dates, alongside relevant historical events, allowing for a richer contextualization of the evolution of philosophical thought. The experience is enhanced by various interactive features, including:<br>- Categories of interest assigned to each philosopher;<br>- Interactive glossary of terms with quick explanations;<br>- Marking of historical events along the timeline;<br>- Search bar for terms."
+    "text": "This project aims to explore the history of philosophy through an <strong>interactive timeline</strong>. In it, philosophers are positioned according to their birth dates, alongside relevant historical events, allowing for a richer contextualization of the evolution of philosophical thought. The experience is enhanced by various interactive features, such as hover effects, search functionality, and filtering options, all designed to facilitate a deeper understanding of the connections between philosophers and their ideas."
   },
   {
     "gif": "/gifs/philo_selection.gif",
