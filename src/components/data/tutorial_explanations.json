@@ -38,5 +38,10 @@
     "gif": "/gifs/glossary.gif",
     "title": "Historical Events",
     "text": "The timeline also features significant historical events, marked with unique icons and titles. Hovering over each event reveals the year it occurred, providing broader context to the surrounding philosophical period."
+  },
+  {
+    "gif": "/gifs/glossary.gif",
+    "title": "Granularity Level",
+    "text": "You can filter the page based on its level of granularity — a scale from 1 to 5 in terms of importance. By doing this, you filter both the philosophers and historical events displayed on the page."
   }
 ]
