@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=MedievalSharp&family=Cinzel:wght@600&family=Crimson+Text:wght@400;600&display=swap');
 
-/* Variáveis CSS para cores usadas */
 :root {
     --accent-rgb: 150, 135, 124;
     --text: #3e2d23;
@@ -42,7 +41,6 @@
     text-align: center;
 }
 
-/* Barra das categorias */
 .fixed-categories {
     position: fixed;
     width: 100%;
@@ -79,7 +77,6 @@
 
 .category-label:hover {
     transform: translateY(-17px) scale(1.05) translateX(-50%);
-    /* background: rgba(255,255,255,0.2); */
     box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
@@ -88,7 +85,6 @@
     opacity: 1;
 }
 
-/* tooltip das categorias */ 
 .tooltip {
     visibility: hidden;
     background-color: #333;
@@ -131,7 +127,6 @@ svg#timeline {
     height: 6000px; /* tamanho da timeline */
 }
 
-/*Ações após o Split View */
 .viz.split-view .category-label {
     padding: 4px 10px;
     font-size: 10px;
@@ -152,30 +147,6 @@ svg#timeline {
 .viz.split-view {
     width: 50%;
 }
-
-/* .filosofo-label.selected rect {
-    stroke: #d4af37;
-    stroke-width: 2px;
-    fill: #fcf6e9;
-
-    filter: 
-        drop-shadow(0 2px 4px rgba(107, 79, 58, 0.6))
-        url(#parchmentTexture);
-    rx: 6px;
-    ry: 6px;
-    transition: all 0.4s ease;
-} */
-
-/* .filosofo-line.selected {
-    stroke: #d4af37;
-    stroke-width: 4px;
-    filter: 
-        drop-shadow(0 2px 4px rgba(107, 79, 58, 0.6))
-        url(#parchmentTexture);
-    rx: 6px;
-    ry: 6px;
-    transition: all 0.4s ease;
-} */
 
 .info-filosofos {
     text-align: center;
@@ -243,11 +214,6 @@ svg#timeline {
     transition: all 0.3s ease;
 }
 
-/* .sub-infos:hover {
-    background: rgba(255, 255, 255, 0.12);
-    transform: translateY(-3px);
-} */
-
 .sub-infos img {
     width: 180px;
     height: 180px;
@@ -257,11 +223,6 @@ svg#timeline {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
-
-/* .sub-infos img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-} */
 
 .sub-infos p {
     color: #e9e7de;
@@ -274,11 +235,6 @@ svg#timeline {
     display: flex;
     align-items: center;
 }
-
-/* .sub-infos p:hover {
-    background: rgba(52, 152, 219, 0.25);
-    transform: translateX(5px);
-} */
 
 .sub-infos strong {
     color: #cba81c;
@@ -294,8 +250,8 @@ svg#timeline {
     text-align: justify;
     position: relative;
     padding: 5px;
-    padding: 5px 20px; /* Increased side padding from 5px to 20px on left and right */
-    text-indent: 2em; /* Adds paragraph indentation - typically 2em is standard */
+    padding: 5px 20px; 
+    text-indent: 2em; 
 }
 
 p b, p strong {
@@ -306,7 +262,6 @@ p i, p em {
   font-style: italic;
 }
 
-/*Conexão do filósofo-interesses*/
 .interaction-area {
     pointer-events: all;
     z-index: 20; 
@@ -422,7 +377,6 @@ p i, p em {
     font-family: "Overlock", cursive;
 }
 
-/* Responsive tooltip positioning */
 @media (max-width: 768px) {
     .glossary-tooltip {
         max-width: 280px;
@@ -431,10 +385,10 @@ p i, p em {
 }
 .search-wrapper {
     position: fixed;
-    top: 1rem; /* small offset from top */
+    top: 1rem; 
     right: 4rem;
     width: 18rem;
-    z-index: 1100; /* lower than info panel (will set later) but above content */
+    z-index: 1100; 
 }
 .search-input {
     width: 100%;
@@ -485,14 +439,12 @@ p i, p em {
 .search-results .result-item:hover { background: #f5f5f5; }
 .result-count { font-size: 0.8rem; color: #777; }
 
-/* highlight */
 .search-highlight {
     background: #b4a30e;
     padding: 0 2px;
     border-radius: 3px;
 }
 
-/* ensure philosopher info panel sits above search */
 .info-filosofos { z-index: 1200; }
 
 #tooltipEras {
@@ -528,11 +480,9 @@ p i, p em {
 }
 
 .granularity-label { 
-    /* position: fixed; */
     top: 50%;
     left: 80px;
     transform: translate(0, -30%);
-    
     font-family: "Cinzel", serif;
     font-size: 20px;
     font-weight: 600;
@@ -547,7 +497,7 @@ p i, p em {
 
 .granularity-controls-container {
     position: fixed;
-    top: 1rem; /* Below the header */
+    top: 1rem;
     left: 10rem;
     z-index: 100;
     background: rgba(245, 239, 230, 0.9);
@@ -557,7 +507,6 @@ p i, p em {
     border: 1px solid #8c7a6d;
 }
 
-/* Granularity Controls - Horizontal Style */
 .granularity-controls {
     position: fixed;
     display: flex;
@@ -571,7 +520,7 @@ p i, p em {
 
 .granularity-controls.fade-out {
     opacity: 0;
-    pointer-events: none; /* Prevent interaction while faded out */
+    pointer-events: none; 
   }
 
 .buttons-container {
@@ -614,7 +563,6 @@ p i, p em {
     transform: scale(0.95);
 }
 
-/* Add smooth scrolling to timeline */
 html {
     scroll-behavior: smooth;
 }
@@ -635,4 +583,3 @@ html {
             fill 800ms ease,
             transform 800ms ease;
     }
-
